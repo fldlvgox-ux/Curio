@@ -2910,21 +2910,250 @@
       border-radius: 2px !important;
     }
 
+    /* ========================================================
+       FRUTIGER AERO / AQUA GLASS (MID-2000s Y2K OPTIMISM)
+       ======================================================== */
     [data-theme="aero"] {
       --bg-base: #03213a;
       --bg-surface: rgba(12, 45, 78, 0.85);
       --bg-surface-raised: rgba(18, 65, 110, 0.7);
       --bg-surface-hover: rgba(28, 88, 145, 0.85);
       --bg-panel: rgba(10, 38, 66, 0.9);
-      --border-subtle: rgba(125, 211, 252, 0.25);
-      --border-medium: rgba(125, 211, 252, 0.5);
+      --border-subtle: rgba(125, 211, 252, 0.3);
+      --border-medium: rgba(125, 211, 252, 0.6);
       --border-bright: #38bdf8;
       --accent-cyan: #0284c7;
-      --accent-cyan-glow: rgba(56, 189, 248, 0.45);
+      --accent-cyan-glow: rgba(56, 189, 248, 0.5);
       --text-main: #f0f9ff;
       --text-muted: #bae6fd;
       --text-dim: #7dd3fc;
-      --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.4);
+      --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.45);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --font-sans: 'Segoe UI', -apple-system, system-ui, sans-serif;
+      --font-mono: 'Consolas', monospace;
+    }
+
+    /* Vibrant Sky & Water Radiant Wallpaper */
+    [data-theme="aero"] body {
+      background-color: #03213a;
+      background-image: 
+        radial-gradient(circle at 50% 10%, rgba(56, 189, 248, 0.35) 0%, transparent 60%),
+        radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.2) 0%, transparent 50%),
+        linear-gradient(180deg, #02182b 0%, #032f52 40%, #034b7a 70%, #0284c7 100%);
+      background-attachment: fixed;
+      font-family: var(--font-sans);
+      color: #f0f9ff;
+    }
+
+    /* Top Bar as Frosted Glass Shelf */
+    [data-theme="aero"] .top-bar {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(12, 45, 78, 0.85) 51%, rgba(12, 45, 78, 0.95) 100%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    /* Frosted Glass Sidebar */
+    [data-theme="aero"] .sidebar {
+      background: rgba(8, 32, 56, 0.85);
+      border-right: 1px solid rgba(125, 211, 252, 0.3);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.15);
+    }
+
+    /* Glass Search & Form Inputs */
+    [data-theme="aero"] .search-box-container,
+    [data-theme="aero"] .form-input,
+    [data-theme="aero"] .form-textarea,
+    [data-theme="aero"] .select-custom,
+    [data-theme="aero"] .form-select,
+    [data-theme="aero"] .tag-search-box {
+      background: rgba(3, 30, 56, 0.75) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(125, 211, 252, 0.45) !important;
+      border-radius: 9999px !important;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+    }
+
+    [data-theme="aero"] .form-textarea,
+    [data-theme="aero"] .modal-window .form-input {
+      border-radius: 8px !important;
+    }
+
+    [data-theme="aero"] .search-input {
+      color: #ffffff !important;
+    }
+
+    [data-theme="aero"] .search-input::placeholder,
+    [data-theme="aero"] .tag-search-input::placeholder {
+      color: rgba(186, 230, 253, 0.6) !important;
+    }
+
+    /* Liquid Jelly Capsule Buttons */
+    [data-theme="aero"] .btn-primary,
+    [data-theme="aero"] .btn-secondary,
+    [data-theme="aero"] .btn-icon,
+    [data-theme="aero"] .btn-icon-xs,
+    [data-theme="aero"] .view-btn,
+    [data-theme="aero"] .pill-toggle,
+    [data-theme="aero"] .tag-mode-btn,
+    [data-theme="aero"] .tag-expand-btn,
+    [data-theme="aero"] .clear-filters-btn {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.1) 48%, rgba(2, 132, 199, 0.6) 50%, rgba(3, 105, 161, 0.9) 100%) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.45) !important;
+      border-radius: 9999px !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 3px 10px rgba(0, 0, 0, 0.35) !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+      font-weight: 600 !important;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="aero"] .btn-primary {
+      background: linear-gradient(180deg, rgba(125, 211, 252, 0.6) 0%, rgba(56, 189, 248, 0.3) 48%, #0284c7 50%, #0369a1 100%) !important;
+      border-color: rgba(255, 255, 255, 0.65) !important;
+      box-shadow: inset 0 1px 0 #ffffff, 0 4px 14px rgba(2, 132, 199, 0.6) !important;
+    }
+
+    [data-theme="aero"] .btn-primary:hover,
+    [data-theme="aero"] .btn-secondary:hover,
+    [data-theme="aero"] .clear-filters-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: inset 0 1px 0 #ffffff, 0 6px 18px rgba(56, 189, 248, 0.7) !important;
+      filter: brightness(1.12);
+    }
+
+    [data-theme="aero"] .view-btn.active,
+    [data-theme="aero"] .pill-toggle.active {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(56, 189, 248, 0.4) 48%, #0284c7 50%, #035280 100%) !important;
+      border-color: #38bdf8 !important;
+      box-shadow: inset 0 1px 0 #ffffff, 0 0 14px rgba(56, 189, 248, 0.8) !important;
+    }
+
+    /* Filter & Tag Panels */
+    [data-theme="aero"] .filter-panel {
+      background: rgba(8, 36, 64, 0.8);
+      border-bottom: 1px solid rgba(125, 211, 252, 0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    [data-theme="aero"] .tag-filter-bar {
+      background: rgba(3, 25, 48, 0.7);
+      border: 1px solid rgba(125, 211, 252, 0.3);
+      border-radius: 9999px;
+      backdrop-filter: blur(12px);
+    }
+
+    /* Frosted Aero Glass Cards */
+    [data-theme="aero"] .item-card,
+    [data-theme="aero"] .detail-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.05) 30%, rgba(10, 45, 80, 0.75) 31%, rgba(6, 32, 60, 0.9) 100%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.35) !important;
+      border-radius: 14px !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    [data-theme="aero"] .item-card:hover {
+      transform: translateY(-3px) !important;
+      border-color: rgba(125, 211, 252, 0.8) !important;
+      box-shadow: 0 14px 34px rgba(0, 30, 60, 0.6), 0 0 20px rgba(56, 189, 248, 0.4), inset 0 1px 0 #ffffff !important;
+    }
+
+    [data-theme="aero"] .item-card .card-meta-row .drawer-chip {
+      background: rgba(2, 132, 199, 0.4) !important;
+      color: #e0f2fe !important;
+      border: 1px solid rgba(125, 211, 252, 0.4) !important;
+      border-radius: 9999px !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+    }
+
+    [data-theme="aero"] .item-card-media {
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      border-radius: 10px !important;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    /* Tag Pills as Water Bubbles */
+    [data-theme="aero"] .tag-pill,
+    [data-theme="aero"] .card-tag {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(2, 132, 199, 0.25) 100%) !important;
+      color: #e0f2fe !important;
+      border: 1px solid rgba(125, 211, 252, 0.35) !important;
+      border-radius: 9999px !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    }
+
+    [data-theme="aero"] .tag-pill.active {
+      background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%) !important;
+      color: #ffffff !important;
+      border-color: #ffffff !important;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.7), inset 0 1px 0 #ffffff !important;
+    }
+
+    /* Sidebar Drawer Items */
+    [data-theme="aero"] .drawer-item {
+      border-radius: 8px !important;
+      color: #bae6fd !important;
+      transition: all 0.15s ease;
+    }
+
+    [data-theme="aero"] .drawer-item:hover {
+      background: rgba(56, 189, 248, 0.15) !important;
+      color: #ffffff !important;
+    }
+
+    [data-theme="aero"] .drawer-item.active {
+      background: linear-gradient(90deg, rgba(2, 132, 199, 0.6) 0%, rgba(56, 189, 248, 0.2) 100%) !important;
+      color: #ffffff !important;
+      border-left: 3px solid #38bdf8 !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    }
+
+    [data-theme="aero"] .drawer-item.active span,
+    [data-theme="aero"] .drawer-item.active .drawer-count {
+      color: #ffffff !important;
+    }
+
+    /* Vista/7 Glass Modals */
+    [data-theme="aero"] .modal-window {
+      background: linear-gradient(180deg, rgba(14, 52, 92, 0.92) 0%, rgba(6, 32, 60, 0.96) 100%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.45) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), 0 0 30px rgba(56, 189, 248, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+      backdrop-filter: blur(24px) !important;
+      -webkit-backdrop-filter: blur(24px) !important;
+    }
+
+    [data-theme="aero"] .modal-header {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 51%) !important;
+      border-bottom: 1px solid rgba(125, 211, 252, 0.3) !important;
+    }
+
+    /* Storage Bar as Aqua Liquid Tube */
+    [data-theme="aero"] .storage-container {
+      background: rgba(3, 24, 46, 0.8) !important;
+      border-top: 1px solid rgba(125, 211, 252, 0.25) !important;
+    }
+
+    [data-theme="aero"] .storage-bar-track {
+      background: rgba(2, 18, 36, 0.8) !important;
+      border: 1px solid rgba(125, 211, 252, 0.3) !important;
+      border-radius: 9999px !important;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    [data-theme="aero"] .storage-bar-fill {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(56, 189, 248, 0.5) 48%, #0284c7 50%, #0369a1 100%) !important;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.8), inset 0 1px 0 #ffffff !important;
+      border-radius: 9999px !important;
     }
 
     /* Settings Modal Styles */
