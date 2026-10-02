@@ -2122,14 +2122,17 @@
       font-weight: bold !important;
     }
 
+    /* ========================================================
+       PHOSPHOR CRT TERMINAL (AMBER 1980s MONOCHROME)
+       ======================================================== */
     [data-theme="crt-amber"] {
-      --bg-base: #0a0804;
-      --bg-surface: #140f06;
-      --bg-surface-raised: #1c1509;
-      --bg-surface-hover: #261c0c;
-      --bg-panel: #140f06;
+      --bg-base: #060503;
+      --bg-surface: #0e0a05;
+      --bg-surface-raised: #150f07;
+      --bg-surface-hover: #22180b;
+      --bg-panel: #0e0a05;
       --border-subtle: #453214;
-      --border-medium: #805c1e;
+      --border-medium: #7a581e;
       --border-bright: #ffb000;
       --accent-cyan: #ffb000;
       --accent-cyan-glow: rgba(255, 176, 0, 0.4);
@@ -2137,6 +2140,247 @@
       --text-muted: #d49526;
       --text-dim: #8f651b;
       --shadow-glow: 0 0 16px rgba(255, 176, 0, 0.4);
+      --radius-sm: 0px;
+      --radius-md: 0px;
+      --radius-lg: 0px;
+      --font-sans: 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
+      --font-mono: 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
+    }
+
+    /* CRT Phosphor Scanline Screen Texture */
+    [data-theme="crt-amber"] body {
+      background-color: #060503;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255, 176, 0, 0.04) 0%, transparent 85%),
+        repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0px, rgba(0, 0, 0, 0.25) 1px, transparent 1px, transparent 3px);
+      font-family: var(--font-sans);
+      color: #ffcf66;
+      text-shadow: 0 0 3px rgba(255, 176, 0, 0.4);
+    }
+
+    /* Top Bar & Header as Terminal Command Hub */
+    [data-theme="crt-amber"] .top-bar {
+      background: #0e0a05;
+      border-bottom: 1px solid #7a581e;
+      box-shadow: 0 1px 12px rgba(255, 176, 0, 0.15);
+    }
+
+    [data-theme="crt-amber"] .sidebar {
+      background: #0b0804;
+      border-right: 1px solid #7a581e;
+    }
+
+    /* Terminal Prompt Inputs */
+    [data-theme="crt-amber"] .search-box-container,
+    [data-theme="crt-amber"] .form-input,
+    [data-theme="crt-amber"] .form-textarea,
+    [data-theme="crt-amber"] .select-custom,
+    [data-theme="crt-amber"] .form-select,
+    [data-theme="crt-amber"] .tag-search-box {
+      background: #0a0804 !important;
+      color: #ffcf66 !important;
+      border: 1px solid #7a581e !important;
+      border-radius: 0 !important;
+      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8) !important;
+      font-family: var(--font-mono) !important;
+    }
+
+    [data-theme="crt-amber"] .search-input {
+      color: #ffcf66 !important;
+      font-family: var(--font-mono) !important;
+      text-shadow: 0 0 6px rgba(255, 176, 0, 0.6);
+    }
+
+    [data-theme="crt-amber"] .search-input::placeholder,
+    [data-theme="crt-amber"] .tag-search-input::placeholder {
+      color: #6b4d1b !important;
+    }
+
+    /* ASCII / Bracket Terminal Buttons */
+    [data-theme="crt-amber"] .btn-primary,
+    [data-theme="crt-amber"] .btn-secondary,
+    [data-theme="crt-amber"] .btn-icon,
+    [data-theme="crt-amber"] .btn-icon-xs,
+    [data-theme="crt-amber"] .view-btn,
+    [data-theme="crt-amber"] .pill-toggle,
+    [data-theme="crt-amber"] .tag-mode-btn,
+    [data-theme="crt-amber"] .tag-expand-btn,
+    [data-theme="crt-amber"] .clear-filters-btn {
+      background: #150f07 !important;
+      color: #ffb000 !important;
+      border: 1px solid #7a581e !important;
+      border-radius: 0 !important;
+      font-family: var(--font-mono) !important;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.15s ease;
+      box-shadow: none !important;
+    }
+
+    [data-theme="crt-amber"] .btn-primary:hover,
+    [data-theme="crt-amber"] .btn-secondary:hover,
+    [data-theme="crt-amber"] .view-btn:hover,
+    [data-theme="crt-amber"] .clear-filters-btn:hover {
+      background: #ffb000 !important;
+      color: #060503 !important;
+      border-color: #ffb000 !important;
+      box-shadow: 0 0 14px rgba(255, 176, 0, 0.5) !important;
+      text-shadow: none !important;
+    }
+
+    [data-theme="crt-amber"] .view-btn.active,
+    [data-theme="crt-amber"] .pill-toggle.active {
+      background: #ffb000 !important;
+      color: #060503 !important;
+      border-color: #ffb000 !important;
+      font-weight: bold;
+      text-shadow: none !important;
+    }
+
+    /* Filter & Tag Bar */
+    [data-theme="crt-amber"] .filter-panel {
+      background: #0e0a05;
+      border-bottom: 1px solid #453214;
+    }
+
+    [data-theme="crt-amber"] .tag-filter-bar {
+      background: #0a0804;
+      border: 1px solid #453214;
+      border-radius: 0;
+    }
+
+    /* Terminal Teletype Cards */
+    [data-theme="crt-amber"] .item-card,
+    [data-theme="crt-amber"] .detail-card {
+      background: #0e0a05 !important;
+      border: 1px solid #7a581e !important;
+      border-radius: 0 !important;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.7) !important;
+      padding: 0.5rem !important;
+      transition: all 0.2s ease !important;
+    }
+
+    [data-theme="crt-amber"] .item-card:hover {
+      border-color: #ffb000 !important;
+      box-shadow: 0 0 18px rgba(255, 176, 0, 0.25) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    [data-theme="crt-amber"] .item-card .card-meta-row {
+      border-bottom: 1px dashed #453214;
+      padding-bottom: 0.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    [data-theme="crt-amber"] .item-card .card-meta-row .drawer-chip {
+      color: #ffb000 !important;
+      background: #1c1509 !important;
+      border: 1px solid #7a581e !important;
+      border-radius: 0 !important;
+      font-family: var(--font-mono) !important;
+      font-size: 0.68rem !important;
+    }
+
+    [data-theme="crt-amber"] .item-card-media {
+      border: 1px solid #453214 !important;
+      border-radius: 0 !important;
+      background: #000000 !important;
+    }
+
+    [data-theme="crt-amber"] .card-title {
+      color: #ffcf66 !important;
+      font-family: var(--font-mono) !important;
+      text-shadow: 0 0 6px rgba(255, 176, 0, 0.5) !important;
+      letter-spacing: 0.5px;
+    }
+
+    [data-theme="crt-amber"] .card-notes {
+      color: #d49526 !important;
+      font-family: var(--font-mono) !important;
+      font-size: 0.78rem !important;
+    }
+
+    /* Tags as ASCII Brackets */
+    [data-theme="crt-amber"] .tag-pill,
+    [data-theme="crt-amber"] .card-tag {
+      background: #150f07 !important;
+      color: #d49526 !important;
+      border: 1px solid #453214 !important;
+      border-radius: 0 !important;
+      font-family: var(--font-mono) !important;
+      font-size: 0.65rem !important;
+    }
+
+    [data-theme="crt-amber"] .tag-pill.active {
+      background: #ffb000 !important;
+      color: #060503 !important;
+      border-color: #ffb000 !important;
+      text-shadow: none !important;
+      font-weight: bold;
+    }
+
+    /* Sidebar Drawer Items */
+    [data-theme="crt-amber"] .drawer-item {
+      border-radius: 0 !important;
+      color: #d49526 !important;
+      border-left: 2px solid transparent;
+      font-family: var(--font-mono) !important;
+    }
+
+    [data-theme="crt-amber"] .drawer-item:hover {
+      background: #1c1509 !important;
+      color: #ffcf66 !important;
+      border-left-color: #7a581e;
+    }
+
+    [data-theme="crt-amber"] .drawer-item.active {
+      background: #261c0c !important;
+      color: #ffb000 !important;
+      border-left-color: #ffb000;
+      text-shadow: 0 0 8px rgba(255, 176, 0, 0.6);
+    }
+
+    [data-theme="crt-amber"] .drawer-item.active span,
+    [data-theme="crt-amber"] .drawer-item.active .drawer-count {
+      color: #ffb000 !important;
+    }
+
+    /* Terminal Dialog Windows */
+    [data-theme="crt-amber"] .modal-window {
+      background: #0e0a05 !important;
+      border: 2px solid #ffb000 !important;
+      border-radius: 0 !important;
+      box-shadow: 0 0 24px rgba(255, 176, 0, 0.3) !important;
+    }
+
+    [data-theme="crt-amber"] .modal-header {
+      background: #1c1509 !important;
+      border-bottom: 1px solid #7a581e !important;
+      color: #ffb000 !important;
+    }
+
+    [data-theme="crt-amber"] .modal-title {
+      color: #ffb000 !important;
+      font-family: var(--font-mono) !important;
+      text-shadow: 0 0 8px rgba(255, 176, 0, 0.7);
+    }
+
+    /* Terminal Storage Bar */
+    [data-theme="crt-amber"] .storage-container {
+      background: #0b0804 !important;
+      border-top: 1px solid #453214 !important;
+    }
+
+    [data-theme="crt-amber"] .storage-bar-track {
+      background: #150f07 !important;
+      border: 1px solid #453214 !important;
+      border-radius: 0 !important;
+    }
+
+    [data-theme="crt-amber"] .storage-bar-fill {
+      background: #ffb000 !important;
+      box-shadow: 0 0 10px rgba(255, 176, 0, 0.7) !important;
+      border-radius: 0 !important;
     }
 
     [data-theme="macos9"] {
