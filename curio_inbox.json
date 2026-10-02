@@ -55,6 +55,29 @@
       ],
       "dateAdded": "2026-10-02T13:26:35.000Z",
       "dateModified": "2026-10-02T13:26:35.000Z"
+    },
+    {
+      "id": "item-discord-1790948033805",
+      "title": "GitHub - Eul45/omni-search: High-performance Windows file search + duplicate finder using NTFS USN/MFT, with Android LAN sync. Built with Tauri, Rust, C++, and Kotlin.",
+      "drawer": "Reference & Docs",
+      "status": "to-explore",
+      "tags": [
+        "rust",
+        "tauri",
+        "c++",
+        "kotlin",
+        "windows",
+        "utility"
+      ],
+      "rating": 5,
+      "notes": "Omni-search is a high-performance Windows file search and duplicate finder utilizing low-level NTFS USN/MFT mechanics with Android LAN synchronization. Developers and power users can leverage its Tauri, Rust, C++, and Kotlin architecture as a powerful reference for building lightning-fast cross-platform desktop and mobile utilities.",
+      "link": "https://github.com/Eul45/omni-search",
+      "logo": "https://opengraph.githubassets.com/0ee1bac28518a434fa34bc1dbcc08e442fc6b8cbf650427d6c6ee8168b3f83ff/Eul45/omni-search",
+      "gallery": [
+        "https://opengraph.githubassets.com/0ee1bac28518a434fa34bc1dbcc08e442fc6b8cbf650427d6c6ee8168b3f83ff/Eul45/omni-search"
+      ],
+      "dateAdded": "2026-10-02T13:33:53.000Z",
+      "dateModified": "2026-10-02T13:33:53.000Z"
     }
   ]
 }
