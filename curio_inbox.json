@@ -33,6 +33,28 @@
       "gallery": [],
       "dateAdded": "2026-10-02T13:26:21.000Z",
       "dateModified": "2026-10-02T13:26:21.000Z"
+    },
+    {
+      "id": "item-discord-1790947595461",
+      "title": "Deskboard - Where Folders Become Beautiful Workspaces",
+      "drawer": "Reference & Docs",
+      "status": "to-explore",
+      "tags": [
+        "productivity",
+        "organization",
+        "workflow",
+        "desktop",
+        "assets"
+      ],
+      "rating": 4,
+      "notes": "Deskboard is a desktop organization tool that transforms standard folders into customizable visual workspaces complete with widgets, notes, and annotations. Game developers and digital creators can use it to visually manage project files, reference materials, and work-in-progress assets directly on their desktop.",
+      "link": "https://deskboard.geeke.app/download",
+      "logo": "https://deskboard.geeke.app/social_card.jpg",
+      "gallery": [
+        "https://deskboard.geeke.app/social_card.jpg"
+      ],
+      "dateAdded": "2026-10-02T13:26:35.000Z",
+      "dateModified": "2026-10-02T13:26:35.000Z"
     }
   ]
 }
