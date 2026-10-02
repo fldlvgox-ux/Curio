@@ -11,7 +11,8 @@
     "Publishing & Layout",
     "Photo Management & Viewers",
     "Pixel Art & Animation",
-    "HDR, Panorama & AI Tools"
+    "HDR, Panorama & AI Tools",
+    "Desktop & OS Utilities"
   ],
   "items": [
     {
@@ -100,6 +101,26 @@
       ],
       "dateAdded": "2026-10-02T13:35:01.000Z",
       "dateModified": "2026-10-02T13:35:01.000Z"
+    },
+    {
+      "id": "item-discord-1790948376078",
+      "title": "https://windhawk.net/mods/alt-tab-delayer",
+      "drawer": "Desktop & OS Utilities",
+      "status": "to-explore",
+      "tags": [
+        "windhawk",
+        "windows",
+        "utility",
+        "productivity",
+        "customization"
+      ],
+      "rating": 4,
+      "notes": "A Windhawk customization mod for Windows that introduces a configurable delay before showing the Alt+Tab task switcher interface. It helps creators and developers eliminate visual clutter and overlay flicker during fast window switching across multiple production tools.",
+      "link": "https://windhawk.net/mods/alt-tab-delayer",
+      "logo": "",
+      "gallery": [],
+      "dateAdded": "2026-10-02T13:39:36.000Z",
+      "dateModified": "2026-10-02T13:39:36.000Z"
     }
   ]
 }
