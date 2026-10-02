@@ -7,6 +7,16 @@
   <link rel="icon" type="image/svg+xml" href="logo.svg">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#06b6d4">
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem("curio_active_theme");
+        if (t && t !== "cyber") {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch(e) {}
+    })();
+  </script>
   <style>
     :root {
       --bg-base: #090d16;
@@ -1841,6 +1851,91 @@
       --shadow-glow: 0 0 15px rgba(234, 179, 8, 0.35);
     }
 
+    [data-theme="win95"] {
+      --bg-base: #008080;
+      --bg-surface: #c0c0c0;
+      --bg-surface-raised: #d4d0c8;
+      --bg-surface-hover: #e0ded8;
+      --bg-panel: #c0c0c0;
+      --border-subtle: #808080;
+      --border-medium: #404040;
+      --border-bright: #000080;
+      --accent-cyan: #000080;
+      --accent-cyan-glow: rgba(0, 0, 128, 0.25);
+      --text-main: #000000;
+      --text-muted: #222222;
+      --text-dim: #555555;
+      --shadow-glow: none;
+    }
+
+    [data-theme="crt-amber"] {
+      --bg-base: #0a0804;
+      --bg-surface: #140f06;
+      --bg-surface-raised: #1c1509;
+      --bg-surface-hover: #261c0c;
+      --bg-panel: #140f06;
+      --border-subtle: #453214;
+      --border-medium: #805c1e;
+      --border-bright: #ffb000;
+      --accent-cyan: #ffb000;
+      --accent-cyan-glow: rgba(255, 176, 0, 0.4);
+      --text-main: #ffcf66;
+      --text-muted: #d49526;
+      --text-dim: #8f651b;
+      --shadow-glow: 0 0 16px rgba(255, 176, 0, 0.4);
+    }
+
+    [data-theme="macos9"] {
+      --bg-base: #d6d6d6;
+      --bg-surface: #e8e8e8;
+      --bg-surface-raised: #f2f2f2;
+      --bg-surface-hover: #ffffff;
+      --bg-panel: #e0e0e0;
+      --border-subtle: #b0b0b0;
+      --border-medium: #707070;
+      --border-bright: #000000;
+      --accent-cyan: #0000ee;
+      --accent-cyan-glow: rgba(0, 0, 238, 0.2);
+      --text-main: #000000;
+      --text-muted: #333333;
+      --text-dim: #666666;
+      --shadow-glow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    [data-theme="card-catalog"] {
+      --bg-base: #ece5d8;
+      --bg-surface: #f7f3eb;
+      --bg-surface-raised: #ffffff;
+      --bg-surface-hover: #faf6ef;
+      --bg-panel: #ede5d8;
+      --border-subtle: #d3c7b5;
+      --border-medium: #a89880;
+      --border-bright: #7c4a27;
+      --accent-cyan: #8c4322;
+      --accent-cyan-glow: rgba(140, 67, 34, 0.2);
+      --text-main: #2b241e;
+      --text-muted: #5e5246;
+      --text-dim: #8c7e6f;
+      --shadow-glow: 0 3px 12px rgba(92, 69, 45, 0.12);
+    }
+
+    [data-theme="aero"] {
+      --bg-base: #03213a;
+      --bg-surface: rgba(12, 45, 78, 0.85);
+      --bg-surface-raised: rgba(18, 65, 110, 0.7);
+      --bg-surface-hover: rgba(28, 88, 145, 0.85);
+      --bg-panel: rgba(10, 38, 66, 0.9);
+      --border-subtle: rgba(125, 211, 252, 0.25);
+      --border-medium: rgba(125, 211, 252, 0.5);
+      --border-bright: #38bdf8;
+      --accent-cyan: #0284c7;
+      --accent-cyan-glow: rgba(56, 189, 248, 0.45);
+      --text-main: #f0f9ff;
+      --text-muted: #bae6fd;
+      --text-dim: #7dd3fc;
+      --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.4);
+    }
+
     /* Settings Modal Styles */
     .settings-tabs {
       display: flex;
@@ -1885,41 +1980,145 @@
       display: block;
     }
 
+    /* Theme Section Headers */
+    .theme-section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .theme-section-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .theme-section-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
     /* Theme Card Selector */
     .theme-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 0.75rem;
-      margin-top: 0.75rem;
     }
 
     .theme-card {
-      border: 2px solid var(--border-medium);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      padding: 0.75rem;
+      padding: 0.65rem;
       cursor: pointer;
       background: var(--bg-surface-raised);
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 0.5rem;
       transition: all 0.2s ease;
       user-select: none;
+      position: relative;
     }
 
     .theme-card:hover {
       border-color: var(--border-bright);
       transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     }
 
     .theme-card.active {
       border-color: var(--accent-cyan);
-      box-shadow: 0 0 12px var(--accent-cyan-glow);
+      box-shadow: 0 0 14px var(--accent-cyan-glow);
+      background: var(--bg-surface-hover);
+    }
+
+    .theme-preview-box {
+      width: 100%;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mini-titlebar {
+      height: 14px;
+      display: flex;
+      align-items: center;
+      padding: 0 4px;
+      gap: 3px;
+    }
+
+    .mini-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+    }
+
+    .mini-bar {
+      height: 3px;
+      border-radius: 2px;
+      opacity: 0.8;
+    }
+
+    .mini-content {
+      flex: 1;
+      padding: 3px 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .mini-badge {
+      font-size: 7px;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 3px;
+      letter-spacing: 0.5px;
+    }
+
+    .theme-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      flex: 1;
+    }
+
+    .theme-title {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .theme-desc {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    .theme-status-pill {
+      font-size: 0.62rem;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      align-self: flex-start;
+      padding: 0.1rem 0.45rem;
+      border-radius: 9999px;
+      background: var(--bg-surface);
+      color: var(--text-dim);
+      border: 1px solid var(--border-subtle);
+      transition: all 0.15s ease;
+    }
+
+    .theme-card.active .theme-status-pill {
+      background: var(--accent-cyan-glow);
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      font-weight: 700;
     }
 
     .theme-preview-dots {
       display: flex;
       gap: 0.35rem;
+      margin-bottom: 0.2rem;
     }
 
     .theme-dot {
@@ -1927,13 +2126,6 @@
       height: 14px;
       border-radius: 50%;
       border: 1px solid rgba(255,255,255,0.15);
-    }
-
-    .theme-title {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-main);
-      text-align: center;
     }
 
     /* Shortcuts table */
@@ -3164,18 +3356,128 @@
       </div>
 
       <!-- Tab 1: Themes -->
-      <div class="settings-tab-content active" id="tab-themes">
-        <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom: 0.5rem;">Select visual color palette:</div>
+      <div class="settings-tab-content active" id="tab-themes" style="max-height: 500px; overflow-y: auto; padding-right: 0.25rem;">
+        <div class="theme-section-header">
+          <span class="theme-section-title">✨ Unique Interface Aesthetics</span>
+          <span class="theme-section-sub">Distinct visual overhauls & historical OS paradigms</span>
+        </div>
+        
         <div class="theme-grid">
+          <!-- Cyberpunk (Default) -->
           <div class="theme-card active" data-theme="cyber">
-            <div class="theme-preview-dots">
-              <span class="theme-dot" style="background:#090d16;"></span>
-              <span class="theme-dot" style="background:#06b6d4;"></span>
-              <span class="theme-dot" style="background:#111726;"></span>
+            <div class="theme-preview-box" style="background:#090d16; border:1px solid #1e293b;">
+              <div class="mini-titlebar" style="background:#111726; border-bottom:1px solid #1e293b;">
+                <span class="mini-dot" style="background:#06b6d4;"></span>
+                <span class="mini-bar" style="background:#06b6d4; width:30px;"></span>
+              </div>
+              <div class="mini-content">
+                <div class="mini-badge" style="background:rgba(6,182,212,0.2); color:#06b6d4;">NEON</div>
+              </div>
             </div>
-            <span class="theme-title">Cyber Cyan (Default)</span>
+            <div class="theme-info">
+              <span class="theme-title">⚡ Cyberpunk Obsidian</span>
+              <span class="theme-desc">Neon cyan glow, glassmorphism & dark canvas</span>
+            </div>
+            <span class="theme-status-pill">Active</span>
           </div>
 
+          <!-- Windows 95 -->
+          <div class="theme-card" data-theme="win95">
+            <div class="theme-preview-box" style="background:#008080; border:2px outset #ffffff;">
+              <div class="mini-titlebar" style="background:linear-gradient(90deg, #000080, #1084d0); color:#ffffff;">
+                <span style="font-size:7px; font-weight:bold; font-family:Tahoma, sans-serif;">CURIO.EXE</span>
+                <div style="display:flex; gap:1px; margin-left:auto;">
+                  <span style="background:#c0c0c0; color:#000; font-size:6px; padding:0 2px; border:1px outset #fff; line-height:1;">✕</span>
+                </div>
+              </div>
+              <div class="mini-content" style="background:#c0c0c0; border:1px inset #808080; margin:2px; height:18px;">
+                <div class="mini-badge" style="background:#c0c0c0; border:1px outset #fff; color:#000; font-family:Tahoma; font-size:7px;">WIN95</div>
+              </div>
+            </div>
+            <div class="theme-info">
+              <span class="theme-title">🪟 Windows 95</span>
+              <span class="theme-desc">Teal desktop, 3D beveled chrome & navy titlebars</span>
+            </div>
+            <span class="theme-status-pill">Select</span>
+          </div>
+
+          <!-- Phosphor CRT -->
+          <div class="theme-card" data-theme="crt-amber">
+            <div class="theme-preview-box" style="background:#08090a; border:1px solid #ffb000; box-shadow:0 0 8px rgba(255,176,0,0.3);">
+              <div class="mini-titlebar" style="background:#140f06; border-bottom:1px solid #805c1e;">
+                <span style="font-size:7px; font-family:monospace; color:#ffb000;">[TTY:01]</span>
+                <span class="mini-bar" style="background:#ffb000; width:20px;"></span>
+              </div>
+              <div class="mini-content" style="background:#0a0804;">
+                <span style="font-family:monospace; font-size:7px; color:#ffcf66;">&gt; RUN_ █</span>
+              </div>
+            </div>
+            <div class="theme-info">
+              <span class="theme-title">📟 Phosphor CRT Terminal</span>
+              <span class="theme-desc">Amber monochrome, scanlines & retro ASCII</span>
+            </div>
+            <span class="theme-status-pill">Select</span>
+          </div>
+
+          <!-- Mac OS System 7 / Platinum -->
+          <div class="theme-card" data-theme="macos9">
+            <div class="theme-preview-box" style="background:#d6d6d6; border:1px solid #000; box-shadow:1px 1px 0 #000;">
+              <div class="mini-titlebar" style="background:repeating-linear-gradient(to bottom, #fff 0px, #fff 1px, #666 1px, #666 2px); height:9px; border-bottom:1px solid #000; display:flex; align-items:center; padding:0 2px;">
+                <span style="width:5px; height:5px; border:1px solid #000; background:#fff;"></span>
+              </div>
+              <div class="mini-content" style="background:#e8e8e8;">
+                <div class="mini-badge" style="background:#fff; border:1px solid #000; border-radius:8px; color:#000; font-size:6px;">System 7</div>
+              </div>
+            </div>
+            <div class="theme-info">
+              <span class="theme-title">🍎 Mac OS Classic</span>
+              <span class="theme-desc">Pinstripes, platinum chrome & 1-bit outlines</span>
+            </div>
+            <span class="theme-status-pill">Select</span>
+          </div>
+
+          <!-- Library Card Catalog -->
+          <div class="theme-card" data-theme="card-catalog">
+            <div class="theme-preview-box" style="background:#ece5d8; border:1px solid #a89880;">
+              <div class="mini-titlebar" style="background:#7c4a27; color:#fdfaf3; padding:1px 3px;">
+                <span style="font-size:7px; font-family:Courier New, monospace;">INDEX #42</span>
+              </div>
+              <div class="mini-content" style="background:#f7f3eb;">
+                <span style="font-family:Courier New, monospace; font-size:6px; color:#8c4322; border:1px dashed #8c4322; padding:0 2px;">ARCHIVED</span>
+              </div>
+            </div>
+            <div class="theme-info">
+              <span class="theme-title">🗃️ Library Card Catalog</span>
+              <span class="theme-desc">Manila paper, brass pulls & typewriter ink</span>
+            </div>
+            <span class="theme-status-pill">Select</span>
+          </div>
+
+          <!-- Frutiger Aero -->
+          <div class="theme-card" data-theme="aero">
+            <div class="theme-preview-box" style="background:linear-gradient(135deg, #03213a, #0284c7); border:1px solid rgba(255,255,255,0.4); box-shadow:0 0 10px rgba(56,189,248,0.4);">
+              <div class="mini-titlebar" style="background:linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(255,255,255,0.1)); border-bottom:1px solid rgba(255,255,255,0.3);">
+                <span class="mini-dot" style="background:#38bdf8; box-shadow:0 0 4px #fff;"></span>
+              </div>
+              <div class="mini-content">
+                <div class="mini-badge" style="background:linear-gradient(to bottom, rgba(56,189,248,0.8), rgba(2,132,199,0.9)); color:#fff; border-radius:9999px; font-size:6px;">AERO</div>
+              </div>
+            </div>
+            <div class="theme-info">
+              <span class="theme-title">💧 Frutiger Aero</span>
+              <span class="theme-desc">Liquid jelly gloss, glass reflections & vivid sky</span>
+            </div>
+            <span class="theme-status-pill">Select</span>
+          </div>
+        </div>
+
+        <div class="theme-section-header" style="margin-top:1.25rem;">
+          <span class="theme-section-title">🎨 Dark Studio Palettes</span>
+          <span class="theme-section-sub">Alternative modern cyber and OLED color combinations</span>
+        </div>
+
+        <div class="theme-grid" style="grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));">
+          <!-- Synthwave -->
           <div class="theme-card" data-theme="synthwave">
             <div class="theme-preview-dots">
               <span class="theme-dot" style="background:#0c0817;"></span>
@@ -3183,17 +3485,10 @@
               <span class="theme-dot" style="background:#31225c;"></span>
             </div>
             <span class="theme-title">Synthwave Sunset</span>
+            <span class="theme-status-pill">Select</span>
           </div>
 
-          <div class="theme-card" data-theme="matrix">
-            <div class="theme-preview-dots">
-              <span class="theme-dot" style="background:#030804;"></span>
-              <span class="theme-dot" style="background:#10b981;"></span>
-              <span class="theme-dot" style="background:#0e2011;"></span>
-            </div>
-            <span class="theme-title">Matrix Terminal</span>
-          </div>
-
+          <!-- Nord -->
           <div class="theme-card" data-theme="nord">
             <div class="theme-preview-dots">
               <span class="theme-dot" style="background:#161a22;"></span>
@@ -3201,8 +3496,21 @@
               <span class="theme-dot" style="background:#282e3d;"></span>
             </div>
             <span class="theme-title">Nord Frost</span>
+            <span class="theme-status-pill">Select</span>
           </div>
 
+          <!-- Matrix -->
+          <div class="theme-card" data-theme="matrix">
+            <div class="theme-preview-dots">
+              <span class="theme-dot" style="background:#030804;"></span>
+              <span class="theme-dot" style="background:#10b981;"></span>
+              <span class="theme-dot" style="background:#0e2011;"></span>
+            </div>
+            <span class="theme-title">Matrix Terminal</span>
+            <span class="theme-status-pill">Select</span>
+          </div>
+
+          <!-- Midnight -->
           <div class="theme-card" data-theme="midnight">
             <div class="theme-preview-dots">
               <span class="theme-dot" style="background:#08080a;"></span>
@@ -3210,19 +3518,20 @@
               <span class="theme-dot" style="background:#1c1c22;"></span>
             </div>
             <span class="theme-title">Midnight Gold</span>
+            <span class="theme-status-pill">Select</span>
           </div>
         </div>
       </div>
 
       <!-- Tab 2: Storage & Database -->
-        <div style="margin-top: 1rem; padding: 0.75rem; background: var(--bg-surface-raised); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: space-between;">
+      <div class="settings-tab-content" id="tab-storage">
+        <div style="margin-bottom: 1rem; padding: 0.75rem; background: var(--bg-surface-raised); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: space-between;">
           <div>
             <div style="font-size:0.85rem; font-weight:700; color:var(--text-main);">📲 Install Desktop / Mobile App</div>
             <div style="font-size:0.75rem; color:var(--text-muted);">Run CURIO in its own dedicated, distraction-free window.</div>
           </div>
           <button class="btn-primary" id="btn-install-pwa" style="padding: 0.4rem 0.85rem; font-size:0.8rem;">Install App</button>
         </div>
-      <div class="settings-tab-content" id="tab-storage">
         <div class="about-meta-grid" style="margin-top:0;">
           <div class="about-meta-box">
             <div class="about-meta-label">Total Catalogs</div>
@@ -31173,12 +31482,37 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     if (modal) modal.classList.remove("open");
   }
 
+  const PALETTE_THEMES = [
+    { id: "cyber", name: "Cyberpunk Obsidian", icon: "⚡", tag: "Interface Theme" },
+    { id: "win95", name: "Windows 95", icon: "🪟", tag: "Interface Theme" },
+    { id: "crt-amber", name: "Phosphor CRT Terminal", icon: "📟", tag: "Interface Theme" },
+    { id: "macos9", name: "Mac OS Classic (System 7)", icon: "🍎", tag: "Interface Theme" },
+    { id: "card-catalog", name: "Library Card Catalog", icon: "🗃️", tag: "Interface Theme" },
+    { id: "aero", name: "Frutiger Aero", icon: "💧", tag: "Interface Theme" },
+    { id: "synthwave", name: "Synthwave Sunset", icon: "🌅", tag: "Studio Palette" },
+    { id: "nord", name: "Nord Frost", icon: "❄️", tag: "Studio Palette" },
+    { id: "matrix", name: "Matrix Terminal", icon: "🟢", tag: "Studio Palette" },
+    { id: "midnight", name: "Midnight Gold", icon: "🌌", tag: "Studio Palette" }
+  ];
+
   function renderPaletteResults(query) {
     const resultsContainer = document.getElementById("palette-results");
     if (!resultsContainer) return;
 
     const q = query.trim().toLowerCase();
     paletteFilteredResults = [];
+
+    // Check if query matches theme actions
+    if (q) {
+      PALETTE_THEMES.forEach(t => {
+        if ("theme".includes(q) || t.name.toLowerCase().includes(q) || t.id.toLowerCase().includes(q)) {
+          paletteFilteredResults.push({
+            type: "theme",
+            theme: t
+          });
+        }
+      });
+    }
 
     // Search across all catalogs
     State.catalogs.forEach(cat => {
@@ -31189,6 +31523,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
             (item.drawer && item.drawer.toLowerCase().includes(q)) ||
             (item.tags && item.tags.some(t => t.toLowerCase().includes(q)))) {
           paletteFilteredResults.push({
+            type: "item",
             catalogId: cat.id,
             catalogName: cat.name,
             item: item
@@ -31202,27 +31537,51 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     paletteSelectedIndex = 0;
 
     if (displayed.length === 0) {
-      resultsContainer.innerHTML = `<div style="padding:1.5rem; text-align:center; color:var(--text-dim);">No matching items found across all 15 catalogs</div>`;
+      resultsContainer.innerHTML = `<div style="padding:1.5rem; text-align:center; color:var(--text-dim);">No matching items or commands found across all 15 catalogs</div>`;
       return;
     }
 
-    resultsContainer.innerHTML = displayed.map((res, idx) => `
-      <div class="palette-item ${idx === 0 ? 'selected' : ''}" data-idx="${idx}" data-cat="${res.catalogId}" data-item-id="${res.item.id}">
-        <div class="palette-item-left">
-          <span class="palette-item-title">${escapeHtml(res.item.title)}</span>
-          <div class="palette-item-subtitle">
-            <span class="palette-cat-tag">${escapeHtml(res.catalogName)}</span>
-            <span style="display:inline-flex;align-items:center;gap:0.25rem;">${ICONS.folder} ${escapeHtml(res.item.drawer)}</span>
-            ${res.item.rating ? `<span>★ ${res.item.rating}</span>` : ''}
+    resultsContainer.innerHTML = displayed.map((res, idx) => {
+      if (res.type === "theme") {
+        return `
+          <div class="palette-item ${idx === 0 ? 'selected' : ''}" data-idx="${idx}" data-theme-id="${res.theme.id}" data-theme-name="${escapeHtml(res.theme.name)}">
+            <div class="palette-item-left">
+              <span class="palette-item-title">${res.theme.icon} Switch Theme: ${escapeHtml(res.theme.name)}</span>
+              <div class="palette-item-subtitle">
+                <span class="palette-cat-tag" style="background:var(--accent-cyan-glow); color:var(--accent-cyan); font-weight:700;">${escapeHtml(res.theme.tag)}</span>
+                <span>Apply visual appearance overhaul</span>
+              </div>
+            </div>
+            <span style="font-size:0.75rem; color:var(--accent-cyan);">Apply ➔</span>
           </div>
+        `;
+      }
+      return `
+        <div class="palette-item ${idx === 0 ? 'selected' : ''}" data-idx="${idx}" data-cat="${res.catalogId}" data-item-id="${res.item.id}">
+          <div class="palette-item-left">
+            <span class="palette-item-title">${escapeHtml(res.item.title)}</span>
+            <div class="palette-item-subtitle">
+              <span class="palette-cat-tag">${escapeHtml(res.catalogName)}</span>
+              <span style="display:inline-flex;align-items:center;gap:0.25rem;">${ICONS.folder} ${escapeHtml(res.item.drawer)}</span>
+              ${res.item.rating ? `<span>★ ${res.item.rating}</span>` : ''}
+            </div>
+          </div>
+          <span style="font-size:0.75rem; color:var(--accent-cyan);">Jump ➔</span>
         </div>
-        <span style="font-size:0.75rem; color:var(--accent-cyan);">Jump ➔</span>
-      </div>
-    `).join("");
+      `;
+    }).join("");
 
     // Attach click handlers
     resultsContainer.querySelectorAll(".palette-item").forEach(itemEl => {
       itemEl.addEventListener("click", () => {
+        const themeId = itemEl.getAttribute("data-theme-id");
+        if (themeId) {
+          const themeName = itemEl.getAttribute("data-theme-name") || themeId;
+          setTheme(themeId);
+          closeCommandPalette();
+          showToast(`Switched theme to ${themeName}`, "info");
+          return;
+        }
         const catId = itemEl.getAttribute("data-cat");
         const itemId = itemEl.getAttribute("data-item-id");
         jumpToCatalogItem(catId, itemId);
@@ -32395,9 +32754,14 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     }
     localStorage.setItem("curio_active_theme", themeName);
 
-    // Update active state in theme cards
+    // Update active state and status pill in theme cards
     document.querySelectorAll(".theme-card").forEach(card => {
-      card.classList.toggle("active", card.getAttribute("data-theme") === themeName);
+      const isAct = card.getAttribute("data-theme") === themeName;
+      card.classList.toggle("active", isAct);
+      const pill = card.querySelector(".theme-status-pill");
+      if (pill) {
+        pill.innerText = isAct ? "Active" : "Select";
+      }
     });
   }
 
