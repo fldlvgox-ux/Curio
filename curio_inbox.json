@@ -78,6 +78,28 @@
       ],
       "dateAdded": "2026-10-02T13:33:53.000Z",
       "dateModified": "2026-10-02T13:33:53.000Z"
+    },
+    {
+      "id": "item-discord-1790948101912",
+      "title": "GitHub - justnullname/QuickView: The fastest Direct2D-powered image viewer for Windows. Features multi-threaded JXL/AVIF decoding, GPU acceleration, and a borderless geek UI. Supports WebP, RAW, & QOI with visual settings and auto-updates. Portable & SIMD-optimized.",
+      "drawer": "Photo Management & Viewers",
+      "status": "to-explore",
+      "tags": [
+        "windows",
+        "image-viewer",
+        "gpu-acceleration",
+        "open-source",
+        "utility"
+      ],
+      "rating": 5,
+      "notes": "QuickView is an ultra-fast, Direct2D-powered image viewer for Windows designed with GPU acceleration and multi-threaded decoding for modern formats like JXL, AVIF, and WebP. Digital creators and developers can use it to instantly preview high-resolution assets and RAW files without interface bloat.",
+      "link": "https://github.com/justnullname/QuickView",
+      "logo": "https://repository-images.githubusercontent.com/1104408324/729959e9-6514-4112-9df2-428c76ff12fb",
+      "gallery": [
+        "https://repository-images.githubusercontent.com/1104408324/729959e9-6514-4112-9df2-428c76ff12fb"
+      ],
+      "dateAdded": "2026-10-02T13:35:01.000Z",
+      "dateModified": "2026-10-02T13:35:01.000Z"
     }
   ]
 }
