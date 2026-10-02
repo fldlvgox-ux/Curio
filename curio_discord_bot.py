@@ -108,8 +108,12 @@ def extract_urls(text):
 
 async def scrape_web_metadata(url):
     """Scrapes OpenGraph, oEmbed, and standard HTML metadata from URL."""
-    # Special Handler: YouTube (oEmbed API returns exact video title & HD thumbnail)
+    # Special Handler: YouTube (oEmbed API for exact title & HD thumbnail + description scraping)
     if "youtube.com/watch" in url or "youtu.be/" in url or "youtube.com/shorts/" in url:
+        title = ""
+        author = "YouTube Creator"
+        thumb = ""
+        desc = ""
         try:
             oembed_url = f"https://www.youtube.com/oembed?url={url}&format=json"
             timeout = aiohttp.ClientTimeout(total=8)
@@ -120,14 +124,29 @@ async def scrape_web_metadata(url):
                         title = data.get("title", "")
                         author = data.get("author_name", "YouTube Creator")
                         thumb = data.get("thumbnail_url", "")
-                        return {
-                            "title": title or "YouTube Video",
-                            "description": f"Video by {author} on YouTube.",
-                            "image": thumb,
-                            "site_name": "YouTube"
-                        }
         except Exception as yt_err:
             print(f"[YouTube oEmbed Error] {yt_err}")
+
+        # Also extract video description from page source to capture apps & tools mentioned
+        try:
+            yt_headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"}
+            async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=8)) as session:
+                async with session.get(url, headers=yt_headers) as html_resp:
+                    if html_resp.status == 200:
+                        yt_html = await html_resp.text(errors="ignore")
+                        m = re.search(r'"shortDescription":"(.*?)"', yt_html)
+                        if m:
+                            raw_desc = m.group(1).encode('utf-8').decode('unicode_escape')
+                            desc = raw_desc[:1500]
+        except Exception as e:
+            print(f"[YouTube Desc Scrape Error]: {e}")
+
+        return {
+            "title": title or "YouTube Video",
+            "description": desc or f"Video by {author} on YouTube.",
+            "image": thumb,
+            "site_name": "YouTube"
+        }
 
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
@@ -206,20 +225,27 @@ async def ai_curate(url, meta, api_key, available_drawers):
         client = genai.Client(api_key=api_key)
         
         prompt = f"""
-You are the AI archivist for CURIO, a game development and digital creator catalog.
+You are the AI archivist for CURIO, a curated catalog for game developers, digital creators, and tech enthusiasts.
 Analyze this bookmarked resource:
 URL: {url}
 Page Title: {meta.get('title', '')}
 Site Name: {meta.get('site_name', '')}
-Meta Description: {meta.get('description', '')}
+Description/Content: {meta.get('description', '')}
+
+CRITICAL INSTRUCTION FOR VIDEOS / SHOWCASES:
+If this link is a YouTube video, review, or article featuring a specific software, tool, app, plugin, or asset (e.g. Asyar, Raycast, Blender addon, Godot tool):
+- Focus on the SOFTWARE / APP ITSELF being demonstrated, not just that it's a video.
+- In "notes", explain what the featured software does, its primary benefits, and why a user/creator would want it.
+- In "tags", extract tags relevant to the featured software (e.g. its name, domain, what it replaces, OS platform, and features).
+- In "drawer", pick the category that best fits the software or its domain.
 
 Select the best matching Drawer from this list:
 {json.dumps(available_drawers)}
 
 Produce a JSON response with:
 1. "drawer": The chosen drawer name from the list (or a crisp new 2-4 word category if none fit).
-2. "tags": An array of 3 to 6 lowercase alphanumeric tags describing tech, domain, and format (e.g. ["godot", "shader", "open-source", "3d"]).
-3. "notes": A clear, informative 2-sentence summary highlighting what this resource is and how a creator/developer would use it.
+2. "tags": An array of 3 to 6 lowercase alphanumeric tags describing tech, domain, and format (e.g. ["asyar", "raycast", "productivity", "open-source"]).
+3. "notes": A clear, informative 2-sentence summary highlighting the core software/tool and what it enables creators to do.
 4. "rating": An integer rating from 3 to 5 based on utility.
 
 Respond ONLY with valid JSON.
