@@ -121,6 +121,29 @@
       "gallery": [],
       "dateAdded": "2026-10-02T13:39:36.000Z",
       "dateModified": "2026-10-02T13:39:36.000Z"
+    },
+    {
+      "id": "item-discord-1790948514311",
+      "title": "OmniClip - Clipboard Sync for PC & Android",
+      "drawer": "Desktop & OS Utilities",
+      "status": "to-explore",
+      "tags": [
+        "clipboard",
+        "sync",
+        "windows",
+        "android",
+        "utility",
+        "workflow"
+      ],
+      "rating": 4,
+      "notes": "OmniClip is a secure utility that syncs clipboard history between Windows and Android devices over local WiFi without using the cloud. Developers and digital creators can use it to seamlessly transfer text, links, and code snippets across devices during their workflow.",
+      "link": "https://www.eyuel.com.et/omniclip",
+      "logo": "https://www.eyuel.com.et/omniclip/hero.png",
+      "gallery": [
+        "https://www.eyuel.com.et/omniclip/hero.png"
+      ],
+      "dateAdded": "2026-10-02T13:41:54.000Z",
+      "dateModified": "2026-10-02T13:41:54.000Z"
     }
   ]
 }
