@@ -2642,21 +2642,272 @@
       border-radius: 9999px !important;
     }
 
+    /* ========================================================
+       LIBRARY CARD CATALOG (MANILA PAPER & BRASS)
+       ======================================================== */
     [data-theme="card-catalog"] {
-      --bg-base: #ece5d8;
-      --bg-surface: #f7f3eb;
-      --bg-surface-raised: #ffffff;
-      --bg-surface-hover: #faf6ef;
-      --bg-panel: #ede5d8;
-      --border-subtle: #d3c7b5;
-      --border-medium: #a89880;
-      --border-bright: #7c4a27;
+      --bg-base: #e6ded0;
+      --bg-surface: #f5f0e6;
+      --bg-surface-raised: #fdfbf7;
+      --bg-surface-hover: #ede6d8;
+      --bg-panel: #33261d;
+      --border-subtle: #d0c4b2;
+      --border-medium: #a8967f;
+      --border-bright: #8c4322;
       --accent-cyan: #8c4322;
-      --accent-cyan-glow: rgba(140, 67, 34, 0.2);
-      --text-main: #2b241e;
-      --text-muted: #5e5246;
-      --text-dim: #8c7e6f;
-      --shadow-glow: 0 3px 12px rgba(92, 69, 45, 0.12);
+      --accent-cyan-glow: rgba(140, 67, 34, 0.25);
+      --text-main: #2b231c;
+      --text-muted: #5e4f42;
+      --text-dim: #8c7866;
+      --shadow-glow: none;
+      --radius-sm: 3px;
+      --radius-md: 4px;
+      --radius-lg: 6px;
+      --font-sans: 'Courier New', 'American Typewriter', 'Special Elite', monospace;
+      --font-mono: 'Courier New', monospace;
+    }
+
+    /* Wooden Archive Cabinet Background */
+    [data-theme="card-catalog"] body {
+      background-color: #e6ded0;
+      background-image: 
+        radial-gradient(#d3c6b2 10%, transparent 11%),
+        repeating-linear-gradient(45deg, rgba(140, 100, 60, 0.03) 0px, rgba(140, 100, 60, 0.03) 2px, transparent 2px, transparent 6px);
+      background-size: 8px 8px, 12px 12px;
+      font-family: var(--font-sans);
+      color: #2b231c;
+    }
+
+    /* Top Bar as Oak Card Desk */
+    [data-theme="card-catalog"] .top-bar {
+      background: #f5f0e6;
+      border-bottom: 2px solid #8c4322;
+      box-shadow: 0 2px 8px rgba(70, 50, 30, 0.1);
+    }
+
+    /* Mahogany Drawer Cabinet Sidebar */
+    [data-theme="card-catalog"] .sidebar {
+      background: #2b1f17;
+      border-right: 2px solid #5a3d28;
+      color: #ede2d3;
+    }
+
+    [data-theme="card-catalog"] .sidebar-title,
+    [data-theme="card-catalog"] .sidebar-subtitle {
+      color: #d8c3a8 !important;
+    }
+
+    /* Manila Paper Inputs with Typewriter Text */
+    [data-theme="card-catalog"] .search-box-container,
+    [data-theme="card-catalog"] .form-input,
+    [data-theme="card-catalog"] .form-textarea,
+    [data-theme="card-catalog"] .select-custom,
+    [data-theme="card-catalog"] .form-select,
+    [data-theme="card-catalog"] .tag-search-box {
+      background: #fdfbf7 !important;
+      color: #2b231c !important;
+      border: 1px solid #a8967f !important;
+      border-radius: 3px !important;
+      box-shadow: inset 1px 1px 3px rgba(70, 50, 30, 0.1) !important;
+      font-family: var(--font-mono) !important;
+    }
+
+    [data-theme="card-catalog"] .search-input {
+      color: #2b231c !important;
+      font-family: var(--font-mono) !important;
+    }
+
+    [data-theme="card-catalog"] .search-input::placeholder,
+    [data-theme="card-catalog"] .tag-search-input::placeholder {
+      color: #9e8d7c !important;
+    }
+
+    /* Brass Label & Bookcloth Buttons */
+    [data-theme="card-catalog"] .btn-primary,
+    [data-theme="card-catalog"] .btn-secondary,
+    [data-theme="card-catalog"] .btn-icon,
+    [data-theme="card-catalog"] .btn-icon-xs,
+    [data-theme="card-catalog"] .view-btn,
+    [data-theme="card-catalog"] .pill-toggle,
+    [data-theme="card-catalog"] .tag-mode-btn,
+    [data-theme="card-catalog"] .tag-expand-btn,
+    [data-theme="card-catalog"] .clear-filters-btn {
+      background: #f7f2e7 !important;
+      color: #3b2c21 !important;
+      border: 1px solid #a8967f !important;
+      border-radius: 3px !important;
+      box-shadow: 0 1px 3px rgba(70, 50, 30, 0.12) !important;
+      font-family: var(--font-mono) !important;
+      font-weight: 600 !important;
+    }
+
+    [data-theme="card-catalog"] .btn-primary {
+      background: #8c4322 !important;
+      color: #fdfbf7 !important;
+      border-color: #6d3319 !important;
+    }
+
+    [data-theme="card-catalog"] .btn-primary:hover {
+      background: #a34e28 !important;
+      box-shadow: 0 2px 6px rgba(140, 67, 34, 0.3) !important;
+    }
+
+    [data-theme="card-catalog"] .view-btn.active,
+    [data-theme="card-catalog"] .pill-toggle.active {
+      background: #8c4322 !important;
+      color: #ffffff !important;
+      border-color: #6d3319 !important;
+    }
+
+    /* Filter & Tag Shelf */
+    [data-theme="card-catalog"] .filter-panel {
+      background: #f5f0e6;
+      border-bottom: 1px solid #d0c4b2;
+    }
+
+    [data-theme="card-catalog"] .tag-filter-bar {
+      background: #eee7da;
+      border: 1px solid #c4b6a1;
+      border-radius: 3px;
+    }
+
+    /* Manila Index Cards */
+    [data-theme="card-catalog"] .item-card,
+    [data-theme="card-catalog"] .detail-card {
+      background: #fdfbf7 !important;
+      border: 1px solid #d0c4b2 !important;
+      border-top: 3px solid #8c4322 !important;
+      border-radius: 3px !important;
+      box-shadow: 0 2px 8px rgba(70, 50, 30, 0.12), 0 1px 2px rgba(70, 50, 30, 0.08) !important;
+      padding: 0.6rem !important;
+      transition: all 0.2s ease !important;
+    }
+
+    [data-theme="card-catalog"] .item-card:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 16px rgba(70, 50, 30, 0.18) !important;
+      border-color: #a8967f !important;
+      border-top-color: #8c4322 !important;
+    }
+
+    [data-theme="card-catalog"] .item-card .card-meta-row {
+      border-bottom: 1px solid #ede4d5;
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    [data-theme="card-catalog"] .item-card .card-meta-row .drawer-chip {
+      background: #ede6d8 !important;
+      color: #6d4e33 !important;
+      border: 1px solid #c9bca9 !important;
+      font-family: var(--font-mono) !important;
+      font-size: 0.68rem !important;
+      font-weight: bold !important;
+      border-radius: 2px !important;
+    }
+
+    /* Card Media Inset */
+    [data-theme="card-catalog"] .item-card-media {
+      border: 1px solid #d0c4b2 !important;
+      border-radius: 2px !important;
+      background: #f4eee2 !important;
+    }
+
+    [data-theme="card-catalog"] .card-body {
+      color: #2b231c !important;
+    }
+
+    [data-theme="card-catalog"] .card-title {
+      color: #2b231c !important;
+      font-family: var(--font-sans) !important;
+      font-weight: 700 !important;
+    }
+
+    [data-theme="card-catalog"] .card-notes {
+      color: #5e4f42 !important;
+      font-family: var(--font-mono) !important;
+      line-height: 1.45;
+    }
+
+    /* Manila Punched Tags */
+    [data-theme="card-catalog"] .tag-pill,
+    [data-theme="card-catalog"] .card-tag {
+      background: #ede6d8 !important;
+      color: #5e4f42 !important;
+      border: 1px dashed #b8a792 !important;
+      border-radius: 3px !important;
+      font-family: var(--font-mono) !important;
+      font-size: 0.65rem !important;
+    }
+
+    [data-theme="card-catalog"] .tag-pill.active {
+      background: #8c4322 !important;
+      color: #ffffff !important;
+      border-color: #6d3319 !important;
+      border-style: solid !important;
+    }
+
+    /* Cabinet Drawer Items in Sidebar */
+    [data-theme="card-catalog"] .drawer-item {
+      border-radius: 3px !important;
+      color: #d8c3a8 !important;
+      margin: 2px 0 !important;
+      border-left: 2px solid transparent;
+      font-family: var(--font-mono) !important;
+    }
+
+    [data-theme="card-catalog"] .drawer-item:hover {
+      background: #3d2d22 !important;
+      color: #ffffff !important;
+      border-left-color: #c89658;
+    }
+
+    [data-theme="card-catalog"] .drawer-item.active {
+      background: #473427 !important;
+      color: #ffffff !important;
+      border-left: 3px solid #c89658 !important;
+    }
+
+    [data-theme="card-catalog"] .drawer-item.active span,
+    [data-theme="card-catalog"] .drawer-item.active .drawer-count {
+      color: #ffffff !important;
+    }
+
+    /* Library Dossier Modal */
+    [data-theme="card-catalog"] .modal-window {
+      background: #fdfbf7 !important;
+      border: 2px solid #8c4322 !important;
+      border-radius: 4px !important;
+      box-shadow: 0 10px 30px rgba(50, 35, 20, 0.3) !important;
+    }
+
+    [data-theme="card-catalog"] .modal-header {
+      background: #f5f0e6 !important;
+      border-bottom: 2px solid #8c4322 !important;
+      color: #8c4322 !important;
+    }
+
+    [data-theme="card-catalog"] .modal-title {
+      color: #8c4322 !important;
+      font-family: var(--font-sans) !important;
+      font-weight: 700 !important;
+    }
+
+    /* Storage Meter */
+    [data-theme="card-catalog"] .storage-container {
+      background: #231912 !important;
+      border-top: 1px solid #453224 !important;
+    }
+
+    [data-theme="card-catalog"] .storage-bar-track {
+      background: #33261d !important;
+      border: 1px solid #5a3d28 !important;
+      border-radius: 2px !important;
+    }
+
+    [data-theme="card-catalog"] .storage-bar-fill {
+      background: #c89658 !important;
+      border-radius: 2px !important;
     }
 
     [data-theme="aero"] {
