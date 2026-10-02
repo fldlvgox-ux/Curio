@@ -13,3 +13,4 @@ MARKETING_GUIDE.md
 # Bot configuration and local tokens (private secrets)
 bot_config.json
 .env
+*.zip
