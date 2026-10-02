@@ -1851,21 +1851,275 @@
       --shadow-glow: 0 0 15px rgba(234, 179, 8, 0.35);
     }
 
+    /* ========================================================
+       WINDOWS 95 "CHICAGO" AUTHENTIC RETRO THEME
+       ======================================================== */
     [data-theme="win95"] {
       --bg-base: #008080;
       --bg-surface: #c0c0c0;
-      --bg-surface-raised: #d4d0c8;
-      --bg-surface-hover: #e0ded8;
+      --bg-surface-raised: #c0c0c0;
+      --bg-surface-hover: #dfdfdf;
       --bg-panel: #c0c0c0;
       --border-subtle: #808080;
       --border-medium: #404040;
       --border-bright: #000080;
       --accent-cyan: #000080;
-      --accent-cyan-glow: rgba(0, 0, 128, 0.25);
+      --accent-cyan-glow: none;
       --text-main: #000000;
       --text-muted: #222222;
-      --text-dim: #555555;
+      --text-dim: #666666;
       --shadow-glow: none;
+      --radius-sm: 0px;
+      --radius-md: 0px;
+      --radius-lg: 0px;
+      --font-sans: 'Tahoma', 'MS Sans Serif', 'Segoe UI', Arial, sans-serif;
+      --font-mono: 'Fixedsys', 'Consolas', 'Courier New', monospace;
+    }
+
+    /* Windows 95 Global Shell Chrome */
+    [data-theme="win95"] body {
+      background-color: #008080;
+      font-family: var(--font-sans);
+      color: #000000;
+    }
+
+    /* Top Bar & Header as Win95 Menu Band */
+    [data-theme="win95"] .top-bar {
+      background: #c0c0c0;
+      border-bottom: 2px solid #808080;
+      box-shadow: inset 1px 1px #ffffff, inset -1px -1px #000000;
+    }
+
+    /* Windows 95 Sidebar */
+    [data-theme="win95"] .sidebar {
+      background: #c0c0c0;
+      border-right: 2px solid #808080;
+      box-shadow: inset 1px 1px #ffffff, inset -1px -1px #000000;
+    }
+
+    /* 3D Inset Workspaces (Search Boxes & Inputs) */
+    [data-theme="win95"] .search-box-container,
+    [data-theme="win95"] .form-input,
+    [data-theme="win95"] .form-textarea,
+    [data-theme="win95"] .select-custom,
+    [data-theme="win95"] .form-select,
+    [data-theme="win95"] .tag-search-box {
+      background: #ffffff !important;
+      color: #000000 !important;
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: inset 1px 1px #808080, inset -1px -1px #ffffff, inset 2px 2px #000000, inset -2px -2px #dfdfdf !important;
+    }
+
+    [data-theme="win95"] .search-input {
+      color: #000000 !important;
+    }
+
+    [data-theme="win95"] .search-input::placeholder,
+    [data-theme="win95"] .tag-search-input::placeholder {
+      color: #777777 !important;
+    }
+
+    /* 3D Classic Outset Push Buttons */
+    [data-theme="win95"] .btn-primary,
+    [data-theme="win95"] .btn-secondary,
+    [data-theme="win95"] .btn-icon,
+    [data-theme="win95"] .btn-icon-xs,
+    [data-theme="win95"] .view-btn,
+    [data-theme="win95"] .pill-toggle,
+    [data-theme="win95"] .tag-mode-btn,
+    [data-theme="win95"] .tag-expand-btn,
+    [data-theme="win95"] .clear-filters-btn {
+      background: #c0c0c0 !important;
+      color: #000000 !important;
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: inset 1px 1px #ffffff, inset -1px -1px #000000, inset 2px 2px #dfdfdf, inset -2px -2px #808080 !important;
+      font-family: var(--font-sans) !important;
+      font-weight: bold !important;
+      cursor: pointer;
+    }
+
+    /* Active / Pressed Button Inset State */
+    [data-theme="win95"] .btn-primary:active,
+    [data-theme="win95"] .btn-secondary:active,
+    [data-theme="win95"] .view-btn.active,
+    [data-theme="win95"] .pill-toggle.active,
+    [data-theme="win95"] .tag-pill.active,
+    [data-theme="win95"] .clear-filters-btn:active {
+      box-shadow: inset 1px 1px #000000, inset -1px -1px #ffffff, inset 2px 2px #808080, inset -2px -2px #dfdfdf !important;
+      background: #e0ded8 !important;
+    }
+
+    /* View Button Active */
+    [data-theme="win95"] .view-btn.active {
+      background: #dfdfdf !important;
+      color: #000000 !important;
+    }
+
+    /* Filter Panel */
+    [data-theme="win95"] .filter-panel {
+      background: #c0c0c0;
+      border-bottom: 2px solid #808080;
+    }
+
+    [data-theme="win95"] .tag-filter-bar {
+      background: #c0c0c0;
+      border: none;
+      box-shadow: inset 1px 1px #ffffff, inset -1px -1px #000000, inset 2px 2px #dfdfdf, inset -2px -2px #808080;
+      border-radius: 0;
+    }
+
+    /* Windows 95 Item Cards (Window Replica) */
+    [data-theme="win95"] .item-card,
+    [data-theme="win95"] .detail-card {
+      background: #c0c0c0 !important;
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: inset 1px 1px #ffffff, inset -1px -1px #000000, inset 2px 2px #dfdfdf, inset -2px -2px #808080, 2px 2px 0 rgba(0,0,0,0.3) !important;
+      padding: 3px !important;
+      transition: none !important;
+      overflow: hidden;
+    }
+
+    [data-theme="win95"] .item-card:hover {
+      transform: none !important;
+      box-shadow: inset 1px 1px #ffffff, inset -1px -1px #000000, inset 2px 2px #dfdfdf, inset -2px -2px #808080, 3px 3px 0 rgba(0,0,0,0.5) !important;
+    }
+
+    /* Windows 95 Title Bar on Cards */
+    [data-theme="win95"] .item-card .card-meta-row,
+    [data-theme="win95"] .detail-card .detail-header {
+      background: linear-gradient(90deg, #000080, #1084d0) !important;
+      color: #ffffff !important;
+      padding: 2px 4px !important;
+      margin: -3px -3px 4px -3px !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    [data-theme="win95"] .item-card .card-meta-row .drawer-chip {
+      color: #ffffff !important;
+      background: transparent !important;
+      font-weight: bold !important;
+      font-size: 0.72rem !important;
+    }
+
+    /* 3D Inset Image Box */
+    [data-theme="win95"] .item-card-media {
+      border-radius: 0 !important;
+      box-shadow: inset 1px 1px #000000, inset -1px -1px #ffffff, inset 2px 2px #808080, inset -2px -2px #dfdfdf !important;
+      background: #000000 !important;
+      margin: 2px 0 !important;
+    }
+
+    /* Card Inner Body Area */
+    [data-theme="win95"] .card-body {
+      background: #c0c0c0 !important;
+      color: #000000 !important;
+      padding: 0.35rem 0.2rem !important;
+    }
+
+    [data-theme="win95"] .card-title {
+      color: #000000 !important;
+      font-family: var(--font-sans) !important;
+      font-weight: bold !important;
+    }
+
+    [data-theme="win95"] .card-notes {
+      color: #222222 !important;
+    }
+
+    /* Tag Pills as Windows Property Tags */
+    [data-theme="win95"] .tag-pill,
+    [data-theme="win95"] .card-tag {
+      background: #dfdfdf !important;
+      color: #000000 !important;
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: inset 1px 1px #ffffff, inset -1px -1px #808080 !important;
+      font-family: var(--font-sans) !important;
+    }
+
+    /* Sidebar Drawer Items */
+    [data-theme="win95"] .drawer-item {
+      border-radius: 0 !important;
+      color: #000000 !important;
+      margin: 1px 0 !important;
+    }
+
+    [data-theme="win95"] .drawer-item:hover {
+      background: #dfdfdf !important;
+    }
+
+    [data-theme="win95"] .drawer-item.active {
+      background: #000080 !important;
+      color: #ffffff !important;
+    }
+
+    [data-theme="win95"] .drawer-item.active span,
+    [data-theme="win95"] .drawer-item.active .drawer-count {
+      color: #ffffff !important;
+    }
+
+    /* Modals & Dialogs as Windows 95 Windows */
+    [data-theme="win95"] .modal-window {
+      background: #c0c0c0 !important;
+      border-radius: 0 !important;
+      box-shadow: inset 1px 1px #ffffff, inset -1px -1px #000000, inset 2px 2px #dfdfdf, inset -2px -2px #808080, 4px 4px 10px rgba(0,0,0,0.6) !important;
+      border: none !important;
+      padding: 3px !important;
+    }
+
+    [data-theme="win95"] .modal-header {
+      background: linear-gradient(90deg, #000080, #1084d0) !important;
+      color: #ffffff !important;
+      padding: 4px 8px !important;
+    }
+
+    [data-theme="win95"] .modal-title {
+      color: #ffffff !important;
+      font-weight: bold !important;
+      font-family: var(--font-sans) !important;
+    }
+
+    [data-theme="win95"] .modal-header .btn-icon-xs {
+      background: #c0c0c0 !important;
+      color: #000000 !important;
+      font-weight: bold !important;
+      box-shadow: inset 1px 1px #ffffff, inset -1px -1px #000000 !important;
+    }
+
+    /* Windows 95 Recessed Status Bar in Footer */
+    [data-theme="win95"] .storage-container {
+      background: #c0c0c0 !important;
+      border-top: 1px solid #808080 !important;
+      box-shadow: inset 0 1px 0 #ffffff !important;
+    }
+
+    [data-theme="win95"] .storage-bar-track {
+      background: #ffffff !important;
+      box-shadow: inset 1px 1px #808080, inset -1px -1px #ffffff, inset 2px 2px #000000 !important;
+      border-radius: 0 !important;
+    }
+
+    [data-theme="win95"] .storage-bar-fill {
+      background: #000080 !important;
+      border-radius: 0 !important;
+    }
+
+    /* Grouped View Headers */
+    [data-theme="win95"] .group-header {
+      background: #c0c0c0 !important;
+      border: none !important;
+      box-shadow: inset 1px 1px #ffffff, inset -1px -1px #000000, inset 2px 2px #dfdfdf, inset -2px -2px #808080 !important;
+      border-radius: 0 !important;
+      color: #000000 !important;
+    }
+
+    [data-theme="win95"] .group-title {
+      color: #000000 !important;
+      font-weight: bold !important;
     }
 
     [data-theme="crt-amber"] {
