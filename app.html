@@ -800,7 +800,7 @@
 
     .tag-filter-actions {
       flex-shrink: 0;
-      display: none; /* Only displayed when active filters exist */
+      display: flex;
       align-items: center;
       margin-left: 0.5rem;
       padding-left: 0.65rem;
@@ -808,14 +808,15 @@
     }
 
     .clear-filters-btn {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-family: var(--font-sans);
-      font-weight: 600;
-      color: #fca5a5;
-      background: rgba(244, 63, 94, 0.12);
-      border: 1px solid rgba(244, 63, 94, 0.3);
+      font-weight: 500;
+      letter-spacing: 0.015em;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 9999px;
-      padding: 0.22rem 0.7rem;
+      padding: 0.22rem 0.65rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -823,30 +824,73 @@
       text-decoration: none;
       white-space: nowrap;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      opacity: 0.7;
+      user-select: none;
     }
 
     .clear-filters-btn svg {
       flex-shrink: 0;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      opacity: 0.85;
     }
 
     .clear-filters-btn:hover {
-      background: rgba(244, 63, 94, 0.24);
-      border-color: rgba(244, 63, 94, 0.55);
+      background: rgba(255, 255, 255, 0.075);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--text-main);
+      opacity: 1;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .clear-filters-btn:hover svg {
+      transform: rotate(-45deg);
+      opacity: 1;
+    }
+
+    .clear-filters-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Active state when one or more filters are active */
+    .clear-filters-btn.has-filters {
+      opacity: 1;
+      color: #fda4af;
+      background: linear-gradient(135deg, rgba(244, 63, 94, 0.16), rgba(225, 29, 72, 0.1));
+      border: 1px solid rgba(244, 63, 94, 0.42);
+      box-shadow: 0 0 14px rgba(244, 63, 94, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      font-weight: 600;
+    }
+
+    .clear-filters-btn.has-filters svg {
+      opacity: 1;
+      stroke: #fda4af;
+    }
+
+    .clear-filters-btn.has-filters:hover {
+      background: linear-gradient(135deg, rgba(244, 63, 94, 0.26), rgba(225, 29, 72, 0.18));
+      border-color: rgba(244, 63, 94, 0.7);
       color: #ffffff;
-      box-shadow: 0 0 12px rgba(244, 63, 94, 0.35);
+      box-shadow: 0 0 18px rgba(244, 63, 94, 0.38), 0 2px 8px rgba(0, 0, 0, 0.4);
       transform: translateY(-1px);
     }
 
+    .clear-filters-btn.has-filters:hover svg {
+      transform: rotate(-180deg);
+      stroke: #ffffff;
+    }
+
     .clear-badge-pill {
-      background: rgba(244, 63, 94, 0.3);
+      background: rgba(244, 63, 94, 0.35);
       color: #ffffff;
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       font-family: var(--font-mono);
       font-weight: 700;
-      padding: 0.05rem 0.35rem;
+      padding: 0.05rem 0.38rem;
       border-radius: 9999px;
       margin-left: 0.1rem;
+      box-shadow: 0 0 6px rgba(244, 63, 94, 0.3);
     }
 
     .filter-summary-clear-btn {
@@ -2779,10 +2823,10 @@
             <!-- Dynamic Tag Pills -->
           </div>
         </div>
-        <div class="tag-filter-actions" style="display: none;">
-          <button class="clear-filters-btn" id="btn-reset-filters" title="Clear all active filters">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            <span>Clear Filters</span>
+        <div class="tag-filter-actions">
+          <button class="clear-filters-btn" id="btn-reset-filters" title="Reset all active filters">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+            <span>Reset Filters</span>
           </button>
         </div>
       </div>
@@ -30935,7 +30979,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     camera: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>`,
     folder: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>`,
     box: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
-    chevronDown: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`
+    chevronDown: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`,
+    rotateCcw: `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>`
   };
   
   // --- REFINEMENT LOGIC: MONOGRAMS, PIN, COPY & COMMAND PALETTE ---
@@ -31300,7 +31345,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       if (!tagCounts.has(t)) tagCounts.set(t, 0);
     });
 
-    if (tagCounts.size === 0) {
+    const hasAnyFilters = State.selectedStatuses.size > 0 || State.selectedTags.size > 0 || State.minRating > 0 || State.mediaFilter !== "all" || State.linkFilter !== "all" || State.searchQuery.trim() !== "";
+    if (tagCounts.size === 0 && !hasAnyFilters) {
       tagRow.style.display = "none";
       return;
     }
@@ -31377,20 +31423,27 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     if (State.linkFilter !== "all") activeFilterDesc.push(State.linkFilter === "has_link" ? "With Links" : "No Links");
     if (State.searchQuery.trim() !== "") activeFilterDesc.push(`Search: "${State.searchQuery}"`);
 
-    const activeFiltersCount = (State.selectedStatuses.size) + (State.selectedTags.size) + (State.minRating > 0 ? 1 : 0) + (State.mediaFilter !== "all" ? 1 : 0) + (State.linkFilter !== "all" ? 1 : 0) + (State.searchQuery.trim() !== "" ? 1 : 0);
+    const activeFiltersCount = (State.selectedStatuses.size) + (State.selectedTags.size) + (State.minRating > 0 ? 1 : 0) + (State.mediaFilter !== "all" ? 1 : 0) + (State.linkFilter !== "all" ? 1 : 0) + (State.searchQuery.trim() !== "" ? 1 : 0) + (State.tagSearchQuery && State.tagSearchQuery.trim() !== "" ? 1 : 0);
 
     const resetBtn = document.getElementById("btn-reset-filters");
     const actionsContainer = document.querySelector(".tag-filter-actions");
     if (resetBtn && actionsContainer) {
+      actionsContainer.style.display = "flex";
       if (activeFiltersCount > 0) {
-        actionsContainer.style.display = "flex";
+        resetBtn.classList.add("has-filters");
+        resetBtn.setAttribute("title", `Reset ${activeFiltersCount} active filter${activeFiltersCount > 1 ? "s" : ""}`);
         resetBtn.innerHTML = `
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-          <span>Clear</span>
+          ${ICONS.rotateCcw}
+          <span>Reset Filters</span>
           <span class="clear-badge-pill">${activeFiltersCount}</span>
         `;
       } else {
-        actionsContainer.style.display = "none";
+        resetBtn.classList.remove("has-filters");
+        resetBtn.setAttribute("title", "Reset all filters (none currently active)");
+        resetBtn.innerHTML = `
+          ${ICONS.rotateCcw}
+          <span>Reset Filters</span>
+        `;
       }
     }
 
