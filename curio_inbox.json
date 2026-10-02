@@ -13,5 +13,25 @@
     "Pixel Art & Animation",
     "HDR, Panorama & AI Tools"
   ],
-  "items": []
+  "items": [
+    {
+      "id": "item-discord-1790946240606",
+      "title": "Discord - Group Chat That’s All Fun & Games",
+      "drawer": "Game Design & Engines",
+      "status": "to-explore",
+      "tags": [
+        "unity",
+        "ui"
+      ],
+      "rating": 4,
+      "notes": "Discord is great for playing games and chilling with friends, or even building a worldwide community. Customize your own space to talk, play, and hang out.",
+      "link": "https://discord.com/channels/1555536591592886352/1555536722224480276/1555564980236066966",
+      "logo": "https://cdn.discordapp.com/assets/og_img_discord_home.png",
+      "gallery": [
+        "https://cdn.discordapp.com/assets/og_img_discord_home.png"
+      ],
+      "dateAdded": "2026-10-02T13:04:00.000Z",
+      "dateModified": "2026-10-02T13:04:00.000Z"
+    }
+  ]
 }
