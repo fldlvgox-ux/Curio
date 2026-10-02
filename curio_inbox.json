@@ -277,26 +277,27 @@
       "dateModified": "2026-10-02T14:12:43.000Z"
     },
     {
-      "id": "item-discord-1790950419157",
-      "title": "10 FREE PDF Apps for Windows 11 - The ULTIMATE 2025 Guide",
+      "id": "item-discord-1790950421618",
+      "title": "The Secrets of VLC Media Player - 15 Features You NEED to Know!",
       "drawer": "Desktop & OS Utilities",
       "status": "to-explore",
       "tags": [
-        "windows11",
-        "pdf",
-        "productivity",
-        "utilities",
-        "software"
+        "vlc",
+        "media-player",
+        "video-playback",
+        "transcoding",
+        "open-source",
+        "utilities"
       ],
-      "rating": 4,
-      "notes": "This guide showcases ten free PDF applications for Windows 11, detailing tools that enable users to efficiently view, edit, sign, and manage documents. It helps digital creators and professionals select the right software for streamlined document workflows without costly subscriptions.",
-      "link": "https://www.youtube.com/watch?v=v9xlvY16_T0",
-      "logo": "https://i.ytimg.com/vi/v9xlvY16_T0/hqdefault.jpg",
+      "rating": 5,
+      "notes": "VLC Media Player is a free, open-source cross-platform multimedia player capable of playing virtually any media format without external codecs. Beyond standard playback, it provides creators and power users with built-in tools for audio/video conversion, screen recording, stream capture, and subtitle synchronization.",
+      "link": "https://www.youtube.com/watch?v=GmcWHqInKnY",
+      "logo": "https://i.ytimg.com/vi/GmcWHqInKnY/hqdefault.jpg",
       "gallery": [
-        "https://i.ytimg.com/vi/v9xlvY16_T0/hqdefault.jpg"
+        "https://i.ytimg.com/vi/GmcWHqInKnY/hqdefault.jpg"
       ],
-      "dateAdded": "2026-10-02T14:13:39.000Z",
-      "dateModified": "2026-10-02T14:13:39.000Z"
+      "dateAdded": "2026-10-02T14:13:41.000Z",
+      "dateModified": "2026-10-02T14:13:41.000Z"
     }
   ]
 }
