@@ -252,6 +252,29 @@
       ],
       "dateAdded": "2026-10-02T14:12:24.000Z",
       "dateModified": "2026-10-02T14:12:24.000Z"
+    },
+    {
+      "id": "item-discord-1790950363409",
+      "title": "The Windows Search Replacement - The Everything Search Tool!",
+      "drawer": "Desktop & OS Utilities",
+      "status": "to-explore",
+      "tags": [
+        "everything",
+        "windows",
+        "search",
+        "utility",
+        "productivity",
+        "tool"
+      ],
+      "rating": 5,
+      "notes": "Everything by voidtools is an ultra-fast file searching utility for Windows that instantly indexes and locates files and folders by name. It serves as a powerful replacement for the default Windows Search, enabling digital creators and power users to retrieve assets and documents in milliseconds.",
+      "link": "https://www.youtube.com/watch?v=oYaN83fBa2A",
+      "logo": "https://i.ytimg.com/vi/oYaN83fBa2A/hqdefault.jpg",
+      "gallery": [
+        "https://i.ytimg.com/vi/oYaN83fBa2A/hqdefault.jpg"
+      ],
+      "dateAdded": "2026-10-02T14:12:43.000Z",
+      "dateModified": "2026-10-02T14:12:43.000Z"
     }
   ]
 }
