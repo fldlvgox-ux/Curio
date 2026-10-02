@@ -230,6 +230,28 @@
       ],
       "dateAdded": "2026-10-02T14:12:04.000Z",
       "dateModified": "2026-10-02T14:12:04.000Z"
+    },
+    {
+      "id": "item-discord-1790950344402",
+      "title": "The File Explorer Replacement You've Been Waiting For - File Pilot",
+      "drawer": "Desktop & OS Utilities",
+      "status": "to-explore",
+      "tags": [
+        "filepilot",
+        "fileexplorer",
+        "productivity",
+        "windows",
+        "utility"
+      ],
+      "rating": 4,
+      "notes": "File Pilot is an advanced file manager and Windows Explorer alternative designed to streamline file organization and workflow efficiency. It empowers digital creators and tech enthusiasts to navigate directories, manage assets, and execute batch operations much faster than the default OS interface.",
+      "link": "https://www.youtube.com/watch?v=GWIjBBWv7KI",
+      "logo": "https://i.ytimg.com/vi/GWIjBBWv7KI/hqdefault.jpg",
+      "gallery": [
+        "https://i.ytimg.com/vi/GWIjBBWv7KI/hqdefault.jpg"
+      ],
+      "dateAdded": "2026-10-02T14:12:24.000Z",
+      "dateModified": "2026-10-02T14:12:24.000Z"
     }
   ]
 }
