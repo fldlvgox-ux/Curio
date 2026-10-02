@@ -15,42 +15,24 @@
   ],
   "items": [
     {
-      "id": "item-discord-1790946240606",
-      "title": "Discord - Group Chat That’s All Fun & Games",
-      "drawer": "Game Design & Engines",
+      "id": "item-discord-1790947581001",
+      "title": "Lap",
+      "drawer": "Photo Management & Viewers",
       "status": "to-explore",
       "tags": [
-        "unity",
-        "ui"
+        "ai",
+        "photo-manager",
+        "local-first",
+        "open-source",
+        "utility"
       ],
       "rating": 4,
-      "notes": "Discord is great for playing games and chilling with friends, or even building a worldwide community. Customize your own space to talk, play, and hang out.",
-      "link": "https://discord.com/channels/1555536591592886352/1555536722224480276/1555564980236066966",
-      "logo": "https://cdn.discordapp.com/assets/og_img_discord_home.png",
-      "gallery": [
-        "https://cdn.discordapp.com/assets/og_img_discord_home.png"
-      ],
-      "dateAdded": "2026-10-02T13:04:00.000Z",
-      "dateModified": "2026-10-02T13:04:00.000Z"
-    },
-    {
-      "id": "item-discord-1790946746063",
-      "title": "Discord - Group Chat That’s All Fun & Games",
-      "drawer": "Game Design & Engines",
-      "status": "to-explore",
-      "tags": [
-        "unity",
-        "ui"
-      ],
-      "rating": 4,
-      "notes": "Discord is great for playing games and chilling with friends, or even building a worldwide community. Customize your own space to talk, play, and hang out.",
-      "link": "https://discord.com/channels/1555536591592886352/1555536722224480276/1555566223247548476",
-      "logo": "https://cdn.discordapp.com/assets/og_img_discord_home.png",
-      "gallery": [
-        "https://cdn.discordapp.com/assets/og_img_discord_home.png"
-      ],
-      "dateAdded": "2026-10-02T13:12:26.000Z",
-      "dateModified": "2026-10-02T13:12:26.000Z"
+      "notes": "Lap is a local-first, AI-powered photo manager designed for efficient image organization and searching. Digital creators and photographers can use it to securely catalog, sort, and navigate large media libraries using modern AI capabilities without relying on cloud services.",
+      "link": "https://julyx10.github.io/lap/",
+      "logo": "",
+      "gallery": [],
+      "dateAdded": "2026-10-02T13:26:21.000Z",
+      "dateModified": "2026-10-02T13:26:21.000Z"
     }
   ]
 }
