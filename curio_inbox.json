@@ -188,6 +188,26 @@
       ],
       "dateAdded": "2026-10-02T13:45:44.000Z",
       "dateModified": "2026-10-02T13:45:44.000Z"
+    },
+    {
+      "id": "item-discord-1790949458801",
+      "title": "- YouTube",
+      "drawer": "Game Design & Engines",
+      "status": "to-explore",
+      "tags": [
+        "youtube",
+        "video",
+        "game-dev",
+        "tutorial",
+        "gamedev"
+      ],
+      "rating": 4,
+      "notes": "This bookmarked YouTube video serves as a reference or tutorial for game development concepts. Creators and developers can utilize the video content to learn new techniques, workflows, or industry insights.",
+      "link": "https://www.youtube.com/watch?v=TqkKV4qad8I",
+      "logo": "",
+      "gallery": [],
+      "dateAdded": "2026-10-02T13:57:38.000Z",
+      "dateModified": "2026-10-02T13:57:38.000Z"
     }
   ]
 }
