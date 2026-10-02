@@ -1,7 +1,7 @@
 """
 CURIO — Discord Companion Bot
 Automated link collecting, curating, and organizing for CURIO.
-100% Free & Local.
+Works both locally (PC) and in the cloud (Render, Koyeb, etc.).
 """
 
 import os
@@ -11,12 +11,13 @@ import re
 import json
 import time
 import asyncio
+import base64
 from datetime import datetime, timezone
 
 if sys.platform == "win32":
     try:
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace', write_through=True)
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace', write_through=True)
     except Exception:
         pass
 
@@ -28,7 +29,12 @@ from discord.ext import commands
 
 CONFIG_FILE = "bot_config.json"
 INBOX_FILE = "curio_inbox.json"
-DEFAULT_PORT = 8765
+DEFAULT_PORT = int(os.environ.get("PORT", 8765))
+
+# Cloud mode: detected when DISCORD_TOKEN env var is set (Render/Koyeb)
+CLOUD_MODE = bool(os.environ.get("DISCORD_TOKEN"))
+GITHUB_REPO = os.environ.get("GITHUB_REPO", "fldlvgox-ux/Curio")
+GITHUB_API_URL = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{INBOX_FILE}"
 
 DEFAULT_DRAWERS = [
     "Game Design & Engines",
@@ -45,6 +51,16 @@ DEFAULT_DRAWERS = [
 ]
 
 def load_config():
+    # Cloud mode: read secrets from environment variables
+    if CLOUD_MODE:
+        print("[Config] Cloud mode detected — reading from environment variables")
+        return {
+            "discord_token": os.environ.get("DISCORD_TOKEN", ""),
+            "channel_name": os.environ.get("CHANNEL_NAME", "curio-index"),
+            "gemini_api_key": os.environ.get("GEMINI_API_KEY", ""),
+            "github_token": os.environ.get("GITHUB_TOKEN", ""),
+        }
+    # Local mode: read from bot_config.json
     if not os.path.exists(CONFIG_FILE):
         default_cfg = {
             "discord_token": "YOUR_DISCORD_BOT_TOKEN_HERE",
@@ -79,7 +95,18 @@ def extract_urls(text):
     url_pattern = re.compile(
         r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
     )
-    return url_pattern.findall(text)
+    raw_urls = url_pattern.findall(text)
+    # Filter out Discord internal URLs (channel links, CDN, etc.)
+    filtered = []
+    for u in raw_urls:
+        # Skip discord.com internal links (channels, attachments, cdn)
+        if re.match(r'https?://(www\.)?(discord\.com|discordapp\.com|cdn\.discordapp\.com|media\.discordapp\.net)', u):
+            continue
+        # Skip Discord CDN for user avatars/emojis
+        if 'discord' in u.lower() and ('/channels/' in u or '/attachments/' in u or '/avatars/' in u or '/emojis/' in u):
+            continue
+        filtered.append(u)
+    return filtered
 
 async def scrape_web_metadata(url):
     """Scrapes OpenGraph and standard HTML metadata from URL."""
@@ -179,7 +206,7 @@ Produce a JSON response with:
 Respond ONLY with valid JSON.
 """
         response = None
-        for model_name in ["gemini-2.5-flash", "gemini-flash-latest", "gemini-2.5-flash-lite"]:
+        for model_name in ["gemini-3.8-flash", "gemini-3.5-flash-lite", "gemini-flash-latest"]:
             try:
                 response = await asyncio.to_thread(
                     client.models.generate_content,
@@ -250,8 +277,56 @@ def heuristic_curate(url, meta, available_drawers):
         "rating": 4
     }
 
+async def github_api_push(inbox_data, item_title="Discord update"):
+    """Push curio_inbox.json to GitHub using REST API (for cloud deployment)."""
+    github_token = config.get("github_token", "") or os.environ.get("GITHUB_TOKEN", "")
+    if not github_token:
+        print("[GitHub API] No GITHUB_TOKEN set — skipping push")
+        return False
+
+    headers = {
+        "Authorization": f"token {github_token}",
+        "Accept": "application/vnd.github.v3+json",
+        "User-Agent": "CURIO-Bot"
+    }
+
+    try:
+        timeout = aiohttp.ClientTimeout(total=15)
+        async with aiohttp.ClientSession(timeout=timeout) as session:
+            # Get current file SHA (required for updates)
+            sha = None
+            async with session.get(GITHUB_API_URL, headers=headers) as resp:
+                if resp.status == 200:
+                    data = await resp.json()
+                    sha = data.get("sha")
+
+            # Encode new content
+            content_bytes = json.dumps(inbox_data, indent=2, ensure_ascii=False).encode("utf-8")
+            content_b64 = base64.b64encode(content_bytes).decode("ascii")
+
+            # Push update
+            payload = {
+                "message": f"Curate: {item_title[:45]}",
+                "content": content_b64,
+                "branch": "main"
+            }
+            if sha:
+                payload["sha"] = sha
+
+            async with session.put(GITHUB_API_URL, headers=headers, json=payload) as resp:
+                if resp.status in (200, 201):
+                    print(f"[GitHub API] Pushed inbox to GitHub: {item_title[:35]}")
+                    return True
+                else:
+                    err = await resp.text()
+                    print(f"[GitHub API Warning] Status {resp.status}: {err[:150]}")
+                    return False
+    except Exception as e:
+        print(f"[GitHub API Exception]: {e}")
+        return False
+
 def git_sync_push(item_title="Discord update"):
-    """Auto-commits and pushes curio_inbox.json to GitHub repository."""
+    """Auto-commits and pushes curio_inbox.json to GitHub repository (local mode only)."""
     try:
         import subprocess
         subprocess.run(["git", "add", INBOX_FILE], check=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -298,9 +373,10 @@ async def start_local_api(port=DEFAULT_PORT):
 
     runner = web.AppRunner(app)
     await runner.setup()
-    site = web.TCPSite(runner, "127.0.0.1", port)
+    host = "0.0.0.0" if CLOUD_MODE else "127.0.0.1"
+    site = web.TCPSite(runner, host, port)
     await site.start()
-    print(f"[API] CURIO Local Sync API running at http://127.0.0.1:{port}/api/inbox")
+    print(f"[API] CURIO Sync API running at http://{host}:{port}/api/inbox")
 
 # -------------------------------------------------------------
 # Discord Bot Core
@@ -325,10 +401,14 @@ async def on_message(message):
         return
         
     target_channel = config.get("channel_name", "curio-inbox").lower()
-    is_target_channel = (message.channel.name.lower() == target_channel if hasattr(message.channel, "name") else False)
+    ch_name = getattr(message.channel, "name", "").lower()
+    is_target_channel = (ch_name == target_channel or "curio" in ch_name or "inbox" in ch_name or "index" in ch_name)
     is_dm = isinstance(message.channel, discord.DMChannel)
     
+    print(f"[Discord Event] Received message in #{ch_name or 'DM'} from {message.author}: {message.content[:60]}", flush=True)
+
     if not (is_target_channel or is_dm):
+        print(f"[*] Ignored message (channel #{ch_name} doesn't match target '{target_channel}')", flush=True)
         await bot.process_commands(message)
         return
         
@@ -348,8 +428,11 @@ async def on_message(message):
         return
 
     if content_lower in ["!curio sync", "sync", "!sync"]:
-        msg = await message.reply("🔄 Pushing local catalog to GitHub...")
-        success = await asyncio.to_thread(git_sync_push, "Manual sync command")
+        msg = await message.reply("🔄 Pushing catalog to GitHub...")
+        if CLOUD_MODE:
+            success = await github_api_push(load_inbox(), "Manual sync command")
+        else:
+            success = await asyncio.to_thread(git_sync_push, "Manual sync command")
         if success:
             await msg.edit(content="✅ **Successfully synced to GitHub!** You can now tap **Sync** on your phone.")
         else:
@@ -404,7 +487,10 @@ async def on_message(message):
     # Auto-push to GitHub repository
     if added_items:
         first_title = added_items[0]["title"]
-        asyncio.create_task(asyncio.to_thread(git_sync_push, first_title))
+        if CLOUD_MODE:
+            asyncio.create_task(github_api_push(inbox, first_title))
+        else:
+            asyncio.create_task(asyncio.to_thread(git_sync_push, first_title))
 
     try:
         await message.remove_reaction("⏳", bot.user)
@@ -429,18 +515,56 @@ async def on_message(message):
         embed.set_footer(text=f"CURIO Catalog • Queued: {len(inbox['items'])} • Synced to GitHub")
         await message.reply(embed=embed)
 
+async def cloud_bootstrap_inbox():
+    """On cloud startup, fetch existing inbox from GitHub so we don't lose data."""
+    github_token = config.get("github_token", "") or os.environ.get("GITHUB_TOKEN", "")
+    if not github_token:
+        return
+    headers = {
+        "Authorization": f"token {github_token}",
+        "Accept": "application/vnd.github.v3+json",
+        "User-Agent": "CURIO-Bot"
+    }
+    try:
+        timeout = aiohttp.ClientTimeout(total=10)
+        async with aiohttp.ClientSession(timeout=timeout) as session:
+            async with session.get(GITHUB_API_URL, headers=headers) as resp:
+                if resp.status == 200:
+                    data = await resp.json()
+                    content_b64 = data.get("content", "")
+                    content_bytes = base64.b64decode(content_b64)
+                    inbox_data = json.loads(content_bytes.decode("utf-8"))
+                    save_inbox(inbox_data)
+                    count = len(inbox_data.get("items", []))
+                    print(f"[Cloud Bootstrap] Loaded {count} existing items from GitHub")
+                else:
+                    print(f"[Cloud Bootstrap] No existing inbox on GitHub (status {resp.status}), starting fresh")
+    except Exception as e:
+        print(f"[Cloud Bootstrap] Could not fetch inbox: {e}")
+
 async def main():
     token = config.get("discord_token", "").strip()
     if not token or token == "YOUR_DISCORD_BOT_TOKEN_HERE":
         print("\n" + "!" * 60)
         print(" [ACTION REQUIRED] Discord Bot Token not set!")
-        print(f" Please open: {os.path.abspath(CONFIG_FILE)}")
-        print(" and paste your Bot Token into the 'discord_token' field.")
+        if CLOUD_MODE:
+            print(" Set the DISCORD_TOKEN environment variable.")
+        else:
+            print(f" Please open: {os.path.abspath(CONFIG_FILE)}")
+            print(" and paste your Bot Token into the 'discord_token' field.")
         print("!" * 60 + "\n")
         return
 
-    # Start local sync HTTP server in background
-    await start_local_api(DEFAULT_PORT)
+    if CLOUD_MODE:
+        print("[Mode] CLOUD — using env vars + GitHub API")
+        # Fetch existing inbox from GitHub (ephemeral filesystem)
+        await cloud_bootstrap_inbox()
+        # Start health-check HTTP server (Render needs a port listener)
+        await start_local_api(DEFAULT_PORT)
+    else:
+        print("[Mode] LOCAL — using bot_config.json + git CLI")
+        # Start local sync HTTP server in background
+        await start_local_api(DEFAULT_PORT)
     
     # Start Discord Bot
     await bot.start(token)
