@@ -166,6 +166,28 @@
       ],
       "dateAdded": "2026-10-02T13:45:25.000Z",
       "dateModified": "2026-10-02T13:45:25.000Z"
+    },
+    {
+      "id": "item-discord-1790948744432",
+      "title": "GitHub - hyperfield/ai-file-sorter: Cross-platform desktop application for content-aware file organization and renaming. Supports local and remote LLMs, preview-based workflows, and fully user-controlled changes.",
+      "drawer": "Desktop & OS Utilities",
+      "status": "to-explore",
+      "tags": [
+        "ai",
+        "file-organization",
+        "open-source",
+        "llm",
+        "productivity"
+      ],
+      "rating": 4,
+      "notes": "AI File Sorter is an open-source cross-platform desktop application that automatically categorizes and renames files based on their content using local or cloud LLMs. Digital creators and developers can streamline messy project directories and asset libraries using its safe, preview-first workflow.",
+      "link": "https://github.com/hyperfield/ai-file-sorter",
+      "logo": "https://opengraph.githubassets.com/15a0afde7036912097d7abaa959028d5b989252d94d20cc6178c7f5b2476813e/hyperfield/ai-file-sorter",
+      "gallery": [
+        "https://opengraph.githubassets.com/15a0afde7036912097d7abaa959028d5b989252d94d20cc6178c7f5b2476813e/hyperfield/ai-file-sorter"
+      ],
+      "dateAdded": "2026-10-02T13:45:44.000Z",
+      "dateModified": "2026-10-02T13:45:44.000Z"
     }
   ]
 }
