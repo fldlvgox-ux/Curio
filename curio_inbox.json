@@ -144,6 +144,28 @@
       ],
       "dateAdded": "2026-10-02T13:41:54.000Z",
       "dateModified": "2026-10-02T13:41:54.000Z"
+    },
+    {
+      "id": "item-discord-1790948725739",
+      "title": "GitHub - Tox-EyE-CeaZY/Hearth at widgets-and-installer",
+      "drawer": "Desktop & OS Utilities",
+      "status": "to-explore",
+      "tags": [
+        "windows",
+        "desktop",
+        "ui",
+        "open-source",
+        "customization"
+      ],
+      "rating": 3,
+      "notes": "Hearth is an open-source Windows desktop replacement designed with an Android-inspired aesthetic and modular widget support. Power users and creators can use it to replace the default Windows shell with a streamlined, mobile-like workspace interface.",
+      "link": "https://github.com/Tox-EyE-CeaZY/Hearth/tree/widgets-and-installer",
+      "logo": "https://opengraph.githubassets.com/adb733e94e61ff3b3c10c2e0eabec96b09a843f3936219cf7ef0347c7432d215/Tox-EyE-CeaZY/Hearth",
+      "gallery": [
+        "https://opengraph.githubassets.com/adb733e94e61ff3b3c10c2e0eabec96b09a843f3936219cf7ef0347c7432d215/Tox-EyE-CeaZY/Hearth"
+      ],
+      "dateAdded": "2026-10-02T13:45:25.000Z",
+      "dateModified": "2026-10-02T13:45:25.000Z"
     }
   ]
 }
