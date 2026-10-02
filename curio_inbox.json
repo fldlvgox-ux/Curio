@@ -208,6 +208,28 @@
       "gallery": [],
       "dateAdded": "2026-10-02T13:57:38.000Z",
       "dateModified": "2026-10-02T13:57:38.000Z"
+    },
+    {
+      "id": "item-discord-1790950324549",
+      "title": "The Most Powerful File Explorer Replacement on the Market: Directory Opus",
+      "drawer": "Desktop & OS Utilities",
+      "status": "to-explore",
+      "tags": [
+        "directory opus",
+        "file manager",
+        "windows",
+        "productivity",
+        "utilities"
+      ],
+      "rating": 5,
+      "notes": "Directory Opus is an advanced, highly customizable file manager replacement for Windows designed to supercharge file organization and workflow efficiency. It enables power users and creators to handle complex file operations, batch processing, and dual-pane browsing with speed and precision.",
+      "link": "https://www.youtube.com/watch?v=8wxXrsD2qOg",
+      "logo": "https://i.ytimg.com/vi/8wxXrsD2qOg/hqdefault.jpg",
+      "gallery": [
+        "https://i.ytimg.com/vi/8wxXrsD2qOg/hqdefault.jpg"
+      ],
+      "dateAdded": "2026-10-02T14:12:04.000Z",
+      "dateModified": "2026-10-02T14:12:04.000Z"
     }
   ]
 }
