@@ -9,3 +9,7 @@ desktop/resources/
 
 # Local marketing notes (private)
 MARKETING_GUIDE.md
+
+# Bot configuration and local tokens (private secrets)
+bot_config.json
+.env

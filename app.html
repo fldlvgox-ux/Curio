@@ -619,19 +619,26 @@
     .pill-toggle.status-archived.active { border-color: var(--status-archived); color: var(--status-archived); background: var(--status-archived-bg); }
 
     .select-custom {
-      background: var(--bg-base);
+      background-color: var(--bg-base);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-sm);
       color: var(--text-main);
       font-size: 0.75rem;
       font-family: var(--font-mono);
-      padding: 0.3rem 0.6rem;
+      padding: 0.32rem 1.65rem 0.32rem 0.65rem;
       outline: none;
       cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.5rem center;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
     .select-custom:focus {
       border-color: var(--accent-cyan);
+      box-shadow: 0 0 0 2px var(--accent-cyan-glow);
     }
 
     .filter-divider {
@@ -731,6 +738,9 @@
       flex: 1;
       min-width: 0;
       position: relative;
+      overflow: hidden;
+      mask-image: linear-gradient(to right, black calc(100% - 24px), transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, black calc(100% - 24px), transparent 100%);
     }
 
     .tag-cloud-container {
@@ -740,7 +750,7 @@
       overflow-x: auto;
       overflow-y: hidden;
       gap: 0.35rem;
-      padding: 2px 0;
+      padding: 2px 8px 2px 0;
       scrollbar-width: thin;
       max-height: 30px;
       transition: max-height 0.2s ease;
@@ -790,17 +800,76 @@
 
     .tag-filter-actions {
       flex-shrink: 0;
-      margin-left: auto;
+      display: none; /* Only displayed when active filters exist */
+      align-items: center;
+      margin-left: 0.5rem;
+      padding-left: 0.65rem;
+      border-left: 1px solid var(--border-subtle);
     }
 
     .clear-filters-btn {
+      font-size: 0.72rem;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      color: #fca5a5;
+      background: rgba(244, 63, 94, 0.12);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      border-radius: 9999px;
+      padding: 0.22rem 0.7rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .clear-filters-btn svg {
+      flex-shrink: 0;
+    }
+
+    .clear-filters-btn:hover {
+      background: rgba(244, 63, 94, 0.24);
+      border-color: rgba(244, 63, 94, 0.55);
+      color: #ffffff;
+      box-shadow: 0 0 12px rgba(244, 63, 94, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .clear-badge-pill {
+      background: rgba(244, 63, 94, 0.3);
+      color: #ffffff;
+      font-size: 0.62rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      padding: 0.05rem 0.35rem;
+      border-radius: 9999px;
+      margin-left: 0.1rem;
+    }
+
+    .filter-summary-clear-btn {
+      background: rgba(244, 63, 94, 0.1);
+      border: 1px solid rgba(244, 63, 94, 0.25);
+      color: var(--accent-rose);
       font-size: 0.7rem;
       font-family: var(--font-mono);
-      color: var(--accent-rose);
-      background: none;
-      border: none;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-sm);
       cursor: pointer;
-      text-decoration: underline;
+      margin-left: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: all 0.15s ease;
+    }
+
+    .filter-summary-clear-btn:hover {
+      background: rgba(244, 63, 94, 0.25);
+      color: #ffffff;
+      border-color: var(--accent-rose);
     }
 
     /* Content Area */
@@ -2483,9 +2552,15 @@
           ACTIVE CATALOG
         </span>
         <div class="catalog-ctrl-btns">
-          <button class="btn-icon-xs" id="btn-add-catalog" title="Create New Catalog">＋</button>
-          <button class="btn-icon-xs" id="btn-rename-catalog" title="Rename Current Catalog">✏️</button>
-          <button class="btn-icon-xs" id="btn-delete-catalog" title="Delete Current Catalog">🗑️</button>
+          <button class="btn-icon-xs" id="btn-add-catalog" title="Create New Catalog">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+          <button class="btn-icon-xs" id="btn-rename-catalog" title="Rename Current Catalog">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+          </button>
+          <button class="btn-icon-xs" id="btn-delete-catalog" title="Delete Current Catalog">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+          </button>
         </div>
       </div>
       <select class="catalog-select-dropdown" id="catalog-selector" title="Switch Catalog">
@@ -2498,7 +2573,9 @@
     <div class="drawers-section">
       <div class="section-header">
         <span>Drawers / Categories</span>
-        <button class="btn-icon-xs" id="btn-add-drawer" title="Create New Drawer">+</button>
+        <button class="btn-icon-xs" id="btn-add-drawer" title="Create New Drawer">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
       </div>
       
       <div class="drawer-item active" data-drawer="__ALL__" id="drawer-all-btn">
@@ -2524,6 +2601,13 @@
         <div class="storage-bar-bg">
           <div class="storage-bar-fill" id="storage-fill"></div>
         </div>
+      </div>
+
+      <div style="margin-bottom: 0.5rem;">
+        <button class="btn-primary" id="btn-sync-cloud" style="width: 100%; justify-content: center; gap: 0.45rem; padding: 0.55rem; font-weight: 600;" title="Sync curated items from Discord / GitHub">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+          <span>Sync Inbox</span>
+        </button>
       </div>
 
       <div class="sidebar-utils">
@@ -2690,8 +2774,11 @@
             <!-- Dynamic Tag Pills -->
           </div>
         </div>
-        <div class="tag-filter-actions">
-          <button class="clear-filters-btn" id="btn-reset-filters">Reset Filters</button>
+        <div class="tag-filter-actions" style="display: none;">
+          <button class="clear-filters-btn" id="btn-reset-filters" title="Clear all active filters">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            <span>Clear Filters</span>
+          </button>
         </div>
       </div>
     </div>
@@ -2739,7 +2826,9 @@
               <select class="form-select" id="item-drawer" required style="flex:1;">
                 <!-- Populated dynamically -->
               </select>
-              <button type="button" class="btn-secondary" id="btn-quick-new-drawer" title="Quick New Drawer">+</button>
+              <button type="button" class="btn-secondary" id="btn-quick-new-drawer" title="Quick New Drawer">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
             </div>
           </div>
 
@@ -2783,7 +2872,9 @@
           </label>
           <div style="display: flex; gap: 0.35rem;">
             <input type="url" class="form-input" id="item-link" placeholder="https://..." style="flex:1;">
-            <button type="button" class="btn-secondary" id="btn-test-link" title="Open Link">↗</button>
+            <button type="button" class="btn-secondary" id="btn-test-link" title="Open Link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </button>
           </div>
         </div>
 
@@ -3162,23 +3253,28 @@
   <span class="bulk-count-badge" id="bulk-selected-count">0 Selected</span>
   
   <button class="bulk-action-btn" id="bulk-move-btn" title="Move selected items to another drawer">
-    📁 Move Drawer
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+    <span>Move Drawer</span>
   </button>
   
   <button class="bulk-action-btn" id="bulk-status-btn" title="Change status for selected items">
-    🚦 Status ▾
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+    <span>Status ▾</span>
   </button>
   
   <button class="bulk-action-btn" id="bulk-tag-btn" title="Add tags to all selected items">
-    🏷️ Add Tag
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+    <span>Add Tag</span>
   </button>
   
   <button class="bulk-action-btn" id="bulk-pin-btn" title="Toggle pin on selected items">
-    ⭐ Pin / Unpin
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+    <span>Pin / Unpin</span>
   </button>
   
   <button class="bulk-action-btn danger" id="bulk-delete-btn" title="Delete all selected items">
-    🗑️ Delete
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+    <span>Delete</span>
   </button>
   
   <button class="btn-icon-xs" id="bulk-clear-btn" title="Clear selection" style="margin-left:0.25rem;">✕</button>
@@ -30798,6 +30894,21 @@ https://github.com/nodeca/pako/blob/main/LICENSE
   }
 
   // --- 6. RENDERERS ---
+
+  // Modern SVG Icons Dictionary
+  const ICONS = {
+    plus: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>`,
+    edit: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>`,
+    trash: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>`,
+    starFilled: `<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
+    starOutline: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
+    copy: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`,
+    externalLink: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`,
+    camera: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>`,
+    folder: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>`,
+    box: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
+    chevronDown: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`
+  };
   
   // --- REFINEMENT LOGIC: MONOGRAMS, PIN, COPY & COMMAND PALETTE ---
   State.groupBy = "drawer"; // "drawer", "status", "rating", "alpha"
@@ -30900,11 +31011,11 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       section.innerHTML = `
         <div class="group-header">
           <div class="group-title-wrap">
-            <span class="group-icon">🗂️</span>
+            <span class="group-icon">${ICONS.folder}</span>
             <span class="group-title">${escapeHtml(groupName)}</span>
             <span class="group-count-badge">${groupItems.length} items</span>
           </div>
-          <span class="group-toggle-icon">▼</span>
+          <span class="group-toggle-icon">${ICONS.chevronDown}</span>
         </div>
         <div class="group-content">
           <div class="catalog-grid"></div>
@@ -30924,7 +31035,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         const mediaHtml = heroImg ? `
           <div class="item-card-media card-media-trigger" data-id="${item.id}">
             <img src="${heroImg}" alt="${escapeHtml(item.title)}">
-            ${item.gallery && item.gallery.length > 1 ? `<div class="gallery-badge">📷 ${item.gallery.length}</div>` : ""}
+            ${item.gallery && item.gallery.length > 1 ? `<div class="gallery-badge" style="display:inline-flex;align-items:center;gap:0.3rem;">${ICONS.camera} ${item.gallery.length}</div>` : ""}
             ${item.logo ? `<div class="logo-inset"><img src="${item.logo}" alt="Logo"></div>` : ""}
           </div>
         ` : getMonogramHtml(item);
@@ -30944,10 +31055,10 @@ https://github.com/nodeca/pako/blob/main/LICENSE
             <div class="card-footer">
               ${getStarsHtml(item.rating)}
               <div class="card-actions-quick">
-                <button class="btn-icon-xs card-pin-btn ${item.pinned ? 'active' : ''}" data-id="${item.id}" title="${item.pinned ? 'Unpin' : 'Pin to top'}">⭐</button>
-                <button class="btn-icon-xs card-copy-btn" data-id="${item.id}" title="Copy Markdown Link">📋</button>
-                ${item.link ? `<a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer" class="btn-icon-xs" title="Open Link">🔗</a>` : ""}
-                <button class="btn-icon-xs btn-edit-item" data-id="${item.id}" title="Edit Item">✏️</button>
+                <button class="btn-icon-xs card-pin-btn ${item.pinned ? 'active' : ''}" data-id="${item.id}" title="${item.pinned ? 'Unpin' : 'Pin to top'}">${item.pinned ? ICONS.starFilled : ICONS.starOutline}</button>
+                <button class="btn-icon-xs card-copy-btn" data-id="${item.id}" title="Copy Markdown Link">${ICONS.copy}</button>
+                ${item.link ? `<a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer" class="btn-icon-xs" title="Open Link">${ICONS.externalLink}</a>` : ""}
+                <button class="btn-icon-xs btn-edit-item" data-id="${item.id}" title="Edit Item">${ICONS.edit}</button>
               </div>
             </div>
           </div>
@@ -31028,7 +31139,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           <span class="palette-item-title">${escapeHtml(res.item.title)}</span>
           <div class="palette-item-subtitle">
             <span class="palette-cat-tag">${escapeHtml(res.catalogName)}</span>
-            <span>📁 ${escapeHtml(res.item.drawer)}</span>
+            <span style="display:inline-flex;align-items:center;gap:0.25rem;">${ICONS.folder} ${escapeHtml(res.item.drawer)}</span>
             ${res.item.rating ? `<span>★ ${res.item.rating}</span>` : ''}
           </div>
         </div>
@@ -31104,8 +31215,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           <span>${escapeHtml(drawerName)}</span>
         </div>
         <div class="drawer-actions">
-          <button class="btn-icon-xs btn-edit-drawer" title="Rename Drawer" data-drawer="${escapeHtml(drawerName)}">✏️</button>
-          <button class="btn-icon-xs btn-delete-drawer" title="Delete Drawer" data-drawer="${escapeHtml(drawerName)}">🗑️</button>
+          <button class="btn-icon-xs btn-edit-drawer" title="Rename Drawer" data-drawer="${escapeHtml(drawerName)}">${ICONS.edit}</button>
+          <button class="btn-icon-xs btn-delete-drawer" title="Delete Drawer" data-drawer="${escapeHtml(drawerName)}">${ICONS.trash}</button>
         </div>
         <span class="drawer-count">${count}</span>
       `;
@@ -31238,7 +31349,39 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     if (State.linkFilter !== "all") activeFilterDesc.push(State.linkFilter === "has_link" ? "With Links" : "No Links");
     if (State.searchQuery.trim() !== "") activeFilterDesc.push(`Search: "${State.searchQuery}"`);
 
-    filterSummary.innerText = activeFilterDesc.length > 0 ? `Filtered by: ${activeFilterDesc.join(" | ")}` : "";
+    const activeFiltersCount = (State.selectedStatuses.size) + (State.selectedTags.size) + (State.minRating > 0 ? 1 : 0) + (State.mediaFilter !== "all" ? 1 : 0) + (State.linkFilter !== "all" ? 1 : 0) + (State.searchQuery.trim() !== "" ? 1 : 0);
+
+    const resetBtn = document.getElementById("btn-reset-filters");
+    const actionsContainer = document.querySelector(".tag-filter-actions");
+    if (resetBtn && actionsContainer) {
+      if (activeFiltersCount > 0) {
+        actionsContainer.style.display = "flex";
+        resetBtn.innerHTML = `
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <span>Clear</span>
+          <span class="clear-badge-pill">${activeFiltersCount}</span>
+        `;
+      } else {
+        actionsContainer.style.display = "none";
+      }
+    }
+
+    if (activeFilterDesc.length > 0) {
+      filterSummary.innerHTML = `
+        <span style="display:inline-flex;align-items:center;flex-wrap:wrap;gap:0.35rem;">
+          Filtered by: ${escapeHtml(activeFilterDesc.join(" · "))}
+          <button class="filter-summary-clear-btn" id="btn-quick-clear-meta" title="Clear all active filters">✕ Clear</button>
+        </span>
+      `;
+      const quickClear = document.getElementById("btn-quick-clear-meta");
+      if (quickClear) {
+        quickClear.addEventListener("click", () => {
+          document.getElementById("btn-reset-filters").click();
+        });
+      }
+    } else {
+      filterSummary.innerHTML = "";
+    }
 
     if (items.length === 0) {
       container.innerHTML = `
@@ -31312,7 +31455,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         mediaHtml = `
           <div class="item-card-media card-media-trigger" data-id="${item.id}">
             <img src="${heroImg}" alt="${escapeHtml(item.title)}">
-            ${galleryCount > 1 ? `<div class="gallery-badge">📷 ${galleryCount} photos</div>` : ""}
+            ${galleryCount > 1 ? `<div class="gallery-badge" style="display:inline-flex;align-items:center;gap:0.3rem;">${ICONS.camera} ${galleryCount} photos</div>` : ""}
             ${item.logo ? `<div class="logo-inset"><img src="${item.logo}" alt="Logo"></div>` : ""}
           </div>
         `;
@@ -31336,10 +31479,10 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           <div class="card-footer">
             ${getStarsHtml(item.rating)}
             <div class="card-actions-quick">
-              <button class="btn-icon-xs card-pin-btn ${item.pinned ? 'active' : ''}" data-id="${item.id}" title="${item.pinned ? 'Unpin' : 'Pin to top'}">⭐</button>
-              <button class="btn-icon-xs card-copy-btn" data-id="${item.id}" title="Copy Markdown Link">📋</button>
-              ${item.link ? `<a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer" class="btn-icon-xs" title="Open Link: ${escapeHtml(item.link)}">🔗</a>` : ""}
-              <button class="btn-icon-xs btn-edit-item" data-id="${item.id}" title="Edit Item">✏️</button>
+              <button class="btn-icon-xs card-pin-btn ${item.pinned ? 'active' : ''}" data-id="${item.id}" title="${item.pinned ? 'Unpin' : 'Pin to top'}">${item.pinned ? ICONS.starFilled : ICONS.starOutline}</button>
+              <button class="btn-icon-xs card-copy-btn" data-id="${item.id}" title="Copy Markdown Link">${ICONS.copy}</button>
+              ${item.link ? `<a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer" class="btn-icon-xs" title="Open Link: ${escapeHtml(item.link)}">${ICONS.externalLink}</a>` : ""}
+              <button class="btn-icon-xs btn-edit-item" data-id="${item.id}" title="Edit Item">${ICONS.edit}</button>
             </div>
           </div>
         </div>
@@ -31403,8 +31546,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
               </div>
             </div>
             <div style="display:flex; gap:0.4rem;">
-              ${item.link ? `<a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding:0.3rem 0.6rem;">Visit Link ↗</a>` : ""}
-              <button class="btn-secondary btn-edit-item" data-id="${item.id}" style="padding:0.3rem 0.6rem;">Edit</button>
+              ${item.link ? `<a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding:0.3rem 0.6rem; display:inline-flex; align-items:center; gap:0.35rem;"><span>Visit Link</span> ${ICONS.externalLink}</a>` : ""}
+              <button class="btn-secondary btn-edit-item" data-id="${item.id}" style="padding:0.3rem 0.6rem; display:inline-flex; align-items:center; gap:0.35rem;">${ICONS.edit} <span>Edit</span></button>
             </div>
           </div>
 
@@ -31438,7 +31581,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         <tr>
           <td>
             <div class="table-title-cell">
-              ${item.logo ? `<div class="table-mini-logo"><img src="${item.logo}" alt=""></div>` : `<div class="table-mini-logo" style="display:flex;align-items:center;justify-content:center;font-size:10px;">📦</div>`}
+              ${item.logo ? `<div class="table-mini-logo"><img src="${item.logo}" alt=""></div>` : `<div class="table-mini-logo" style="display:flex;align-items:center;justify-content:center;color:var(--text-dim);">${ICONS.box}</div>`}
               <span style="cursor:pointer;" class="btn-edit-item" data-id="${item.id}">${escapeHtml(item.title)}</span>
             </div>
           </td>
@@ -31447,12 +31590,12 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           <td>${getStarsHtml(item.rating)}</td>
           <td><span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-dim);">${tags}</span></td>
           <td>
-            ${(item.gallery && item.gallery.length > 0) ? `<button class="btn-icon-xs card-media-trigger" data-id="${item.id}" title="View Gallery">📷 ${item.gallery.length}</button>` : "—"}
+            ${(item.gallery && item.gallery.length > 0) ? `<button class="btn-icon-xs card-media-trigger" data-id="${item.id}" title="View Gallery" style="display:inline-flex;align-items:center;gap:0.3rem;">${ICONS.camera} ${item.gallery.length}</button>` : "—"}
           </td>
           <td>
             <div style="display:flex; gap:0.35rem; justify-content:flex-end;">
-              ${item.link ? `<a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer" class="btn-icon-xs" title="Open Link">🔗</a>` : ""}
-              <button class="btn-icon-xs btn-edit-item" data-id="${item.id}" title="Edit">✏️</button>
+              ${item.link ? `<a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer" class="btn-icon-xs" title="Open Link">${ICONS.externalLink}</a>` : ""}
+              <button class="btn-icon-xs btn-edit-item" data-id="${item.id}" title="Edit">${ICONS.edit}</button>
             </div>
           </td>
         </tr>
@@ -31510,8 +31653,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
             <h4 style="font-size:0.875rem; font-weight:600; cursor:pointer;" class="btn-edit-item" data-id="${item.id}">${escapeHtml(item.title)}</h4>
             ${item.notes ? `<p class="card-notes" style="-webkit-line-clamp:2; font-size:0.75rem;">${escapeHtml(item.notes)}</p>` : ""}
             <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.25rem; font-size:0.7rem;">
-              <span style="color:var(--text-dim);">${item.gallery ? item.gallery.length : 0} 📷</span>
-              <button class="btn-icon-xs btn-edit-item" data-id="${item.id}" title="Edit">✏️</button>
+              <span style="color:var(--text-dim); display:inline-flex; align-items:center; gap:0.25rem;">${item.gallery ? item.gallery.length : 0} ${ICONS.camera}</span>
+              <button class="btn-icon-xs btn-edit-item" data-id="${item.id}" title="Edit">${ICONS.edit}</button>
             </div>
           </div>
         </div>
@@ -31891,6 +32034,77 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       closeCatalogModal();
       switchCatalog(State.activeCatalogId);
       showToast(`Deleted catalog "${removedName}"`, "info");
+    }
+  }
+
+  // --- 9.4 CLOUD & LOCAL SYNC ENGINE ---
+  async function syncFromCloudOrLocal() {
+    showToast("Checking for curated items...", "info");
+    let inboxData = null;
+    let source = "";
+
+    // 1. Try local bot first (fastest on PC)
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 1200);
+      const res = await fetch("http://127.0.0.1:8765/api/inbox", { signal: controller.signal });
+      clearTimeout(timeoutId);
+      if (res.ok) {
+        inboxData = await res.json();
+        source = "Local Companion Bot";
+      }
+    } catch (e) {
+      // Local not running or on mobile phone
+    }
+
+    // 2. If local bot not reached, try GitHub Raw
+    if (!inboxData || !inboxData.items || inboxData.items.length === 0) {
+      try {
+        const ghUrl = "https://raw.githubusercontent.com/fldlvgox-ux/Curio/main/curio_inbox.json?t=" + Date.now();
+        const ghRes = await fetch(ghUrl);
+        if (ghRes.ok) {
+          inboxData = await ghRes.json();
+          source = "GitHub Repository";
+        }
+      } catch (err) {
+        console.warn("GitHub fetch error:", err);
+      }
+    }
+
+    if (!inboxData || !Array.isArray(inboxData.items) || inboxData.items.length === 0) {
+      showToast("No new curated items found in inbox (Offline / Empty).", "info");
+      return;
+    }
+
+    // Merge into current active catalog!
+    const activeCat = State.catalogs.find(c => c.id === State.activeCatalogId) || State.catalogs[0];
+    if (!activeCat) return;
+
+    let addedCount = 0;
+    const existingIds = new Set(activeCat.items.map(it => it.id));
+    const existingLinks = new Set(activeCat.items.map(it => it.link).filter(Boolean));
+
+    inboxData.items.forEach(newItem => {
+      // Check duplicate by ID or Link
+      if (!existingIds.has(newItem.id) && (!newItem.link || !existingLinks.has(newItem.link))) {
+        activeCat.items.unshift(newItem);
+        existingIds.add(newItem.id);
+        if (newItem.link) existingLinks.add(newItem.link);
+        addedCount++;
+
+        // Add drawer if not exists
+        if (newItem.drawer && !activeCat.drawers.includes(newItem.drawer)) {
+          activeCat.drawers.push(newItem.drawer);
+        }
+      }
+    });
+
+    if (addedCount > 0) {
+      await saveState();
+      renderAll();
+      showToast(`Synced ${addedCount} new items from ${source}!`, "success");
+    } else {
+      showToast(`Catalog is already up to date with ${source}.`, "info");
     }
   }
 
@@ -32928,6 +33142,12 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       State.lightboxIndex = (State.lightboxIndex + 1) % State.lightboxImages.length;
       updateLightboxStage();
     });
+
+    // Inbox Sync: Discord & GitHub
+    const syncBtn = document.getElementById("btn-sync-cloud");
+    if (syncBtn) {
+      syncBtn.addEventListener("click", () => syncFromCloudOrLocal());
+    }
 
     // Backup: JSON Export
     document.getElementById("btn-export-json").addEventListener("click", () => exportCatalogAsZip());
