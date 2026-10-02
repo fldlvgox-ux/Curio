@@ -31,8 +31,8 @@ CONFIG_FILE = "bot_config.json"
 INBOX_FILE = "curio_inbox.json"
 DEFAULT_PORT = int(os.environ.get("PORT", 8765))
 
-# Cloud mode: detected when DISCORD_TOKEN env var is set (Render/Koyeb)
-CLOUD_MODE = bool(os.environ.get("DISCORD_TOKEN"))
+# Cloud mode: detected when DISCORD_TOKEN env var is set, or no .git directory exists (cloud container/host)
+CLOUD_MODE = bool(os.environ.get("DISCORD_TOKEN") or not os.path.exists(".git") or os.environ.get("GITHUB_TOKEN"))
 GITHUB_REPO = os.environ.get("GITHUB_REPO", "fldlvgox-ux/Curio")
 GITHUB_API_URL = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{INBOX_FILE}"
 
@@ -51,27 +51,25 @@ DEFAULT_DRAWERS = [
 ]
 
 def load_config():
-    # Cloud mode: read secrets from environment variables
+    cfg = {}
+    if os.path.exists(CONFIG_FILE):
+        try:
+            with open(CONFIG_FILE, "r", encoding="utf-8") as f:
+                cfg = json.load(f)
+        except Exception:
+            pass
+
+    # Environment variables override or provide defaults for cloud hosting
+    merged = {
+        "discord_token": os.environ.get("DISCORD_TOKEN") or cfg.get("discord_token", ""),
+        "channel_name": os.environ.get("CHANNEL_NAME") or cfg.get("channel_name", "curio-index"),
+        "gemini_api_key": os.environ.get("GEMINI_API_KEY") or cfg.get("gemini_api_key", ""),
+        "github_token": os.environ.get("GITHUB_TOKEN") or cfg.get("github_token", ""),
+    }
+
     if CLOUD_MODE:
-        print("[Config] Cloud mode detected — reading from environment variables")
-        return {
-            "discord_token": os.environ.get("DISCORD_TOKEN", ""),
-            "channel_name": os.environ.get("CHANNEL_NAME", "curio-index"),
-            "gemini_api_key": os.environ.get("GEMINI_API_KEY", ""),
-            "github_token": os.environ.get("GITHUB_TOKEN", ""),
-        }
-    # Local mode: read from bot_config.json
-    if not os.path.exists(CONFIG_FILE):
-        default_cfg = {
-            "discord_token": "YOUR_DISCORD_BOT_TOKEN_HERE",
-            "channel_name": "curio-inbox",
-            "gemini_api_key": ""
-        }
-        with open(CONFIG_FILE, "w", encoding="utf-8") as f:
-            json.dump(default_cfg, f, indent=2)
-        return default_cfg
-    with open(CONFIG_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
+        print("[Config] Cloud mode active — using environment variables & API sync")
+    return merged
 
 def load_inbox():
     if not os.path.exists(INBOX_FILE):
