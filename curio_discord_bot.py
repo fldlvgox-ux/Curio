@@ -107,7 +107,28 @@ def extract_urls(text):
     return filtered
 
 async def scrape_web_metadata(url):
-    """Scrapes OpenGraph and standard HTML metadata from URL."""
+    """Scrapes OpenGraph, oEmbed, and standard HTML metadata from URL."""
+    # Special Handler: YouTube (oEmbed API returns exact video title & HD thumbnail)
+    if "youtube.com/watch" in url or "youtu.be/" in url or "youtube.com/shorts/" in url:
+        try:
+            oembed_url = f"https://www.youtube.com/oembed?url={url}&format=json"
+            timeout = aiohttp.ClientTimeout(total=8)
+            async with aiohttp.ClientSession(timeout=timeout) as session:
+                async with session.get(oembed_url) as resp:
+                    if resp.status == 200:
+                        data = await resp.json()
+                        title = data.get("title", "")
+                        author = data.get("author_name", "YouTube Creator")
+                        thumb = data.get("thumbnail_url", "")
+                        return {
+                            "title": title or "YouTube Video",
+                            "description": f"Video by {author} on YouTube.",
+                            "image": thumb,
+                            "site_name": "YouTube"
+                        }
+        except Exception as yt_err:
+            print(f"[YouTube oEmbed Error] {yt_err}")
+
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
