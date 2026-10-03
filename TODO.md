@@ -61,22 +61,20 @@
 
 ---
 
-## 🔲 In Progress
+## 🎮 Easter Eggs & Nostalgic Interactions — LIVE ✅
 
-### 🎮 Easter Eggs & UI Tweaks — PLANNED (Approved Design)
-> **Plan:** [`EASTER_EGGS_PLAN.md`](EASTER_EGGS_PLAN.md)  
-> **Status:** Design complete, awaiting build approval  
-> **Stages:** 2 commits
+> **Guide:** Documented inside the app (Settings ➔ **Guide & Tutorial** ➔ Section 11)  
+> **Toggle:** Configurable in Settings ➔ **About** tab (persistent via `localStorage`)
 
-| # | Egg | Discovery Method | Status |
-|---|-----|-----------------|--------|
-| 1 | Logo multi-click Star Wars credits | 5 rapid clicks on CURIO title | 🔲 |
-| 2 | Spotlight magic queries (barrel roll, confetti, hello world) | Type phrase in Ctrl+K | 🔲 |
-| 3 | Win95 Clippy idle assistant (6 snarky messages) | 60s idle on Win95 theme | 🔲 |
-| 4 | Jarvis boot sequence banner | 60s idle on Jarvis theme | 🔲 |
-| 5 | Empty-state Pong mini-game (survival mode) | Click hint when 0 items | 🔲 |
-| — | Settings toggle to disable Easter eggs | About tab in Settings | 🔲 |
-| — | Guide tab `🔮 ???` teaser card | Bottom of Guide tab | 🔲 |
+| # | Easter Egg | Trigger / Command | Visual & Interaction | Status |
+|---|---|---|---|:---:|
+| 1 | **🎬 Star Wars 3D Cinematic Credits** | Click top-left **`CURIO`** brand logo **5× rapidly** | Full-screen 3D perspective dark overlay crawling item counts & credits | ✅ Live |
+| 2 | **🌀 Do a Barrel Roll** | Type `do a barrel roll` in <kbd>Ctrl</kbd>+<kbd>K</kbd> Spotlight | Viewport executes a smooth 360° hardware-accelerated spin | ✅ Live |
+| 3 | **🎉 Confetti Party** | Type `party` or `celebrate` in <kbd>Ctrl</kbd>+<kbd>K</kbd> Spotlight | Cascade of 45 colorful celebratory emojis with randomized spin physics | ✅ Live |
+| 4 | **📟 Retro Terminal Greeting** | Type `hello world` in <kbd>Ctrl</kbd>+<kbd>K</kbd> Spotlight | Phosphor green CRT terminal output with glowing text & blinking block cursor | ✅ Live |
+| 5 | **📎 Win95 Clippy Assistant** | 60s idle on **Windows 95** theme | Animated paperclip with speech bubble & 6 rotating snarky quips | ✅ Live |
+| — | **⚙️ Master Easter Egg Switch** | Settings ➔ **About** tab | Slide toggle to turn all Easter eggs on/off instantly | ✅ Live |
+| — | **📖 In-App Easter Egg Guide** | Settings ➔ **Guide & Tutorial** | Section 11 listing all triggers clearly for users | ✅ Live |
 
 ---
 
