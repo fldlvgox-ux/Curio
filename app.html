@@ -5692,6 +5692,81 @@
       background: rgba(0, 240, 255, 0.1) !important;
     }
 
+    /* ======================== */
+    /* Easter Eggs System Styles */
+    /* ======================== */
+
+    /* Egg: Credits Overlay (Star Wars scroll) */
+    .credits-overlay {
+      position: fixed; inset: 0; z-index: 100000;
+      background: rgba(0,0,0,0.96);
+      display: flex; align-items: flex-end; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.6s ease;
+      perspective: 400px;
+      overflow: hidden;
+    }
+    .credits-overlay.active { opacity: 1; pointer-events: all; cursor: pointer; }
+    .credits-scroll {
+      width: 70%; max-width: 520px;
+      text-align: center;
+      color: var(--accent-cyan, #06b6d4);
+      font-size: 1rem; line-height: 2.1;
+      white-space: pre-line;
+      transform: rotateX(25deg);
+      transform-origin: 50% 100%;
+      animation: creditsRoll 18s linear forwards;
+    }
+    @keyframes creditsRoll {
+      0%   { transform: rotateX(25deg) translateY(100vh); }
+      100% { transform: rotateX(25deg) translateY(-280%); }
+    }
+    .credits-title {
+      font-size: 2rem; font-weight: 900;
+      letter-spacing: 0.25em;
+      color: var(--text-main, #e2e8f0);
+      text-shadow: 0 0 40px var(--accent-cyan, #06b6d4), 0 0 80px rgba(6,182,212,0.3);
+      margin-bottom: 0.25rem;
+    }
+    .credits-sub { font-size: 0.85rem; color: var(--text-dim, #94a3b8); }
+    .credits-divider { color: var(--border-medium, #334155); letter-spacing: 0.5em; }
+    .credits-section {
+      color: var(--accent-emerald, #10b981);
+      font-weight: 700; font-size: 1.1rem; margin-top: 0.75rem;
+    }
+    .credits-role { color: var(--text-dim, #94a3b8); font-size: 0.88rem; }
+    .credits-heart { color: var(--accent-rose, #f43f5e); }
+    .credits-gold { color: var(--accent-amber, #eab308); }
+
+    /* Egg: Confetti Animation */
+    @keyframes confettiFall {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+      80%  { opacity: 1; }
+      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* Egg: Hello World blink cursor */
+    .ee-blink { animation: eeBlink 1s step-end infinite; }
+    @keyframes eeBlink { 0%,50% { opacity:1; } 51%,100% { opacity:0; } }
+
+    /* Easter Egg Settings Toggle */
+    .ee-toggle-track {
+      position: relative; width: 36px; height: 20px;
+      background: var(--border-medium, #334155);
+      border-radius: 10px; cursor: pointer;
+      transition: background 0.25s ease;
+      display: inline-block; vertical-align: middle;
+    }
+    .ee-toggle-track.on { background: var(--accent-cyan, #06b6d4); }
+    .ee-toggle-knob {
+      position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px;
+      background: #fff; border-radius: 50%;
+      transition: transform 0.25s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+    .ee-toggle-track.on .ee-toggle-knob { transform: translateX(16px); }
+
     /* Settings Modal Styles */
     .settings-tabs {
       display: flex;
@@ -7381,6 +7456,13 @@
               <br>• <strong>On Mobile (Phone)</strong>: Automatically pulls newly curated items from your GitHub repository.
               <br>• Prevents duplicate entries and saves everything straight into offline IndexedDB.
             </p>
+          <div style="background:var(--bg-surface-raised); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:1rem; opacity:0.65;">
+            <div style="font-weight:700; color:var(--accent-purple, #a855f7); font-size:0.95rem; margin-bottom:0.35rem; display:flex; align-items:center; gap:0.4rem;">
+              <span>🔮 ???</span>
+            </div>
+            <p style="font-size:0.83rem; color:var(--text-muted); line-height:1.5; font-style:italic;">
+              CURIO has hidden surprises. Some respond to curiosity, some reward patience, some appear when you least expect them. Can you find them all?
+            </p>
           </div>
 
         </div>
@@ -7786,6 +7868,15 @@
           <div style="margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center;">
             <span>GitHub Repository:</span>
             <a href="https://github.com/fldlvgox-ux/Curio" target="_blank" style="color:var(--accent-cyan); text-decoration:none; font-family:var(--font-mono); font-size:0.8rem;">fldlvgox-ux/Curio ↗</a>
+          </div>
+          <div style="margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <span style="font-size:0.82rem; color:var(--text-main);">🔮 Easter Eggs</span>
+              <div style="font-size:0.72rem; color:var(--text-dim);">Hidden surprises &amp; delightful interactions</div>
+            </div>
+            <div class="ee-toggle-track on" id="ee-toggle" title="Toggle Easter Eggs">
+              <div class="ee-toggle-knob"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -38515,6 +38606,21 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       btnSettings.addEventListener("click", () => {
         window.CurioHaptic("light");
         openSettingsModal();
+      });
+    }
+
+    // Easter Eggs Toggle Handler
+    const eeToggle = document.getElementById("ee-toggle");
+    if (eeToggle) {
+      const isEnabled = localStorage.getItem("curio_easter_eggs") !== "false";
+      eeToggle.classList.toggle("on", isEnabled);
+      eeToggle.addEventListener("click", () => {
+        const nextState = !eeToggle.classList.contains("on");
+        eeToggle.classList.toggle("on", nextState);
+        localStorage.setItem("curio_easter_eggs", nextState ? "true" : "false");
+        if (typeof showToast === "function") {
+          showToast(nextState ? "Easter Eggs enabled 🔮" : "Easter Eggs disabled", "info");
+        }
       });
     }
   }
