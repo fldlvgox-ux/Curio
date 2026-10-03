@@ -37804,10 +37804,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
   
   // --- WELCOME & DISCOVERY MODAL CONTROLLER ---
   function checkFirstRunOnboarding() {
-    const isDismissed = localStorage.getItem("curio_onboarded_v1");
-    if (!isDismissed) {
-      openWelcomeModal();
-    }
+    // Startup auto-popup disabled to keep landing clean and distraction-free.
+    // Accessible anytime via the "🧭 Realms" button in the top bar.
   }
 
   function openWelcomeModal() {
