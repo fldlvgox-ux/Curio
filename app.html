@@ -3762,6 +3762,343 @@
       background: #b0b0b0 !important;
     }
 
+    /* ========================================================
+       WINDOWS XP LUNA BLUE (2000s CONSUMER DESKTOP NOSTALGIA)
+       ======================================================== */
+    [data-theme="winxp"] {
+      --bg-base: #245edb;
+      --bg-surface: #ece9d8;
+      --bg-surface-raised: #ffffff;
+      --bg-surface-hover: #d6dff7;
+      --bg-panel: #d6dff7;
+      --border-subtle: #7f9db9;
+      --border-medium: #003c74;
+      --border-bright: #0054e3;
+      --accent-cyan: #0054e3;
+      --accent-cyan-glow: rgba(0, 84, 227, 0.25);
+      --text-main: #000000;
+      --text-muted: #222222;
+      --text-dim: #555555;
+      --shadow-glow: none;
+      --radius-sm: 3px;
+      --radius-md: 4px;
+      --radius-lg: 6px;
+      --font-sans: 'Tahoma', 'Segoe UI', Arial, sans-serif;
+      --font-mono: 'Lucida Console', 'Courier New', monospace;
+    }
+
+    /* XP Bliss Horizon Canvas */
+    [data-theme="winxp"] body {
+      background-color: #245edb;
+      background-image: linear-gradient(180deg, #245edb 0%, #5a8df2 35%, #8cb9f7 70%, #d4e7fc 100%);
+      color: #000000;
+      font-family: var(--font-sans);
+    }
+
+    /* Top Bar as XP Classic Luna Title & Toolbar */
+    [data-theme="winxp"] .top-bar {
+      background: linear-gradient(180deg, #0054e3 0%, #2772f8 12%, #0054e3 50%, #0045bc 100%) !important;
+      border-bottom: 2px solid #002266 !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25) !important;
+      color: #ffffff !important;
+    }
+
+    [data-theme="winxp"] .top-bar * {
+      color: #ffffff !important;
+    }
+
+    /* XP Explorer Task Pane Sidebar */
+    [data-theme="winxp"] .sidebar {
+      background: #7ba2e7 !important;
+      background-image: linear-gradient(180deg, #7ba2e7 0%, #6375d6 100%) !important;
+      border-right: 2px solid #002266 !important;
+    }
+
+    /* XP Control Inset Inputs */
+    [data-theme="winxp"] .search-box-container,
+    [data-theme="winxp"] .form-input,
+    [data-theme="winxp"] .form-textarea,
+    [data-theme="winxp"] .select-custom,
+    [data-theme="winxp"] .form-select,
+    [data-theme="winxp"] .tag-search-box {
+      background: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #7f9db9 !important;
+      border-radius: 2px !important;
+      box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    [data-theme="winxp"] .search-input {
+      color: #000000 !important;
+    }
+
+    [data-theme="winxp"] .top-bar .search-box-container {
+      background: #ffffff !important;
+      border: 1px solid #002266 !important;
+    }
+
+    [data-theme="winxp"] .top-bar .search-input {
+      color: #000000 !important;
+    }
+
+    [data-theme="winxp"] .top-bar .search-input::placeholder {
+      color: #777777 !important;
+    }
+
+    [data-theme="winxp"] .search-input::placeholder,
+    [data-theme="winxp"] .tag-search-input::placeholder {
+      color: #777777 !important;
+    }
+
+    /* XP Luna Olive Green Start Button for Primary */
+    [data-theme="winxp"] .btn-primary {
+      background: linear-gradient(180deg, #53a33f 0%, #3e8d2e 50%, #2d731d 100%) !important;
+      color: #ffffff !important;
+      border: 1px solid #1e5214 !important;
+      border-radius: 3px !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+      font-weight: 700 !important;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    [data-theme="winxp"] .btn-primary:hover {
+      background: linear-gradient(180deg, #62b74d 0%, #479e35 50%, #358223 100%) !important;
+    }
+
+    /* XP Secondary / View Buttons */
+    [data-theme="winxp"] .btn-secondary,
+    [data-theme="winxp"] .btn-icon,
+    [data-theme="winxp"] .btn-icon-xs,
+    [data-theme="winxp"] .view-btn,
+    [data-theme="winxp"] .pill-toggle,
+    [data-theme="winxp"] .tag-mode-btn,
+    [data-theme="winxp"] .tag-expand-btn,
+    [data-theme="winxp"] .clear-filters-btn {
+      background: linear-gradient(180deg, #ffffff 0%, #ece9d8 45%, #d8d0c5 50%, #ffffff 100%) !important;
+      color: #000000 !important;
+      border: 1px solid #7f9db9 !important;
+      border-radius: 3px !important;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15) !important;
+      font-weight: 600 !important;
+    }
+
+    [data-theme="winxp"] .top-bar .btn-secondary,
+    [data-theme="winxp"] .top-bar .btn-icon,
+    [data-theme="winxp"] .top-bar .view-btn {
+      background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.15) 100%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.4) !important;
+      color: #ffffff !important;
+    }
+
+    [data-theme="winxp"] .top-bar .view-btn.active {
+      background: #ffffff !important;
+      color: #003c74 !important;
+      border-color: #ffffff !important;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.3) !important;
+    }
+
+    [data-theme="winxp"] .top-bar .view-btn.active * {
+      color: #003c74 !important;
+    }
+
+    /* XP Pressed Button State */
+    [data-theme="winxp"] .btn-secondary:active,
+    [data-theme="winxp"] .view-btn.active,
+    [data-theme="winxp"] .pill-toggle.active,
+    [data-theme="winxp"] .clear-filters-btn:active {
+      background: linear-gradient(180deg, #d8d0c5 0%, #ece9d8 100%) !important;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* Filter & Tag Bar */
+    [data-theme="winxp"] .filter-panel {
+      background: #ece9d8 !important;
+      border-bottom: 2px solid #7f9db9 !important;
+    }
+
+    [data-theme="winxp"] .tag-filter-bar {
+      background: #ffffff !important;
+      border: 1px solid #7f9db9 !important;
+      border-radius: 4px !important;
+    }
+
+    /* XP Window Cards with Rounded Top Luna Blue Titlebars */
+    [data-theme="winxp"] .item-card,
+    [data-theme="winxp"] .detail-card {
+      background: #ffffff !important;
+      border: 1px solid #7f9db9 !important;
+      border-radius: 6px 6px 4px 4px !important;
+      box-shadow: 0 2px 5px rgba(0, 60, 116, 0.25) !important;
+      padding: 0 !important;
+      overflow: hidden;
+    }
+
+    [data-theme="winxp"] .item-card:hover {
+      border-color: #0054e3 !important;
+      box-shadow: 0 4px 10px rgba(0, 84, 227, 0.35) !important;
+      transform: translateY(-1px) !important;
+    }
+
+    /* Luna Blue Card Header */
+    [data-theme="winxp"] .item-card .card-meta-row,
+    [data-theme="winxp"] .detail-card .detail-header {
+      background: linear-gradient(180deg, #0054e3 0%, #2772f8 15%, #0054e3 60%, #0045bc 100%) !important;
+      color: #ffffff !important;
+      border-bottom: 1px solid #002266 !important;
+      padding: 4px 8px !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    [data-theme="winxp"] .item-card .card-meta-row * {
+      color: #ffffff !important;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    }
+
+    [data-theme="winxp"] .item-card .card-meta-row .drawer-chip {
+      background: #ffffff !important;
+      color: #003c74 !important;
+      border: 1px solid #002266 !important;
+      font-weight: 700 !important;
+      font-size: 0.68rem !important;
+      border-radius: 3px !important;
+      text-shadow: none !important;
+    }
+
+    [data-theme="winxp"] .card-body {
+      background: #ffffff !important;
+      color: #000000 !important;
+      padding: 0.6rem !important;
+    }
+
+    [data-theme="winxp"] .card-title {
+      color: #003c74 !important;
+      font-weight: 700 !important;
+      border-bottom: 1px solid #d6dff7;
+      padding-bottom: 0.25rem;
+    }
+
+    [data-theme="winxp"] .card-notes {
+      color: #333333 !important;
+    }
+
+    /* XP Tag Badges */
+    [data-theme="winxp"] .tag-pill,
+    [data-theme="winxp"] .card-tag {
+      background: #e0ebf9 !important;
+      color: #003c74 !important;
+      border: 1px solid #7f9db9 !important;
+      border-radius: 3px !important;
+      font-size: 0.65rem !important;
+      font-weight: 600 !important;
+    }
+
+    [data-theme="winxp"] .tag-pill.active {
+      background: #0054e3 !important;
+      color: #ffffff !important;
+      border-color: #002266 !important;
+    }
+
+    /* XP Task Pane Drawer Items */
+    [data-theme="winxp"] .drawer-item {
+      border-radius: 3px !important;
+      color: #0c327d !important;
+      margin: 1px 0 !important;
+      background: #d6dff7 !important;
+      border: 1px solid #ffffff !important;
+    }
+
+    [data-theme="winxp"] .drawer-item:hover {
+      background: #ffffff !important;
+      color: #0054e3 !important;
+      text-decoration: underline !important;
+    }
+
+    [data-theme="winxp"] .drawer-item.active {
+      background: linear-gradient(90deg, #215dc6, #4175d9) !important;
+      color: #ffffff !important;
+      border-color: #002266 !important;
+    }
+
+    [data-theme="winxp"] .drawer-item.active span,
+    [data-theme="winxp"] .drawer-item.active .drawer-count {
+      color: #ffffff !important;
+    }
+
+    /* XP Modal Window */
+    [data-theme="winxp"] .modal-window {
+      background: #ece9d8 !important;
+      border: 2px solid #0054e3 !important;
+      border-radius: 8px 8px 4px 4px !important;
+      box-shadow: 0 8px 24px rgba(0, 34, 102, 0.45) !important;
+      padding: 0 !important;
+      overflow: hidden;
+    }
+
+    [data-theme="winxp"] .modal-header {
+      background: linear-gradient(180deg, #0054e3 0%, #2772f8 15%, #0054e3 60%, #0045bc 100%) !important;
+      color: #ffffff !important;
+      border-bottom: 2px solid #002266 !important;
+      padding: 6px 12px !important;
+    }
+
+    [data-theme="winxp"] .modal-title {
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    [data-theme="winxp"] .modal-close {
+      color: #ffffff !important;
+      background: #e04343 !important;
+      border: 1px solid #fff !important;
+      border-radius: 3px !important;
+      padding: 0 4px !important;
+      line-height: 1 !important;
+    }
+
+    [data-theme="winxp"] .modal-body,
+    [data-theme="winxp"] .modal-footer {
+      background: #ece9d8 !important;
+      color: #000000 !important;
+    }
+
+    /* XP Green Segmented Progress Bar */
+    [data-theme="winxp"] .storage-container {
+      background: #ece9d8 !important;
+      border-top: 1px solid #7f9db9 !important;
+    }
+
+    [data-theme="winxp"] .storage-bar-track {
+      background: #ffffff !important;
+      border: 1px solid #7f9db9 !important;
+      border-radius: 2px !important;
+      box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    [data-theme="winxp"] .storage-bar-fill {
+      background: linear-gradient(180deg, #74e55e 0%, #2ecc1b 50%, #1e9910 100%) !important;
+      border-radius: 1px !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+    }
+
+    /* XP Table View */
+    [data-theme="winxp"] .catalog-table th {
+      background: linear-gradient(180deg, #ffffff 0%, #ece9d8 50%, #d8d0c5 100%) !important;
+      color: #003c74 !important;
+      border-bottom: 2px solid #7f9db9 !important;
+      border-right: 1px solid #c0c0c0 !important;
+    }
+
+    [data-theme="winxp"] .catalog-table td {
+      border-bottom: 1px solid #d6dff7 !important;
+      color: #000000 !important;
+    }
+
+    [data-theme="winxp"] .catalog-table tr:hover td {
+      background: #e8eefa !important;
+    }
+
     /* Settings Modal Styles */
     .settings-tabs {
       display: flex;
@@ -4153,6 +4490,12 @@
       outline: 2px solid #ff8800 !important;
       outline-offset: 2px;
       box-shadow: 0 0 0 2px #0055aa, 3px 3px 0px #000000 !important;
+    }
+    [data-theme="winxp"] .item-card.is-keyboard-focused,
+    [data-theme="winxp"] .detail-card.is-keyboard-focused {
+      outline: 2px solid #3c81f5 !important;
+      outline-offset: 1px;
+      box-shadow: 0 0 0 3px rgba(60, 129, 245, 0.4), 0 3px 6px rgba(0, 0, 0, 0.2) !important;
     }
 
     /* View Density: Compact Mode */
@@ -5333,6 +5676,7 @@
               <br>• <strong>💧 Frutiger Aero</strong>: Frosted acrylic glass reflections, liquid jelly buttons & vivid skies.
               <br>• <strong>📱 Palm OS / PDA</strong>: 4-shade grayscale handheld LCD, pixel clarity, inverted bars & dotted memo lines.
               <br>• <strong>🟠 Amiga Workbench 3.1</strong>: 4-color cobalt & orange, checkered drag titlebars & beveled window chrome.
+              <br>• <strong>🪟 Windows XP Luna</strong>: Royal blue gradients, Bliss sky canvas, Task Pane sidebar & olive Start buttons.
               <br>• Plus dark studio aesthetics: <em>Synthwave Sunset</em>, <em>Nord Frost</em>, and <em>Matrix Green</em>.
             </p>
           </div>
@@ -5537,6 +5881,24 @@
             <div class="theme-info">
               <span class="theme-title">🟠 Amiga Workbench 3.1</span>
               <span class="theme-desc">Iconic 4-color palette, checkered drag bars & Topaz font</span>
+            </div>
+            <span class="theme-status-pill">Select</span>
+          </div>
+
+          <!-- Windows XP Luna -->
+          <div class="theme-card" data-theme="winxp">
+            <div class="theme-preview-box" style="background:linear-gradient(180deg, #245edb 0%, #d4e7fc 100%); border:1px solid #0054e3; border-radius:4px 4px 2px 2px;">
+              <div class="mini-titlebar" style="background:linear-gradient(180deg, #0054e3 0%, #2772f8 20%, #0054e3 80%, #0045bc 100%); color:#fff; border-radius:3px 3px 0 0; padding:1px 3px; display:flex; align-items:center;">
+                <span style="font-size:6px; font-weight:bold; font-family:Tahoma, sans-serif;">CURIO.XP</span>
+                <span style="background:#e04343; color:#fff; font-size:5px; margin-left:auto; padding:0 2px; border-radius:2px; line-height:1;">✕</span>
+              </div>
+              <div class="mini-content" style="background:#ece9d8; margin:2px; height:18px; border:1px solid #7f9db9; border-radius:2px;">
+                <div class="mini-badge" style="background:linear-gradient(180deg, #53a33f, #2d731d); color:#fff; font-size:6px; border-radius:2px; font-weight:bold;">Start</div>
+              </div>
+            </div>
+            <div class="theme-info">
+              <span class="theme-title">🪟 Windows XP Luna</span>
+              <span class="theme-desc">Royal blue gradients, Bliss horizon & olive Start button</span>
             </div>
             <span class="theme-status-pill">Select</span>
           </div>
@@ -33778,6 +34140,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     { id: "aero", name: "Frutiger Aero", icon: "💧", tag: "Interface Theme" },
     { id: "palm", name: "Palm OS / PDA", icon: "📱", tag: "Interface Theme" },
     { id: "amiga", name: "Amiga Workbench 3.1", icon: "🟠", tag: "Interface Theme" },
+    { id: "winxp", name: "Windows XP Luna", icon: "🪟", tag: "Interface Theme" },
     { id: "synthwave", name: "Synthwave Sunset", icon: "🌅", tag: "Studio Palette" },
     { id: "nord", name: "Nord Frost", icon: "❄️", tag: "Studio Palette" },
     { id: "matrix", name: "Matrix Terminal", icon: "🟢", tag: "Studio Palette" },
