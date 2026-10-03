@@ -14,3 +14,12 @@ MARKETING_GUIDE.md
 bot_config.json
 .env
 *.zip
+
+# Local-only / dev tooling
+.agents/
+__pycache__/
+*.pyc
+DRafft.txt
+ICONSLOGO/
+Other Versions/
+desktop/
