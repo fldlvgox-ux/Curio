@@ -4,7 +4,8 @@ An offline-first, high-capacity visual catalog, asset organizer, and curation da
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-fldlvgox--ux%2FCurio-10B981?style=for-the-badge&logo=github&logoColor=white)](https://github.com/fldlvgox-ux/Curio)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Launch%20CURIO%20App-06B6D4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://fldlvgox-ux.github.io/Curio/app.html)
-[![Download Desktop App](https://img.shields.io/badge/Download-Windows%20%7C%20Linux%20%7C%20macOS-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/fldlvgox-ux/Curio)
+[![Download Android APK](https://img.shields.io/badge/Download-Android%20APK-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://github.com/fldlvgox-ux/Curio/releases/latest)
+[![Download Desktop App](https://img.shields.io/badge/Download-Windows%20%7C%20Linux%20%7C%20macOS-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/fldlvgox-ux/Curio/releases/latest)
 [![Website](https://img.shields.io/badge/Website-Visit%20Landing%20Page-8b5cf6?style=for-the-badge&logo=github&logoColor=white)](https://fldlvgox-ux.github.io/Curio/)
 [![Architecture](https://img.shields.io/badge/Architecture-Single--File%20HTML-E34F26?style=flat-square&logo=html5&logoColor=white)](app.html)
 [![Storage Engine](https://img.shields.io/badge/Storage-IndexedDB%20(Gigabytes)-06B6D4?style=flat-square)](app.html)
@@ -12,6 +13,7 @@ An offline-first, high-capacity visual catalog, asset organizer, and curation da
 [![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 
 > 🚀 **Launch the Web App**: [https://fldlvgox-ux.github.io/Curio/app.html](https://fldlvgox-ux.github.io/Curio/app.html)  
+> 📱 **Download Android App (.apk)**: [Curio Releases (Latest)](https://github.com/fldlvgox-ux/Curio/releases/latest)  
 > 🪟 **Download Desktop App (v1.2)**: [CURIO-v1.2-Windows.zip](CURIO-v1.2-Windows.zip)  
 > 🌐 **Official Website**: [https://fldlvgox-ux.github.io/Curio/](https://fldlvgox-ux.github.io/Curio/)
 
@@ -59,6 +61,7 @@ An offline-first, high-capacity visual catalog, asset organizer, and curation da
 
 | Platform | Format | Package Size | Direct Download Mirror |
 | :--- | :--- | :--- | :--- |
+| **📱 Android App** | Standalone `.apk` | `~3 MB` | [Download Android APK](https://github.com/fldlvgox-ux/Curio/releases/latest) · [Releases Page](https://github.com/fldlvgox-ux/Curio/releases) |
 | **🪟 Windows Desktop** | Standalone `.exe` | `1.48 MB` | [Download Windows .zip](CURIO-v1.2-Windows.zip) · [GitHub Mirror](https://github.com/fldlvgox-ux/Curio/blob/main/CURIO-v1.2-Windows.zip) |
 | **🐧 Linux Desktop** | Standalone `x64` | `948 KB` | [Download Linux .zip](CURIO-v1.0-Linux-x64.zip) · [GitHub Mirror](https://github.com/fldlvgox-ux/Curio/blob/main/CURIO-v1.0-Linux-x64.zip) |
 | **🍎 macOS Desktop** | Universal Binary | `1.64 MB` | [Download macOS .zip](CURIO-v1.0-macOS-Universal.zip) · [GitHub Mirror](https://github.com/fldlvgox-ux/Curio/blob/main/CURIO-v1.0-macOS-Universal.zip) |
