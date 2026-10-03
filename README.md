@@ -89,26 +89,18 @@ Unlike traditional cloud bookmarkers or notes apps, CURIO runs completely on you
 - **📦 True ZIP Archive Backup & Universal Restore**:
   - **Export (`.zip`)**: Bundles metadata (`catalogs.json`) and extracts all uploaded image Blobs into real `.jpg`/`.png` files in an `/images/` subfolder.
   - **Universal Import**: Drop either a `.zip` archive or `.json` file to restore your entire database seamlessly.
-- **🎛️ 4 Switchable View Modes**:
-  - **Grid View**: Visual card matrix with tags, rating stars, and instant edit actions.
-  - **Detailed View**: Expanded two-column layout showing multi-photo galleries and comprehensive notes.
-  - **List View**: Dense tabular view for quick scanning and metadata comparison.
-  - **Kanban Board**: Workflow pipeline (*To Explore*, *In Progress*, *Curated*, *Archived*) with independent column scrolling.
-
-| Grid Gallery | Kanban Workflow |
-| :---: | :---: |
-| ![Grid View](Screenshots/curio-dashboard.png) | ![Kanban View](Screenshots/Kanban%20View.png) |
-
-| Detailed List | Edit & Curate Dialog |
-| :---: | :---: |
-| ![List View](Screenshots/List-view.png) | ![Edit View](Screenshots/Edit-view.png) |
-
-- **🎨 5 Cyberpunk & Minimalist Themes**: Switch between *Cyber Cyan* (default), *Synthwave Sunset*, *Matrix Terminal*, *Nord Frost*, and *Midnight Gold* with instant theme persistence.
+- **🎛️ 5 Switchable View Modes + Density Toggle**:
+  - **Grid View**: Visual card matrix with tags, rating stars, monogram shields, and instant actions.
+  - **Detailed View**: Expanded two-column layout showing multi-photo screenshot rails and full notes.
+  - **List View**: Dense tabular spreadsheet view for quick scanning and metadata comparison.
+  - **Kanban Board**: Workflow pipeline (*To Explore*, *In Progress*, *Curated*, *Archived*) with column counters.
+  - **Grouped Accordion View**: Organized sections grouped by Drawer, Status, Rating, or Alphabetical.
+  - **Density Switcher**: Instant one-click toggle between **Comfortable** and **Compact** grid densities.
+- **👁️ Spacebar Quick-Look Inspection**: Tap `Space` on any focused card or double-click to instantly inspect high-resolution imagery, notes, tags, and links with real-time arrow key cycling.
+- **🎨 9 Nostalgic & Aesthetic Themes**: Switch seamlessly between *Windows 95 Chicago*, *Phosphor CRT Terminal*, *Mac OS System 7 / Platinum*, *Library Card Catalog*, *Frutiger Aero Aqua Glass*, *Cyber Cyan*, *Synthwave Sunset*, *Nord Frost*, and *Matrix Green*.
 - **⚙️ Settings Hub & Live Stats HUD**: Real-time storage estimation, catalog counters, and shortcuts cheatsheet.
-- **🏷️ Scoped Tag Cloud with Live Search**:
-  - Contextual tag strip that adapts to the currently active drawer.
-  - Instant tag search box (`Filter...`) with expand/collapse view and item frequency badges.
-- **⌨️ Speed & Accessibility**: Full keyboard navigation (`/` to focus search, `N` for new item, `Esc` to dismiss modals).
+- **🏷️ Scoped Tag Cloud with Modern Reset Pill**: Contextual tag strip that adapts to active drawers with item counters and an always-accessible Reset Filters pill.
+- **⌨️ Keyboard Supercharged Workflow**: Navigate cards with Arrow keys or `J`/`K`, preview with `Space`, edit with `E`, visit links with `L`, pin with `P`/`*`, and copy Markdown with `C`.
 
 ---
 
@@ -160,12 +152,20 @@ CURIO comes pre-loaded with comprehensive reference libraries:
 
 ## ⌨️ Keyboard Shortcuts
 
-| Shortcut | Description |
-| :---: | :--- |
-| / | Focus global search box |
-| N / Ctrl+N | Open New Item curation modal |
-| Escape | Dismiss active modal, drawer settings, or lightbox |
-| ◀ / ▶ | Navigate lightbox gallery images |
+| Shortcut | Action | Scope |
+| :--- | :--- | :--- |
+| `↑` `↓` `←` `→` or `J` / `K` | Navigate and highlight items with glowing focus ring | Catalog Views |
+| `Space` | Open / Close Quick-Look preview modal | Catalog Views |
+| `E` | Edit the currently focused item | Views & Quick-Look |
+| `L` | Open external link of focused item in new tab | Views & Quick-Look |
+| `P` or `*` | Toggle pin to top on focused item | Views & Quick-Look |
+| `C` | Copy formatted Markdown link to clipboard | Views & Quick-Look |
+| `Home` / `End` | Jump to first / last item in active view | Catalog Views |
+| `Ctrl+K` / `Cmd+K` | Open Spotlight Search & Theme Switcher | Global |
+| `/` | Focus global search box | Global |
+| `N` or `Ctrl+N` | Open New Item curation modal | Global |
+| `Escape` | Close active dialog, Quick-Look, or Lightbox | Global |
+| `◀` / `▶` | Navigate Lightbox gallery images or Quick-Look cards | Lightbox & Quick-Look |
 
 ---
 
