@@ -1,0 +1,23 @@
+{
+  "name": "CURIO \u2014 The Curator",
+  "short_name": "CURIO",
+  "description": "Offline-first visual catalog and curation dashboard for creators and developers.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#060911",
+  "theme_color": "#06b6d4",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "Screenshots/curio-dashboard.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

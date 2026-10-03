@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Curio" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:statusBarColor">@color/curio_bg_base</item>
+        <item name="android:navigationBarColor">@color/curio_bg_base</item>
+        <item name="android:windowBackground">@color/curio_bg_base</item>
+        <item name="colorPrimary">@color/curio_accent_cyan</item>
+    </style>
+</resources>

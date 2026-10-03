@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="curio_bg_base">#060911</color>
+    <color name="curio_bg_surface">#0e1322</color>
+    <color name="curio_accent_cyan">#06b6d4</color>
+    <color name="curio_text_main">#f8fafc</color>
+</resources>
