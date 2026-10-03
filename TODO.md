@@ -103,6 +103,32 @@
 
 ---
 
+## 🐾 Quirky & Nostalgic Expansion: Cyber-Pet & Synthesized Retro Audio — SPECIFIED ✅
+
+> **Source:** Design Brainstorm & Quirky Interview (`/grill-me`)  
+> **Status:** Architecture fully specified & approved, ready for implementation  
+> **Philosophy:** Zero external dependencies (native Web Audio API + CSS sprites), 100% offline, delightful & unobtrusive
+
+### 1. 🐱 Theme-Morphing Cyber-Pet (Tamagotchi Curation Companion)
+| Sub-Task | Details | Status |
+|---|---|:---:|
+| **Sidebar Footer Docking** | Sits comfortably in the sidebar footer above the storage meter; toggleable in Settings | 🔲 |
+| **Theme-Morphing Sprites** | Adapts appearance to active theme (Cyber-cat, Win95 dog, Matrix rabbit, CRT robot, Frutiger penguin, Palm PDA) | 🔲 |
+| **Feeding & XP Leveling** | New/curated items send a flying particle into the pet with chomp animation & XP leveling (Hatchling ➔ Archon) | 🔲 |
+| **Idle & Poke Interactions** | Bounces when active, sleeps with `zZz` when idle (2m+); clicking pokes it for quips & stats | 🔲 |
+
+### 2. 🔊 Synthesized Retro Audio Engine (Web Audio API)
+| Sub-Task | Details | Status |
+|---|---|:---:|
+| **Zero-Asset Synth Core** | Native browser `AudioContext` frequency oscillator sweeps — 0 KB external MP3s, instant & offline | 🔲 |
+| **Star Rating Arpeggios** | Ascending musical chimes as user hovers/clicks 1★ through 5★ | 🔲 |
+| **Tactile Keyboard Thocks** | Satisfying mechanical switch click during keyboard navigation (<kbd>J</kbd>, <kbd>K</kbd>, <kbd>/</kbd>, <kbd>Space</kbd>) | 🔲 |
+| **Dial-Up Modem Chirp** | Nostalgic 1.5s handshake chirps when clicking "Sync Inbox" | 🔲 |
+| **Pet SFX & UI Ticks** | 8-bit chomp on feeding, level-up fanfare, and crisp drawer switch relay ticks | 🔲 |
+| **Audio Controls** | Quick-mute toggle button (`🔊 / 🔇`) in header and next to pet; volume slider in Settings (default 20%) | 🔲 |
+
+---
+
 ## 🔲 Upcoming — Database Features
 
 > **Plan:** [`DATABASE_FEATURES_PLAN.md`](DATABASE_FEATURES_PLAN.md)  
