@@ -5767,6 +5767,99 @@
     }
     .ee-toggle-track.on .ee-toggle-knob { transform: translateX(16px); }
 
+    /* Egg: Win95 Clippy Assistant */
+    .clippy-container {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 99999;
+      display: flex;
+      align-items: flex-end;
+      gap: 0.75rem;
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      user-select: none;
+    }
+    .clippy-container.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
+    }
+    .clippy-bubble {
+      background: #ffffcc;
+      border: 2px solid #000;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      max-width: 250px;
+      font-family: "MS Sans Serif", Tahoma, sans-serif;
+      font-size: 0.8rem;
+      color: #000;
+      line-height: 1.4;
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.8);
+      position: relative;
+      cursor: pointer;
+      animation: clippyBounce 3s ease-in-out infinite;
+    }
+    .clippy-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: 12px;
+      right: -10px;
+      border: 6px solid transparent;
+      border-left-color: #000;
+    }
+    .clippy-bubble-close {
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      background: #c0c0c0;
+      border: 1px outset #fff;
+      color: #000;
+      width: 16px;
+      height: 16px;
+      font-size: 10px;
+      line-height: 14px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .clippy-bubble-close:active {
+      border: 1px inset #fff;
+    }
+    .clippy-char {
+      width: 44px;
+      height: 60px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.5));
+      animation: clippyWiggle 4s ease-in-out infinite;
+    }
+    .clippy-char-emoji {
+      font-size: 2.8rem;
+      line-height: 1;
+    }
+    .clippy-eyes {
+      position: absolute;
+      top: 14px;
+      left: 10px;
+      font-size: 0.75rem;
+      pointer-events: none;
+    }
+    @keyframes clippyBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    @keyframes clippyWiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-5deg); }
+      75% { transform: rotate(5deg); }
+    }
+
     /* Settings Modal Styles */
     .settings-tabs {
       display: flex;
@@ -7893,6 +7986,9 @@
 <div class="credits-overlay" id="ee-credits-overlay">
   <div class="credits-scroll" id="ee-credits-scroll"></div>
 </div>
+
+<!-- Easter Egg: Win95 Clippy Assistant -->
+<div class="clippy-container" id="ee-clippy-container"></div>
 
 <!-- Universal Command Palette (Ctrl+K) -->
 <div class="palette-backdrop" id="command-palette-modal">
@@ -37423,6 +37519,10 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         pill.innerText = isAct ? "Active" : "Select";
       }
     });
+
+    if (typeof updateThemeEasterEggs === "function") {
+      updateThemeEasterEggs(themeName);
+    }
   }
 
   function openSettingsModal() {
@@ -38826,6 +38926,118 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       setTimeout(() => el.remove(), 5500);
     }
   }
+
+  // --- EE #3: Win95 Clippy Assistant ---
+  let clippyIdleTimer = null;
+  let clippyAutoDismissTimer = null;
+  let clippyActive = false;
+
+  const CLIPPY_MESSAGES = [
+    "It looks like you're organizing things. Would you like help? (Just kidding, I can't actually help.)",
+    "Did you know this app has 16 themes? I liked it better when we only had 256 colors.",
+    "I see you haven't added any items in a while. Writer's block? Or just procrastinating?",
+    "Fun fact: I was fired from Microsoft Office in 2007. This is my side gig now.",
+    "You've been staring at this screen for a while. Blink. Please.",
+    "Psst... try clicking the CURIO logo 5 times. 👀"
+  ];
+
+  function updateThemeEasterEggs(themeName) {
+    clearTimeout(clippyIdleTimer);
+    clearTimeout(clippyAutoDismissTimer);
+    hideClippy();
+
+    if (!easterEggsEnabled()) return;
+
+    if (themeName === "win95") {
+      armClippyIdleTimer();
+    }
+  }
+
+  function armClippyIdleTimer() {
+    clearTimeout(clippyIdleTimer);
+    if (!easterEggsEnabled()) return;
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    if (currentTheme !== "win95") return;
+
+    clippyIdleTimer = setTimeout(() => {
+      showClippy();
+    }, 60000);
+  }
+
+  function showClippy() {
+    if (!easterEggsEnabled()) return;
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    if (currentTheme !== "win95") return;
+
+    const container = document.getElementById("ee-clippy-container");
+    if (!container) return;
+
+    const msg = CLIPPY_MESSAGES[Math.floor(Math.random() * CLIPPY_MESSAGES.length)];
+    container.innerHTML = `
+      <div class="clippy-bubble" id="ee-clippy-bubble" title="Click to dismiss">
+        <div class="clippy-bubble-close" id="ee-clippy-close">✕</div>
+        ${escapeHtml(msg)}
+      </div>
+      <div class="clippy-char" id="ee-clippy-avatar" title="Clippy">
+        <span class="clippy-char-emoji">📎</span>
+        <span class="clippy-eyes">👀</span>
+      </div>
+    `;
+
+    container.classList.add("visible");
+    clippyActive = true;
+
+    const dismiss = () => hideClippy();
+    const closeBtn = document.getElementById("ee-clippy-close");
+    const bubble = document.getElementById("ee-clippy-bubble");
+    const avatar = document.getElementById("ee-clippy-avatar");
+    if (closeBtn) closeBtn.onclick = (e) => { e.stopPropagation(); dismiss(); };
+    if (bubble) bubble.onclick = dismiss;
+    if (avatar) avatar.onclick = dismiss;
+
+    clearTimeout(clippyAutoDismissTimer);
+    clippyAutoDismissTimer = setTimeout(() => {
+      hideClippy();
+      armClippyIdleTimer();
+    }, 10000);
+  }
+
+  function hideClippy() {
+    const container = document.getElementById("ee-clippy-container");
+    if (container) {
+      container.classList.remove("visible");
+    }
+    clippyActive = false;
+    clearTimeout(clippyAutoDismissTimer);
+  }
+
+  // Activity watcher for Clippy idle timer
+  (function initUserActivityWatcher() {
+    let lastActivity = 0;
+    const onUserActivity = () => {
+      const now = Date.now();
+      if (now - lastActivity < 1000) return;
+      lastActivity = now;
+
+      if (!clippyActive) {
+        armClippyIdleTimer();
+      }
+    };
+
+    window.addEventListener("mousemove", onUserActivity, { passive: true });
+    window.addEventListener("keydown", onUserActivity, { passive: true });
+    window.addEventListener("click", onUserActivity, { passive: true });
+    window.addEventListener("scroll", onUserActivity, { passive: true });
+  })();
+
+  // Also arm on initial startup if Win95 theme is active
+  window.addEventListener("DOMContentLoaded", () => {
+    const activeTheme = document.documentElement.getAttribute("data-theme") || localStorage.getItem("curio_active_theme");
+    updateThemeEasterEggs(activeTheme);
+  });
+
+  // Debug/Test helper for immediate inspection
+  window._showClippy = showClippy;
 
   // --- 11. INITIALIZATION ---
   document.addEventListener("DOMContentLoaded", async () => {
