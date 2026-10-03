@@ -3473,6 +3473,295 @@
       background: #e8e8dc !important;
     }
 
+    /* ========================================================
+       AMIGA WORKBENCH 3.1 (COMMODORE 4-COLOR RETRO COMPUTING)
+       ======================================================== */
+    [data-theme="amiga"] {
+      --bg-base: #0055aa;
+      --bg-surface: #a0a0a0;
+      --bg-surface-raised: #b4b4b4;
+      --bg-surface-hover: #ffffff;
+      --bg-panel: #888888;
+      --border-subtle: #666666;
+      --border-medium: #333333;
+      --border-bright: #ffffff;
+      --accent-cyan: #ff8800;
+      --accent-cyan-glow: rgba(255, 136, 0, 0.3);
+      --text-main: #000000;
+      --text-muted: #222222;
+      --text-dim: #444444;
+      --shadow-glow: none;
+      --radius-sm: 0px;
+      --radius-md: 0px;
+      --radius-lg: 0px;
+      --font-sans: 'Topaz', 'DejaVu Sans Mono', 'Courier New', monospace;
+      --font-mono: 'Topaz', 'Courier New', monospace;
+    }
+
+    /* Amiga Workbench Deep Blue Backdrop */
+    [data-theme="amiga"] body {
+      background-color: #0055aa;
+      background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.15) 2px, rgba(0, 0, 0, 0.15) 4px);
+      color: #000000;
+      font-family: var(--font-sans);
+    }
+
+    /* Amiga Top Bar - Workbench Screen Header */
+    [data-theme="amiga"] .top-bar {
+      background: #a0a0a0 !important;
+      border-bottom: 2px solid #000000 !important;
+      box-shadow: inset 1px 1px 0px #ffffff, inset -1px -1px 0px #444444 !important;
+      color: #000000 !important;
+    }
+
+    [data-theme="amiga"] .top-bar * {
+      color: #000000 !important;
+    }
+
+    /* Workbench Disk Volume Sidebar */
+    [data-theme="amiga"] .sidebar {
+      background: #a0a0a0 !important;
+      border-right: 2px solid #000000 !important;
+      box-shadow: inset 1px 1px 0px #ffffff, inset -1px 0px 0px #555555 !important;
+    }
+
+    /* Inset Text Boxes & Search */
+    [data-theme="amiga"] .search-box-container,
+    [data-theme="amiga"] .form-input,
+    [data-theme="amiga"] .form-textarea,
+    [data-theme="amiga"] .select-custom,
+    [data-theme="amiga"] .form-select,
+    [data-theme="amiga"] .tag-search-box {
+      background: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+      border-radius: 0px !important;
+      box-shadow: inset 2px 2px 0px #000000, inset -1px -1px 0px #ffffff !important;
+    }
+
+    [data-theme="amiga"] .search-input {
+      color: #000000 !important;
+      font-family: var(--font-mono) !important;
+    }
+
+    [data-theme="amiga"] .search-input::placeholder,
+    [data-theme="amiga"] .tag-search-input::placeholder {
+      color: #666666 !important;
+    }
+
+    /* Beveled Workbench Buttons */
+    [data-theme="amiga"] .btn-primary,
+    [data-theme="amiga"] .btn-secondary,
+    [data-theme="amiga"] .btn-icon,
+    [data-theme="amiga"] .btn-icon-xs,
+    [data-theme="amiga"] .view-btn,
+    [data-theme="amiga"] .pill-toggle,
+    [data-theme="amiga"] .tag-mode-btn,
+    [data-theme="amiga"] .tag-expand-btn,
+    [data-theme="amiga"] .clear-filters-btn {
+      background: #a0a0a0 !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+      border-radius: 0px !important;
+      box-shadow: inset 1px 1px 0px #ffffff, inset -1px -1px 0px #444444 !important;
+      font-weight: 700 !important;
+      font-family: var(--font-sans) !important;
+    }
+
+    [data-theme="amiga"] .btn-primary {
+      background: #0055aa !important;
+      color: #ffffff !important;
+      box-shadow: inset 2px 2px 0px #4488dd, inset -2px -2px 0px #002255 !important;
+    }
+
+    /* Inverted Pressed Button State */
+    [data-theme="amiga"] .btn-primary:active,
+    [data-theme="amiga"] .btn-secondary:active,
+    [data-theme="amiga"] .view-btn.active,
+    [data-theme="amiga"] .pill-toggle.active,
+    [data-theme="amiga"] .clear-filters-btn:active {
+      background: #ff8800 !important;
+      color: #000000 !important;
+      box-shadow: inset 2px 2px 0px #994400, inset -2px -2px 0px #ffbb66 !important;
+      border-color: #000000 !important;
+    }
+
+    /* Filter Panel */
+    [data-theme="amiga"] .filter-panel {
+      background: #888888 !important;
+      border-bottom: 2px solid #000000 !important;
+    }
+
+    [data-theme="amiga"] .tag-filter-bar {
+      background: #a0a0a0 !important;
+      border: 1px solid #000000 !important;
+      box-shadow: inset 1px 1px 0px #ffffff, inset -1px -1px 0px #444444 !important;
+      border-radius: 0px !important;
+    }
+
+    /* Amiga Workbench Window Cards with Checkered Drag Bar */
+    [data-theme="amiga"] .item-card,
+    [data-theme="amiga"] .detail-card {
+      background: #a0a0a0 !important;
+      border: 2px solid #000000 !important;
+      border-radius: 0px !important;
+      box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #444444, 3px 3px 0px rgba(0, 0, 0, 0.6) !important;
+      padding: 0 !important;
+      overflow: hidden;
+    }
+
+    [data-theme="amiga"] .item-card:hover {
+      box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #444444, 4px 4px 0px #000000 !important;
+      transform: translateY(-1px) !important;
+    }
+
+    /* Checkered Orange & White Titlebar */
+    [data-theme="amiga"] .item-card .card-meta-row,
+    [data-theme="amiga"] .detail-card .detail-header {
+      background: repeating-linear-gradient(45deg, #ff8800, #ff8800 3px, #ffffff 3px, #ffffff 6px) !important;
+      border-bottom: 2px solid #000000 !important;
+      padding: 3px 5px !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    [data-theme="amiga"] .item-card .card-meta-row .drawer-chip {
+      background: #000000 !important;
+      color: #ffffff !important;
+      border: 1px solid #ffffff !important;
+      font-weight: 700 !important;
+      font-size: 0.68rem !important;
+      border-radius: 0px !important;
+      box-shadow: 1px 1px 0px #000 !important;
+    }
+
+    [data-theme="amiga"] .card-body {
+      background: #a0a0a0 !important;
+      color: #000000 !important;
+      padding: 0.5rem !important;
+    }
+
+    [data-theme="amiga"] .card-title {
+      color: #000000 !important;
+      font-weight: 800 !important;
+      border-bottom: 2px solid #000000;
+      padding-bottom: 0.2rem;
+    }
+
+    [data-theme="amiga"] .card-notes {
+      color: #111111 !important;
+      font-family: var(--font-mono) !important;
+    }
+
+    /* Amiga Tag Badges */
+    [data-theme="amiga"] .tag-pill,
+    [data-theme="amiga"] .card-tag {
+      background: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+      border-radius: 0px !important;
+      box-shadow: inset 1px 1px 0px #ffffff, inset -1px -1px 0px #444444 !important;
+      font-size: 0.65rem !important;
+      font-weight: 700 !important;
+    }
+
+    [data-theme="amiga"] .tag-pill.active {
+      background: #ff8800 !important;
+      color: #000000 !important;
+      border-color: #000000 !important;
+    }
+
+    /* Amiga Drawer List Items */
+    [data-theme="amiga"] .drawer-item {
+      border-radius: 0px !important;
+      color: #000000 !important;
+      border: 1px solid transparent !important;
+      margin: 1px 0 !important;
+    }
+
+    [data-theme="amiga"] .drawer-item:hover {
+      background: #888888 !important;
+      border: 1px solid #000000 !important;
+    }
+
+    [data-theme="amiga"] .drawer-item.active {
+      background: #0055aa !important;
+      color: #ffffff !important;
+      border: 1px solid #000000 !important;
+      box-shadow: inset 1px 1px 0px #4488dd, inset -1px -1px 0px #002255 !important;
+    }
+
+    [data-theme="amiga"] .drawer-item.active span,
+    [data-theme="amiga"] .drawer-item.active .drawer-count {
+      color: #ffffff !important;
+    }
+
+    /* Amiga Dialog Modal */
+    [data-theme="amiga"] .modal-window {
+      background: #a0a0a0 !important;
+      border: 2px solid #000000 !important;
+      border-radius: 0px !important;
+      box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #444444, 6px 6px 0px rgba(0, 0, 0, 0.7) !important;
+      padding: 0 !important;
+    }
+
+    [data-theme="amiga"] .modal-header {
+      background: repeating-linear-gradient(45deg, #ff8800, #ff8800 4px, #ffffff 4px, #ffffff 8px) !important;
+      color: #000000 !important;
+      border-bottom: 2px solid #000000 !important;
+      padding: 6px 10px !important;
+    }
+
+    [data-theme="amiga"] .modal-title {
+      background: #000000 !important;
+      color: #ffffff !important;
+      padding: 2px 8px !important;
+      font-weight: 800 !important;
+      border: 1px solid #ffffff !important;
+    }
+
+    [data-theme="amiga"] .modal-body,
+    [data-theme="amiga"] .modal-footer {
+      background: #a0a0a0 !important;
+      color: #000000 !important;
+    }
+
+    /* Amiga Storage Gauge */
+    [data-theme="amiga"] .storage-container {
+      background: #888888 !important;
+      border-top: 2px solid #000000 !important;
+    }
+
+    [data-theme="amiga"] .storage-bar-track {
+      background: #ffffff !important;
+      border: 1px solid #000000 !important;
+      border-radius: 0px !important;
+      box-shadow: inset 1px 1px 0px #000000 !important;
+    }
+
+    [data-theme="amiga"] .storage-bar-fill {
+      background: #ff8800 !important;
+      border-radius: 0px !important;
+      border-right: 1px solid #000000 !important;
+    }
+
+    /* Amiga Table View */
+    [data-theme="amiga"] .catalog-table th {
+      background: #888888 !important;
+      color: #000000 !important;
+      border-bottom: 2px solid #000000 !important;
+      box-shadow: inset 1px 1px 0px #ffffff !important;
+    }
+
+    [data-theme="amiga"] .catalog-table td {
+      border-bottom: 1px solid #777777 !important;
+      color: #000000 !important;
+    }
+
+    [data-theme="amiga"] .catalog-table tr:hover td {
+      background: #b0b0b0 !important;
+    }
+
     /* Settings Modal Styles */
     .settings-tabs {
       display: flex;
@@ -3858,6 +4147,12 @@
       outline: 2px dashed #000000 !important;
       outline-offset: 2px;
       box-shadow: 3px 3px 0px #000000 !important;
+    }
+    [data-theme="amiga"] .item-card.is-keyboard-focused,
+    [data-theme="amiga"] .detail-card.is-keyboard-focused {
+      outline: 2px solid #ff8800 !important;
+      outline-offset: 2px;
+      box-shadow: 0 0 0 2px #0055aa, 3px 3px 0px #000000 !important;
     }
 
     /* View Density: Compact Mode */
@@ -5037,6 +5332,7 @@
               <br>• <strong>🗃️ Library Card Catalog</strong>: Manila paper, typewriter ink, brass handles & mahogany cabinetry.
               <br>• <strong>💧 Frutiger Aero</strong>: Frosted acrylic glass reflections, liquid jelly buttons & vivid skies.
               <br>• <strong>📱 Palm OS / PDA</strong>: 4-shade grayscale handheld LCD, pixel clarity, inverted bars & dotted memo lines.
+              <br>• <strong>🟠 Amiga Workbench 3.1</strong>: 4-color cobalt & orange, checkered drag titlebars & beveled window chrome.
               <br>• Plus dark studio aesthetics: <em>Synthwave Sunset</em>, <em>Nord Frost</em>, and <em>Matrix Green</em>.
             </p>
           </div>
@@ -5224,6 +5520,23 @@
             <div class="theme-info">
               <span class="theme-title">📱 Palm OS / PDA</span>
               <span class="theme-desc">Grayscale LCD, pixel clarity & silkscreen stylus aesthetic</span>
+            </div>
+            <span class="theme-status-pill">Select</span>
+          </div>
+
+          <!-- Amiga Workbench 3.1 -->
+          <div class="theme-card" data-theme="amiga">
+            <div class="theme-preview-box" style="background:#0055aa; border:2px solid #000; box-shadow:inset 1px 1px 0 #fff, inset -1px -1px 0 #444;">
+              <div class="mini-titlebar" style="background:repeating-linear-gradient(45deg, #ff8800, #ff8800 2px, #ffffff 2px, #ffffff 4px); padding:0 2px; border-bottom:1px solid #000;">
+                <span style="font-size:6px; font-weight:bold; font-family:monospace; background:#000; color:#fff; padding:0 2px;">Workbench</span>
+              </div>
+              <div class="mini-content" style="background:#a0a0a0; margin:2px; height:18px; border:1px solid #000; box-shadow:inset 1px 1px 0 #fff;">
+                <div class="mini-badge" style="background:#ff8800; color:#000; font-size:6px; font-weight:bold;">RAM:</div>
+              </div>
+            </div>
+            <div class="theme-info">
+              <span class="theme-title">🟠 Amiga Workbench 3.1</span>
+              <span class="theme-desc">Iconic 4-color palette, checkered drag bars & Topaz font</span>
             </div>
             <span class="theme-status-pill">Select</span>
           </div>
@@ -33464,6 +33777,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     { id: "card-catalog", name: "Library Card Catalog", icon: "🗃️", tag: "Interface Theme" },
     { id: "aero", name: "Frutiger Aero", icon: "💧", tag: "Interface Theme" },
     { id: "palm", name: "Palm OS / PDA", icon: "📱", tag: "Interface Theme" },
+    { id: "amiga", name: "Amiga Workbench 3.1", icon: "🟠", tag: "Interface Theme" },
     { id: "synthwave", name: "Synthwave Sunset", icon: "🌅", tag: "Studio Palette" },
     { id: "nord", name: "Nord Frost", icon: "❄️", tag: "Studio Palette" },
     { id: "matrix", name: "Matrix Terminal", icon: "🟢", tag: "Studio Palette" },
