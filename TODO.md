@@ -78,6 +78,31 @@
 
 ---
 
+## 🧠 PKM Evolution: Bi-Directional Linking & Dynamic Custom Properties — SPECIFIED ✅
+
+> **Source:** PKM Design Interview (`/grill-me`)  
+> **Status:** Architecture fully specified & approved, ready for implementation  
+> **Philosophy:** Lightweight, zero-bloat, 100% offline & backward-compatible with existing IndexedDB schema
+
+### 1. 🔗 Bi-directional Linking (`[[Wikilinks]]` & Backlinks)
+| Sub-Task | Details | Status |
+|---|---|:---:|
+| **Inline Autocomplete (`[[`)** | Typing `[[` inside Notes pops up an inline fuzzy-search dropdown to easily pick and insert item titles | 🔲 |
+| **Pill Link Renderer** | Parses `[[Item Title]]` into styled, clickable accent pills inside Notes, Detailed View, and Quick-Look | 🔲 |
+| **Instant Navigation** | Clicking any `[[link]]` immediately jumps to that item or opens its Quick-Look inspector | 🔲 |
+| **Backlinks Section ("Referenced By")** | Detailed View & Quick-Look automatically show an incoming backlinks list of all items referencing the current one | 🔲 |
+
+### 2. 🏷️ Dynamic Custom Properties (Hybrid Drawers + Items)
+| Sub-Task | Details | Status |
+|---|---|:---:|
+| **Hybrid Structuring** | Drawers define default property schemas; individual items can also add custom one-off fields on the fly | 🔲 |
+| **Rich Field Types** | 🔤 Text, 🔢 Number, 📋 Select Dropdown, 🔗 URL link, and ☑️ Checkbox (Boolean) | 🔲 |
+| **Card & View Integration** | Properties render as sleek metadata badges in Detailed View and as dedicated columns in List View | 🔲 |
+| **Search Indexing** | All custom property keys and values are automatically indexed in Spotlight (<kbd>Ctrl</kbd>+<kbd>K</kbd>) and quick filter (`/`) | 🔲 |
+| **Lossless Export/Import** | JSON/ZIP backup & restore handles property templates and per-item property dictionaries seamlessly | 🔲 |
+
+---
+
 ## 🔲 Upcoming — Database Features
 
 > **Plan:** [`DATABASE_FEATURES_PLAN.md`](DATABASE_FEATURES_PLAN.md)  
