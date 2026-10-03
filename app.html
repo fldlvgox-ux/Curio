@@ -4099,6 +4099,376 @@
       background: #e8eefa !important;
     }
 
+    /* ========================================================
+       POLAROID / CORKBOARD (TACTILE PINBOARD & PHOTO-WALL)
+       ======================================================== */
+    [data-theme="corkboard"] {
+      --bg-base: #b8864e;
+      --bg-surface: #4a331e;
+      --bg-surface-raised: #ffffff;
+      --bg-surface-hover: #fff9ed;
+      --bg-panel: #3a2514;
+      --border-subtle: #d2b48c;
+      --border-medium: #8c6239;
+      --border-bright: #e65100;
+      --accent-cyan: #d84315;
+      --accent-cyan-glow: rgba(216, 67, 21, 0.3);
+      --text-main: #2b1f17;
+      --text-muted: #5d4037;
+      --text-dim: #8d6e63;
+      --shadow-glow: none;
+      --radius-sm: 2px;
+      --radius-md: 4px;
+      --radius-lg: 8px;
+      --font-sans: 'Segoe Print', 'Ink Free', 'Chalkboard', 'Comic Sans MS', cursive, sans-serif;
+      --font-mono: 'Courier New', monospace;
+    }
+
+    /* Corkboard Bulletin Canvas */
+    [data-theme="corkboard"] body {
+      background-color: #b8864e;
+      background-image: radial-gradient(#9e6f38 18%, transparent 19%), radial-gradient(#cca068 18%, transparent 19%);
+      background-size: 8px 8px;
+      background-position: 0 0, 4px 4px;
+      color: #2b1f17;
+      font-family: var(--font-sans);
+    }
+
+    /* Dark Mahogany Wood Header */
+    [data-theme="corkboard"] .top-bar {
+      background: #4a331e !important;
+      border-bottom: 3px solid #22140a !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4) !important;
+      color: #f7eedb !important;
+    }
+
+    [data-theme="corkboard"] .top-bar * {
+      color: #f7eedb !important;
+    }
+
+    /* Wooden Bulletin Sidebar */
+    [data-theme="corkboard"] .sidebar {
+      background: #3a2514 !important;
+      border-right: 3px solid #22140a !important;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.4) !important;
+      color: #f7eedb !important;
+    }
+
+    [data-theme="corkboard"] .sidebar * {
+      color: #f7eedb !important;
+    }
+
+    /* Search & Inputs as Paper Strips */
+    [data-theme="corkboard"] .search-box-container,
+    [data-theme="corkboard"] .form-input,
+    [data-theme="corkboard"] .form-textarea,
+    [data-theme="corkboard"] .select-custom,
+    [data-theme="corkboard"] .form-select,
+    [data-theme="corkboard"] .tag-search-box {
+      background: #fdfbf7 !important;
+      color: #2b1f17 !important;
+      border: 1px solid #8c6239 !important;
+      border-radius: 3px !important;
+      box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    [data-theme="corkboard"] .search-input {
+      color: #2b1f17 !important;
+    }
+
+    [data-theme="corkboard"] .top-bar .search-box-container {
+      background: #fdfbf7 !important;
+      border: 1px solid #22140a !important;
+    }
+
+    [data-theme="corkboard"] .top-bar .search-input {
+      color: #2b1f17 !important;
+    }
+
+    [data-theme="corkboard"] .top-bar .search-input::placeholder {
+      color: #8d6e63 !important;
+    }
+
+    [data-theme="corkboard"] .search-input::placeholder,
+    [data-theme="corkboard"] .tag-search-input::placeholder {
+      color: #8d6e63 !important;
+    }
+
+    /* Buttons as Pinned Wooden Badges / Paper Labels */
+    [data-theme="corkboard"] .btn-primary {
+      background: linear-gradient(180deg, #d84315 0%, #bf360c 100%) !important;
+      color: #ffffff !important;
+      border: 1px solid #872605 !important;
+      border-radius: 4px !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+      font-weight: 700 !important;
+    }
+
+    [data-theme="corkboard"] .btn-secondary,
+    [data-theme="corkboard"] .btn-icon,
+    [data-theme="corkboard"] .btn-icon-xs,
+    [data-theme="corkboard"] .view-btn,
+    [data-theme="corkboard"] .pill-toggle,
+    [data-theme="corkboard"] .tag-mode-btn,
+    [data-theme="corkboard"] .tag-expand-btn,
+    [data-theme="corkboard"] .clear-filters-btn {
+      background: #fdfbf7 !important;
+      color: #2b1f17 !important;
+      border: 1px solid #a68a68 !important;
+      border-radius: 4px !important;
+      box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15) !important;
+      font-weight: 600 !important;
+    }
+
+    [data-theme="corkboard"] .top-bar .btn-secondary,
+    [data-theme="corkboard"] .top-bar .btn-icon,
+    [data-theme="corkboard"] .top-bar .view-btn {
+      background: #5d4037 !important;
+      color: #f7eedb !important;
+      border: 1px solid #22140a !important;
+    }
+
+    [data-theme="corkboard"] .top-bar .view-btn.active {
+      background: #fdfbf7 !important;
+      color: #bf360c !important;
+      border-color: #22140a !important;
+    }
+
+    [data-theme="corkboard"] .top-bar .view-btn.active * {
+      color: #bf360c !important;
+    }
+
+    /* Pressed Button */
+    [data-theme="corkboard"] .btn-secondary:active,
+    [data-theme="corkboard"] .view-btn.active,
+    [data-theme="corkboard"] .pill-toggle.active,
+    [data-theme="corkboard"] .clear-filters-btn:active {
+      background: #e65100 !important;
+      color: #ffffff !important;
+      border-color: #872605 !important;
+    }
+
+    /* Filter & Tag Bar */
+    [data-theme="corkboard"] .filter-panel {
+      background: #5a3d24 !important;
+      border-bottom: 2px solid #22140a !important;
+      color: #f7eedb !important;
+    }
+
+    [data-theme="corkboard"] .filter-panel * {
+      color: #f7eedb;
+    }
+
+    [data-theme="corkboard"] .tag-filter-bar {
+      background: #fdfbf7 !important;
+      border: 1px solid #8c6239 !important;
+      border-radius: 4px !important;
+    }
+
+    [data-theme="corkboard"] .tag-filter-bar * {
+      color: #2b1f17 !important;
+    }
+
+    /* Pinned Polaroid Cards */
+    [data-theme="corkboard"] .item-card,
+    [data-theme="corkboard"] .detail-card {
+      background: #ffffff !important;
+      border: 1px solid #e0d8c8 !important;
+      border-radius: 3px !important;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+      padding: 10px 10px 14px 10px !important;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    }
+
+    /* Organic Micro-Rotation for Polaroid Look */
+    [data-theme="corkboard"] .catalog-grid .item-card:nth-child(even) {
+      transform: rotate(0.8deg);
+    }
+    [data-theme="corkboard"] .catalog-grid .item-card:nth-child(odd) {
+      transform: rotate(-0.8deg);
+    }
+    [data-theme="corkboard"] .catalog-grid .item-card:nth-child(3n) {
+      transform: rotate(1.2deg);
+    }
+
+    [data-theme="corkboard"] .item-card:hover,
+    [data-theme="corkboard"] .detail-card:hover {
+      transform: scale(1.03) rotate(0deg) !important;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45) !important;
+      z-index: 15;
+    }
+
+    /* Red Pushpin / Thumbtack on Polaroid Top */
+    [data-theme="corkboard"] .item-card::before,
+    [data-theme="corkboard"] .detail-card::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      background: radial-gradient(circle at 35% 35%, #ff5252 0%, #d32f2f 65%, #7f0000 100%);
+      border-radius: 50%;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+      z-index: 5;
+    }
+
+    /* Polaroid Image Frame with Sepia Hint */
+    [data-theme="corkboard"] .item-card-media {
+      border: 1px solid #dcd3be !important;
+      background: #f7f4ed !important;
+      filter: contrast(1.04) saturate(0.95) sepia(0.06);
+    }
+
+    [data-theme="corkboard"] .item-card .card-meta-row,
+    [data-theme="corkboard"] .detail-card .detail-header {
+      background: transparent !important;
+      border-bottom: none !important;
+      padding: 0 0 6px 0 !important;
+    }
+
+    [data-theme="corkboard"] .item-card .card-meta-row .drawer-chip {
+      background: #fff9c4 !important;
+      color: #3e2723 !important;
+      border: 1px dashed #d4c264 !important;
+      font-weight: 700 !important;
+      font-size: 0.68rem !important;
+      border-radius: 2px !important;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    [data-theme="corkboard"] .card-body {
+      background: #ffffff !important;
+      color: #2b1f17 !important;
+      padding: 0.4rem 0 !important;
+    }
+
+    /* Handwritten Caption Title */
+    [data-theme="corkboard"] .card-title {
+      color: #2b1f17 !important;
+      font-weight: 700 !important;
+      font-size: 0.95rem !important;
+      border-bottom: 1px dashed #dcd3be;
+      padding-bottom: 0.25rem;
+    }
+
+    [data-theme="corkboard"] .card-notes {
+      color: #4e342e !important;
+      font-size: 0.8rem !important;
+    }
+
+    /* Post-It Note Style Tags */
+    [data-theme="corkboard"] .tag-pill,
+    [data-theme="corkboard"] .card-tag {
+      background: #fff9c4 !important;
+      color: #3e2723 !important;
+      border: 1px solid #e0d070 !important;
+      border-radius: 2px !important;
+      font-size: 0.65rem !important;
+      font-weight: 600 !important;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    [data-theme="corkboard"] .tag-pill.active {
+      background: #ff5252 !important;
+      color: #ffffff !important;
+      border-color: #b71c1c !important;
+    }
+
+    /* Drawer Items as Manila Tabs */
+    [data-theme="corkboard"] .drawer-item {
+      border-radius: 3px !important;
+      color: #f7eedb !important;
+      margin: 2px 0 !important;
+      border-left: 3px solid transparent !important;
+    }
+
+    [data-theme="corkboard"] .drawer-item:hover {
+      background: #5d4037 !important;
+      color: #ffffff !important;
+      border-left-color: #ffab40 !important;
+    }
+
+    [data-theme="corkboard"] .drawer-item.active {
+      background: #8d6e63 !important;
+      color: #ffffff !important;
+      border-left-color: #ff5252 !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    [data-theme="corkboard"] .drawer-item.active span,
+    [data-theme="corkboard"] .drawer-item.active .drawer-count {
+      color: #ffffff !important;
+    }
+
+    /* Investigation Caseboard Modal */
+    [data-theme="corkboard"] .modal-window {
+      background: #fdfbf7 !important;
+      border: 3px solid #4a331e !important;
+      border-radius: 6px !important;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55) !important;
+      padding: 0 !important;
+      color: #2b1f17 !important;
+    }
+
+    [data-theme="corkboard"] .modal-header {
+      background: #4a331e !important;
+      color: #f7eedb !important;
+      border-bottom: 2px solid #22140a !important;
+      padding: 8px 14px !important;
+    }
+
+    [data-theme="corkboard"] .modal-title {
+      color: #f7eedb !important;
+      font-weight: 700 !important;
+    }
+
+    [data-theme="corkboard"] .modal-body,
+    [data-theme="corkboard"] .modal-footer {
+      background: #fdfbf7 !important;
+      color: #2b1f17 !important;
+    }
+
+    [data-theme="corkboard"] .modal-body * {
+      color: #2b1f17;
+    }
+
+    /* Wooden Storage Bar */
+    [data-theme="corkboard"] .storage-container {
+      background: #3a2514 !important;
+      border-top: 2px solid #22140a !important;
+    }
+
+    [data-theme="corkboard"] .storage-bar-track {
+      background: #22140a !important;
+      border: 1px solid #5d4037 !important;
+      border-radius: 4px !important;
+    }
+
+    [data-theme="corkboard"] .storage-bar-fill {
+      background: linear-gradient(90deg, #ffab40 0%, #ff6d00 100%) !important;
+      border-radius: 3px !important;
+    }
+
+    /* Table View */
+    [data-theme="corkboard"] .catalog-table th {
+      background: #4a331e !important;
+      color: #f7eedb !important;
+      border-bottom: 2px solid #22140a !important;
+    }
+
+    [data-theme="corkboard"] .catalog-table td {
+      border-bottom: 1px solid #dcd3be !important;
+      color: #2b1f17 !important;
+      background: #fdfbf7 !important;
+    }
+
+    [data-theme="corkboard"] .catalog-table tr:hover td {
+      background: #fff9e6 !important;
+    }
+
     /* Settings Modal Styles */
     .settings-tabs {
       display: flex;
@@ -4496,6 +4866,14 @@
       outline: 2px solid #3c81f5 !important;
       outline-offset: 1px;
       box-shadow: 0 0 0 3px rgba(60, 129, 245, 0.4), 0 3px 6px rgba(0, 0, 0, 0.2) !important;
+    }
+    [data-theme="corkboard"] .item-card.is-keyboard-focused,
+    [data-theme="corkboard"] .detail-card.is-keyboard-focused {
+      outline: 3px solid #e65100 !important;
+      outline-offset: 3px;
+      box-shadow: 0 0 16px rgba(230, 81, 0, 0.6), 0 8px 20px rgba(0, 0, 0, 0.4) !important;
+      transform: scale(1.03) rotate(0deg) !important;
+      z-index: 20 !important;
     }
 
     /* View Density: Compact Mode */
@@ -5677,6 +6055,7 @@
               <br>• <strong>📱 Palm OS / PDA</strong>: 4-shade grayscale handheld LCD, pixel clarity, inverted bars & dotted memo lines.
               <br>• <strong>🟠 Amiga Workbench 3.1</strong>: 4-color cobalt & orange, checkered drag titlebars & beveled window chrome.
               <br>• <strong>🪟 Windows XP Luna</strong>: Royal blue gradients, Bliss sky canvas, Task Pane sidebar & olive Start buttons.
+              <br>• <strong>📌 Polaroid / Corkboard</strong>: Tactile cork bulletin canvas, tilted Polaroid cards, 3D pushpins & handwritten notes.
               <br>• Plus dark studio aesthetics: <em>Synthwave Sunset</em>, <em>Nord Frost</em>, and <em>Matrix Green</em>.
             </p>
           </div>
@@ -5899,6 +6278,23 @@
             <div class="theme-info">
               <span class="theme-title">🪟 Windows XP Luna</span>
               <span class="theme-desc">Royal blue gradients, Bliss horizon & olive Start button</span>
+            </div>
+            <span class="theme-status-pill">Select</span>
+          </div>
+
+          <!-- Polaroid / Corkboard -->
+          <div class="theme-card" data-theme="corkboard">
+            <div class="theme-preview-box" style="background:#b78752; border:2px solid #5a381e; box-shadow:inset 0 0 10px rgba(60,30,10,0.5);">
+              <div style="width:100%; height:6px; display:flex; justify-content:center; align-items:center;">
+                <span style="width:5px; height:5px; background:radial-gradient(circle at 35% 35%, #ff5252, #b71c1c); border-radius:50%; box-shadow:1px 2px 3px rgba(0,0,0,0.5);"></span>
+              </div>
+              <div class="mini-content" style="background:#fffcf5; border:1px solid #dcd3c1; margin:2px; height:18px; box-shadow:1px 2px 4px rgba(0,0,0,0.3); transform:rotate(-2deg);">
+                <div class="mini-badge" style="background:#3e2723; color:#fffcf5; font-size:6px; font-family:'Caveat', cursive, sans-serif;">Pin</div>
+              </div>
+            </div>
+            <div class="theme-info">
+              <span class="theme-title">📌 Polaroid / Corkboard</span>
+              <span class="theme-desc">Tactile bulletin board, tilted photo cards & pushpin accents</span>
             </div>
             <span class="theme-status-pill">Select</span>
           </div>
@@ -34141,6 +34537,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     { id: "palm", name: "Palm OS / PDA", icon: "📱", tag: "Interface Theme" },
     { id: "amiga", name: "Amiga Workbench 3.1", icon: "🟠", tag: "Interface Theme" },
     { id: "winxp", name: "Windows XP Luna", icon: "🪟", tag: "Interface Theme" },
+    { id: "corkboard", name: "Polaroid / Corkboard", icon: "📌", tag: "Interface Theme" },
     { id: "synthwave", name: "Synthwave Sunset", icon: "🌅", tag: "Studio Palette" },
     { id: "nord", name: "Nord Frost", icon: "❄️", tag: "Studio Palette" },
     { id: "matrix", name: "Matrix Terminal", icon: "🟢", tag: "Studio Palette" },
