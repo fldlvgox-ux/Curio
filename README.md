@@ -19,6 +19,42 @@ An offline-first, high-capacity visual catalog, asset organizer, and curation da
 
 ---
 
+## 🖼️ Screenshots Gallery
+
+### Core Views
+
+| Grid View / Main Dashboard | Kanban Board |
+|:-:|:-:|
+| ![Grid View](Screenshots/curio-dashboard.png) | ![Kanban Board](Screenshots/Kanban%20View.png) |
+
+| List View | Drawer & Category View |
+|:-:|:-:|
+| ![List View](Screenshots/List-view.png) | ![Drawer View](Screenshots/Drawer-View.png) |
+
+| Drawer Categories Expanded | Item Edit Modal |
+|:-:|:-:|
+| ![Drawer View 2](Screenshots/Drawer-view_2.png) | ![Edit View](Screenshots/Edit-view.png) |
+
+### 🎨 Nostalgic & Aesthetic Themes
+
+| Windows XP Luna | Windows XP Luna (Detail) |
+|:-:|:-:|
+| ![Win XP](Screenshots/Win_XP.png) | ![Win XP 2](Screenshots/Win_XP_2.png) |
+
+| Windows 95 Chicago | Windows 95 Chicago (Detail) |
+|:-:|:-:|
+| ![Win 95](Screenshots/Win_95.png) | ![Win 95 2](Screenshots/Win_95_2.png) |
+
+| Frutiger Aero Aqua Glass | Palm OS / PDA |
+|:-:|:-:|
+| ![Frutiger Aero](Screenshots/Frutigar_Aero.png) | ![Palm OS PDA](Screenshots/PalmOS_PDA.png) |
+
+| Polaroid / Corkboard |
+|:-:|
+| ![Polaroid Corkboard](Screenshots/Polaroid_Corkboard.png) |
+
+---
+
 ## 📦 Desktop Downloads & Web Versions
 
 | Platform | Format | Package Size | Direct Download Mirror |
