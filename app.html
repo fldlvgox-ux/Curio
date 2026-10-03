@@ -3160,6 +3160,319 @@
       border-radius: 9999px !important;
     }
 
+    /* ========================================================
+       PALM OS / EARLY PDA (4-SHADE GRAYSCALE MONOCHROME)
+       ======================================================== */
+    [data-theme="palm"] {
+      --bg-base: #d8d8ce;
+      --bg-surface: #e5e5dc;
+      --bg-surface-raised: #f5f5ee;
+      --bg-surface-hover: #ffffff;
+      --bg-panel: #dedece;
+      --border-subtle: #aaaa99;
+      --border-medium: #666655;
+      --border-bright: #000000;
+      --accent-cyan: #000000;
+      --accent-cyan-glow: rgba(0, 0, 0, 0.15);
+      --text-main: #000000;
+      --text-muted: #333333;
+      --text-dim: #666666;
+      --shadow-glow: none;
+      --radius-sm: 2px;
+      --radius-md: 4px;
+      --radius-lg: 6px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "Courier New", Courier, monospace;
+    }
+
+    /* Palm OS LCD Screen Texture & Tone */
+    [data-theme="palm"] body {
+      background-color: #d8d8ce;
+      background-image: radial-gradient(#c8c8bd 15%, transparent 16%);
+      background-size: 3px 3px;
+      color: #000000;
+    }
+
+    /* Palm OS Top Bar - Inverted Header Banner */
+    [data-theme="palm"] .top-bar {
+      background: #000000 !important;
+      color: #ffffff !important;
+      border-bottom: 2px solid #000000 !important;
+    }
+
+    [data-theme="palm"] .top-bar * {
+      color: #ffffff !important;
+    }
+
+    /* Palm OS Sidebar */
+    [data-theme="palm"] .sidebar {
+      background: #e5e5dc !important;
+      border-right: 2px solid #000000 !important;
+    }
+
+    /* Palm Form Inputs with Dotted / Solid Underline */
+    [data-theme="palm"] .search-box-container,
+    [data-theme="palm"] .form-input,
+    [data-theme="palm"] .form-textarea,
+    [data-theme="palm"] .select-custom,
+    [data-theme="palm"] .form-select,
+    [data-theme="palm"] .tag-search-box {
+      background: #f5f5ee !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+      border-radius: 3px !important;
+      box-shadow: none !important;
+    }
+
+    [data-theme="palm"] .search-input {
+      color: #000000 !important;
+    }
+
+    [data-theme="palm"] .top-bar .search-box-container {
+      background: #f5f5ee !important;
+      border: 1px solid #ffffff !important;
+    }
+
+    [data-theme="palm"] .top-bar .search-input {
+      color: #000000 !important;
+    }
+
+    [data-theme="palm"] .top-bar .search-input::placeholder {
+      color: #777777 !important;
+    }
+
+    [data-theme="palm"] .search-input::placeholder,
+    [data-theme="palm"] .tag-search-input::placeholder {
+      color: #666666 !important;
+    }
+
+    /* Palm Hardware-Style Buttons */
+    [data-theme="palm"] .btn-primary,
+    [data-theme="palm"] .btn-secondary,
+    [data-theme="palm"] .btn-icon,
+    [data-theme="palm"] .btn-icon-xs,
+    [data-theme="palm"] .view-btn,
+    [data-theme="palm"] .pill-toggle,
+    [data-theme="palm"] .tag-mode-btn,
+    [data-theme="palm"] .tag-expand-btn,
+    [data-theme="palm"] .clear-filters-btn {
+      background: #f5f5ee !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+      border-radius: 3px !important;
+      box-shadow: 1px 1px 0px #000000 !important;
+      font-weight: 700 !important;
+      transition: none !important;
+    }
+
+    [data-theme="palm"] .btn-primary {
+      background: #000000 !important;
+      color: #ffffff !important;
+    }
+
+    [data-theme="palm"] .top-bar .btn-secondary,
+    [data-theme="palm"] .top-bar .btn-icon,
+    [data-theme="palm"] .top-bar .view-btn {
+      background: #222222 !important;
+      color: #ffffff !important;
+      border: 1px solid #666666 !important;
+      box-shadow: none !important;
+    }
+
+    [data-theme="palm"] .top-bar .view-btn.active {
+      background: #ffffff !important;
+      color: #000000 !important;
+      border-color: #ffffff !important;
+    }
+
+    [data-theme="palm"] .top-bar .view-btn.active * {
+      color: #000000 !important;
+    }
+
+    /* Inverted Button Active State */
+    [data-theme="palm"] .btn-secondary:active,
+    [data-theme="palm"] .view-btn.active,
+    [data-theme="palm"] .pill-toggle.active,
+    [data-theme="palm"] .clear-filters-btn:active {
+      background: #000000 !important;
+      color: #ffffff !important;
+      border-color: #000000 !important;
+    }
+
+    /* Filter & Tag Bar */
+    [data-theme="palm"] .filter-panel {
+      background: #dedece !important;
+      border-bottom: 2px solid #000000 !important;
+    }
+
+    [data-theme="palm"] .tag-filter-bar {
+      background: #e5e5dc !important;
+      border: 1px solid #000000 !important;
+      border-radius: 3px !important;
+    }
+
+    /* Palm Memo Pad Cards */
+    [data-theme="palm"] .item-card,
+    [data-theme="palm"] .detail-card {
+      background: #fdfdfa !important;
+      border: 1px solid #000000 !important;
+      border-radius: 4px !important;
+      box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.7) !important;
+      padding: 0 !important;
+      overflow: hidden;
+    }
+
+    [data-theme="palm"] .item-card:hover {
+      box-shadow: 3px 3px 0px #000000 !important;
+      transform: translateY(-1px) !important;
+    }
+
+    /* Solid Black Header Bar on Palm Cards */
+    [data-theme="palm"] .item-card .card-meta-row,
+    [data-theme="palm"] .detail-card .detail-header {
+      background: #000000 !important;
+      color: #ffffff !important;
+      border-bottom: 1px solid #000000 !important;
+      padding: 4px 6px !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    [data-theme="palm"] .item-card .card-meta-row * {
+      color: #ffffff !important;
+    }
+
+    [data-theme="palm"] .item-card .card-meta-row .drawer-chip {
+      background: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+      font-weight: 700 !important;
+      font-size: 0.68rem !important;
+      border-radius: 2px !important;
+    }
+
+    [data-theme="palm"] .card-body {
+      background: #fdfdfa !important;
+      color: #000000 !important;
+      padding: 0.6rem !important;
+    }
+
+    [data-theme="palm"] .card-title {
+      color: #000000 !important;
+      font-weight: 800 !important;
+      border-bottom: 1px dotted #888877;
+      padding-bottom: 0.25rem;
+    }
+
+    [data-theme="palm"] .card-notes {
+      color: #222222 !important;
+    }
+
+    /* Tag Pills with 1px Outline */
+    [data-theme="palm"] .tag-pill,
+    [data-theme="palm"] .card-tag {
+      background: #e8e8dc !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+      border-radius: 2px !important;
+      font-size: 0.65rem !important;
+      font-weight: 600 !important;
+    }
+
+    [data-theme="palm"] .tag-pill.active {
+      background: #000000 !important;
+      color: #ffffff !important;
+      border-color: #000000 !important;
+    }
+
+    /* Palm Silkscreen Drawer Items */
+    [data-theme="palm"] .drawer-item {
+      border-radius: 3px !important;
+      color: #000000 !important;
+      border-bottom: 1px dotted #aaaa99 !important;
+      margin: 1px 0 !important;
+    }
+
+    [data-theme="palm"] .drawer-item:hover {
+      background: #d0d0c4 !important;
+    }
+
+    [data-theme="palm"] .drawer-item.active {
+      background: #000000 !important;
+      color: #ffffff !important;
+      border-bottom-color: #000000 !important;
+    }
+
+    [data-theme="palm"] .drawer-item.active span,
+    [data-theme="palm"] .drawer-item.active .drawer-count {
+      color: #ffffff !important;
+    }
+
+    /* Palm Dialog Windows */
+    [data-theme="palm"] .modal-window {
+      background: #fdfdfa !important;
+      border: 2px solid #000000 !important;
+      border-radius: 4px !important;
+      box-shadow: 4px 4px 0px #000000 !important;
+      padding: 0 !important;
+      overflow: hidden;
+    }
+
+    [data-theme="palm"] .modal-header {
+      background: #000000 !important;
+      color: #ffffff !important;
+      border-bottom: 2px solid #000000 !important;
+      padding: 6px 10px !important;
+    }
+
+    [data-theme="palm"] .modal-title {
+      color: #ffffff !important;
+      font-weight: 800 !important;
+    }
+
+    [data-theme="palm"] .modal-close {
+      color: #ffffff !important;
+    }
+
+    [data-theme="palm"] .modal-body,
+    [data-theme="palm"] .modal-footer {
+      background: #fdfdfa !important;
+      color: #000000 !important;
+    }
+
+    /* Storage Bar in Palm OS */
+    [data-theme="palm"] .storage-container {
+      background: #dedece !important;
+      border-top: 1px solid #000000 !important;
+    }
+
+    [data-theme="palm"] .storage-bar-track {
+      background: #ffffff !important;
+      border: 1px solid #000000 !important;
+      border-radius: 2px !important;
+    }
+
+    [data-theme="palm"] .storage-bar-fill {
+      background: #000000 !important;
+      border-radius: 1px !important;
+    }
+
+    /* Dotted table rows in list view */
+    [data-theme="palm"] .catalog-table th {
+      background: #dedece !important;
+      color: #000000 !important;
+      border-bottom: 2px solid #000000 !important;
+    }
+
+    [data-theme="palm"] .catalog-table td {
+      border-bottom: 1px dotted #888877 !important;
+      color: #000000 !important;
+    }
+
+    [data-theme="palm"] .catalog-table tr:hover td {
+      background: #e8e8dc !important;
+    }
+
     /* Settings Modal Styles */
     .settings-tabs {
       display: flex;
@@ -3520,8 +3833,8 @@
       outline-offset: 1px;
       box-shadow: inset 1px 1px 0px #fff, inset -1px -1px 0px #808080 !important;
     }
-    [data-theme="crt"] .item-card.is-keyboard-focused,
-    [data-theme="crt"] .detail-card.is-keyboard-focused {
+    [data-theme="crt-amber"] .item-card.is-keyboard-focused,
+    [data-theme="crt-amber"] .detail-card.is-keyboard-focused {
       outline: 2px solid #ffb000 !important;
       box-shadow: 0 0 16px rgba(255, 176, 0, 0.8) !important;
     }
@@ -3539,6 +3852,12 @@
     [data-theme="aero"] .detail-card.is-keyboard-focused {
       outline: 2px solid rgba(56, 189, 248, 0.9) !important;
       box-shadow: 0 0 20px rgba(56, 189, 248, 0.6) !important;
+    }
+    [data-theme="palm"] .item-card.is-keyboard-focused,
+    [data-theme="palm"] .detail-card.is-keyboard-focused {
+      outline: 2px dashed #000000 !important;
+      outline-offset: 2px;
+      box-shadow: 3px 3px 0px #000000 !important;
     }
 
     /* View Density: Compact Mode */
@@ -4717,6 +5036,7 @@
               <br>• <strong>🍎 Mac OS System 7</strong>: Platinum stipple, speed pinstripes, 1-bit outlines & inverted buttons.
               <br>• <strong>🗃️ Library Card Catalog</strong>: Manila paper, typewriter ink, brass handles & mahogany cabinetry.
               <br>• <strong>💧 Frutiger Aero</strong>: Frosted acrylic glass reflections, liquid jelly buttons & vivid skies.
+              <br>• <strong>📱 Palm OS / PDA</strong>: 4-shade grayscale handheld LCD, pixel clarity, inverted bars & dotted memo lines.
               <br>• Plus dark studio aesthetics: <em>Synthwave Sunset</em>, <em>Nord Frost</em>, and <em>Matrix Green</em>.
             </p>
           </div>
@@ -4887,6 +5207,23 @@
             <div class="theme-info">
               <span class="theme-title">💧 Frutiger Aero</span>
               <span class="theme-desc">Liquid jelly gloss, glass reflections & vivid sky</span>
+            </div>
+            <span class="theme-status-pill">Select</span>
+          </div>
+
+          <!-- Palm OS / PDA -->
+          <div class="theme-card" data-theme="palm">
+            <div class="theme-preview-box" style="background:#d8d8ce; border:1px solid #000; box-shadow:1px 1px 0 #000;">
+              <div class="mini-titlebar" style="background:#000000; color:#ffffff; padding:0 3px;">
+                <span style="font-size:7px; font-weight:bold; font-family:sans-serif; color:#fff;">MEMO PAD</span>
+              </div>
+              <div class="mini-content" style="background:#fdfdfa; border-bottom:1px dotted #888; margin:2px; height:18px;">
+                <div class="mini-badge" style="background:#000; color:#fff; font-size:6px; border-radius:2px;">160x160</div>
+              </div>
+            </div>
+            <div class="theme-info">
+              <span class="theme-title">📱 Palm OS / PDA</span>
+              <span class="theme-desc">Grayscale LCD, pixel clarity & silkscreen stylus aesthetic</span>
             </div>
             <span class="theme-status-pill">Select</span>
           </div>
@@ -33126,6 +33463,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     { id: "macos9", name: "Mac OS Classic (System 7)", icon: "🍎", tag: "Interface Theme" },
     { id: "card-catalog", name: "Library Card Catalog", icon: "🗃️", tag: "Interface Theme" },
     { id: "aero", name: "Frutiger Aero", icon: "💧", tag: "Interface Theme" },
+    { id: "palm", name: "Palm OS / PDA", icon: "📱", tag: "Interface Theme" },
     { id: "synthwave", name: "Synthwave Sunset", icon: "🌅", tag: "Studio Palette" },
     { id: "nord", name: "Nord Frost", icon: "❄️", tag: "Studio Palette" },
     { id: "matrix", name: "Matrix Terminal", icon: "🟢", tag: "Studio Palette" },
