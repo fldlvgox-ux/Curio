@@ -4469,6 +4469,339 @@
       background: #fff9e6 !important;
     }
 
+    /* ============================================================
+       VAPORWAVE / A E S T H E T I C  (Dreamy Pastel Retrowave)
+       ============================================================ */
+    [data-theme="vaporwave"] {
+      --bg-canvas: #1a0a2e;
+      --bg-surface: rgba(255, 106, 213, 0.08);
+      --bg-surface-raised: rgba(199, 116, 232, 0.12);
+      --bg-glass: rgba(148, 208, 255, 0.1);
+      --border-subtle: rgba(255, 106, 213, 0.25);
+      --border-strong: rgba(199, 116, 232, 0.5);
+      --text-primary: #f0d6ff;
+      --text-secondary: #c4a0e0;
+      --text-muted: #9070b0;
+      --accent-cyan: #ff6ad5;
+      --accent-cyan-glow: rgba(255, 106, 213, 0.4);
+      --shadow-md: 0 4px 16px rgba(199, 116, 232, 0.15);
+      --shadow-lg: 0 8px 32px rgba(255, 106, 213, 0.15);
+      --radius-md: 6px;
+    }
+
+    /* Vaporwave Background — gradient wash + perspective grid floor */
+    [data-theme="vaporwave"] body {
+      background:
+        linear-gradient(180deg,
+          #1a0a2e 0%,
+          #2d1b4e 30%,
+          #ff6ad5 60%,
+          #c774e8 80%,
+          #94d0ff 100%) !important;
+      background-attachment: fixed !important;
+      position: relative;
+    }
+    [data-theme="vaporwave"] body::before {
+      content: "";
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40vh;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,106,213,0.25) 0px, transparent 1px, transparent 60px),
+        repeating-linear-gradient(0deg, rgba(255,106,213,0.25) 0px, transparent 1px, transparent 60px);
+      transform: perspective(300px) rotateX(45deg);
+      transform-origin: bottom center;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+    [data-theme="vaporwave"] body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        transparent 2px,
+        rgba(0,0,0,0.04) 2px,
+        rgba(0,0,0,0.04) 4px
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    [data-theme="vaporwave"] .top-bar {
+      background: linear-gradient(135deg, rgba(255,106,213,0.15), rgba(199,116,232,0.12)) !important;
+      border-bottom: 1px solid rgba(255,106,213,0.3) !important;
+      backdrop-filter: blur(12px);
+    }
+    [data-theme="vaporwave"] .top-bar * {
+      color: #f0d6ff !important;
+    }
+
+    [data-theme="vaporwave"] .sidebar {
+      background: linear-gradient(180deg, rgba(26,10,46,0.95), rgba(45,27,78,0.9)) !important;
+      border-right: 1px solid rgba(255,106,213,0.3) !important;
+      backdrop-filter: blur(10px);
+    }
+    [data-theme="vaporwave"] .sidebar * {
+      color: #e0b0ff !important;
+    }
+
+    [data-theme="vaporwave"] .search-box-container,
+    [data-theme="vaporwave"] .form-input,
+    [data-theme="vaporwave"] .form-textarea,
+    [data-theme="vaporwave"] .select-custom,
+    [data-theme="vaporwave"] .form-select,
+    [data-theme="vaporwave"] .tag-search-box {
+      background: rgba(26,10,46,0.7) !important;
+      border: 1px solid rgba(255,106,213,0.3) !important;
+      color: #f0d6ff !important;
+      border-radius: 20px !important;
+    }
+    [data-theme="vaporwave"] .search-input {
+      color: #f0d6ff !important;
+    }
+    [data-theme="vaporwave"] .top-bar .search-box-container {
+      background: rgba(199,116,232,0.12) !important;
+      border: 1px solid rgba(255,106,213,0.35) !important;
+    }
+    [data-theme="vaporwave"] .top-bar .search-input {
+      color: #f0d6ff !important;
+    }
+    [data-theme="vaporwave"] .top-bar .search-input::placeholder {
+      color: #9070b0 !important;
+    }
+    [data-theme="vaporwave"] .search-input::placeholder,
+    [data-theme="vaporwave"] .tag-search-input::placeholder {
+      color: #9070b0 !important;
+    }
+
+    /* Vaporwave Buttons — gradient pastel pills */
+    [data-theme="vaporwave"] .btn-primary {
+      background: linear-gradient(135deg, #ff6ad5, #c774e8) !important;
+      color: #fff !important;
+      border: none !important;
+      border-radius: 20px !important;
+      box-shadow: 0 2px 12px rgba(255,106,213,0.4) !important;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+    [data-theme="vaporwave"] .btn-secondary,
+    [data-theme="vaporwave"] .btn-icon,
+    [data-theme="vaporwave"] .btn-icon-xs,
+    [data-theme="vaporwave"] .view-btn,
+    [data-theme="vaporwave"] .pill-toggle,
+    [data-theme="vaporwave"] .tag-mode-btn,
+    [data-theme="vaporwave"] .tag-expand-btn,
+    [data-theme="vaporwave"] .clear-filters-btn {
+      background: rgba(199,116,232,0.15) !important;
+      border: 1px solid rgba(255,106,213,0.3) !important;
+      color: #e0b0ff !important;
+      border-radius: 20px !important;
+    }
+    [data-theme="vaporwave"] .top-bar .btn-secondary,
+    [data-theme="vaporwave"] .top-bar .btn-icon,
+    [data-theme="vaporwave"] .top-bar .view-btn {
+      background: rgba(255,106,213,0.1) !important;
+      border: 1px solid rgba(255,106,213,0.3) !important;
+      color: #f0d6ff !important;
+    }
+    [data-theme="vaporwave"] .top-bar .view-btn.active {
+      background: linear-gradient(135deg, rgba(255,106,213,0.3), rgba(199,116,232,0.3)) !important;
+      border-color: rgba(255,106,213,0.6) !important;
+      box-shadow: 0 0 10px rgba(255,106,213,0.3) !important;
+    }
+    [data-theme="vaporwave"] .top-bar .view-btn.active * {
+      color: #fff !important;
+    }
+    [data-theme="vaporwave"] .btn-secondary:active,
+    [data-theme="vaporwave"] .view-btn.active,
+    [data-theme="vaporwave"] .pill-toggle.active,
+    [data-theme="vaporwave"] .clear-filters-btn:active {
+      background: linear-gradient(135deg, rgba(255,106,213,0.25), rgba(199,116,232,0.2)) !important;
+      border-color: rgba(255,106,213,0.5) !important;
+    }
+
+    /* Vaporwave Filter & Tag Panels */
+    [data-theme="vaporwave"] .filter-panel {
+      background: rgba(26,10,46,0.85) !important;
+      border: 1px solid rgba(255,106,213,0.25) !important;
+      backdrop-filter: blur(12px);
+    }
+    [data-theme="vaporwave"] .filter-panel * {
+      color: #e0b0ff !important;
+    }
+    [data-theme="vaporwave"] .tag-filter-bar {
+      background: rgba(26,10,46,0.7) !important;
+      border-bottom: 1px solid rgba(255,106,213,0.2) !important;
+    }
+    [data-theme="vaporwave"] .tag-filter-bar * {
+      color: #c4a0e0 !important;
+    }
+
+    /* Vaporwave Cards — frosted pastel glass with soft glow */
+    [data-theme="vaporwave"] .item-card,
+    [data-theme="vaporwave"] .detail-card {
+      background: rgba(45,27,78,0.65) !important;
+      border: 1px solid rgba(255,106,213,0.2) !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 20px rgba(199,116,232,0.15), 0 1px 3px rgba(0,0,0,0.2) !important;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease !important;
+      position: relative;
+      overflow: hidden;
+    }
+    [data-theme="vaporwave"] .item-card:hover,
+    [data-theme="vaporwave"] .detail-card:hover {
+      border-color: rgba(255,106,213,0.5) !important;
+      box-shadow: 0 6px 30px rgba(255,106,213,0.25), 0 0 20px rgba(199,116,232,0.15) !important;
+      transform: translateY(-3px);
+    }
+
+    /* VHS glitch bar on hover */
+    [data-theme="vaporwave"] .item-card::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0;
+      height: 3px;
+      top: -3px;
+      background: linear-gradient(90deg, transparent 10%, #ff6ad5 20%, transparent 30%, #94d0ff 50%, transparent 60%, #c774e8 80%, transparent 90%);
+      opacity: 0;
+      transition: opacity 0.3s ease, top 0.3s ease;
+      pointer-events: none;
+      z-index: 3;
+    }
+    [data-theme="vaporwave"] .item-card:hover::after {
+      opacity: 0.8;
+      animation: vaporGlitch 0.8s steps(4) infinite;
+    }
+    @keyframes vaporGlitch {
+      0% { top: 10%; }
+      25% { top: 40%; }
+      50% { top: 70%; }
+      75% { top: 20%; }
+      100% { top: 55%; }
+    }
+
+    [data-theme="vaporwave"] .item-card-media {
+      border-bottom: 1px solid rgba(255,106,213,0.15) !important;
+      filter: saturate(1.2) contrast(0.95);
+    }
+    [data-theme="vaporwave"] .item-card .card-meta-row,
+    [data-theme="vaporwave"] .detail-card .detail-header {
+      border-bottom: 1px solid rgba(255,106,213,0.15) !important;
+    }
+    [data-theme="vaporwave"] .item-card .card-meta-row .drawer-chip {
+      background: linear-gradient(135deg, rgba(255,106,213,0.2), rgba(199,116,232,0.15)) !important;
+      color: #ff6ad5 !important;
+      border: 1px solid rgba(255,106,213,0.3) !important;
+      border-radius: 12px !important;
+      font-size: 0.65rem !important;
+    }
+    [data-theme="vaporwave"] .card-body {
+      padding: 0.75rem !important;
+    }
+    [data-theme="vaporwave"] .card-body * {
+      color: #f0d6ff !important;
+    }
+    [data-theme="vaporwave"] .card-title {
+      color: #fff !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.04em;
+    }
+    [data-theme="vaporwave"] .card-notes {
+      color: #c4a0e0 !important;
+    }
+
+    /* Vaporwave Tag Pills — pastel gradient */
+    [data-theme="vaporwave"] .tag-pill,
+    [data-theme="vaporwave"] .card-tag {
+      background: linear-gradient(135deg, rgba(255,106,213,0.15), rgba(148,208,255,0.15)) !important;
+      border: 1px solid rgba(255,106,213,0.25) !important;
+      color: #e0b0ff !important;
+      border-radius: 12px !important;
+    }
+    [data-theme="vaporwave"] .tag-pill.active {
+      background: linear-gradient(135deg, #ff6ad5, #c774e8) !important;
+      color: #fff !important;
+      border-color: transparent !important;
+      box-shadow: 0 2px 8px rgba(255,106,213,0.4) !important;
+    }
+
+    /* Vaporwave Drawer Items */
+    [data-theme="vaporwave"] .drawer-item {
+      color: #c4a0e0 !important;
+      border-radius: 8px !important;
+      transition: all 0.2s ease;
+    }
+    [data-theme="vaporwave"] .drawer-item:hover {
+      background: rgba(255,106,213,0.1) !important;
+      color: #f0d6ff !important;
+    }
+    [data-theme="vaporwave"] .drawer-item.active {
+      background: linear-gradient(135deg, rgba(255,106,213,0.2), rgba(199,116,232,0.15)) !important;
+      border-left: 3px solid #ff6ad5 !important;
+    }
+    [data-theme="vaporwave"] .drawer-item.active span,
+    [data-theme="vaporwave"] .drawer-item.active .drawer-count {
+      color: #ff6ad5 !important;
+    }
+
+    /* Vaporwave Modal */
+    [data-theme="vaporwave"] .modal-window {
+      background: linear-gradient(135deg, rgba(26,10,46,0.95), rgba(45,27,78,0.92)) !important;
+      border: 1px solid rgba(255,106,213,0.3) !important;
+      border-radius: 12px !important;
+      box-shadow: 0 8px 40px rgba(199,116,232,0.25), 0 0 60px rgba(255,106,213,0.1) !important;
+      backdrop-filter: blur(16px);
+    }
+    [data-theme="vaporwave"] .modal-header {
+      border-bottom: 1px solid rgba(255,106,213,0.2) !important;
+      background: rgba(255,106,213,0.05) !important;
+    }
+    [data-theme="vaporwave"] .modal-title {
+      color: #ff6ad5 !important;
+      letter-spacing: 0.1em;
+    }
+    [data-theme="vaporwave"] .modal-body,
+    [data-theme="vaporwave"] .modal-footer {
+      background: transparent !important;
+    }
+    [data-theme="vaporwave"] .modal-body * {
+      color: #e0b0ff !important;
+    }
+
+    /* Vaporwave Storage Meter — gradient bar */
+    [data-theme="vaporwave"] .storage-container {
+      color: #c4a0e0 !important;
+    }
+    [data-theme="vaporwave"] .storage-bar-track {
+      background: rgba(26,10,46,0.6) !important;
+      border: 1px solid rgba(255,106,213,0.2) !important;
+      border-radius: 10px !important;
+    }
+    [data-theme="vaporwave"] .storage-bar-fill {
+      background: linear-gradient(90deg, #ff6ad5, #c774e8, #94d0ff) !important;
+      border-radius: 10px !important;
+      box-shadow: 0 0 8px rgba(255,106,213,0.5) !important;
+    }
+
+    /* Vaporwave Table */
+    [data-theme="vaporwave"] .catalog-table th {
+      background: rgba(255,106,213,0.12) !important;
+      color: #ff6ad5 !important;
+      border-bottom: 1px solid rgba(255,106,213,0.3) !important;
+    }
+    [data-theme="vaporwave"] .catalog-table td {
+      color: #e0b0ff !important;
+      border-bottom: 1px solid rgba(255,106,213,0.1) !important;
+    }
+    [data-theme="vaporwave"] .catalog-table tr:hover td {
+      background: rgba(255,106,213,0.08) !important;
+    }
+
     /* Settings Modal Styles */
     .settings-tabs {
       display: flex;
@@ -4874,6 +5207,12 @@
       box-shadow: 0 0 16px rgba(230, 81, 0, 0.6), 0 8px 20px rgba(0, 0, 0, 0.4) !important;
       transform: scale(1.03) rotate(0deg) !important;
       z-index: 20 !important;
+    }
+    [data-theme="vaporwave"] .item-card.is-keyboard-focused,
+    [data-theme="vaporwave"] .detail-card.is-keyboard-focused {
+      outline: 2px solid #ff6ad5 !important;
+      outline-offset: 2px;
+      box-shadow: 0 0 20px rgba(255, 106, 213, 0.6), 0 0 40px rgba(199, 116, 232, 0.3) !important;
     }
 
     /* View Density: Compact Mode */
@@ -6056,6 +6395,7 @@
               <br>• <strong>🟠 Amiga Workbench 3.1</strong>: 4-color cobalt & orange, checkered drag titlebars & beveled window chrome.
               <br>• <strong>🪟 Windows XP Luna</strong>: Royal blue gradients, Bliss sky canvas, Task Pane sidebar & olive Start buttons.
               <br>• <strong>📌 Polaroid / Corkboard</strong>: Tactile cork bulletin canvas, tilted Polaroid cards, 3D pushpins & handwritten notes.
+              <br>• <strong>🌺 Vaporwave</strong>: Dreamy pastel pink/lavender/teal retrowave, perspective neon grid floor, VHS glitch hover & fullwidth text.
               <br>• Plus dark studio aesthetics: <em>Synthwave Sunset</em>, <em>Nord Frost</em>, and <em>Matrix Green</em>.
             </p>
           </div>
@@ -6295,6 +6635,23 @@
             <div class="theme-info">
               <span class="theme-title">📌 Polaroid / Corkboard</span>
               <span class="theme-desc">Tactile bulletin board, tilted photo cards & pushpin accents</span>
+            </div>
+            <span class="theme-status-pill">Select</span>
+          </div>
+
+          <!-- Vaporwave / A E S T H E T I C -->
+          <div class="theme-card" data-theme="vaporwave">
+            <div class="theme-preview-box" style="background:linear-gradient(135deg, #1a0a2e, #ff6ad5 60%, #94d0ff); border:1px solid rgba(255,106,213,0.5); box-shadow:0 0 12px rgba(255,106,213,0.3);">
+              <div class="mini-titlebar" style="background:rgba(255,106,213,0.2); border-bottom:1px solid rgba(255,106,213,0.4); backdrop-filter:blur(4px);">
+                <span style="font-size:6px; color:#f0d6ff; letter-spacing:0.15em;">ＡＥＳＴＨ</span>
+              </div>
+              <div class="mini-content">
+                <div class="mini-badge" style="background:linear-gradient(135deg, #ff6ad5, #c774e8); color:#fff; border-radius:9999px; font-size:6px;">ＶＡＰＯＲ</div>
+              </div>
+            </div>
+            <div class="theme-info">
+              <span class="theme-title">🌺 Vaporwave</span>
+              <span class="theme-desc">Pastel retrowave, VHS glitch & neon grid horizon</span>
             </div>
             <span class="theme-status-pill">Select</span>
           </div>
@@ -34538,6 +34895,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     { id: "amiga", name: "Amiga Workbench 3.1", icon: "🟠", tag: "Interface Theme" },
     { id: "winxp", name: "Windows XP Luna", icon: "🪟", tag: "Interface Theme" },
     { id: "corkboard", name: "Polaroid / Corkboard", icon: "📌", tag: "Interface Theme" },
+    { id: "vaporwave", name: "Vaporwave / A E S T H E T I C", icon: "🌺", tag: "Interface Theme" },
     { id: "synthwave", name: "Synthwave Sunset", icon: "🌅", tag: "Studio Palette" },
     { id: "nord", name: "Nord Frost", icon: "❄️", tag: "Studio Palette" },
     { id: "matrix", name: "Matrix Terminal", icon: "🟢", tag: "Studio Palette" },
