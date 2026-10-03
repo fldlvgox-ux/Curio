@@ -35,10 +35,29 @@
 - [x] Pinning, tagging, status management
 - [x] IndexedDB offline storage with ZIP/JSON export/import
 - [x] Discord bot integration + Sync Inbox
-- [x] PWA install support
+- [x] PWA install support & standalone Android APK project
+- [x] Mobile bottom navigation bar & bottom-sheet modals
+- [x] Tactile haptic feedback on touch & theme synchronization
+- [x] Remote CDN master catalog auto-seed on empty first launch
 - [x] Image galleries with lightbox
 - [x] Filter bar with tag cloud, rating, status, media filters
 - [x] Monogram avatars for items without images
+
+---
+
+## 🔲 Universal Cloud Sync (Phone ↔ PC Multi-Device Sync)
+
+> **Goal:** Seamlessly sync catalogs, items, and edits between Android Phone and PC without running heavy servers.  
+> **Status:** Tasked / Backlogged for implementation  
+> **Priority:** High
+
+| # | Sub-task | Details | Status |
+|---|----------|---------|:------:|
+| 1 | **Cloud Sync Provider Architecture** | Support private GitHub Gist (free, zero-server) or Cloudflare KV Sync Key | 🔲 |
+| 2 | **Settings UI "Cloud Sync" Panel** | Dedicated tab in Settings modal to enter Gist ID / Access Token or Sync Code | 🔲 |
+| 3 | **Two-Way Pull & Push Engine** | Auto-push on item add/edit; auto-pull latest changes on app start with diff merge | 🔲 |
+| 4 | **Manual "Sync Now" Trigger** | Instant 1-tap sync button in header and mobile bottom nav with status indicators | 🔲 |
+| 5 | **Conflict Resolution Strategy** | Last-write-wins per item using `item.updatedAt` timestamp to prevent data clobbering | 🔲 |
 
 ---
 
