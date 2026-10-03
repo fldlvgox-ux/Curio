@@ -36042,6 +36042,11 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     const q = query.trim().toLowerCase();
     paletteFilteredResults = [];
 
+    // Easter Egg: Magic query interception
+    if (q && typeof checkEasterEggQuery === "function") {
+      if (checkEasterEggQuery(q, resultsContainer)) return;
+    }
+
     // Check if query matches theme actions
     if (q) {
       PALETTE_THEMES.forEach(t => {
@@ -37799,6 +37804,11 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           items.forEach((it, idx) => it.classList.toggle("selected", idx === paletteSelectedIndex));
         } else if (e.key === "Enter") {
           e.preventDefault();
+          const q = palInput.value.trim().toLowerCase();
+          if (q && typeof checkEasterEggQuery === "function") {
+            const resultsContainer = document.getElementById("palette-results");
+            if (checkEasterEggQuery(q, resultsContainer)) return;
+          }
           if (items[paletteSelectedIndex]) items[paletteSelectedIndex].click();
         }
       });
@@ -38747,6 +38757,74 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     if (!overlay) return;
     clearTimeout(overlay._autoDismiss);
     overlay.classList.remove("active");
+  }
+
+  // --- EE #2: Spotlight Magic Queries ---
+  function checkEasterEggQuery(q, container) {
+    if (!easterEggsEnabled()) return false;
+
+    // "do a barrel roll" — 360° rotation
+    if (q === "do a barrel roll") {
+      closeCommandPalette();
+      document.documentElement.style.transition = "transform 1.2s cubic-bezier(0.4, 0, 0.2, 1)";
+      document.documentElement.style.transformOrigin = "50% 50%";
+      document.documentElement.style.transform = "rotate(360deg)";
+      setTimeout(() => {
+        document.documentElement.style.transition = "";
+        document.documentElement.style.transform = "";
+        document.documentElement.style.transformOrigin = "";
+      }, 1250);
+      return true;
+    }
+
+    // "party" or "celebrate" — emoji confetti storm
+    if (q === "party" || q === "celebrate") {
+      closeCommandPalette();
+      launchConfetti();
+      return true;
+    }
+
+    // "hello world" — retro terminal message with blinking cursor
+    if (q === "hello world") {
+      if (container) {
+        container.innerHTML = `
+          <div style="padding:2.2rem 1.5rem; text-align:center; font-family:'Consolas','Courier New',monospace;">
+            <div style="font-size:1.6rem; color:var(--accent-emerald, #10b981); margin-bottom:0.75rem; text-shadow:0 0 15px var(--accent-emerald, #10b981);">
+              &gt; HELLO, WORLD<span class="ee-blink">█</span>
+            </div>
+            <div style="color:var(--text-dim); font-size:0.78rem; line-height:1.8;">
+              CURIO TERMINAL v3.2.0<br>
+              STATUS: ALL SYSTEMS NOMINAL<br>
+              UPTIME: SINCE YOU OPENED THIS TAB<br>
+              <span style="color:var(--accent-cyan);">READY FOR INPUT_</span>
+            </div>
+          </div>
+        `;
+      }
+      return true;
+    }
+
+    return false;
+  }
+
+  function launchConfetti() {
+    const emojis = ["🎉","🎊","✨","🥳","🎈","🎆","⭐","💫","🎵","🌟"];
+    for (let i = 0; i < 45; i++) {
+      const el = document.createElement("div");
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      Object.assign(el.style, {
+        position: "fixed",
+        top: "-50px",
+        left: (Math.random() * 100) + "vw",
+        fontSize: (1.2 + Math.random() * 1.8) + "rem",
+        zIndex: "100001",
+        pointerEvents: "none",
+        animation: `confettiFall ${2 + Math.random() * 2.5}s linear forwards`,
+        animationDelay: (Math.random() * 1) + "s"
+      });
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 5500);
+    }
   }
 
   // --- 11. INITIALIZATION ---
