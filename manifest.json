@@ -2,7 +2,7 @@
   "name": "CURIO \u2014 The Curator",
   "short_name": "CURIO",
   "description": "Offline-first visual catalog and curation dashboard for creators and developers.",
-  "start_url": "index.html",
+  "start_url": "app.html",
   "display": "standalone",
   "background_color": "#060911",
   "theme_color": "#06b6d4",
