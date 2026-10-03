@@ -104,7 +104,7 @@
     },
     {
       "id": "item-discord-1790948376078",
-      "title": "https://windhawk.net/mods/alt-tab-delayer",
+      "title": "Alt+Tab Window Delayer — Windhawk Mod",
       "drawer": "Desktop & OS Utilities",
       "status": "to-explore",
       "tags": [
@@ -117,8 +117,10 @@
       "rating": 4,
       "notes": "A Windhawk customization mod for Windows that introduces a configurable delay before showing the Alt+Tab task switcher interface. It helps creators and developers eliminate visual clutter and overlay flicker during fast window switching across multiple production tools.",
       "link": "https://windhawk.net/mods/alt-tab-delayer",
-      "logo": "",
-      "gallery": [],
+      "logo": "https://windhawk.net/og-image.png",
+      "gallery": [
+        "https://windhawk.net/og-image.png"
+      ],
       "dateAdded": "2026-10-02T13:39:36.000Z",
       "dateModified": "2026-10-02T13:39:36.000Z"
     },
@@ -191,21 +193,23 @@
     },
     {
       "id": "item-discord-1790949458801",
-      "title": "- YouTube",
-      "drawer": "Game Design & Engines",
+      "title": "ASYAR App — Open Source Raycast Alternative for Windows & Linux",
+      "drawer": "Desktop & OS Utilities",
       "status": "to-explore",
       "tags": [
-        "youtube",
-        "video",
-        "game-dev",
-        "tutorial",
-        "gamedev"
+        "asyar",
+        "raycast",
+        "launcher",
+        "open-source",
+        "productivity"
       ],
-      "rating": 4,
-      "notes": "This bookmarked YouTube video serves as a reference or tutorial for game development concepts. Creators and developers can utilize the video content to learn new techniques, workflows, or industry insights.",
+      "rating": 5,
+      "notes": "ASYAR is an open-source, extensible desktop launcher and productivity tool for Windows and Linux serving as a powerful Raycast alternative. Creators and power users can use it for lightning-fast application launching, clipboard history, file searching, and custom workflow scripts.",
       "link": "https://www.youtube.com/watch?v=TqkKV4qad8I",
-      "logo": "",
-      "gallery": [],
+      "logo": "https://i.ytimg.com/vi/TqkKV4qad8I/hqdefault.jpg",
+      "gallery": [
+        "https://i.ytimg.com/vi/TqkKV4qad8I/hqdefault.jpg"
+      ],
       "dateAdded": "2026-10-02T13:57:38.000Z",
       "dateModified": "2026-10-02T13:57:38.000Z"
     },

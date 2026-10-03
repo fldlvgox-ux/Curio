@@ -1065,6 +1065,8 @@
       align-items: center;
       justify-content: space-between;
       gap: 0.5rem;
+      min-width: 0;
+      overflow: hidden;
     }
 
     .status-badge {
@@ -1074,6 +1076,8 @@
       border-radius: 9999px;
       font-weight: 600;
       letter-spacing: 0.02em;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
     }
     .status-badge.explore { background: var(--status-explore-bg); color: var(--status-explore); border: 1px solid rgba(56, 189, 248, 0.3); }
     .status-badge.progress { background: var(--status-progress-bg); color: var(--status-progress); border: 1px solid rgba(251, 191, 36, 0.3); }
@@ -1903,6 +1907,7 @@
 
     /* 3D Inset Workspaces (Search Boxes & Inputs) */
     [data-theme="win95"] .search-box-container,
+    [data-theme="win95"] .top-bar .search-box-container,
     [data-theme="win95"] .form-input,
     [data-theme="win95"] .form-textarea,
     [data-theme="win95"] .select-custom,
@@ -1915,13 +1920,21 @@
       box-shadow: inset 1px 1px #808080, inset -1px -1px #ffffff, inset 2px 2px #000000, inset -2px -2px #dfdfdf !important;
     }
 
-    [data-theme="win95"] .search-input {
+    [data-theme="win95"] .search-input,
+    [data-theme="win95"] .top-bar .search-input {
       color: #000000 !important;
+      background: transparent !important;
     }
 
     [data-theme="win95"] .search-input::placeholder,
+    [data-theme="win95"] .top-bar .search-input::placeholder,
     [data-theme="win95"] .tag-search-input::placeholder {
       color: #777777 !important;
+    }
+
+    [data-theme="win95"] .search-icon,
+    [data-theme="win95"] .top-bar .search-icon {
+      color: #000000 !important;
     }
 
     /* 3D Classic Outset Push Buttons */
@@ -2000,6 +2013,21 @@
       margin: -3px -3px 4px -3px !important;
       display: flex !important;
       align-items: center !important;
+    }
+
+    [data-theme="win95"] .item-card .card-meta-row .status-badge,
+    [data-theme="win95"] .status-badge {
+      background: #c0c0c0 !important;
+      color: #000000 !important;
+      border: none !important;
+      box-shadow: inset 1px 1px #ffffff, inset -1px -1px #000000, inset 2px 2px #dfdfdf, inset -2px -2px #808080 !important;
+      border-radius: 0 !important;
+      font-weight: bold !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+    }
+    [data-theme="win95"] .status-badge::before {
+      background: #000080 !important;
     }
 
     [data-theme="win95"] .item-card .card-meta-row .drawer-chip {
@@ -2536,6 +2564,27 @@
       align-items: center !important;
     }
 
+    [data-theme="macos9"] .item-card .card-meta-row .status-badge,
+    [data-theme="macos9"] .status-badge {
+      background: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+      border-radius: 9999px !important;
+      font-weight: 700 !important;
+      font-size: 0.68rem !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+      box-shadow: 1px 1px 0 #ffffff !important;
+    }
+
+    [data-theme="macos9"] .status-badge::before {
+      background: #000000 !important;
+    }
+    [data-theme="macos9"] .status-badge.explore::before { background: #000000 !important; }
+    [data-theme="macos9"] .status-badge.progress::before { background: #555555 !important; }
+    [data-theme="macos9"] .status-badge.curated::before { background: #000000 !important; }
+    [data-theme="macos9"] .status-badge.archived::before { background: #888888 !important; }
+
     [data-theme="macos9"] .item-card .card-meta-row .drawer-chip {
       background: #ffffff !important;
       color: #000000 !important;
@@ -2798,6 +2847,28 @@
       border-bottom: 1px solid #ede4d5;
       padding-bottom: 0.4rem;
       margin-bottom: 0.4rem;
+    }
+
+    [data-theme="card-catalog"] .item-card .card-meta-row .status-badge,
+    [data-theme="card-catalog"] .status-badge {
+      background: #ede6d8 !important;
+      color: #5d4037 !important;
+      border: 1px solid #bcaaa4 !important;
+      border-radius: 3px !important;
+      font-weight: 700 !important;
+      font-size: 0.68rem !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+    }
+    [data-theme="card-catalog"] .status-badge::before {
+      background: #8c4322 !important;
+    }
+
+    [data-theme="card-catalog"] .drawer-count {
+      background: #5d4037 !important;
+      color: #ffffff !important;
+      border: 1px solid #3e2723 !important;
+      font-weight: 700 !important;
     }
 
     [data-theme="card-catalog"] .item-card .card-meta-row .drawer-chip {
@@ -3342,6 +3413,28 @@
       color: #ffffff !important;
     }
 
+    [data-theme="palm"] .item-card .card-meta-row .status-badge,
+    [data-theme="palm"] .status-badge {
+      background: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+      border-radius: 2px !important;
+      font-weight: 700 !important;
+      font-size: 0.68rem !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+    }
+    [data-theme="palm"] .status-badge::before {
+      background: #000000 !important;
+    }
+
+    [data-theme="palm"] .drawer-count {
+      background: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+      font-weight: bold !important;
+    }
+
     [data-theme="palm"] .item-card .card-meta-row .drawer-chip {
       background: #ffffff !important;
       color: #000000 !important;
@@ -3623,6 +3716,29 @@
       padding: 3px 5px !important;
       display: flex !important;
       align-items: center !important;
+    }
+
+    [data-theme="amiga"] .item-card .card-meta-row .status-badge,
+    [data-theme="amiga"] .status-badge {
+      background: #0055aa !important;
+      color: #ffffff !important;
+      border: 1px solid #000000 !important;
+      border-radius: 0px !important;
+      font-weight: 700 !important;
+      font-size: 0.68rem !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+      box-shadow: 1px 1px 0px #000 !important;
+    }
+    [data-theme="amiga"] .status-badge::before {
+      background: #ff8800 !important;
+    }
+
+    [data-theme="amiga"] .drawer-count {
+      background: #0055aa !important;
+      color: #ffffff !important;
+      border: 1px solid #000000 !important;
+      font-weight: bold !important;
     }
 
     [data-theme="amiga"] .item-card .card-meta-row .drawer-chip {
@@ -3955,6 +4071,27 @@
       text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
     }
 
+    [data-theme="winxp"] .item-card .card-meta-row .status-badge,
+    [data-theme="winxp"] .status-badge {
+      background: #ffffff !important;
+      color: #003c74 !important;
+      border: 1px solid #002266 !important;
+      border-radius: 9999px !important;
+      font-weight: 700 !important;
+      font-size: 0.68rem !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+      text-shadow: none !important;
+      box-shadow: 0 1px 2px rgba(0, 34, 102, 0.25) !important;
+    }
+    [data-theme="winxp"] .status-badge::before {
+      background: #0054e3 !important;
+    }
+    [data-theme="winxp"] .status-badge.explore::before { background: #0054e3 !important; }
+    [data-theme="winxp"] .status-badge.progress::before { background: #e68a00 !important; }
+    [data-theme="winxp"] .status-badge.curated::before { background: #228b22 !important; }
+    [data-theme="winxp"] .status-badge.archived::before { background: #708090 !important; }
+
     [data-theme="winxp"] .item-card .card-meta-row .drawer-chip {
       background: #ffffff !important;
       color: #003c74 !important;
@@ -4020,9 +4157,25 @@
       border-color: #002266 !important;
     }
 
-    [data-theme="winxp"] .drawer-item.active span,
-    [data-theme="winxp"] .drawer-item.active .drawer-count {
+    /* XP Task Pane Sidebar Drawer Count Badges (Image 4 High-Contrast Fix) */
+    [data-theme="winxp"] .drawer-count {
+      background: #0054e3 !important;
       color: #ffffff !important;
+      border: 1px solid #002266 !important;
+      font-weight: 700 !important;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4) !important;
+      box-shadow: 0 1px 2px rgba(0, 34, 102, 0.2) !important;
+    }
+
+    [data-theme="winxp"] .drawer-item.active span {
+      color: #ffffff !important;
+    }
+
+    [data-theme="winxp"] .drawer-item.active .drawer-count {
+      background: #ffffff !important;
+      color: #0054e3 !important;
+      border: 1px solid #ffffff !important;
+      text-shadow: none !important;
     }
 
     /* XP Modal Window */
@@ -6527,6 +6680,10 @@
           Import
         </button>
       </div>
+      <button class="btn-secondary" id="btn-clean-junk" style="width:100%; justify-content:center; margin-bottom: 0.45rem; gap: 0.35rem; font-size: 0.78rem;" title="Remove duplicates, dead sync entries, and prevent deleted items from coming back">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        Clean Duplicates & Junk
+      </button>
       <button class="btn-danger" id="btn-clear-all" style="width:100%; justify-content:center;">Clear Database</button>
       <input type="file" id="import-file-input" accept=".zip,.json" style="display: none;">
     </div>
@@ -34937,8 +35094,38 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     viewDensity: (function() {
       try { return localStorage.getItem("curio_view_density") || "comfortable"; } catch(e) { return "comfortable"; }
     })(),
-    focusedItemId: null
+    focusedItemId: null,
+
+    // Tombstone registry for permanently deleted items so inbox sync NEVER resurrects them
+    deletedItemIds: (function() {
+      try {
+        const raw = localStorage.getItem("curio_deleted_item_ids");
+        return raw ? new Set(JSON.parse(raw)) : new Set();
+      } catch(e) { return new Set(); }
+    })(),
+    deletedItemLinks: (function() {
+      try {
+        const raw = localStorage.getItem("curio_deleted_item_links");
+        return raw ? new Set(JSON.parse(raw)) : new Set();
+      } catch(e) { return new Set(); }
+    })()
   };
+
+  function recordDeletedItem(item) {
+    if (!item) return;
+    if (item.id) State.deletedItemIds.add(item.id);
+    if (item.link) {
+      State.deletedItemLinks.add(item.link);
+      try {
+        const u = new URL(item.link);
+        State.deletedItemLinks.add(u.origin + u.pathname);
+      } catch(e) {}
+    }
+    try {
+      localStorage.setItem("curio_deleted_item_ids", JSON.stringify([...State.deletedItemIds]));
+      localStorage.setItem("curio_deleted_item_links", JSON.stringify([...State.deletedItemLinks]));
+    } catch(e) {}
+  }
 
     async function loadState() {
     try {
@@ -36678,12 +36865,47 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     const existingIds = new Set(activeCat.items.map(it => it.id));
     const existingLinks = new Set(activeCat.items.map(it => it.link).filter(Boolean));
 
+    const existingTitles = new Set(activeCat.items.map(it => (it.title || "").trim().toLowerCase()));
+
     inboxData.items.forEach(newItem => {
-      // Check duplicate by ID or Link
-      if (!existingIds.has(newItem.id) && (!newItem.link || !existingLinks.has(newItem.link))) {
+      // 1. Check if user previously deleted this item (Tombstone check)
+      if (State.deletedItemIds.has(newItem.id)) return;
+      if (newItem.link) {
+        if (State.deletedItemLinks.has(newItem.link)) return;
+        try {
+          const u = new URL(newItem.link);
+          if (State.deletedItemLinks.has(u.origin + u.pathname)) return;
+        } catch(e) {}
+      }
+
+      // 2. Reject Discord channel/internal links
+      if (newItem.link && /discord\.(?:com\/channels\/|com\/attachments\/|gg\/)/i.test(newItem.link)) {
+        return;
+      }
+
+      // 3. Reject bad titles
+      if (newItem.title === "- YouTube" || newItem.title === "YouTube") {
+        return;
+      }
+
+      // 4. Sanitize raw URL title if needed
+      if (newItem.title && (newItem.title.startsWith("http://") || newItem.title.startsWith("https://"))) {
+        try {
+          const parsed = new URL(newItem.title);
+          const parts = parsed.pathname.split("/").filter(Boolean);
+          const slug = parts[parts.length - 1] || parsed.hostname;
+          newItem.title = slug.replace(/[-_]/g, " ").replace(/\b\w/g, l => l.toUpperCase());
+        } catch(e) {}
+      }
+
+      // 5. Prevent duplicate titles or links
+      const normTitle = (newItem.title || "").trim().toLowerCase();
+
+      if (!existingIds.has(newItem.id) && (!newItem.link || !existingLinks.has(newItem.link)) && !existingTitles.has(normTitle)) {
         activeCat.items.unshift(newItem);
         existingIds.add(newItem.id);
         if (newItem.link) existingLinks.add(newItem.link);
+        existingTitles.add(normTitle);
         addedCount++;
 
         // Add drawer if not exists
@@ -36699,6 +36921,50 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       showToast(`Synced ${addedCount} new items from ${source}!`, "success");
     } else {
       showToast(`Catalog is already up to date with ${source}.`, "info");
+    }
+  }
+
+  // --- 9.4.1 JUNK & DUPLICATE CLEANER ---
+  function cleanJunkAndDuplicates() {
+    let removedCount = 0;
+    const activeCat = State.activeCatalog;
+    if (!activeCat || !Array.isArray(activeCat.items)) return;
+
+    const seenKeys = new Set();
+    const keptItems = [];
+
+    activeCat.items.forEach(it => {
+      const isDiscordInternal = it.link && /discord\.(?:com\/channels\/|com\/attachments\/|gg\/)/i.test(it.link);
+      const isBadTitle = it.title === "- YouTube" || it.title === "YouTube";
+      
+      const normTitle = (it.title || "").trim().toLowerCase();
+      const normDesc = (it.notes || "").slice(0, 40).trim().toLowerCase();
+      const key = it.link ? it.link.toLowerCase() : `${normTitle}:::${normDesc}`;
+
+      if (isDiscordInternal || isBadTitle || seenKeys.has(key)) {
+        recordDeletedItem(it);
+        removedCount++;
+      } else {
+        seenKeys.add(key);
+        if (it.title && (it.title.startsWith("http://") || it.title.startsWith("https://"))) {
+          try {
+            const parsed = new URL(it.title);
+            const parts = parsed.pathname.split("/").filter(Boolean);
+            const slug = parts[parts.length - 1] || parsed.hostname;
+            it.title = slug.replace(/[-_]/g, " ").replace(/\b\w/g, l => l.toUpperCase());
+          } catch(e) {}
+        }
+        keptItems.push(it);
+      }
+    });
+
+    if (removedCount > 0) {
+      activeCat.items = keptItems;
+      saveState();
+      renderAll();
+      showToast(`Cleaned & permanently blocked ${removedCount} duplicate / junk items!`, "success");
+    } else {
+      showToast("No duplicate or junk items found in catalog.", "info");
     }
   }
 
@@ -37659,11 +37925,15 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     document.getElementById("btn-delete-item").addEventListener("click", () => {
       if (!State.editingItemId) return;
       if (confirm("Are you sure you want to delete this item?")) {
+        const itemToDelete = State.items.find(i => i.id === State.editingItemId);
+        if (itemToDelete) {
+          recordDeletedItem(itemToDelete);
+        }
         State.items = State.items.filter(i => i.id !== State.editingItemId);
         saveState();
         closeItemModal();
         renderAll();
-        showToast("Item deleted", "info");
+        showToast("Item deleted and blocked from future syncs", "info");
       }
     });
 
@@ -37756,6 +38026,16 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     const syncBtn = document.getElementById("btn-sync-cloud");
     if (syncBtn) {
       syncBtn.addEventListener("click", () => syncFromCloudOrLocal());
+    }
+
+    // Clean Duplicates & Sync Junk
+    const cleanJunkBtn = document.getElementById("btn-clean-junk");
+    if (cleanJunkBtn) {
+      cleanJunkBtn.addEventListener("click", () => {
+        if (confirm("Scan catalog for duplicates, Discord internal entries, and bad sync items? They will be removed and permanently blocked from recurring.")) {
+          cleanJunkAndDuplicates();
+        }
+      });
     }
 
     // Backup: JSON Export

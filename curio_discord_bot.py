@@ -94,14 +94,11 @@ def extract_urls(text):
         r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
     )
     raw_urls = url_pattern.findall(text)
-    # Filter out Discord internal URLs (channel links, CDN, etc.)
     filtered = []
     for u in raw_urls:
-        # Skip discord.com internal links (channels, attachments, cdn)
-        if re.match(r'https?://(www\.)?(discord\.com|discordapp\.com|cdn\.discordapp\.com|media\.discordapp\.net)', u):
-            continue
-        # Skip Discord CDN for user avatars/emojis
-        if 'discord' in u.lower() and ('/channels/' in u or '/attachments/' in u or '/avatars/' in u or '/emojis/' in u):
+        u = u.rstrip(".,;!?:)>]}")
+        # Skip Discord internal links, channels, attachments, CDN, invites, etc.
+        if re.search(r'https?://(?:[a-zA-Z0-9-]+\.)?(?:discord\.com|discordapp\.com|discord\.gg|media\.discordapp\.net|cdn\.discordapp\.com)', u, re.IGNORECASE):
             continue
         filtered.append(u)
     return filtered
@@ -114,6 +111,13 @@ async def scrape_web_metadata(url):
         author = "YouTube Creator"
         thumb = ""
         desc = ""
+        
+        # Pre-generate standard YouTube thumbnail from video ID
+        yt_id_match = re.search(r'(?:v=|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', url)
+        video_id = yt_id_match.group(1) if yt_id_match else ""
+        if video_id:
+            thumb = f"https://i.ytimg.com/vi/{video_id}/hqdefault.jpg"
+            
         try:
             oembed_url = f"https://www.youtube.com/oembed?url={url}&format=json"
             timeout = aiohttp.ClientTimeout(total=8)
@@ -123,17 +127,31 @@ async def scrape_web_metadata(url):
                         data = await resp.json()
                         title = data.get("title", "")
                         author = data.get("author_name", "YouTube Creator")
-                        thumb = data.get("thumbnail_url", "")
+                        oembed_thumb = data.get("thumbnail_url", "")
+                        if oembed_thumb:
+                            thumb = oembed_thumb
         except Exception as yt_err:
             print(f"[YouTube oEmbed Error] {yt_err}")
 
-        # Also extract video description from page source to capture apps & tools mentioned
+        # Clean title if it contains generic "- YouTube"
+        if title:
+            title = re.sub(r'\s*-\s*YouTube$', '', title, flags=re.IGNORECASE).strip()
+        if not title or title.lower() in ["- youtube", "youtube"]:
+            title = ""
+
+        # Also extract video description & title from page source if needed
         try:
             yt_headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"}
             async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=8)) as session:
                 async with session.get(url, headers=yt_headers) as html_resp:
                     if html_resp.status == 200:
                         yt_html = await html_resp.text(errors="ignore")
+                        if not title:
+                            tm = re.search(r'"title":\{"runs":\[\{"text":"(.*?)"\}\]', yt_html) or re.search(r'<title>(.*?)</title>', yt_html)
+                            if tm:
+                                cand_title = tm.group(1).replace("- YouTube", "").strip()
+                                if cand_title and cand_title.lower() != "youtube":
+                                    title = cand_title
                         m = re.search(r'"shortDescription":"(.*?)"', yt_html)
                         if m:
                             raw_desc = m.group(1).encode('utf-8').decode('unicode_escape')
@@ -142,7 +160,7 @@ async def scrape_web_metadata(url):
             print(f"[YouTube Desc Scrape Error]: {e}")
 
         return {
-            "title": title or "YouTube Video",
+            "title": title or (f"YouTube Video ({video_id})" if video_id else "YouTube Video"),
             "description": desc or f"Video by {author} on YouTube.",
             "image": thumb,
             "site_name": "YouTube"
@@ -159,7 +177,9 @@ async def scrape_web_metadata(url):
         async with aiohttp.ClientSession(timeout=timeout) as session:
             async with session.get(url, headers=headers, allow_redirects=True) as resp:
                 if resp.status >= 400:
-                    return {"title": url, "description": "", "image": "", "site_name": ""}
+                    slug_name = [p for p in url.split("/") if p and not p.startswith("http") and "." not in p]
+                    fallback_title = slug_name[-1].replace("-", " ").replace("_", " ").title() if slug_name else url
+                    return {"title": fallback_title, "description": "", "image": "", "site_name": ""}
                 
                 content_type = resp.headers.get("Content-Type", "")
                 if "text/html" not in content_type:
@@ -175,8 +195,11 @@ async def scrape_web_metadata(url):
                     title = og_title["content"].strip()
                 elif soup.title and soup.title.string:
                     title = soup.title.string.strip()
+                elif soup.find("h1"):
+                    title = soup.find("h1").get_text().strip()
                 else:
-                    title = url
+                    slug_parts = [p for p in url.split("/") if p and not p.startswith("http") and "." not in p]
+                    title = slug_parts[-1].replace("-", " ").replace("_", " ").title() if slug_parts else url
                     
                 # Description
                 description = ""
@@ -212,7 +235,9 @@ async def scrape_web_metadata(url):
                 }
     except Exception as e:
         print(f"[Scraper Error] {url}: {e}")
-        return {"title": url, "description": "", "image": "", "site_name": ""}
+        slug_parts = [p for p in url.split("/") if p and not p.startswith("http") and "." not in p]
+        fallback_title = slug_parts[-1].replace("-", " ").replace("_", " ").title() if slug_parts else url
+        return {"title": fallback_title, "description": "", "image": "", "site_name": ""}
 
 async def ai_curate(url, meta, api_key, available_drawers):
     """Uses Google Gemini free tier to classify drawer, extract tags, and summarize."""
@@ -233,8 +258,9 @@ Site Name: {meta.get('site_name', '')}
 Description/Content: {meta.get('description', '')}
 
 CRITICAL INSTRUCTION FOR VIDEOS / SHOWCASES:
-If this link is a YouTube video, review, or article featuring a specific software, tool, app, plugin, or asset (e.g. Asyar, Raycast, Blender addon, Godot tool):
+If this link is a YouTube video, review, or article featuring a specific software, tool, app, plugin, or asset:
 - Focus on the SOFTWARE / APP ITSELF being demonstrated, not just that it's a video.
+- In "title", give the clean, accurate name of the software/tool (e.g. "ASYAR App", "Alt+Tab Window Delayer"). Do NOT use "- YouTube" or generic titles!
 - In "notes", explain what the featured software does, its primary benefits, and why a user/creator would want it.
 - In "tags", extract tags relevant to the featured software (e.g. its name, domain, what it replaces, OS platform, and features).
 - In "drawer", pick the category that best fits the software or its domain.
@@ -243,10 +269,11 @@ Select the best matching Drawer from this list:
 {json.dumps(available_drawers)}
 
 Produce a JSON response with:
-1. "drawer": The chosen drawer name from the list (or a crisp new 2-4 word category if none fit).
-2. "tags": An array of 3 to 6 lowercase alphanumeric tags describing tech, domain, and format (e.g. ["asyar", "raycast", "productivity", "open-source"]).
-3. "notes": A clear, informative 2-sentence summary highlighting the core software/tool and what it enables creators to do.
-4. "rating": An integer rating from 3 to 5 based on utility.
+1. "title": A clean, concise title/name for the tool, app, or article (e.g. "Alt+Tab Window Delayer", "ASYAR Launcher"). If the page title is a raw URL or "- YouTube", provide an accurate name based on the content.
+2. "drawer": The chosen drawer name from the list (or a crisp new 2-4 word category if none fit).
+3. "tags": An array of 3 to 6 lowercase alphanumeric tags describing tech, domain, and format (e.g. ["asyar", "raycast", "productivity", "open-source"]).
+4. "notes": A clear, informative 2-sentence summary highlighting the core software/tool and what it enables creators to do.
+5. "rating": An integer rating from 3 to 5 based on utility.
 
 Respond ONLY with valid JSON.
 """
@@ -273,7 +300,14 @@ Respond ONLY with valid JSON.
             text = re.sub(r"^```(?:json)?\n", "", text)
             text = re.sub(r"\n```$", "", text)
         data = json.loads(text)
+        curated_title = data.get("title", "").strip()
+        if curated_title and curated_title.lower() not in ["- youtube", "youtube"]:
+            final_title = curated_title
+        else:
+            final_title = meta.get("title", "")
+
         return {
+            "title": final_title,
             "drawer": data.get("drawer", "Reference & Docs"),
             "tags": data.get("tags", ["resource"]),
             "notes": data.get("notes", meta.get("description", "")),
@@ -288,34 +322,36 @@ def heuristic_curate(url, meta, available_drawers):
     full_text = f"{url} {meta.get('title', '')} {meta.get('description', '')}".lower()
     
     tags = set()
-    # Tag extraction based on common keywords
+    # Tag extraction based on common keywords with strict word boundaries
     keywords = ["shader", "glsl", "godot", "unity", "unreal", "blender", "audio", "sfx", 
                 "synth", "pixel-art", "vector", "svg", "ui", "font", "texture", "3d", "2d", 
                 "engine", "open-source", "github", "tutorial", "tool"]
     for kw in keywords:
-        if kw in full_text:
+        pattern = r'\b' + re.escape(kw) + r'\b'
+        if re.search(pattern, full_text):
             tags.add(kw)
     if not tags:
         tags.add("bookmark")
         
     drawer = "Reference & Docs"
-    if any(k in full_text for k in ["shader", "glsl", "hlsl", "vfx"]):
+    if any(re.search(r'\b' + re.escape(k) + r'\b', full_text) for k in ["shader", "glsl", "hlsl", "vfx"]):
         drawer = "Shaders & Tech Art"
-    elif any(k in full_text for k in ["engine", "game dev", "godot", "unity", "unreal", "bevy", "raylib"]):
+    elif any(re.search(r'\b' + re.escape(k) + r'\b', full_text) for k in ["engine", "game dev", "godot", "unity", "unreal", "bevy", "raylib"]):
         drawer = "Game Design & Engines"
-    elif any(k in full_text for k in ["audio", "sound", "music", "synth", "vst", "sfx"]):
+    elif any(re.search(r'\b' + re.escape(k) + r'\b', full_text) for k in ["audio", "sound", "music", "synth", "vst", "sfx"]):
         drawer = "Audio & Soundtracks"
-    elif any(k in full_text for k in ["pixel", "sprite", "animation"]):
+    elif any(re.search(r'\b' + re.escape(k) + r'\b', full_text) for k in ["pixel", "sprite", "animation"]):
         drawer = "Pixel Art & Animation"
-    elif any(k in full_text for k in ["vector", "svg", "logo", "icon"]):
+    elif any(re.search(r'\b' + re.escape(k) + r'\b', full_text) for k in ["vector", "svg", "logo", "icon"]):
         drawer = "Vector & Graphic Design"
-    elif any(k in full_text for k in ["paint", "brush", "illustration", "draw"]):
+    elif any(re.search(r'\b' + re.escape(k) + r'\b', full_text) for k in ["paint", "brush", "illustration", "draw"]):
         drawer = "Digital Art & Illustration"
-    elif any(k in full_text for k in ["ai", "hdr", "generator", "llm"]):
+    elif any(re.search(r'\b' + re.escape(k) + r'\b', full_text) for k in ["ai", "hdr", "generator", "llm"]):
         drawer = "HDR, Panorama & AI Tools"
         
     notes = meta.get("description") or f"Curated from {url}"
     return {
+        "title": meta.get("title", ""),
         "drawer": drawer,
         "tags": list(tags)[:5],
         "notes": notes,
@@ -484,6 +520,43 @@ async def on_message(message):
             await msg.edit(content="⚠️ Could not push to GitHub. Check your git credentials or network.")
         return
 
+    if content_lower in ["!curio clean", "!curio clear", "!clean", "!clear"]:
+        inbox = load_inbox()
+        orig_count = len(inbox.get("items", []))
+        if content_lower in ["!curio clear", "!clear"]:
+            inbox["items"] = []
+            save_inbox(inbox)
+            if CLOUD_MODE:
+                await github_api_push(inbox, "Clear inbox queue")
+            else:
+                await asyncio.to_thread(git_sync_push, "Clear inbox queue")
+            await message.reply(f"🧹 **Cleared all {orig_count} items from CURIO inbox queue.**")
+            return
+        else:
+            # Clean invalid / duplicate items
+            cleaned = []
+            seen_links = set()
+            for it in inbox.get("items", []):
+                lnk = it.get("link", "")
+                tit = it.get("title", "").strip()
+                if not lnk or lnk in seen_links:
+                    continue
+                if any(x in lnk for x in ["discord.com/channels/", "discord.com/attachments/", "discord.gg/"]):
+                    continue
+                if tit in ["- YouTube", "YouTube"] or tit == lnk:
+                    slug_parts = [p for p in lnk.split("/") if p and not p.startswith("http") and "." not in p]
+                    it["title"] = slug_parts[-1].replace("-", " ").replace("_", " ").title() if slug_parts else tit
+                seen_links.add(lnk)
+                cleaned.append(it)
+            inbox["items"] = cleaned
+            save_inbox(inbox)
+            if CLOUD_MODE:
+                await github_api_push(inbox, "Cleaned inbox queue")
+            else:
+                await asyncio.to_thread(git_sync_push, "Cleaned inbox queue")
+            await message.reply(f"✨ **Cleaned inbox:** pruned from {orig_count} down to {len(cleaned)} unique valid items.")
+            return
+
     urls = extract_urls(message.content)
     if not urls:
         await bot.process_commands(message)
@@ -495,9 +568,14 @@ async def on_message(message):
         pass
         
     inbox = load_inbox()
+    existing_links = {it.get("link") for it in inbox.get("items", []) if it.get("link")}
     added_items = []
     
     for url in urls:
+        if url in existing_links:
+            print(f"[*] Skipping duplicate link already in inbox: {url}")
+            continue
+
         print(f"[*] Processing link: {url}")
         meta = await scrape_web_metadata(url)
         curation = await ai_curate(url, meta, config.get("gemini_api_key"), inbox.get("drawers", DEFAULT_DRAWERS))
@@ -509,22 +587,28 @@ async def on_message(message):
         now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
         item_id = f"item-discord-{int(time.time()*1000)}"
         
+        final_title = curation.get("title") or meta.get("title") or ""
+        if not final_title or final_title.startswith("http") or final_title.lower() in ["- youtube", "youtube"]:
+            slug_parts = [p for p in url.split("/") if p and not p.startswith("http") and "." not in p]
+            final_title = slug_parts[-1].replace("-", " ").replace("_", " ").title() if slug_parts else url
+
         item = {
             "id": item_id,
-            "title": meta["title"] or url,
+            "title": final_title,
             "drawer": curation["drawer"],
             "status": "to-explore",
             "tags": curation["tags"],
             "rating": curation["rating"],
             "notes": curation["notes"],
             "link": url,
-            "logo": meta["image"] or "",
-            "gallery": [meta["image"]] if meta["image"] else [],
+            "logo": meta.get("image", ""),
+            "gallery": [meta["image"]] if meta.get("image") else [],
             "dateAdded": now_iso,
             "dateModified": now_iso
         }
         
         inbox["items"].append(item)
+        existing_links.add(url)
         added_items.append(item)
         
     save_inbox(inbox)
