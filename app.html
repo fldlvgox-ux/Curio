@@ -35127,6 +35127,28 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     } catch(e) {}
   }
 
+  // --- REMOTE SEED: fetch master catalog from CDN on first launch ---
+  const REMOTE_CATALOG_URL = "https://cdn.jsdelivr.net/gh/fldlvgox-ux/Curio@main/catalogs_backup.json";
+
+  async function fetchRemoteCatalogs() {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000); // 5s timeout
+    try {
+      const res = await fetch(REMOTE_CATALOG_URL, { signal: controller.signal });
+      clearTimeout(timeout);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      if (data && Array.isArray(data.catalogs) && data.catalogs.length > 0) {
+        return data.catalogs;
+      }
+      return null;
+    } catch (e) {
+      clearTimeout(timeout);
+      console.info("CURIO: Remote seed unavailable, using bundled catalogs.", e.message);
+      return null;
+    }
+  }
+
     async function loadState() {
     try {
       await CyberDB.init();
@@ -35148,8 +35170,22 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           await saveState();
         }
       } else {
-        // Check localStorage migrations
+        // Fresh install — try fetching the latest catalogs from the CDN first
         const v2Raw = localStorage.getItem("cyber_drawer_multi_catalog_v2") || localStorage.getItem("cyber_drawer_catalog_data_v2") || localStorage.getItem("cyber_drawer_catalog_data_v1");
+
+        if (!v2Raw) {
+          // No local migration data — attempt remote seed
+          const remoteCatalogs = await fetchRemoteCatalogs();
+          if (remoteCatalogs) {
+            State.catalogs = remoteCatalogs;
+            State.activeCatalogId = remoteCatalogs[0].id;
+            await saveState();
+            showToast("✅ 15 catalogs loaded from latest online database", "success");
+            return;
+          }
+        }
+
+        // Fallback: use bundled DEFAULT_CATALOGS (always works offline)
         State.catalogs = JSON.parse(JSON.stringify(DEFAULT_CATALOGS));
         if (v2Raw) {
           try {
