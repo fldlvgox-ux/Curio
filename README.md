@@ -145,10 +145,12 @@ Unlike traditional cloud bookmarkers or notes apps, CURIO runs completely on you
 
 ## 🚀 Getting Started & Live Demo
 
-- **🌐 Live Demo (GitHub Pages)**: [https://fldlvgox-ux.github.io/Curio/](https://fldlvgox-ux.github.io/Curio/)
+- **🚀 Live Interactive App**: [https://fldlvgox-ux.github.io/Curio/app.html](https://fldlvgox-ux.github.io/Curio/app.html)
+- **🌐 Official Website & Showcase**: [https://fldlvgox-ux.github.io/Curio/](https://fldlvgox-ux.github.io/Curio/)
+- **📱 Download Android APK**: [Latest GitHub Release](https://github.com/fldlvgox-ux/Curio/releases/latest)
 - **💻 Run Locally**:
   1. Clone this repository: `git clone https://github.com/fldlvgox-ux/Curio.git`
-  2. Double-click `index.html` in your browser.
+  2. Double-click `app.html` in your browser to launch the curator deck immediately.
   3. No build step, node modules, or server required!
 
 ---
