@@ -97,7 +97,7 @@ Unlike traditional cloud bookmarkers or notes apps, CURIO runs completely on you
   - **Grouped Accordion View**: Organized sections grouped by Drawer, Status, Rating, or Alphabetical.
   - **Density Switcher**: Instant one-click toggle between **Comfortable** and **Compact** grid densities.
 - **👁️ Spacebar Quick-Look Inspection**: Tap `Space` on any focused card or double-click to instantly inspect high-resolution imagery, notes, tags, and links with real-time arrow key cycling.
-- **🎨 14 Nostalgic & Aesthetic Themes**: Switch seamlessly between *Windows 95 Chicago*, *Windows XP Luna*, *Phosphor CRT Terminal*, *Mac OS System 7 / Platinum*, *Library Card Catalog*, *Frutiger Aero Aqua Glass*, *Palm OS / PDA*, *Amiga Workbench 3.1*, *Polaroid / Corkboard*, *Vaporwave / A E S T H E T I C*, *Cyber Cyan*, *Synthwave Sunset*, *Nord Frost*, and *Matrix Green*.
+- **🎨 15 Nostalgic & Aesthetic Themes**: Switch seamlessly between *Windows 95 Chicago*, *Windows XP Luna*, *Phosphor CRT Terminal*, *Mac OS System 7 / Platinum*, *Library Card Catalog*, *Frutiger Aero Aqua Glass*, *Palm OS / PDA*, *Amiga Workbench 3.1*, *Polaroid / Corkboard*, *Vaporwave / A E S T H E T I C*, *Blueprint / Technical Drawing*, *Cyber Cyan*, *Synthwave Sunset*, *Nord Frost*, and *Matrix Green*.
 - **⚙️ Settings Hub & Live Stats HUD**: Real-time storage estimation, catalog counters, and shortcuts cheatsheet.
 - **🏷️ Scoped Tag Cloud with Modern Reset Pill**: Contextual tag strip that adapts to active drawers with item counters and an always-accessible Reset Filters pill.
 - **⌨️ Keyboard Supercharged Workflow**: Navigate cards with Arrow keys or `J`/`K`, preview with `Space`, edit with `E`, visit links with `L`, pin with `P`/`*`, and copy Markdown with `C`.

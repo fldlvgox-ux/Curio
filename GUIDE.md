@@ -98,7 +98,7 @@ Inspired by macOS Finder and professional digital asset managers:
 ---
 
 ## 7. Visual Themes & Nostalgic Interfaces
-CURIO features a modular theme engine with 14 handcrafted visual appearances:
+CURIO features a modular theme engine with 15 handcrafted visual appearances:
 
 ### 🕰️ Heritage & Nostalgic Systems
 * **🪟 Windows 95 ("Chicago Classic")**: 3D beveled inset/outset chrome, `#008080` teal desktop wallpaper, navy titlebars on cards (`#000080` ➔ `#1084d0`), indented inputs, and sunken status panels.
@@ -111,6 +111,7 @@ CURIO features a modular theme engine with 14 handcrafted visual appearances:
 * **🪟 Windows XP ("Luna Blue")**: Royal blue gradient titlebars, silver body chrome (`#ece9d8`), olive-green Start buttons, Task Pane navigation, and Bliss sky horizon backdrops.
 * **📌 Polaroid / Corkboard**: Tactile bulletin pinboard canvas, white Polaroid photo frames with slight organic tilt, 3D red pushpins, scotch tape details, and handwritten cursive typography.
 * **🌺 Vaporwave / A E S T H E T I C**: Dreamy pastel retrowave wash (hot pink → lavender → teal), perspective neon grid floor, frosted glass cards, VHS tracking glitch on hover, and fullwidth katakana-style text.
+* **📐 Blueprint / Technical Drawing**: Prussian blue drafting paper (`#0b2545`), white/cyan 100px major and 20px minor architectural CAD grid lines, crisp wireframe schematics with corner crosshairs (`+`), and monospace drafting typography.
 
 ### 🎨 Dark Studio Palettes
 * **Cyber Cyan (Default)**: High-contrast dark cyberpunk palette with radiant cyan neon accents.
