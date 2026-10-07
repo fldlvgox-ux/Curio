@@ -371,6 +371,28 @@
       ],
       "dateAdded": "2026-10-07T10:54:28.000Z",
       "dateModified": "2026-10-07T10:54:28.000Z"
+    },
+    {
+      "id": "item-discord-1791370511802",
+      "title": "CalUnity",
+      "drawer": "Desktop & OS Utilities",
+      "status": "to-explore",
+      "tags": [
+        "calunity",
+        "calendar",
+        "productivity",
+        "ai",
+        "sync"
+      ],
+      "rating": 5,
+      "notes": "CalUnity is an AI-powered calendar management tool that seamlessly connects Google, Microsoft, and Apple calendars into a single interface. It enables digital creators and developers to streamline their schedules with lightning-fast sync and total privacy.",
+      "link": "https://calunity.com/",
+      "logo": "https://calunity.com/og-image.png",
+      "gallery": [
+        "https://calunity.com/og-image.png"
+      ],
+      "dateAdded": "2026-10-07T10:55:11.000Z",
+      "dateModified": "2026-10-07T10:55:11.000Z"
     }
   ]
 }
