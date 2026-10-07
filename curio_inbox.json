@@ -325,6 +325,29 @@
       ],
       "dateAdded": "2026-10-07T10:53:01.000Z",
       "dateModified": "2026-10-07T10:53:01.000Z"
+    },
+    {
+      "id": "item-discord-1791370429030",
+      "title": "Dokvio PDF Reader & Scanner",
+      "drawer": "Reference & Docs",
+      "status": "to-explore",
+      "tags": [
+        "dokvio",
+        "pdf",
+        "scanner",
+        "document-viewer",
+        "productivity",
+        "android"
+      ],
+      "rating": 4,
+      "notes": "Dokvio is a versatile mobile document suite that allows users to read, view, scan, merge, and compress PDFs, Word, Excel, and PowerPoint files on the go. It provides digital creators and professionals with an efficient way to manage and organize essential documentation directly from their mobile devices.",
+      "link": "https://play.google.com/store/apps/details?id=com.mykhann.dokvio",
+      "logo": "https://play-lh.googleusercontent.com/J4SEDc-vd9uHSeXTHs1Lt_msuu3A_71qOdUKeZov47d_lZJtUmMDjtSYPaN6XyvkOLoS0xOahaEU7wprOvrRxg=s0-br30",
+      "gallery": [
+        "https://play-lh.googleusercontent.com/J4SEDc-vd9uHSeXTHs1Lt_msuu3A_71qOdUKeZov47d_lZJtUmMDjtSYPaN6XyvkOLoS0xOahaEU7wprOvrRxg=s0-br30"
+      ],
+      "dateAdded": "2026-10-07T10:53:49.000Z",
+      "dateModified": "2026-10-07T10:53:49.000Z"
     }
   ]
 }
