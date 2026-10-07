@@ -302,6 +302,29 @@
       ],
       "dateAdded": "2026-10-02T14:13:41.000Z",
       "dateModified": "2026-10-02T14:13:41.000Z"
+    },
+    {
+      "id": "item-discord-1791370381170",
+      "title": "Text Hub",
+      "drawer": "Desktop & OS Utilities",
+      "status": "to-explore",
+      "tags": [
+        "text-hub",
+        "encoding",
+        "decryption",
+        "utilities",
+        "developer-tools",
+        "open-source"
+      ],
+      "rating": 5,
+      "notes": "Text Hub is an open-source utility collection featuring over 70 tools for text encoding, decoding, and encryption. It provides digital creators and developers with a comprehensive suite for handling data manipulation tasks efficiently.",
+      "link": "https://github.com/Cat-zilla/Text-hub",
+      "logo": "https://opengraph.githubassets.com/c4d14eb04e90cb0a1ae8b8ce05dada4fc52530c61858b5f5053c0459b7416d2c/Cat-zilla/Text-hub",
+      "gallery": [
+        "https://opengraph.githubassets.com/c4d14eb04e90cb0a1ae8b8ce05dada4fc52530c61858b5f5053c0459b7416d2c/Cat-zilla/Text-hub"
+      ],
+      "dateAdded": "2026-10-07T10:53:01.000Z",
+      "dateModified": "2026-10-07T10:53:01.000Z"
     }
   ]
 }
