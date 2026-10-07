@@ -348,6 +348,29 @@
       ],
       "dateAdded": "2026-10-07T10:53:49.000Z",
       "dateModified": "2026-10-07T10:53:49.000Z"
+    },
+    {
+      "id": "item-discord-1791370468688",
+      "title": "8XDL - Secure Download Manager",
+      "drawer": "Desktop & OS Utilities",
+      "status": "to-explore",
+      "tags": [
+        "8xdl",
+        "download-manager",
+        "browser",
+        "ad-blocker",
+        "file-manager",
+        "android"
+      ],
+      "rating": 4,
+      "notes": "8XDL is a secure mobile download manager featuring a built-in private browser, smart download acceleration, and an integrated ad blocker. It enables digital creators and users to efficiently manage files and media playback on the go.",
+      "link": "https://play.google.com/store/apps/details?id=com.codex.torrentx&pli=1",
+      "logo": "https://play-lh.googleusercontent.com/OT5HXJs88EzvtzLGPjFlewWIM2JN_6jQ4EBWPNLFXfGZDLCDU0dDFuxbzhUPjsltfW-f_xKaIqRMDfNYN7hAsg=s0-br30",
+      "gallery": [
+        "https://play-lh.googleusercontent.com/OT5HXJs88EzvtzLGPjFlewWIM2JN_6jQ4EBWPNLFXfGZDLCDU0dDFuxbzhUPjsltfW-f_xKaIqRMDfNYN7hAsg=s0-br30"
+      ],
+      "dateAdded": "2026-10-07T10:54:28.000Z",
+      "dateModified": "2026-10-07T10:54:28.000Z"
     }
   ]
 }
