@@ -7279,6 +7279,1257 @@
     }
     
 
+    /* ========================================================
+       MAC OS 8 APPEARANCE: ANTIQUE & ONYX (THEME #1)
+       ======================================================== */
+    /* ============================================================
+       Curio Theme Plugin: Mac OS 8 Appearance — Antique & Onyx
+       Family: bevel | Contract: 1.0.0
+       ID: curio-theme-macos8 / curio-theme-macos8-onyx
+       Aesthetic: Classic 1px platinum bevels, horizontal pinstripe
+       title bars, warm mahogany Antique frame, cream ivory content.
+       Onyx: flat black with yellow hazard-stripe title bar only.
+       ============================================================ */
+    
+    /* ══════════════════════════════════════════════════════════════
+       ANTIQUE — Dark Mahogany Chrome + Cream Ivory Content
+       ══════════════════════════════════════════════════════════════ */
+    
+    /* ── 1. Tokens & Root Properties ── */
+    [data-theme="curio-theme-macos8"], [data-theme="macos8"] {
+      --bg:                  #1A0A06;
+      --surface:             #F0E4CC;
+      --surface-2:           #E2D0B0;
+      --text:                #1A0F08;
+      --text-dim:            #7A5C3E;
+      --accent:              #8B3A1A;
+      --accent-2:            #A04A20;
+      --accent-text:         #F0E4CC;
+      --border:              #1A0F08;
+      --select-bg:           #8B3A1A;
+      --select-fg:           #F0E4CC;
+      --danger:              #8B1A1A;
+      --ok:                  #1A5C1A;
+      --warn:                #8B6A1A;
+      --font-ui:             'Chicago', 'Charcoal', 'Geneva', system-ui, sans-serif;
+      --font-display:        'Chicago', 'Charcoal', 'Geneva', system-ui, sans-serif;
+      --font-mono:           'Monaco', 'Courier New', monospace;
+      --font-size-base:      13px;
+      --font-smoothing:      none;
+      --radius-window:       0px;
+      --radius-control:      0px;
+      --radius-chip:         999px;
+      --avatar-shape:        50%;
+      --bevel-light:         #FFFFFF;
+      --bevel-dark:          #888080;
+      --bevel-width:         1px;
+      --shadow-raised:       inset 1px 1px #FFFFFF, inset -1px -1px #888080;
+      --shadow-pressed:      inset 1px 1px #888080, inset -1px -1px #FFFFFF;
+      --shadow-hard:         2px 2px 0 #1A0F08;
+      --focus-ring:          0 0 0 1px #1A0F08;
+      --default-button-ring: 0 0 0 3px #1A0F08;
+    
+      /* Antique internal tokens */
+      --mac-mahogany-deep:  #1A0A06;
+      --mac-mahogany-mid:   #4A2010;
+      --mac-mahogany-light: #6E3A20;
+      --mac-cream:          #F0E4CC;
+      --mac-cream-2:        #E2D0B0;
+      --mac-platinum:       #C8C0B8;
+      --mac-platinum-dark:  #A89890;
+      --mac-ink:            #1A0F08;
+    
+      /* Legacy compat */
+      --bg-base:            #1A0A06;
+      --bg-surface:         #F0E4CC;
+      --bg-surface-raised:  #E2D0B0;
+      --bg-surface-hover:   #FAF2E4;
+      --bg-panel:           #3A1A0A;
+      --border-subtle:      #5C3020;
+      --border-medium:      #1A0F08;
+      --border-bright:      #8B3A1A;
+      --accent-cyan:        #8B3A1A;
+      --accent-cyan-glow:   rgba(139, 58, 26, 0.3);
+      --text-main:          #1A0F08;
+      --text-muted:         #7A5C3E;
+      --text-dim-legacy:    #9A7A5E;
+      --shadow-glow:        none;
+    }
+    
+    /* ── 2. Canvas & Font Anti-Aliasing (Mac OS 8 is sharp, not pixelated) ── */
+    [data-theme="curio-theme-macos8"], [data-theme="macos8"] {
+      background-color: #1A0A06 !important;
+      color: #1A0F08 !important;
+      font-family: var(--font-ui) !important;
+      -webkit-font-smoothing: none !important;
+      font-smooth: never !important;
+      image-rendering: auto !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] body,
+    [data-theme="macos8"] body {
+      background-color: #1A0A06 !important;
+      font-family: var(--font-ui) !important;
+      -webkit-font-smoothing: none !important;
+    }
+    
+    /* ── ART §7: Body Atmospheric — Subtle Mahogany Wood Grain Vignette ── */
+    [data-theme="curio-theme-macos8"] body::after,
+    [data-theme="macos8"] body::after {
+      content: "" !important;
+      position: fixed !important;
+      inset: 0 !important;
+      pointer-events: none !important;
+      z-index: 0 !important;
+      opacity: 0.55 !important;
+      background:
+        repeating-linear-gradient(
+          92deg,
+          transparent 0px,
+          rgba(255, 200, 150, 0.025) 1px,
+          transparent 2px,
+          transparent 12px
+        ),
+        repeating-linear-gradient(
+          88deg,
+          transparent 0px,
+          rgba(0, 0, 0, 0.04) 1px,
+          transparent 2px,
+          transparent 22px
+        ),
+        radial-gradient(ellipse at 50% 100%, rgba(26, 10, 6, 0.7) 0%, transparent 70%) !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .app-shell,
+    [data-theme="macos8"] .app-shell {
+      position: relative !important;
+      z-index: 1 !important;
+    }
+    
+    /* ── 3. Sidebar — Mahogany Chrome Panel ── */
+    [data-theme="curio-theme-macos8"] .sidebar,
+    [data-theme="macos8"] .sidebar {
+      background:
+        repeating-linear-gradient(
+          0deg,
+          #3A1808 0px, #3A1808 1px,
+          #4E2410 1px, #4E2410 2px
+        ) !important;
+      border-right: 2px solid #1A0F08 !important;
+      color: #F0E4CC !important;
+      box-shadow: 2px 0 0 #1A0F08 !important;
+      position: relative !important;
+    }
+    
+    /* ── ART §2: Sidebar Bottom Crest — Carved Mahogany Rosette Medallion ── */
+    [data-theme="curio-theme-macos8"] .sidebar::after,
+    [data-theme="macos8"] .sidebar::after {
+      content: "" !important;
+      position: absolute !important;
+      bottom: 16px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 72px !important;
+      height: 72px !important;
+      pointer-events: none !important;
+      opacity: 0.45 !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='38' fill='%231A0A06' stroke='%236E3A20' stroke-width='2'/%3E%3Ccircle cx='40' cy='40' r='30' fill='%234A2010' stroke='%236E3A20' stroke-width='1'/%3E%3Cellipse cx='40' cy='22' rx='5' ry='11' fill='none' stroke='%236E3A20' stroke-width='1.5'/%3E%3Cellipse cx='40' cy='58' rx='5' ry='11' fill='none' stroke='%236E3A20' stroke-width='1.5'/%3E%3Cellipse cx='22' cy='40' rx='11' ry='5' fill='none' stroke='%236E3A20' stroke-width='1.5'/%3E%3Cellipse cx='58' cy='40' rx='11' ry='5' fill='none' stroke='%236E3A20' stroke-width='1.5'/%3E%3Cellipse cx='27' cy='27' rx='4' ry='8' fill='none' stroke='%236E3A20' stroke-width='1' transform='rotate(45 27 27)'/%3E%3Cellipse cx='53' cy='27' rx='4' ry='8' fill='none' stroke='%236E3A20' stroke-width='1' transform='rotate(-45 53 27)'/%3E%3Cellipse cx='27' cy='53' rx='4' ry='8' fill='none' stroke='%236E3A20' stroke-width='1' transform='rotate(-45 27 53)'/%3E%3Cellipse cx='53' cy='53' rx='4' ry='8' fill='none' stroke='%236E3A20' stroke-width='1' transform='rotate(45 53 53)'/%3E%3Ccircle cx='40' cy='40' r='9' fill='%231A0A06' stroke='%236E3A20' stroke-width='1.5'/%3E%3Ccircle cx='40' cy='40' r='4' fill='%236E3A20'/%3E%3C/svg%3E") !important;
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+    }
+    
+    /* ── 4. Brand Header — Pinstripe Mahogany + Mini Mac Window Logo ── */
+    [data-theme="curio-theme-macos8"] .brand-header,
+    [data-theme="macos8"] .brand-header {
+      background:
+        repeating-linear-gradient(
+          0deg,
+          #1A0A06 0px, #1A0A06 1px,
+          #2C1008 1px, #2C1008 2px
+        ) !important;
+      border-bottom: 2px solid #1A0F08 !important;
+      padding: 0.75rem 0.85rem !important;
+      box-shadow: inset 0 -1px 0 #3A1808 !important;
+    }
+    
+    /* Hide default SVG */
+    [data-theme="curio-theme-macos8"] .brand-title svg,
+    [data-theme="macos8"] .brand-title svg {
+      display: none !important;
+    }
+    
+    /* ── ART §1: Brand Logo — Mini Mac OS 8 Window Icon (original stand-in) ── */
+    [data-theme="curio-theme-macos8"] .brand-title::before,
+    [data-theme="macos8"] .brand-title::before {
+      content: "" !important;
+      display: inline-block !important;
+      width: 28px !important;
+      height: 22px !important;
+      flex-shrink: 0 !important;
+      margin-right: 0.6rem !important;
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 22'%3E%3Crect x='0' y='0' width='28' height='22' fill='%23F0E4CC' stroke='%231A0F08' stroke-width='1'/%3E%3Crect x='0' y='0' width='28' height='7' fill='none'/%3E%3Cpath d='M0 0 h28 v7 h-28 z' fill='url(%23stripe)'/%3E%3Cdefs%3E%3ClinearGradient id='stripe' x1='0' y1='0' x2='0' y2='7' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%231A0A06'/%3E%3Cstop offset='0.5' stop-color='%234A2010'/%3E%3Cstop offset='1' stop-color='%231A0A06'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='1' y='1' width='5' height='5' fill='%23C8C0B8' stroke='%231A0F08' stroke-width='0.7'/%3E%3Crect x='8' y='1' width='5' height='5' fill='%23C8C0B8' stroke='%231A0F08' stroke-width='0.7'/%3E%3Cline x1='1' y1='7' x2='27' y2='7' stroke='%231A0F08' stroke-width='0.5'/%3E%3Cline x1='4' y1='12' x2='24' y2='12' stroke='%231A0F08' stroke-width='0.8'/%3E%3Cline x1='4' y1='16' x2='20' y2='16' stroke='%231A0F08' stroke-width='0.8'/%3E%3Cline x1='4' y1='19' x2='22' y2='19' stroke='%231A0F08' stroke-width='0.5'/%3E%3C/svg%3E") !important;
+      filter: drop-shadow(1px 1px 0 rgba(0,0,0,0.6)) !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .brand-title,
+    [data-theme="macos8"] .brand-title {
+      color: #F0E4CC !important;
+      font-family: var(--font-display) !important;
+      font-weight: 700 !important;
+      font-size: 0.9rem !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+      text-shadow: 1px 1px 0 #000000 !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .brand-title .badge-tag,
+    [data-theme="macos8"] .brand-title .badge-tag {
+      background: #C8C0B8 !important;
+      color: #1A0F08 !important;
+      border: 1px solid #1A0F08 !important;
+      border-radius: 0 !important;
+      font-size: 0.65rem !important;
+      font-weight: 700 !important;
+      padding: 1px 5px !important;
+      letter-spacing: 0.05em !important;
+      box-shadow: inset 1px 1px #FFFFFF, inset -1px -1px #888080 !important;
+      margin-left: 0.4rem !important;
+    }
+    
+    /* ── 5. Catalog Switcher ── */
+    [data-theme="curio-theme-macos8"] .catalog-switcher-panel,
+    [data-theme="macos8"] .catalog-switcher-panel {
+      background:
+        repeating-linear-gradient(
+          0deg,
+          #2C1008 0px, #2C1008 1px,
+          #3A1808 1px, #3A1808 2px
+        ) !important;
+      border-bottom: 1px solid #1A0F08 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .switcher-title,
+    [data-theme="macos8"] .switcher-title {
+      color: #F0E4CC !important;
+      font-size: 0.68rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+      text-shadow: 1px 1px 0 #000000 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .switcher-title svg,
+    [data-theme="macos8"] .switcher-title svg {
+      color: #C8C0B8 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .catalog-select-dropdown,
+    [data-theme="macos8"] .catalog-select-dropdown {
+      background: #F0E4CC !important;
+      color: #1A0F08 !important;
+      border: 1px solid #1A0F08 !important;
+      border-radius: 0 !important;
+      font-family: var(--font-ui) !important;
+      font-size: 0.8rem !important;
+      box-shadow: inset 1px 1px #888080, inset -1px -1px #FFFFFF !important;
+      padding: 2px 4px !important;
+    }
+    
+    /* ── 6. Sidebar Drawer Navigation ── */
+    [data-theme="curio-theme-macos8"] .section-header span,
+    [data-theme="macos8"] .section-header span {
+      color: #F0E4CC !important;
+      font-size: 0.68rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      text-shadow: 1px 1px 0 #000000 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .drawer-item,
+    [data-theme="macos8"] .drawer-item {
+      color: #F0E4CC !important;
+      background: transparent !important;
+      border: 1px solid transparent !important;
+      border-radius: 0 !important;
+      font-family: var(--font-ui) !important;
+      font-size: 0.82rem !important;
+      font-weight: 500 !important;
+      padding: 0.35rem 0.7rem !important;
+      margin-bottom: 1px !important;
+      text-shadow: 1px 1px 0 #000000 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .drawer-item svg,
+    [data-theme="macos8"] .drawer-item svg {
+      color: #C8C0B8 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .drawer-item:hover,
+    [data-theme="macos8"] .drawer-item:hover {
+      background: rgba(240, 228, 204, 0.12) !important;
+      color: #FFFFFF !important;
+      border-color: rgba(200, 192, 184, 0.3) !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .drawer-item.active,
+    [data-theme="macos8"] .drawer-item.active {
+      background: #1A0F08 !important;
+      color: #F0E4CC !important;
+      border: 1px solid #1A0F08 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .drawer-count,
+    [data-theme="macos8"] .drawer-count {
+      background: #2C1008 !important;
+      color: #C8C0B8 !important;
+      border: 1px solid #1A0F08 !important;
+      border-radius: 0 !important;
+      font-size: 0.7rem !important;
+      font-weight: 700 !important;
+      padding: 0px 4px !important;
+      box-shadow: inset 1px 1px #888080 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .drawer-item.active .drawer-count,
+    [data-theme="macos8"] .drawer-item.active .drawer-count {
+      background: #3A1A08 !important;
+      color: #F0E4CC !important;
+    }
+    
+    /* ── 7. Top Bar — Platinum Toolbar with Pinstripe Rail ── */
+    [data-theme="curio-theme-macos8"] .top-bar,
+    [data-theme="macos8"] .top-bar {
+      background: #C8C0B8 !important;
+      color: #1A0F08 !important;
+      border-bottom: 2px solid #1A0F08 !important;
+      box-shadow:
+        inset 0 1px 0 #FFFFFF,
+        0 2px 0 #888080 !important;
+      position: relative !important;
+    }
+    
+    /* ── ART §3a: Top Bar — Pinstripe Highlight Rail at very top ── */
+    [data-theme="curio-theme-macos8"] .top-bar::before,
+    [data-theme="macos8"] .top-bar::before {
+      content: "" !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 3px !important;
+      background: repeating-linear-gradient(
+        90deg,
+        #1A0A06 0px, #1A0A06 6px,
+        #4A2010 6px, #4A2010 12px
+      ) !important;
+      pointer-events: none !important;
+    }
+    
+    /* ── ART §3b: Top Bar — Carved Corner Ornament (Mac OS 8 zoom-box motif) ── */
+    [data-theme="curio-theme-macos8"] .top-bar::after,
+    [data-theme="macos8"] .top-bar::after {
+      content: "" !important;
+      position: absolute !important;
+      top: 4px !important;
+      right: 8px !important;
+      width: 32px !important;
+      height: 32px !important;
+      pointer-events: none !important;
+      opacity: 0.35 !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='12' height='12' fill='none' stroke='%231A0F08' stroke-width='1.5'/%3E%3Crect x='4' y='4' width='8' height='8' fill='%231A0F08'/%3E%3Crect x='18' y='2' width='12' height='12' fill='none' stroke='%231A0F08' stroke-width='1.5'/%3E%3Crect x='20' y='4' width='8' height='8' fill='none' stroke='%231A0F08' stroke-width='1'/%3E%3Crect x='2' y='18' width='12' height='12' fill='none' stroke='%231A0F08' stroke-width='1.5'/%3E%3Cline x1='2' y1='18' x2='14' y2='30' stroke='%231A0F08' stroke-width='1'/%3E%3Cline x1='14' y1='18' x2='2' y2='30' stroke='%231A0F08' stroke-width='1'/%3E%3C/svg%3E") !important;
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .top-bar .catalog-title,
+    [data-theme="macos8"] .top-bar .catalog-title {
+      color: #1A0F08 !important;
+      font-weight: 700 !important;
+      font-size: 0.85rem !important;
+      letter-spacing: 0.05em !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .search-input,
+    [data-theme="macos8"] .search-input {
+      background: #FFFFFF !important;
+      border: 1px solid #1A0F08 !important;
+      border-radius: 0 !important;
+      color: #1A0F08 !important;
+      font-family: var(--font-mono) !important;
+      font-size: 0.85rem !important;
+      box-shadow: inset 1px 1px #888080 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .search-input::placeholder,
+    [data-theme="macos8"] .search-input::placeholder {
+      color: #9A8A7A !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .search-icon,
+    [data-theme="macos8"] .search-icon {
+      color: #1A0F08 !important;
+    }
+    
+    /* ── 8. Filter Panel — Cream Ivory with Ruled Diamond Divider ── */
+    [data-theme="curio-theme-macos8"] .filter-panel,
+    [data-theme="macos8"] .filter-panel {
+      background: #E2D0B0 !important;
+      border-bottom: 1px solid #1A0F08 !important;
+      color: #1A0F08 !important;
+      box-shadow: inset 0 1px 0 #FFFFFF, inset 0 -1px 0 #888080 !important;
+      position: relative !important;
+      padding-top: 10px !important;
+    }
+    
+    /* ── ART §4: Filter Panel — Ruled Diamond Separator Art ── */
+    [data-theme="curio-theme-macos8"] .filter-panel::before,
+    [data-theme="macos8"] .filter-panel::before {
+      content: "" !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 8px !important;
+      pointer-events: none !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 8' preserveAspectRatio='none'%3E%3Cline x1='0' y1='4' x2='170' y2='4' stroke='%231A0F08' stroke-width='0.8'/%3E%3Cpolygon points='188,4 196,1 204,4 196,7' fill='%231A0F08'/%3E%3Cline x1='212' y1='4' x2='400' y2='4' stroke='%231A0F08' stroke-width='0.8'/%3E%3Cline x1='0' y1='2' x2='400' y2='2' stroke='%231A0F08' stroke-width='0.3' stroke-dasharray='2,4'/%3E%3Cline x1='0' y1='6' x2='400' y2='6' stroke='%231A0F08' stroke-width='0.3' stroke-dasharray='2,4'/%3E%3C/svg%3E") !important;
+      background-repeat: no-repeat !important;
+      background-size: 100% 100% !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .filter-label,
+    [data-theme="macos8"] .filter-label {
+      color: #1A0F08 !important;
+      font-size: 0.72rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .select-custom,
+    [data-theme="curio-theme-macos8"] .filter-panel select,
+    [data-theme="macos8"] .select-custom,
+    [data-theme="macos8"] .filter-panel select {
+      background: #F0E4CC !important;
+      color: #1A0F08 !important;
+      border: 1px solid #1A0F08 !important;
+      border-radius: 0 !important;
+      box-shadow: inset 1px 1px #888080, inset -1px -1px #FFFFFF !important;
+      font-family: var(--font-ui) !important;
+      font-size: 0.8rem !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .tag-filter-bar,
+    [data-theme="macos8"] .tag-filter-bar {
+      background: #E2D0B0 !important;
+      border-top: 1px solid #888080 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .tag-search-input,
+    [data-theme="macos8"] .tag-search-input {
+      background: #FFFFFF !important;
+      color: #1A0F08 !important;
+      border: 1px solid #1A0F08 !important;
+      border-radius: 0 !important;
+      box-shadow: inset 1px 1px #888080 !important;
+      font-family: var(--font-mono) !important;
+      font-size: 0.8rem !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .tag-search-input::placeholder,
+    [data-theme="macos8"] .tag-search-input::placeholder {
+      color: #9A8A7A !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .tag-pill,
+    [data-theme="macos8"] .tag-pill {
+      background: #C8C0B8 !important;
+      color: #1A0F08 !important;
+      border: 1px solid #1A0F08 !important;
+      border-radius: 999px !important;
+      font-size: 0.75rem !important;
+      font-weight: 600 !important;
+      box-shadow: inset 1px 1px #FFFFFF, inset -1px -1px #888080 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .tag-pill.active,
+    [data-theme="macos8"] .tag-pill.active {
+      background: #1A0F08 !important;
+      color: #F0E4CC !important;
+      box-shadow: inset 1px 1px #888080 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .results-count,
+    [data-theme="macos8"] .results-count {
+      color: #1A0F08 !important;
+      font-size: 0.8rem !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .results-count strong,
+    [data-theme="macos8"] .results-count strong {
+      color: #8B3A1A !important;
+      font-weight: 700 !important;
+    }
+    
+    /* ── 9. Buttons — 1px Classic Mac Platinum Bevel ── */
+    [data-theme="curio-theme-macos8"] .btn-primary,
+    [data-theme="macos8"] .btn-primary {
+      background: #C8C0B8 !important;
+      color: #1A0F08 !important;
+      border: 1px solid #1A0F08 !important;
+      border-radius: 0 !important;
+      font-family: var(--font-ui) !important;
+      font-size: 0.82rem !important;
+      font-weight: 700 !important;
+      box-shadow:
+        inset 1px 1px #FFFFFF,
+        inset -1px -1px #888080,
+        0 0 0 3px #1A0F08 !important;
+      padding: 3px 14px !important;
+      transition: box-shadow 0.05s ease !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .btn-primary:active,
+    [data-theme="macos8"] .btn-primary:active {
+      box-shadow:
+        inset 1px 1px #888080,
+        inset -1px -1px #FFFFFF,
+        0 0 0 3px #1A0F08 !important;
+      color: #1A0F08 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .btn-secondary,
+    [data-theme="curio-theme-macos8"] .view-btn,
+    [data-theme="curio-theme-macos8"] .pill-toggle,
+    [data-theme="macos8"] .btn-secondary,
+    [data-theme="macos8"] .view-btn,
+    [data-theme="macos8"] .pill-toggle {
+      background: #C8C0B8 !important;
+      color: #1A0F08 !important;
+      border: 1px solid #1A0F08 !important;
+      border-radius: 0 !important;
+      font-family: var(--font-ui) !important;
+      font-size: 0.82rem !important;
+      box-shadow: inset 1px 1px #FFFFFF, inset -1px -1px #888080 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .btn-secondary:active,
+    [data-theme="curio-theme-macos8"] .view-btn:active,
+    [data-theme="macos8"] .btn-secondary:active,
+    [data-theme="macos8"] .view-btn:active {
+      box-shadow: inset 1px 1px #888080, inset -1px -1px #FFFFFF !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .view-btn.active,
+    [data-theme="curio-theme-macos8"] .pill-toggle.active,
+    [data-theme="macos8"] .view-btn.active,
+    [data-theme="macos8"] .pill-toggle.active {
+      background: #1A0F08 !important;
+      color: #F0E4CC !important;
+      box-shadow: inset 1px 1px #888080 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .btn-danger,
+    [data-theme="macos8"] .btn-danger {
+      background: #C8C0B8 !important;
+      color: #8B1A1A !important;
+      border: 1px solid #1A0F08 !important;
+      border-radius: 0 !important;
+      font-weight: 700 !important;
+      box-shadow: inset 1px 1px #FFFFFF, inset -1px -1px #888080 !important;
+    }
+    
+    /* ── 10. Item Cards — Cream Ivory with Platinum Bevel Corner Inlays ── */
+    [data-theme="curio-theme-macos8"] .item-card,
+    [data-theme="macos8"] .item-card {
+      background: #F0E4CC !important;
+      color: #1A0F08 !important;
+      border: 1px solid #1A0F08 !important;
+      border-radius: 0 !important;
+      box-shadow:
+        inset 1px 1px #FFFFFF,
+        inset -1px -1px #888080,
+        2px 2px 0 #1A0F08 !important;
+      position: relative !important;
+      overflow: visible !important;
+    }
+    
+    /* ── ART §5: Item Card — Platinum Bevel Corner Bracket Marks ── */
+    [data-theme="curio-theme-macos8"] .item-card::before,
+    [data-theme="macos8"] .item-card::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: -3px !important;
+      pointer-events: none !important;
+      z-index: 5 !important;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 12 L0 0 L12 0' fill='none' stroke='%231A0F08' stroke-width='2'/%3E%3Cpath d='M88 0 L100 0 L100 12' fill='none' stroke='%231A0F08' stroke-width='2'/%3E%3Cpath d='M100 88 L100 100 L88 100' fill='none' stroke='%231A0F08' stroke-width='2'/%3E%3Cpath d='M12 100 L0 100 L0 88' fill='none' stroke='%231A0F08' stroke-width='2'/%3E%3Cpath d='M3 12 L3 3 L12 3' fill='none' stroke='%23FFFFFF' stroke-width='1'/%3E%3Cpath d='M88 3 L97 3 L97 12' fill='none' stroke='%23FFFFFF' stroke-width='1'/%3E%3C/svg%3E") !important;
+      background-size: 100% 100% !important;
+      background-repeat: no-repeat !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .item-card:hover,
+    [data-theme="macos8"] .item-card:hover {
+      background: #FAF2E4 !important;
+      box-shadow:
+        inset 1px 1px #FFFFFF,
+        inset -1px -1px #888080,
+        3px 3px 0 #1A0F08 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .item-card .card-title,
+    [data-theme="macos8"] .item-card .card-title {
+      color: #1A0F08 !important;
+      font-weight: 700 !important;
+      font-size: 0.88rem !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .item-card .card-desc,
+    [data-theme="curio-theme-macos8"] .item-card .card-notes,
+    [data-theme="macos8"] .item-card .card-desc,
+    [data-theme="macos8"] .item-card .card-notes {
+      color: #5A3A22 !important;
+      font-size: 0.78rem !important;
+    }
+    
+    /* Card thumbnail: inset bevel (looks like a Mac OS window frame) */
+    [data-theme="curio-theme-macos8"] .item-card .card-thumb,
+    [data-theme="curio-theme-macos8"] .item-card .card-thumb-wrap,
+    [data-theme="macos8"] .item-card .card-thumb,
+    [data-theme="macos8"] .item-card .card-thumb-wrap {
+      border-bottom: 1px solid #1A0F08 !important;
+      box-shadow: inset 1px 1px #888080, inset -1px -1px #FFFFFF !important;
+    }
+    
+    /* Status badges (Mac OS 8: plain labeled chips) */
+    [data-theme="curio-theme-macos8"] .badge-status,
+    [data-theme="macos8"] .badge-status {
+      background: #C8C0B8 !important;
+      color: #1A0F08 !important;
+      border: 1px solid #1A0F08 !important;
+      border-radius: 0 !important;
+      font-size: 0.68rem !important;
+      font-weight: 700 !important;
+      padding: 1px 5px !important;
+      box-shadow: inset 1px 1px #FFFFFF, inset -1px -1px #888080 !important;
+    }
+    
+    /* ── 11. Modals — Cream Dialog with Scroll Endcap Header Art ── */
+    [data-theme="curio-theme-macos8"] .modal-content,
+    [data-theme="curio-theme-macos8"] .detail-modal,
+    [data-theme="curio-theme-macos8"] .detail-view,
+    [data-theme="macos8"] .modal-content,
+    [data-theme="macos8"] .detail-modal,
+    [data-theme="macos8"] .detail-view {
+      background: #F0E4CC !important;
+      color: #1A0F08 !important;
+      border: 2px solid #1A0F08 !important;
+      border-radius: 0 !important;
+      box-shadow:
+        inset 1px 1px #FFFFFF,
+        inset -1px -1px #888080,
+        4px 4px 0 #1A0F08 !important;
+      position: relative !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .modal-header,
+    [data-theme="macos8"] .modal-header {
+      background: repeating-linear-gradient(
+        0deg,
+        #1A0A06 0px, #1A0A06 1px,
+        #2C1008 1px, #2C1008 2px
+      ) !important;
+      border-bottom: 2px solid #1A0F08 !important;
+      color: #F0E4CC !important;
+      position: relative !important;
+    }
+    
+    /* ── ART §6: Modal Header — Mac OS 8 Title Bar Scroll Endcap Ornament ── */
+    [data-theme="curio-theme-macos8"] .modal-header::before,
+    [data-theme="macos8"] .modal-header::before {
+      content: "" !important;
+      position: absolute !important;
+      bottom: -8px !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 8px !important;
+      pointer-events: none !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 8' preserveAspectRatio='none'%3E%3Cline x1='0' y1='4' x2='400' y2='4' stroke='%231A0F08' stroke-width='1'/%3E%3Cline x1='0' y1='2' x2='400' y2='2' stroke='%23888080' stroke-width='0.5'/%3E%3Cline x1='0' y1='6' x2='400' y2='6' stroke='%23FFFFFF' stroke-width='0.5'/%3E%3Crect x='196' y='1' width='8' height='6' fill='%23C8C0B8' stroke='%231A0F08' stroke-width='0.8'/%3E%3Cline x1='197' y1='3' x2='203' y2='3' stroke='%231A0F08' stroke-width='0.8'/%3E%3Cline x1='197' y1='5' x2='203' y2='5' stroke='%231A0F08' stroke-width='0.8'/%3E%3C/svg%3E") !important;
+      background-repeat: no-repeat !important;
+      background-size: 100% 100% !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .modal-title,
+    [data-theme="macos8"] .modal-title {
+      color: #F0E4CC !important;
+      font-weight: 700 !important;
+      font-size: 0.88rem !important;
+      text-shadow: 1px 1px 0 #000000 !important;
+    }
+    
+    [data-theme="curio-theme-macos8"] .form-input,
+    [data-theme="curio-theme-macos8"] .form-textarea,
+    [data-theme="curio-theme-macos8"] .form-select,
+    [data-theme="macos8"] .form-input,
+    [data-theme="macos8"] .form-textarea,
+    [data-theme="macos8"] .form-select {
+      background: #FFFFFF !important;
+      color: #1A0F08 !important;
+      border: 1px solid #1A0F08 !important;
+      border-radius: 0 !important;
+      font-family: var(--font-mono) !important;
+      box-shadow: inset 1px 1px #888080 !important;
+    }
+    
+    /* ── 12. Scrollbars — Mac OS 8 Platinum Style ── */
+    [data-theme="curio-theme-macos8"] ::-webkit-scrollbar,
+    [data-theme="macos8"] ::-webkit-scrollbar {
+      width: 16px;
+      height: 16px;
+    }
+    
+    [data-theme="curio-theme-macos8"] ::-webkit-scrollbar-track,
+    [data-theme="macos8"] ::-webkit-scrollbar-track {
+      background: #C8C0B8;
+      border-left: 1px solid #888080;
+    }
+    
+    [data-theme="curio-theme-macos8"] ::-webkit-scrollbar-thumb,
+    [data-theme="macos8"] ::-webkit-scrollbar-thumb {
+      background: #C8C0B8;
+      border: 1px solid #1A0F08;
+      box-shadow: inset 1px 1px #FFFFFF, inset -1px -1px #888080;
+    }
+    
+    [data-theme="curio-theme-macos8"] ::-webkit-scrollbar-thumb:hover,
+    [data-theme="macos8"] ::-webkit-scrollbar-thumb:hover {
+      background: #E2D0B0;
+    }
+    
+    
+    
+    /* ══════════════════════════════════════════════════════════════
+       ONYX — Flat Black + Yellow Hazard-Stripe Title Bar
+       ══════════════════════════════════════════════════════════════ */
+    
+    [data-theme="curio-theme-macos8-onyx"], [data-theme="macos8-onyx"] {
+      --bg:                  #0A0A0A;
+      --surface:             #2A2A2A;
+      --surface-2:           #1E1E1E;
+      --text:                #E8E8E8;
+      --text-dim:            #9A9A9A;
+      --accent:              #FFD700;
+      --accent-2:            #FFA500;
+      --accent-text:         #0A0A0A;
+      --border:              #FFD700;
+      --select-bg:           #FFD700;
+      --select-fg:           #0A0A0A;
+      --danger:              #FF3333;
+      --ok:                  #33FF33;
+      --warn:                #FFD700;
+      --font-ui:             'Chicago', 'Charcoal', 'Geneva', system-ui, sans-serif;
+      --font-display:        'Chicago', 'Charcoal', 'Geneva', system-ui, sans-serif;
+      --font-mono:           'Monaco', 'Courier New', monospace;
+      --font-size-base:      13px;
+      --font-smoothing:      none;
+      --radius-window:       0px;
+      --radius-control:      0px;
+      --radius-chip:         999px;
+      --avatar-shape:        50%;
+      --bevel-light:         #555555;
+      --bevel-dark:          #000000;
+      --bevel-width:         1px;
+      --shadow-raised:       inset 1px 1px #555555, inset -1px -1px #000000;
+      --shadow-pressed:      inset 1px 1px #000000, inset -1px -1px #555555;
+      --shadow-hard:         2px 2px 0 #000000;
+      --focus-ring:          0 0 0 2px #FFD700;
+      --default-button-ring: 0 0 0 3px #FFD700;
+    
+      --bg-base:             #0A0A0A;
+      --bg-surface:          #2A2A2A;
+      --bg-surface-raised:   #1E1E1E;
+      --bg-surface-hover:    #333333;
+      --bg-panel:            #141414;
+      --border-subtle:       #333333;
+      --border-medium:       #FFD700;
+      --border-bright:       #FFD700;
+      --accent-cyan:         #FFD700;
+      --accent-cyan-glow:    rgba(255, 215, 0, 0.35);
+      --text-main:           #E8E8E8;
+      --text-muted:          #9A9A9A;
+      --text-dim-legacy:     #6A6A6A;
+      --shadow-glow:         0 0 8px rgba(255, 215, 0, 0.4);
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"], [data-theme="macos8-onyx"] {
+      background-color: #0A0A0A !important;
+      color: #E8E8E8 !important;
+      font-family: 'Chicago', 'Charcoal', 'Geneva', system-ui, sans-serif !important;
+      -webkit-font-smoothing: none !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] body,
+    [data-theme="macos8-onyx"] body {
+      background-color: #0A0A0A !important;
+      color: #E8E8E8 !important;
+    }
+    
+    /* Onyx: No atmospheric overlay — strict flat black */
+    [data-theme="curio-theme-macos8-onyx"] body::after,
+    [data-theme="macos8-onyx"] body::after {
+      display: none !important;
+    }
+    
+    /* Onyx Sidebar */
+    [data-theme="curio-theme-macos8-onyx"] .sidebar,
+    [data-theme="macos8-onyx"] .sidebar {
+      background: #141414 !important;
+      border-right: 2px solid #FFD700 !important;
+      color: #E8E8E8 !important;
+    }
+    
+    /* Onyx Sidebar crest — replaced with hazard diamond motif */
+    [data-theme="curio-theme-macos8-onyx"] .sidebar::after,
+    [data-theme="macos8-onyx"] .sidebar::after {
+      content: "" !important;
+      position: absolute !important;
+      bottom: 20px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 60px !important;
+      height: 60px !important;
+      pointer-events: none !important;
+      opacity: 0.5 !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpolygon points='30,2 58,30 30,58 2,30' fill='none' stroke='%23FFD700' stroke-width='2'/%3E%3Cpolygon points='30,10 50,30 30,50 10,30' fill='none' stroke='%23FFD700' stroke-width='1.5'/%3E%3Ccircle cx='30' cy='30' r='6' fill='none' stroke='%23FFD700' stroke-width='1.5'/%3E%3Ccircle cx='30' cy='30' r='2' fill='%23FFD700'/%3E%3Cline x1='30' y1='2' x2='30' y2='10' stroke='%23FFD700' stroke-width='1.5'/%3E%3Cline x1='30' y1='50' x2='30' y2='58' stroke='%23FFD700' stroke-width='1.5'/%3E%3Cline x1='2' y1='30' x2='10' y2='30' stroke='%23FFD700' stroke-width='1.5'/%3E%3Cline x1='50' y1='30' x2='58' y2='30' stroke='%23FFD700' stroke-width='1.5'/%3E%3C/svg%3E") !important;
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+    }
+    
+    /* ── ART §1 Onyx: Brand Header — HAZARD STRIPES only on brand header ── */
+    [data-theme="curio-theme-macos8-onyx"] .brand-header,
+    [data-theme="macos8-onyx"] .brand-header {
+      background: repeating-linear-gradient(
+        -45deg,
+        #FFD700 0px, #FFD700 5px,
+        #0A0A0A 5px, #0A0A0A 10px
+      ) !important;
+      border-bottom: 3px solid #FFD700 !important;
+      padding: 0.75rem 0.85rem !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .brand-title svg,
+    [data-theme="macos8-onyx"] .brand-title svg {
+      display: none !important;
+    }
+    
+    /* Onyx brand logo — same window icon but inverted (B&W on hazard) */
+    [data-theme="curio-theme-macos8-onyx"] .brand-title::before,
+    [data-theme="macos8-onyx"] .brand-title::before {
+      content: "" !important;
+      display: inline-block !important;
+      width: 28px !important;
+      height: 22px !important;
+      flex-shrink: 0 !important;
+      margin-right: 0.6rem !important;
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 22'%3E%3Crect x='0' y='0' width='28' height='22' fill='%230A0A0A' stroke='%23FFD700' stroke-width='1'/%3E%3Crect x='0' y='0' width='28' height='7' fill='%23111111'/%3E%3Cline x1='0' y1='7' x2='28' y2='7' stroke='%23FFD700' stroke-width='0.8'/%3E%3Crect x='1' y='1' width='5' height='5' fill='%23333333' stroke='%23FFD700' stroke-width='0.7'/%3E%3Crect x='8' y='1' width='5' height='5' fill='%23333333' stroke='%23FFD700' stroke-width='0.7'/%3E%3Cline x1='4' y1='12' x2='24' y2='12' stroke='%23FFD700' stroke-width='0.8'/%3E%3Cline x1='4' y1='16' x2='20' y2='16' stroke='%23FFD700' stroke-width='0.8'/%3E%3C/svg%3E") !important;
+      filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.6)) !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .brand-title,
+    [data-theme="macos8-onyx"] .brand-title {
+      color: #0A0A0A !important;
+      font-weight: 700 !important;
+      font-size: 0.9rem !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+      text-shadow: 1px 1px 0 rgba(255, 215, 0, 0.5) !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .brand-title .badge-tag,
+    [data-theme="macos8-onyx"] .brand-title .badge-tag {
+      background: #FFD700 !important;
+      color: #0A0A0A !important;
+      border: 1px solid #0A0A0A !important;
+      border-radius: 0 !important;
+      font-weight: 700 !important;
+      font-size: 0.65rem !important;
+      padding: 1px 5px !important;
+    }
+    
+    /* Onyx Catalog switcher */
+    [data-theme="curio-theme-macos8-onyx"] .catalog-switcher-panel,
+    [data-theme="macos8-onyx"] .catalog-switcher-panel {
+      background: #141414 !important;
+      border-bottom: 1px solid #333333 !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .switcher-title,
+    [data-theme="macos8-onyx"] .switcher-title {
+      color: #FFD700 !important;
+      font-size: 0.68rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .catalog-select-dropdown,
+    [data-theme="macos8-onyx"] .catalog-select-dropdown {
+      background: #1E1E1E !important;
+      color: #FFD700 !important;
+      border: 1px solid #FFD700 !important;
+      border-radius: 0 !important;
+      font-size: 0.8rem !important;
+    }
+    
+    /* Onyx drawer nav */
+    [data-theme="curio-theme-macos8-onyx"] .section-header span,
+    [data-theme="macos8-onyx"] .section-header span {
+      color: #FFD700 !important;
+      font-size: 0.68rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .drawer-item,
+    [data-theme="macos8-onyx"] .drawer-item {
+      color: #E8E8E8 !important;
+      background: transparent !important;
+      border: 1px solid transparent !important;
+      border-radius: 0 !important;
+      font-size: 0.82rem !important;
+      padding: 0.35rem 0.7rem !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .drawer-item:hover,
+    [data-theme="macos8-onyx"] .drawer-item:hover {
+      background: #1E1E1E !important;
+      color: #FFD700 !important;
+      border-color: #333333 !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .drawer-item.active,
+    [data-theme="macos8-onyx"] .drawer-item.active {
+      background: #FFD700 !important;
+      color: #0A0A0A !important;
+      border: 1px solid #FFD700 !important;
+      font-weight: 700 !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .drawer-count,
+    [data-theme="macos8-onyx"] .drawer-count {
+      background: #0A0A0A !important;
+      color: #FFD700 !important;
+      border: 1px solid #FFD700 !important;
+      border-radius: 0 !important;
+      font-size: 0.7rem !important;
+      font-weight: 700 !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .drawer-item.active .drawer-count,
+    [data-theme="macos8-onyx"] .drawer-item.active .drawer-count {
+      background: #0A0A0A !important;
+      color: #FFD700 !important;
+    }
+    
+    /* Onyx Top Bar — flat black, no hazard */
+    [data-theme="curio-theme-macos8-onyx"] .top-bar,
+    [data-theme="macos8-onyx"] .top-bar {
+      background: #1A1A1A !important;
+      color: #E8E8E8 !important;
+      border-bottom: 2px solid #FFD700 !important;
+      position: relative !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .top-bar::before,
+    [data-theme="macos8-onyx"] .top-bar::before {
+      content: "" !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 2px !important;
+      background: #FFD700 !important;
+      pointer-events: none !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .top-bar::after,
+    [data-theme="macos8-onyx"] .top-bar::after {
+      display: none !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .search-input,
+    [data-theme="macos8-onyx"] .search-input {
+      background: #0A0A0A !important;
+      color: #FFD700 !important;
+      border: 1px solid #FFD700 !important;
+      border-radius: 0 !important;
+      font-family: 'Monaco', 'Courier New', monospace !important;
+      box-shadow: inset 1px 1px #333333 !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .search-input::placeholder,
+    [data-theme="macos8-onyx"] .search-input::placeholder {
+      color: #555555 !important;
+    }
+    
+    /* Onyx Filter panel */
+    [data-theme="curio-theme-macos8-onyx"] .filter-panel,
+    [data-theme="macos8-onyx"] .filter-panel {
+      background: #111111 !important;
+      border-bottom: 1px solid #333333 !important;
+      color: #E8E8E8 !important;
+      position: relative !important;
+      padding-top: 10px !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .filter-panel::before,
+    [data-theme="macos8-onyx"] .filter-panel::before {
+      content: "" !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 8px !important;
+      pointer-events: none !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 8' preserveAspectRatio='none'%3E%3Cline x1='0' y1='4' x2='185' y2='4' stroke='%23FFD700' stroke-width='0.8'/%3E%3Cpolygon points='191,4 199,1 207,4 199,7' fill='%23FFD700'/%3E%3Cline x1='213' y1='4' x2='400' y2='4' stroke='%23FFD700' stroke-width='0.8'/%3E%3C/svg%3E") !important;
+      background-repeat: no-repeat !important;
+      background-size: 100% 100% !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .filter-label,
+    [data-theme="macos8-onyx"] .filter-label {
+      color: #FFD700 !important;
+      font-size: 0.72rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .select-custom,
+    [data-theme="curio-theme-macos8-onyx"] .filter-panel select,
+    [data-theme="macos8-onyx"] .select-custom,
+    [data-theme="macos8-onyx"] .filter-panel select {
+      background: #1E1E1E !important;
+      color: #FFD700 !important;
+      border: 1px solid #FFD700 !important;
+      border-radius: 0 !important;
+      font-size: 0.8rem !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .tag-pill,
+    [data-theme="macos8-onyx"] .tag-pill {
+      background: #1E1E1E !important;
+      color: #E8E8E8 !important;
+      border: 1px solid #333333 !important;
+      border-radius: 999px !important;
+      font-size: 0.75rem !important;
+      font-weight: 600 !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .tag-pill.active,
+    [data-theme="macos8-onyx"] .tag-pill.active {
+      background: #FFD700 !important;
+      color: #0A0A0A !important;
+      border-color: #FFD700 !important;
+      font-weight: 700 !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .tag-search-input,
+    [data-theme="macos8-onyx"] .tag-search-input {
+      background: #0A0A0A !important;
+      color: #FFD700 !important;
+      border: 1px solid #333333 !important;
+      border-radius: 0 !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .results-count,
+    [data-theme="macos8-onyx"] .results-count {
+      color: #9A9A9A !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .results-count strong,
+    [data-theme="macos8-onyx"] .results-count strong {
+      color: #FFD700 !important;
+    }
+    
+    /* Onyx Buttons — flat black + yellow border ring on primary */
+    [data-theme="curio-theme-macos8-onyx"] .btn-primary,
+    [data-theme="macos8-onyx"] .btn-primary {
+      background: #1E1E1E !important;
+      color: #FFD700 !important;
+      border: 1px solid #FFD700 !important;
+      border-radius: 0 !important;
+      font-weight: 700 !important;
+      box-shadow:
+        inset 1px 1px #555555,
+        inset -1px -1px #000000,
+        0 0 0 3px #FFD700 !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .btn-primary:active,
+    [data-theme="macos8-onyx"] .btn-primary:active {
+      background: #FFD700 !important;
+      color: #0A0A0A !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .btn-secondary,
+    [data-theme="curio-theme-macos8-onyx"] .view-btn,
+    [data-theme="curio-theme-macos8-onyx"] .pill-toggle,
+    [data-theme="macos8-onyx"] .btn-secondary,
+    [data-theme="macos8-onyx"] .view-btn,
+    [data-theme="macos8-onyx"] .pill-toggle {
+      background: #1E1E1E !important;
+      color: #E8E8E8 !important;
+      border: 1px solid #444444 !important;
+      border-radius: 0 !important;
+      box-shadow: inset 1px 1px #555555, inset -1px -1px #000000 !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .view-btn.active,
+    [data-theme="curio-theme-macos8-onyx"] .pill-toggle.active,
+    [data-theme="macos8-onyx"] .view-btn.active,
+    [data-theme="macos8-onyx"] .pill-toggle.active {
+      background: #FFD700 !important;
+      color: #0A0A0A !important;
+      border-color: #FFD700 !important;
+      font-weight: 700 !important;
+    }
+    
+    /* Onyx Cards */
+    [data-theme="curio-theme-macos8-onyx"] .item-card,
+    [data-theme="macos8-onyx"] .item-card {
+      background: #1E1E1E !important;
+      color: #E8E8E8 !important;
+      border: 1px solid #444444 !important;
+      border-radius: 0 !important;
+      box-shadow:
+        inset 1px 1px #555555,
+        inset -1px -1px #000000,
+        2px 2px 0 #000000 !important;
+      position: relative !important;
+    }
+    
+    /* Onyx card corners: yellow diamond bracket marks */
+    [data-theme="curio-theme-macos8-onyx"] .item-card::before,
+    [data-theme="macos8-onyx"] .item-card::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: -3px !important;
+      pointer-events: none !important;
+      z-index: 5 !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 12 L0 0 L12 0' fill='none' stroke='%23FFD700' stroke-width='1.5'/%3E%3Cpath d='M88 0 L100 0 L100 12' fill='none' stroke='%23FFD700' stroke-width='1.5'/%3E%3Cpath d='M100 88 L100 100 L88 100' fill='none' stroke='%23FFD700' stroke-width='1.5'/%3E%3Cpath d='M12 100 L0 100 L0 88' fill='none' stroke='%23FFD700' stroke-width='1.5'/%3E%3C/svg%3E") !important;
+      background-size: 100% 100% !important;
+      background-repeat: no-repeat !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .item-card:hover,
+    [data-theme="macos8-onyx"] .item-card:hover {
+      background: #2A2A2A !important;
+      border-color: #FFD700 !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .item-card .card-title,
+    [data-theme="macos8-onyx"] .item-card .card-title {
+      color: #FFD700 !important;
+      font-weight: 700 !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .badge-status,
+    [data-theme="macos8-onyx"] .badge-status {
+      background: #1E1E1E !important;
+      color: #FFD700 !important;
+      border: 1px solid #FFD700 !important;
+      border-radius: 0 !important;
+      font-size: 0.68rem !important;
+      font-weight: 700 !important;
+      box-shadow: inset 1px 1px #555555 !important;
+    }
+    
+    /* Onyx Modals */
+    [data-theme="curio-theme-macos8-onyx"] .modal-content,
+    [data-theme="curio-theme-macos8-onyx"] .detail-modal,
+    [data-theme="curio-theme-macos8-onyx"] .detail-view,
+    [data-theme="macos8-onyx"] .modal-content,
+    [data-theme="macos8-onyx"] .detail-modal,
+    [data-theme="macos8-onyx"] .detail-view {
+      background: #1E1E1E !important;
+      color: #E8E8E8 !important;
+      border: 2px solid #FFD700 !important;
+      border-radius: 0 !important;
+      box-shadow:
+        inset 1px 1px #555555,
+        inset -1px -1px #000000,
+        4px 4px 0 #000000 !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .modal-header,
+    [data-theme="macos8-onyx"] .modal-header {
+      background: repeating-linear-gradient(
+        -45deg,
+        #FFD700 0px, #FFD700 4px,
+        #0A0A0A 4px, #0A0A0A 8px
+      ) !important;
+      border-bottom: 2px solid #FFD700 !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .modal-header::before,
+    [data-theme="macos8-onyx"] .modal-header::before {
+      display: none !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .modal-title,
+    [data-theme="macos8-onyx"] .modal-title {
+      color: #0A0A0A !important;
+      font-weight: 700 !important;
+      text-shadow: 1px 1px 0 rgba(255, 215, 0, 0.4) !important;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] .form-input,
+    [data-theme="curio-theme-macos8-onyx"] .form-textarea,
+    [data-theme="curio-theme-macos8-onyx"] .form-select,
+    [data-theme="macos8-onyx"] .form-input,
+    [data-theme="macos8-onyx"] .form-textarea,
+    [data-theme="macos8-onyx"] .form-select {
+      background: #0A0A0A !important;
+      color: #FFD700 !important;
+      border: 1px solid #444444 !important;
+      border-bottom: 1px solid #FFD700 !important;
+      border-radius: 0 !important;
+      font-family: 'Monaco', 'Courier New', monospace !important;
+    }
+    
+    /* Onyx Scrollbars */
+    [data-theme="curio-theme-macos8-onyx"] ::-webkit-scrollbar,
+    [data-theme="macos8-onyx"] ::-webkit-scrollbar {
+      width: 16px;
+      height: 16px;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] ::-webkit-scrollbar-track,
+    [data-theme="macos8-onyx"] ::-webkit-scrollbar-track {
+      background: #0A0A0A;
+      border-left: 1px solid #333333;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] ::-webkit-scrollbar-thumb,
+    [data-theme="macos8-onyx"] ::-webkit-scrollbar-thumb {
+      background: #2A2A2A;
+      border: 1px solid #FFD700;
+    }
+    
+    [data-theme="curio-theme-macos8-onyx"] ::-webkit-scrollbar-thumb:hover,
+    [data-theme="macos8-onyx"] ::-webkit-scrollbar-thumb:hover {
+      background: #FFD700;
+    }
+    
+
     /* ======================== */
     /* Easter Eggs System Styles */
     /* ======================== */
@@ -9238,6 +10489,40 @@
           <!-- Windows 95 -->
           <!-- TVA Bureaucracy -->
           <!-- Pixel Fantasy Game UI -->
+          <!-- Mac OS 8 Antique -->
+          <div class="theme-card" data-theme-id="macos8" onclick="setTheme('macos8')">
+            <div class="theme-preview-box" style="background:#1A0A06; border:2px solid #000000; overflow:hidden;">
+              <div class="mini-titlebar" style="background:repeating-linear-gradient(0deg, #1A0A06 0px, #1A0A06 1px, #2C1008 1px, #2C1008 2px); color:#F0E4CC; padding:1px 3px; font-size:7px; font-weight:bold;">
+                <span>HELLO! // ANTIQUE</span>
+              </div>
+              <div class="mini-content" style="background:#F0E4CC; border:1px solid #1A0F08; margin:3px; height:18px; display:flex; align-items:center; justify-content:center; box-shadow:inset 1px 1px #FFFFFF, inset -1px -1px #888080;">
+                <span style="font-size:7px; font-weight:bold; color:#1A0F08; background:#C8C0B8; padding:0 3px; border:1px solid #1A0F08; box-shadow:0 0 0 1px #1A0F08;">OK</span>
+              </div>
+            </div>
+            <div class="theme-info">
+              <span class="theme-title">🕰️ Mac OS 8 Antique</span>
+              <span class="theme-desc">Dark mahogany pinstripe chrome, cream ivory paper & platinum bevels</span>
+            </div>
+            <span class="theme-status-pill">Select</span>
+          </div>
+
+          <!-- Mac OS 8 Onyx -->
+          <div class="theme-card" data-theme-id="macos8-onyx" onclick="setTheme('macos8-onyx')">
+            <div class="theme-preview-box" style="background:#0A0A0A; border:2px solid #FFD700; overflow:hidden;">
+              <div class="mini-titlebar" style="background:repeating-linear-gradient(-45deg, #FFD700 0px, #FFD700 3px, #0A0A0A 3px, #0A0A0A 6px); color:#0A0A0A; padding:1px 3px; font-size:7px; font-weight:bold;">
+                <span>ONYX // HAZARD</span>
+              </div>
+              <div class="mini-content" style="background:#1E1E1E; border:1px solid #444444; margin:3px; height:18px; display:flex; align-items:center; justify-content:center; box-shadow:inset 1px 1px #555555;">
+                <span style="font-size:7px; font-weight:bold; color:#FFD700; border:1px solid #FFD700; padding:0 3px; box-shadow:0 0 0 1px #FFD700;">OK</span>
+              </div>
+            </div>
+            <div class="theme-info">
+              <span class="theme-title">⚠️ Mac OS 8 Onyx</span>
+              <span class="theme-desc">Black panels with yellow hazard-stripe title bar & glowing contrast</span>
+            </div>
+            <span class="theme-status-pill">Select</span>
+          </div>
+
           <div class="theme-card" data-theme-id="pixel-fantasy" onclick="setTheme('pixel-fantasy')">
             <div class="theme-preview-box" style="background:#1c130c; border:2px solid #000000; overflow:hidden;">
               <div class="mini-titlebar" style="background:#e6a122; color:#1c130c; padding:1px 3px; font-size:7px; font-weight:900; letter-spacing:0.05em; text-shadow:1px 1px 0 #fce28a;">
@@ -37809,6 +39094,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     { id: "jarvis", name: "Iron Man Jarvis / Holographic HUD", icon: "🤖", tag: "Interface Theme" },
     { id: "tva", name: "TVA Bureaucracy", icon: "⌛", tag: "Interface Theme" },
     { id: "pixel-fantasy", name: "Pixel Fantasy Game UI", icon: "⚔️", tag: "Interface Theme" },
+    { id: "macos8", name: "Mac OS 8 Antique", icon: "🕰️", tag: "Interface Theme" },
+    { id: "macos8-onyx", name: "Mac OS 8 Onyx", icon: "⚠️", tag: "Interface Theme" },
     { id: "synthwave", name: "Synthwave Sunset", icon: "🌅", tag: "Studio Palette" },
     { id: "nord", name: "Nord Frost", icon: "❄️", tag: "Studio Palette" },
     { id: "matrix", name: "Matrix Terminal", icon: "🟢", tag: "Studio Palette" },

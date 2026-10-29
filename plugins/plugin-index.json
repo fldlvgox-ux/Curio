@@ -1,6 +1,6 @@
 {
     "version":  "1.0.0",
-    "updatedAt":  "2026-10-29T17:00:51Z",
+    "updatedAt":  "2026-10-29T17:27:10Z",
     "plugins":  [
                     {
                         "id":  "curio-component-quick-stats",
@@ -134,6 +134,19 @@
                         "mountPoint":  null,
                         "dataExtension":  null,
                         "path":  "./plugins/curio-theme-jarvis"
+                    },
+                    {
+                        "id":  "curio-theme-macos8",
+                        "name":  "Mac OS 8 Antique",
+                        "version":  "1.0.0",
+                        "type":  "theme",
+                        "author":  "Curio \u0026 Theme Atlas Research",
+                        "description":  "Mac OS 8 Appearance Manager — Antique sub-theme. Dark mahogany chrome, horizontal pinstripes, classic 1px platinum bevels, cream ivory content, and carved rosette sidebar crest.",
+                        "family":  "bevel",
+                        "preview":  null,
+                        "mountPoint":  null,
+                        "dataExtension":  null,
+                        "path":  "./plugins/curio-theme-macos8"
                     },
                     {
                         "id":  "curio-theme-macos9",
