@@ -1,0 +1,41 @@
+/* ============================================================
+   Curio Plugin: Midnight Gold
+   Family: studio-palette | Contract: 1.0.0
+   Near-black base with warm gold accents — elegant luxury
+   ============================================================ */
+
+[data-theme="curio-theme-midnight"] {
+  /* ── Contract Tokens ── */
+  --bg:           #08080a;
+  --surface:      #121216;
+  --surface-2:    #1c1c22;
+  --text:         #fefce8;
+  --text-dim:     #fde047;
+  --accent:       #eab308;
+  --accent-text:  #0f0f00;
+  --border:       #24242c;
+  --select-bg:    #eab308;
+  --select-fg:    #0f0f00;
+  --danger:       #ef4444;
+  --ok:           #22c55e;
+  --warn:         #eab308;
+
+  --shadow-raised: 0 2px 8px rgba(234, 179, 8, 0.12);
+  --focus-ring:    0 0 0 2px rgba(234, 179, 8, 0.5);
+
+  /* ── Legacy Aliases (consumed by app.html via token-bridge) ── */
+  --bg-base:           #08080a;
+  --bg-surface:        #121216;
+  --bg-surface-raised: #1c1c22;
+  --bg-surface-hover:  #26262e;
+  --bg-panel:          #15151a;
+  --border-subtle:     #24242c;
+  --border-medium:     #383844;
+  --border-bright:     #eab308;
+  --accent-cyan:       #eab308;
+  --accent-cyan-glow:  rgba(234, 179, 8, 0.3);
+  --text-main:         #fefce8;
+  --text-muted:        #fde047;
+  --text-dim-legacy:   #854d0e;
+  --shadow-glow:       0 0 15px rgba(234, 179, 8, 0.35);
+}

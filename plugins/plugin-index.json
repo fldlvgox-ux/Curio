@@ -1,30 +1,78 @@
-﻿{
-    "version":  "1.0.0",
-    "updatedAt":  "2026-10-29T14:55:02Z",
-    "plugins":  [
-                    {
-                        "id":  "curio-component-quick-stats",
-                        "name":  "Quick Stats HUD",
-                        "version":  "1.0.0",
-                        "type":  "component",
-                        "author":  "Curio Core",
-                        "description":  "Real-time floating telemetry HUD displaying active catalog metrics, total items tally, and drawer counts.",
-                        "family":  "custom",
-                        "preview":  "preview.png",
-                        "mountPoint":  "floating-widget",
-                        "path":  "./plugins/curio-component-quick-stats"
-                    },
-                    {
-                        "id":  "curio-theme-win95",
-                        "name":  "Windows 95",
-                        "version":  "1.0.0",
-                        "type":  "theme",
-                        "author":  "Microsoft (Aesthetic replica for Curio)",
-                        "description":  "Authentic Windows 95 gray 3D bevels, sunken inputs, teal desktop background, and classic titlebars.",
-                        "family":  "retro-os",
-                        "preview":  "preview.png",
-                        "mountPoint":  null,
-                        "path":  "./plugins/curio-theme-win95"
-                    }
-                ]
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-10-29T15:09:00Z",
+  "plugins": [
+    {
+      "id": "curio-component-quick-stats",
+      "name": "Quick Stats HUD",
+      "version": "1.0.0",
+      "type": "component",
+      "author": "Curio Core",
+      "description": "Real-time floating telemetry HUD displaying active catalog metrics, total items tally, and drawer counts.",
+      "family": "custom",
+      "preview": "preview.png",
+      "mountPoint": "floating-widget",
+      "path": "./plugins/curio-component-quick-stats"
+    },
+    {
+      "id": "curio-theme-win95",
+      "name": "Windows 95",
+      "version": "1.0.0",
+      "type": "theme",
+      "author": "Microsoft (Aesthetic replica for Curio)",
+      "description": "Authentic Windows 95 gray 3D bevels, sunken inputs, teal desktop background, and classic titlebars.",
+      "family": "retro-os",
+      "preview": "preview.png",
+      "mountPoint": null,
+      "path": "./plugins/curio-theme-win95"
+    },
+    {
+      "id": "curio-theme-synthwave",
+      "name": "Synthwave Sunset",
+      "version": "1.0.0",
+      "type": "theme",
+      "author": "Curio Core",
+      "description": "Deep purple base with rose-pink accents — retro neon vibes for late-night cataloging.",
+      "family": "studio-palette",
+      "preview": null,
+      "mountPoint": null,
+      "path": "./plugins/curio-theme-synthwave"
+    },
+    {
+      "id": "curio-theme-matrix",
+      "name": "Matrix Terminal",
+      "version": "1.0.0",
+      "type": "theme",
+      "author": "Curio Core",
+      "description": "Phosphor-green on black — a hacker terminal aesthetic for your collection.",
+      "family": "studio-palette",
+      "preview": null,
+      "mountPoint": null,
+      "path": "./plugins/curio-theme-matrix"
+    },
+    {
+      "id": "curio-theme-nord",
+      "name": "Nord Frost",
+      "version": "1.0.0",
+      "type": "theme",
+      "author": "Curio Core",
+      "description": "Cool blue-gray tones inspired by the Nord palette — calm and focused.",
+      "family": "studio-palette",
+      "preview": null,
+      "mountPoint": null,
+      "path": "./plugins/curio-theme-nord"
+    },
+    {
+      "id": "curio-theme-midnight",
+      "name": "Midnight Gold",
+      "version": "1.0.0",
+      "type": "theme",
+      "author": "Curio Core",
+      "description": "Near-black base with warm gold accents — elegant and understated luxury.",
+      "family": "studio-palette",
+      "preview": null,
+      "mountPoint": null,
+      "path": "./plugins/curio-theme-midnight"
+    }
+  ]
 }

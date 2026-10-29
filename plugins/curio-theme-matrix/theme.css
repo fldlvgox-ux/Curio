@@ -1,0 +1,41 @@
+/* ============================================================
+   Curio Plugin: Matrix Terminal
+   Family: studio-palette | Contract: 1.0.0
+   Phosphor-green on black — hacker terminal aesthetic
+   ============================================================ */
+
+[data-theme="curio-theme-matrix"] {
+  /* ── Contract Tokens ── */
+  --bg:           #030804;
+  --surface:      #08140a;
+  --surface-2:    #0e2011;
+  --text:         #ecfdf5;
+  --text-dim:     #6ee7b7;
+  --accent:       #10b981;
+  --accent-text:  #ffffff;
+  --border:       #142e18;
+  --select-bg:    #10b981;
+  --select-fg:    #ffffff;
+  --danger:       #ef4444;
+  --ok:           #10b981;
+  --warn:         #eab308;
+
+  --shadow-raised: 0 2px 8px rgba(16, 185, 129, 0.15);
+  --focus-ring:    0 0 0 2px rgba(16, 185, 129, 0.5);
+
+  /* ── Legacy Aliases (consumed by app.html via token-bridge) ── */
+  --bg-base:           #030804;
+  --bg-surface:        #08140a;
+  --bg-surface-raised: #0e2011;
+  --bg-surface-hover:  #16301a;
+  --bg-panel:          #0b1a0d;
+  --border-subtle:     #142e18;
+  --border-medium:     #1f4524;
+  --border-bright:     #10b981;
+  --accent-cyan:       #10b981;
+  --accent-cyan-glow:  rgba(16, 185, 129, 0.3);
+  --text-main:         #ecfdf5;
+  --text-muted:        #6ee7b7;
+  --text-dim-legacy:   #059669;
+  --shadow-glow:       0 0 15px rgba(16, 185, 129, 0.35);
+}
