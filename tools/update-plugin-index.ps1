@@ -26,6 +26,7 @@ foreach ($dir in $subDirs) {
                 description = if ($manifestContent.description) { $manifestContent.description } else { "" }
                 family = if ($manifestContent.family) { $manifestContent.family } else { "custom" }
                 preview = if ($manifestContent.preview) { $manifestContent.preview } else { "preview.png" }
+                mountPoint = if ($manifestContent.mountPoint) { $manifestContent.mountPoint } else { $null }
                 path = $relativeDir
             }
             $pluginList += $entry

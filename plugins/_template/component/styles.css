@@ -1,0 +1,55 @@
+/**
+ * Curio Component Starter Styles
+ * Scoped strictly under .curio-comp-curio-component-starter
+ */
+
+.curio-comp-curio-component-starter .starter-widget-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  box-shadow: var(--shadow-raised);
+  color: var(--text);
+  font-family: var(--font-ui);
+  width: 240px;
+  overflow: hidden;
+}
+
+.curio-comp-curio-component-starter .starter-widget-header {
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.curio-comp-curio-component-starter .starter-widget-title {
+  font-size: var(--font-size-base);
+  font-weight: bold;
+}
+
+.curio-comp-curio-component-starter .starter-widget-close {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.curio-comp-curio-component-starter .starter-widget-close:hover {
+  color: var(--text);
+}
+
+.curio-comp-curio-component-starter .starter-widget-content {
+  padding: var(--space-2);
+}
+
+.curio-comp-curio-component-starter .starter-widget-text {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: var(--space-2);
+}
+
+.curio-comp-curio-component-starter .starter-widget-text strong {
+  color: var(--text);
+}

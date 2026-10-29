@@ -1,0 +1,182 @@
+/**
+ * Curio Quick Stats HUD Component Stylesheet
+ * Scoped strictly under .curio-comp-curio-component-quick-stats
+ */
+
+.curio-comp-curio-component-quick-stats .quick-stats-hud-card {
+  width: 250px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-family: var(--font-ui);
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.curio-comp-curio-component-quick-stats .quick-stats-hud-card.minimized .hud-body {
+  display: none;
+}
+
+.curio-comp-curio-component-quick-stats .hud-header {
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.curio-comp-curio-component-quick-stats .hud-header-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.curio-comp-curio-component-quick-stats .hud-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ok, #10b981);
+  box-shadow: 0 0 8px var(--ok, #10b981);
+  animation: hudPulse 2s infinite ease-in-out;
+}
+
+@keyframes hudPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.curio-comp-curio-component-quick-stats .hud-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+.curio-comp-curio-component-quick-stats .hud-header-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.curio-comp-curio-component-quick-stats .hud-action-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  color: var(--text-dim);
+  font-size: 10px;
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.curio-comp-curio-component-quick-stats .hud-action-btn:hover {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.curio-comp-curio-component-quick-stats .hud-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.curio-comp-curio-component-quick-stats .hud-catalog-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+}
+
+.curio-comp-curio-component-quick-stats .hud-label {
+  font-size: 9px;
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
+
+.curio-comp-curio-component-quick-stats .hud-val-highlight {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.curio-comp-curio-component-quick-stats .hud-grid-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.curio-comp-curio-component-quick-stats .hud-metric-tile {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.curio-comp-curio-component-quick-stats .hud-metric-number {
+  font-size: 16px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--text);
+}
+
+.curio-comp-curio-component-quick-stats .hud-metric-label {
+  font-size: 8px;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.curio-comp-curio-component-quick-stats .hud-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.curio-comp-curio-component-quick-stats .hud-view-pill {
+  font-size: 9px;
+  font-family: var(--font-mono);
+  padding: 2px 6px;
+  border-radius: 10px;
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  font-weight: 600;
+}
+
+.curio-comp-curio-component-quick-stats .hud-btn-pulse {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text);
+  font-size: 10px;
+  padding: 3px 7px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.curio-comp-curio-component-quick-stats .hud-btn-pulse:hover {
+  background: var(--accent);
+  color: var(--accent-text, #ffffff);
+  border-color: var(--accent);
+}

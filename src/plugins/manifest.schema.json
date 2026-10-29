@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Curio Plugin Manifest Schema",
+  "type": "object",
+  "required": ["id", "name", "version", "type", "contract"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Unique plugin ID in kebab-case (e.g. curio-theme-win95 or curio-component-stats)"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable display name"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["theme", "component", "data-extension"],
+      "description": "Type of plugin extension"
+    },
+    "contract": {
+      "type": "string",
+      "description": "Target Curio contract version (e.g. '1.0.0')"
+    },
+    "author": { "type": "string" },
+    "description": { "type": "string" },
+    "family": { "type": "string" },
+    "preview": { "type": "string" },
+    "mountPoint": {
+      "type": "string",
+      "enum": ["toolbar-actions", "sidebar-top", "sidebar-bottom", "floating-widget"],
+      "description": "Mount point for component plugins"
+    },
+    "files": {
+      "type": "object",
+      "properties": {
+        "css": { "type": "string" },
+        "template": { "type": "string" },
+        "script": { "type": "string" },
+        "icons": { "type": "string" }
+      }
+    },
+    "tokens": {
+      "type": "object",
+      "description": "CSS token custom property definitions"
+    },
+    "palettes": {
+      "type": "object",
+      "description": "Named color theme palettes"
+    }
+  }
+}

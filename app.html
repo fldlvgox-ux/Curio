@@ -7092,6 +7092,9 @@
     </div>
 
 
+    <!-- Extension Slot: Sidebar Top -->
+    <div id="extension-slot-sidebar-top" class="extension-slot"></div>
+
     <!-- Drawers Navigation -->
     <div class="drawers-section">
       <div class="section-header">
@@ -7113,6 +7116,9 @@
         <!-- Rendered custom drawers -->
       </div>
     </div>
+
+    <!-- Extension Slot: Sidebar Bottom -->
+    <div id="extension-slot-sidebar-bottom" class="extension-slot"></div>
 
     <!-- Storage Usage Meter & Utilities -->
     <div class="sidebar-footer">
@@ -7168,6 +7174,8 @@
       </div>
 
       <div class="top-right-tools">
+        <!-- Extension Slot: Toolbar Actions -->
+        <div id="extension-slot-toolbar-actions" class="extension-slot" style="display:inline-flex; align-items:center; gap:0.35rem;"></div>
         <!-- View Switcher -->
         <div class="view-switcher">
           <button class="view-btn active" data-view="grid" title="Grid View">
@@ -7811,8 +7819,17 @@
         <!-- Plugin Themes Hub Action Bar -->
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; padding:0.5rem 0.75rem; background:var(--bg-surface-raised); border:1px solid var(--border-subtle); border-radius:var(--radius-md);">
           <div style="font-size:0.8rem; color:var(--text-muted); display:flex; align-items:center; gap:0.4rem;">
-            <span>🧩 <strong>Plugin Hub:</strong> Drop-in folder & ZIP themes supported</span>
+            <span>🧩 <strong>Plugin Hub:</strong> Drop-in themes & UI components</span>
           </div>
+        </div>
+        
+        <!-- Component Plugins Toggle Bar -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; padding:0.4rem 0.75rem; background:var(--bg-surface-raised); border:1px solid var(--border-subtle); border-radius:var(--radius-md);">
+          <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.8rem; cursor:pointer; color:var(--text); margin:0;">
+            <input type="checkbox" id="toggle-comp-quick-stats" style="accent-color:var(--accent);">
+            <span>⚡ <strong>Quick Stats HUD:</strong> Floating live telemetry widget</span>
+          </label>
+          <span style="font-size:0.75rem; color:var(--text-dim);">floating-widget</span>
           <div style="display:flex; gap:0.5rem;">
             <input type="file" id="plugin-theme-zip-input" accept=".zip" onchange="window._handlePluginZipUpload(this)" style="display:none;">
             <button type="button" class="btn btn-secondary" id="btn-import-theme-zip" onclick="document.getElementById('plugin-theme-zip-input').click()" style="font-size:0.75rem; padding:0.25rem 0.6rem; display:inline-flex; align-items:center; gap:0.3rem; cursor:pointer;">
@@ -37858,6 +37875,26 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       });
     });
 
+
+    // Component Plugins Toggle
+    const compToggle = document.getElementById('toggle-comp-quick-stats');
+    if (compToggle) {
+      const isEnabled = localStorage.getItem('curio_enable_quick_stats') === 'true';
+      compToggle.checked = isEnabled;
+      if (isEnabled) {
+        window.mountQuickStatsComponent();
+      }
+      compToggle.addEventListener('change', (e) => {
+        if (e.target.checked) {
+          window.mountQuickStatsComponent();
+          showToast('Quick Stats HUD enabled! ⚡', 'success');
+        } else {
+          window.unmountQuickStatsComponent();
+          showToast('Quick Stats HUD disabled.', 'info');
+        }
+      });
+    }
+
     // Theme selector cards
     document.querySelectorAll(".theme-card").forEach(card => {
       card.addEventListener("click", () => {
@@ -38015,6 +38052,93 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     } finally {
       input.value = '';
     }
+  };
+
+
+  // --- 10.5.2 COMPONENT PLUGIN RUNTIME (QUICK STATS HUD POC) ---
+  window.mountQuickStatsComponent = function() {
+    if (document.getElementById('hud-root')) return;
+
+    let slot = document.getElementById('extension-slot-floating-widget');
+    if (!slot) {
+      slot = document.createElement('div');
+      slot.id = 'extension-slot-floating-widget';
+      slot.style.position = 'fixed';
+      slot.style.bottom = '20px';
+      slot.style.right = '20px';
+      slot.style.zIndex = '9999';
+      document.body.appendChild(slot);
+    }
+
+    if (!document.getElementById('curio-comp-style-quick-stats')) {
+      const style = document.createElement('style');
+      style.id = 'curio-comp-style-quick-stats';
+      style.textContent = "/**\n * Curio Quick Stats HUD Component Stylesheet\n * Scoped strictly under .curio-comp-curio-component-quick-stats\n */\n\n.curio-comp-curio-component-quick-stats .quick-stats-hud-card {\n  width: 250px;\n  background: var(--surface);\n  border: 1px solid var(--border);\n  border-radius: var(--radius-control);\n  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 255, 255, 0.05);\n  color: var(--text);\n  font-family: var(--font-ui);\n  overflow: hidden;\n  backdrop-filter: blur(8px);\n  user-select: none;\n  transition: all 0.2s ease;\n}\n\n.curio-comp-curio-component-quick-stats .quick-stats-hud-card.minimized .hud-body {\n  display: none;\n}\n\n.curio-comp-curio-component-quick-stats .hud-header {\n  background: var(--surface-2);\n  border-bottom: 1px solid var(--border);\n  padding: 6px 10px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.curio-comp-curio-component-quick-stats .hud-header-left {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n}\n\n.curio-comp-curio-component-quick-stats .hud-status-dot {\n  width: 7px;\n  height: 7px;\n  border-radius: 50%;\n  background: var(--ok, #10b981);\n  box-shadow: 0 0 8px var(--ok, #10b981);\n  animation: hudPulse 2s infinite ease-in-out;\n}\n\n@keyframes hudPulse {\n  0%, 100% { opacity: 1; transform: scale(1); }\n  50% { opacity: 0.4; transform: scale(0.85); }\n}\n\n.curio-comp-curio-component-quick-stats .hud-title {\n  font-family: var(--font-mono);\n  font-size: 10px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  color: var(--text-dim);\n}\n\n.curio-comp-curio-component-quick-stats .hud-header-actions {\n  display: flex;\n  gap: 4px;\n}\n\n.curio-comp-curio-component-quick-stats .hud-action-btn {\n  background: transparent;\n  border: 1px solid transparent;\n  border-radius: 3px;\n  color: var(--text-dim);\n  font-size: 10px;\n  width: 18px;\n  height: 18px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: all 0.15s ease;\n}\n\n.curio-comp-curio-component-quick-stats .hud-action-btn:hover {\n  background: var(--surface);\n  border-color: var(--border);\n  color: var(--text);\n}\n\n.curio-comp-curio-component-quick-stats .hud-body {\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n\n.curio-comp-curio-component-quick-stats .hud-catalog-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  border-bottom: 1px solid var(--border);\n  padding-bottom: 6px;\n}\n\n.curio-comp-curio-component-quick-stats .hud-label {\n  font-size: 9px;\n  font-family: var(--font-mono);\n  color: var(--text-dim);\n  letter-spacing: 0.05em;\n}\n\n.curio-comp-curio-component-quick-stats .hud-val-highlight {\n  font-size: 11px;\n  font-weight: 700;\n  color: var(--accent);\n  max-width: 150px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n\n.curio-comp-curio-component-quick-stats .hud-grid-metrics {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 6px;\n}\n\n.curio-comp-curio-component-quick-stats .hud-metric-tile {\n  background: var(--surface-2);\n  border: 1px solid var(--border);\n  border-radius: 4px;\n  padding: 6px 8px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.curio-comp-curio-component-quick-stats .hud-metric-number {\n  font-size: 16px;\n  font-weight: 800;\n  font-family: var(--font-mono);\n  color: var(--text);\n}\n\n.curio-comp-curio-component-quick-stats .hud-metric-label {\n  font-size: 8px;\n  color: var(--text-dim);\n  letter-spacing: 0.05em;\n  margin-top: 2px;\n}\n\n.curio-comp-curio-component-quick-stats .hud-footer-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-top: 2px;\n}\n\n.curio-comp-curio-component-quick-stats .hud-view-pill {\n  font-size: 9px;\n  font-family: var(--font-mono);\n  padding: 2px 6px;\n  border-radius: 10px;\n  background: rgba(6, 182, 212, 0.12);\n  color: var(--accent);\n  border: 1px solid rgba(6, 182, 212, 0.25);\n  font-weight: 600;\n}\n\n.curio-comp-curio-component-quick-stats .hud-btn-pulse {\n  background: var(--surface-2);\n  border: 1px solid var(--border);\n  border-radius: 3px;\n  color: var(--text);\n  font-size: 10px;\n  padding: 3px 7px;\n  cursor: pointer;\n  transition: all 0.15s ease;\n}\n\n.curio-comp-curio-component-quick-stats .hud-btn-pulse:hover {\n  background: var(--accent);\n  color: var(--accent-text, #ffffff);\n  border-color: var(--accent);\n}\n";
+      document.head.appendChild(style);
+    }
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'curio-component-root curio-comp-curio-component-quick-stats';
+    wrapper.innerHTML = "<div class=\"quick-stats-hud-card\" id=\"hud-root\">\n  <div class=\"hud-header\">\n    <div class=\"hud-header-left\">\n      <span class=\"hud-status-dot\"></span>\n      <span class=\"hud-title\">CURIO TELEMETRY</span>\n    </div>\n    <div class=\"hud-header-actions\">\n      <button class=\"hud-action-btn\" id=\"hud-toggle-btn\" title=\"Minimize / Expand\">_</button>\n      <button class=\"hud-action-btn\" id=\"hud-close-btn\" title=\"Dismiss HUD\">✕</button>\n    </div>\n  </div>\n\n  <div class=\"hud-body\" id=\"hud-body-content\">\n    <div class=\"hud-catalog-row\">\n      <span class=\"hud-label\">CATALOG</span>\n      <span class=\"hud-val-highlight\" id=\"hud-val-catalog\">Loading...</span>\n    </div>\n\n    <div class=\"hud-grid-metrics\">\n      <div class=\"hud-metric-tile\">\n        <span class=\"hud-metric-number\" id=\"hud-val-items\">0</span>\n        <span class=\"hud-metric-label\">TOTAL ITEMS</span>\n      </div>\n      <div class=\"hud-metric-tile\">\n        <span class=\"hud-metric-number\" id=\"hud-val-drawers\">0</span>\n        <span class=\"hud-metric-label\">DRAWERS</span>\n      </div>\n    </div>\n\n    <div class=\"hud-footer-row\">\n      <span class=\"hud-view-pill\" id=\"hud-val-view\">GRID VIEW</span>\n      <button class=\"hud-btn-pulse\" id=\"hud-btn-ping\">Ping State ⚡</button>\n    </div>\n  </div>\n</div>\n";
+    slot.appendChild(wrapper);
+
+    const update = () => {
+      const cat = State.catalogs ? State.catalogs.find(c => c.id === State.activeCatalogId) : null;
+      const items = cat && cat.items ? cat.items : [];
+      const drawers = cat && cat.drawers ? cat.drawers : [];
+      const catEl = wrapper.querySelector('#hud-val-catalog');
+      const itemsEl = wrapper.querySelector('#hud-val-items');
+      const drawersEl = wrapper.querySelector('#hud-val-drawers');
+      const viewEl = wrapper.querySelector('#hud-val-view');
+      if (catEl) catEl.innerText = cat ? (cat.icon ? cat.icon + ' ' : '') + cat.name : 'All Catalogs';
+      if (itemsEl) itemsEl.innerText = items.length.toLocaleString();
+      if (drawersEl) drawersEl.innerText = drawers.length.toLocaleString();
+      if (viewEl) viewEl.innerText = (State.viewMode || 'GRID').toUpperCase() + ' MODE';
+    };
+    update();
+
+    const rootCard = wrapper.querySelector('#hud-root');
+    const toggleBtn = wrapper.querySelector('#hud-toggle-btn');
+    if (toggleBtn && rootCard) {
+      toggleBtn.addEventListener('click', () => {
+        const isMin = rootCard.classList.toggle('minimized');
+        toggleBtn.innerText = isMin ? '□' : '_';
+      });
+    }
+
+    const closeBtn = wrapper.querySelector('#hud-close-btn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        window.unmountQuickStatsComponent();
+        const toggle = document.getElementById('toggle-comp-quick-stats');
+        if (toggle) toggle.checked = false;
+        showToast('Quick Stats HUD dismissed.', 'info');
+      });
+    }
+
+    const pingBtn = wrapper.querySelector('#hud-btn-ping');
+    if (pingBtn) {
+      pingBtn.addEventListener('click', () => {
+        const cat = State.catalogs ? State.catalogs.find(c => c.id === State.activeCatalogId) : null;
+        const count = cat && cat.items ? cat.items.length : 0;
+        showToast(`Catalog "${cat ? cat.name : 'Active'}" has ${count} items. 📊`, 'info');
+      });
+    }
+
+    window._hudUpdateTimer = setInterval(update, 1500);
+    localStorage.setItem('curio_enable_quick_stats', 'true');
+  };
+
+  window.unmountQuickStatsComponent = function() {
+    if (window._hudUpdateTimer) {
+      clearInterval(window._hudUpdateTimer);
+      window._hudUpdateTimer = null;
+    }
+    const slot = document.getElementById('extension-slot-floating-widget');
+    if (slot) slot.innerHTML = '';
+    const style = document.getElementById('curio-comp-style-quick-stats');
+    if (style && style.parentNode) style.parentNode.removeChild(style);
+    localStorage.setItem('curio_enable_quick_stats', 'false');
   };
 
     // Storage tab actions

@@ -1,7 +1,19 @@
 ﻿{
     "version":  "1.0.0",
-    "updatedAt":  "2026-10-29T14:31:48Z",
+    "updatedAt":  "2026-10-29T14:55:02Z",
     "plugins":  [
+                    {
+                        "id":  "curio-component-quick-stats",
+                        "name":  "Quick Stats HUD",
+                        "version":  "1.0.0",
+                        "type":  "component",
+                        "author":  "Curio Core",
+                        "description":  "Real-time floating telemetry HUD displaying active catalog metrics, total items tally, and drawer counts.",
+                        "family":  "custom",
+                        "preview":  "preview.png",
+                        "mountPoint":  "floating-widget",
+                        "path":  "./plugins/curio-component-quick-stats"
+                    },
                     {
                         "id":  "curio-theme-win95",
                         "name":  "Windows 95",
@@ -11,6 +23,7 @@
                         "description":  "Authentic Windows 95 gray 3D bevels, sunken inputs, teal desktop background, and classic titlebars.",
                         "family":  "retro-os",
                         "preview":  "preview.png",
+                        "mountPoint":  null,
                         "path":  "./plugins/curio-theme-win95"
                     }
                 ]
