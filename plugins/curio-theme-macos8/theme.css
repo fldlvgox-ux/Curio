@@ -191,14 +191,19 @@
 
 [data-theme="curio-theme-macos8"] .brand-title,
 [data-theme="macos8"] .brand-title {
+  background: #1A0A06 !important;
   color: #F0E4CC !important;
+  border: 1px solid #6E3A20 !important;
+  border-radius: 0 !important;
+  padding: 3px 8px !important;
+  box-shadow: 1px 1px 0 #000000 !important;
   font-family: var(--font-display) !important;
   font-weight: 700 !important;
   font-size: 0.9rem !important;
   letter-spacing: 0.06em !important;
   text-transform: uppercase !important;
   text-shadow: 1px 1px 0 #000000 !important;
-  display: flex !important;
+  display: inline-flex !important;
   align-items: center !important;
 }
 
@@ -662,6 +667,10 @@
   border-bottom: 2px solid #1A0F08 !important;
   color: #F0E4CC !important;
   position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 8px 12px !important;
 }
 
 /* ── ART §6: Modal Header — Mac OS 8 Title Bar Scroll Endcap Ornament ── */
@@ -681,10 +690,65 @@
 
 [data-theme="curio-theme-macos8"] .modal-title,
 [data-theme="macos8"] .modal-title {
+  background: #1A0A06 !important;
   color: #F0E4CC !important;
+  border: 1px solid #6E3A20 !important;
+  padding: 4px 12px !important;
   font-weight: 700 !important;
   font-size: 0.88rem !important;
   text-shadow: 1px 1px 0 #000000 !important;
+  box-shadow: 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-macos8"] .modal-header .btn-icon-xs,
+[data-theme="curio-theme-macos8"] .modal-header #close-settings-modal-btn,
+[data-theme="macos8"] .modal-header .btn-icon-xs,
+[data-theme="macos8"] .modal-header #close-settings-modal-btn {
+  background: #C8C0B8 !important;
+  color: #1A0F08 !important;
+  border: 1px solid #1A0F08 !important;
+  box-shadow: inset 1px 1px #FFFFFF, inset -1px -1px #888080 !important;
+  width: 22px !important;
+  height: 22px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+}
+
+[data-theme="curio-theme-macos8"] .modal-header .btn-icon-xs:hover,
+[data-theme="curio-theme-macos8"] .modal-header #close-settings-modal-btn:hover,
+[data-theme="macos8"] .modal-header .btn-icon-xs:hover,
+[data-theme="macos8"] .modal-header #close-settings-modal-btn:hover {
+  background: #E2D0B0 !important;
+}
+
+/* Settings Dialog Tabs in Antique */
+[data-theme="curio-theme-macos8"] .settings-tab-btn,
+[data-theme="macos8"] .settings-tab-btn {
+  background: #C8C0B8 !important;
+  color: #1A0F08 !important;
+  border: 1px solid #1A0F08 !important;
+  border-radius: 0 !important;
+  font-weight: 700 !important;
+  font-size: 0.82rem !important;
+  box-shadow: inset 1px 1px #FFFFFF, inset -1px -1px #888080 !important;
+}
+
+[data-theme="curio-theme-macos8"] .settings-tab-btn:hover,
+[data-theme="macos8"] .settings-tab-btn:hover {
+  background: #E2D0B0 !important;
+  color: #000000 !important;
+}
+
+[data-theme="curio-theme-macos8"] .settings-tab-btn.active,
+[data-theme="macos8"] .settings-tab-btn.active {
+  background: #1A0F08 !important;
+  color: #F0E4CC !important;
+  border: 1px solid #1A0F08 !important;
+  font-weight: 700 !important;
+  box-shadow: inset 1px 1px #888080 !important;
 }
 
 [data-theme="curio-theme-macos8"] .form-input,
@@ -859,12 +923,18 @@
 
 [data-theme="curio-theme-macos8-onyx"] .brand-title,
 [data-theme="macos8-onyx"] .brand-title {
-  color: #0A0A0A !important;
-  font-weight: 700 !important;
-  font-size: 0.9rem !important;
-  letter-spacing: 0.06em !important;
+  background: #0A0A0A !important;
+  color: #FFD700 !important;
+  border: 1px solid #FFD700 !important;
+  border-radius: 0 !important;
+  padding: 3px 8px !important;
+  font-weight: 900 !important;
+  font-size: 0.88rem !important;
+  letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
-  text-shadow: 1px 1px 0 rgba(255, 215, 0, 0.5) !important;
+  box-shadow: 2px 2px 0 #000000 !important;
+  display: inline-flex !important;
+  align-items: center !important;
 }
 
 [data-theme="curio-theme-macos8-onyx"] .brand-title .badge-tag,
@@ -873,9 +943,10 @@
   color: #0A0A0A !important;
   border: 1px solid #0A0A0A !important;
   border-radius: 0 !important;
-  font-weight: 700 !important;
+  font-weight: 900 !important;
   font-size: 0.65rem !important;
   padding: 1px 5px !important;
+  margin-left: 0.4rem !important;
 }
 
 /* Onyx Catalog switcher */
@@ -1189,10 +1260,14 @@
 [data-theme="macos8-onyx"] .modal-header {
   background: repeating-linear-gradient(
     -45deg,
-    #FFD700 0px, #FFD700 4px,
-    #0A0A0A 4px, #0A0A0A 8px
+    #FFD700 0px, #FFD700 5px,
+    #0A0A0A 5px, #0A0A0A 10px
   ) !important;
   border-bottom: 2px solid #FFD700 !important;
+  padding: 8px 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
 }
 
 [data-theme="curio-theme-macos8-onyx"] .modal-header::before,
@@ -1202,9 +1277,68 @@
 
 [data-theme="curio-theme-macos8-onyx"] .modal-title,
 [data-theme="macos8-onyx"] .modal-title {
+  background: #0A0A0A !important;
+  color: #FFD700 !important;
+  border: 2px solid #FFD700 !important;
+  padding: 4px 14px !important;
+  font-weight: 900 !important;
+  font-size: 0.88rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  box-shadow: 2px 2px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-macos8-onyx"] .modal-header .btn-icon-xs,
+[data-theme="curio-theme-macos8-onyx"] .modal-header #close-settings-modal-btn,
+[data-theme="macos8-onyx"] .modal-header .btn-icon-xs,
+[data-theme="macos8-onyx"] .modal-header #close-settings-modal-btn {
+  background: #0A0A0A !important;
+  color: #FFD700 !important;
+  border: 2px solid #FFD700 !important;
+  box-shadow: 1px 1px 0 #000000 !important;
+  width: 24px !important;
+  height: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+}
+
+[data-theme="curio-theme-macos8-onyx"] .modal-header .btn-icon-xs:hover,
+[data-theme="curio-theme-macos8-onyx"] .modal-header #close-settings-modal-btn:hover,
+[data-theme="macos8-onyx"] .modal-header .btn-icon-xs:hover,
+[data-theme="macos8-onyx"] .modal-header #close-settings-modal-btn:hover {
+  background: #FFD700 !important;
   color: #0A0A0A !important;
+}
+
+/* Settings Dialog Tabs in Onyx */
+[data-theme="curio-theme-macos8-onyx"] .settings-tab-btn,
+[data-theme="macos8-onyx"] .settings-tab-btn {
+  background: #141414 !important;
+  color: #D4D4D4 !important;
+  border: 1px solid #444444 !important;
+  border-radius: 0 !important;
   font-weight: 700 !important;
-  text-shadow: 1px 1px 0 rgba(255, 215, 0, 0.4) !important;
+  font-size: 0.82rem !important;
+  transition: all 0.1s ease !important;
+}
+
+[data-theme="curio-theme-macos8-onyx"] .settings-tab-btn:hover,
+[data-theme="macos8-onyx"] .settings-tab-btn:hover {
+  background: #252525 !important;
+  color: #FFFFFF !important;
+  border-color: #FFD700 !important;
+}
+
+[data-theme="curio-theme-macos8-onyx"] .settings-tab-btn.active,
+[data-theme="macos8-onyx"] .settings-tab-btn.active {
+  background: #FFD700 !important;
+  color: #0A0A0A !important;
+  border: 1px solid #FFD700 !important;
+  font-weight: 900 !important;
+  box-shadow: inset 1px 1px #555555 !important;
 }
 
 [data-theme="curio-theme-macos8-onyx"] .form-input,
