@@ -7,7 +7,7 @@
     "id": {
       "type": "string",
       "pattern": "^[a-z0-9-]+$",
-      "description": "Unique plugin ID in kebab-case (e.g. curio-theme-win95 or curio-component-stats)"
+      "description": "Unique plugin ID in kebab-case (e.g. curio-theme-win95, curio-component-stats, curio-data-markdown-table)"
     },
     "name": {
       "type": "string",
@@ -29,10 +29,10 @@
     "author": { "type": "string" },
     "description": { "type": "string" },
     "family": { "type": "string" },
-    "preview": { "type": "string" },
+    "preview": { "type": ["string", "null"] },
     "mountPoint": {
-      "type": "string",
-      "enum": ["toolbar-actions", "sidebar-top", "sidebar-bottom", "floating-widget"],
+      "type": ["string", "null"],
+      "enum": ["toolbar-actions", "sidebar-top", "sidebar-bottom", "floating-widget", null],
       "description": "Mount point for component plugins"
     },
     "files": {
@@ -41,7 +41,31 @@
         "css": { "type": "string" },
         "template": { "type": "string" },
         "script": { "type": "string" },
+        "adapter": { "type": "string" },
         "icons": { "type": "string" }
+      }
+    },
+    "dataExtension": {
+      "type": "object",
+      "description": "Metadata for data-extension plugins",
+      "properties": {
+        "displayName": { "type": "string" },
+        "formats": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "fileExtensions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "mimeType": { "type": "string" },
+        "modes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["import", "export"]
+          }
+        }
       }
     },
     "tokens": {

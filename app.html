@@ -7154,7 +7154,7 @@
         Clean Duplicates & Junk
       </button>
       <button class="btn-danger" id="btn-clear-all" style="width:100%; justify-content:center;">Clear Database</button>
-      <input type="file" id="import-file-input" accept=".zip,.json" style="display: none;">
+      <input type="file" id="import-file-input" accept=".zip,.json,.md,.markdown,.txt" style="display: none;">
     </div>
   </aside>
 
@@ -7837,6 +7837,9 @@
             </button>
             <button type="button" class="btn btn-secondary" id="btn-refresh-plugins" onclick="window._renderImportedThemeCards()" style="font-size:0.75rem; padding:0.25rem 0.6rem; display:inline-flex; align-items:center; gap:0.3rem; cursor:pointer;" title="Refresh plugin index">
               <span>🔄 Refresh</span>
+            </button>
+            <button type="button" class="btn btn-secondary" id="btn-export-markdown-table" onclick="window.exportActiveCatalogAsMarkdown()" style="font-size:0.75rem; padding:0.25rem 0.6rem; display:inline-flex; align-items:center; gap:0.3rem; cursor:pointer;" title="Export active catalog items as Markdown table">
+              <span>📄 Export Markdown</span>
             </button>
           </div>
         </div>
@@ -37647,6 +37650,24 @@ https://github.com/nodeca/pako/blob/main/LICENSE
 
   async function importArchiveOrJson(file) {
     if (!file) return;
+    // Data Extension Hook: Handle Markdown, text, and custom adapter formats
+    const fileExt = '.' + file.name.split('.').pop().toLowerCase();
+    if (window.CurioData && window.CurioData.findByExtension(fileExt)) {
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        try {
+          showToast(`Importing with ${fileExt} Data Extension...`, 'info');
+          const result = await window.CurioData.importData(e.target.result, fileExt);
+          showToast(`Successfully imported ${result.count} items!`, 'success');
+        } catch (err) {
+          console.error('Data Extension Import Error:', err);
+          showToast('Data Extension Error: ' + err.message, 'error');
+        }
+      };
+      reader.readAsText(file);
+      return;
+    }
+
 
     if (file.name.endsWith(".zip")) {
       // Unpack ZIP archive
@@ -38140,6 +38161,209 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     if (style && style.parentNode) style.parentNode.removeChild(style);
     localStorage.setItem('curio_enable_quick_stats', 'false');
   };
+
+  // --- 10.5.3 DATA EXTENSION PLUGIN ARCHITECTURE (V1.0.0) ---
+  class InlineDataExtensionAPI {
+    constructor(pluginId) {
+      this.pluginId = pluginId;
+    }
+    createItem(data = {}) {
+      const now = new Date().toISOString();
+      return {
+        id: data.id || 'item-' + Date.now() + '-' + Math.random().toString(36).substr(2, 6),
+        title: (data.title || 'Untitled Item').trim(),
+        drawer: data.drawer || this.getDefaultDrawer(),
+        status: data.status || 'Idea',
+        tags: Array.isArray(data.tags) ? data.tags.map(t => String(t).trim()).filter(Boolean) : [],
+        rating: Number(data.rating) || 0,
+        link: data.link || '',
+        notes: data.notes || '',
+        logo: data.logo || '',
+        gallery: Array.isArray(data.gallery) ? data.gallery : [],
+        dateAdded: data.dateAdded || now,
+        dateModified: data.dateModified || now
+      };
+    }
+    getActiveCatalog() {
+      return State && State.activeCatalog ? State.activeCatalog : { id: 'default', name: 'Default', drawers: [], items: [] };
+    }
+    getDrawers() {
+      return State && State.drawers ? [...State.drawers] : [];
+    }
+    getDefaultDrawer() {
+      const d = this.getDrawers();
+      return d.length > 0 ? d[0] : 'Inbox';
+    }
+    showToast(msg, type = 'info') {
+      if (typeof showToast === 'function') showToast(msg, type);
+    }
+    sanitizeText(txt) {
+      if (!txt) return '';
+      return String(txt).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+  }
+
+  class InlineDataExtensionManager {
+    constructor() {
+      this._adapters = new Map();
+    }
+    register(manifest, adapter) {
+      const api = new InlineDataExtensionAPI(manifest.id);
+      this._adapters.set(manifest.id, { manifest, adapter, api });
+      return api;
+    }
+    findByExtension(ext) {
+      const cleanExt = ext.startsWith('.') ? ext.toLowerCase() : '.' + ext.toLowerCase();
+      for (const [id, record] of this._adapters.entries()) {
+        const de = record.manifest.dataExtension;
+        if (de && Array.isArray(de.fileExtensions) && de.fileExtensions.includes(cleanExt)) return record;
+      }
+      return null;
+    }
+    findByFormat(fmt) {
+      const cleanFmt = fmt.toLowerCase().trim();
+      for (const [id, record] of this._adapters.entries()) {
+        if (id === cleanFmt || id === 'curio-data-' + cleanFmt) return record;
+        const de = record.manifest.dataExtension;
+        if (de && Array.isArray(de.formats) && de.formats.includes(cleanFmt)) return record;
+      }
+      return null;
+    }
+    async importData(raw, formatOrExt, options = {}) {
+      const record = this.findByFormat(formatOrExt) || this.findByExtension(formatOrExt);
+      if (!record) throw new Error('No adapter registered for: ' + formatOrExt);
+      const rawItems = await record.adapter.parse(raw, record.api, options);
+      if (!Array.isArray(rawItems)) throw new Error('Adapter did not return an items array');
+
+      const sanitizedItems = rawItems.map(item => record.api.createItem(item));
+      const existingDrawers = new Set(State.drawers || []);
+      sanitizedItems.forEach(item => {
+        if (item.drawer && !existingDrawers.has(item.drawer)) {
+          State.drawers.push(item.drawer);
+          existingDrawers.add(item.drawer);
+        }
+      });
+
+      State.items.unshift(...sanitizedItems);
+      if (typeof saveState === 'function') await saveState();
+      if (typeof renderAll === 'function') renderAll();
+      if (typeof renderDrawers === 'function') renderDrawers();
+
+      return { success: true, count: sanitizedItems.length, items: sanitizedItems };
+    }
+    async exportData(formatOrExt, options = {}) {
+      const record = this.findByFormat(formatOrExt) || this.findByExtension(formatOrExt);
+      if (!record) throw new Error('No adapter registered for: ' + formatOrExt);
+      const items = options.items || State.items || [];
+      const catalog = options.catalog || record.api.getActiveCatalog();
+      return await record.adapter.serialize(items, catalog, record.api, options);
+    }
+  }
+
+  window.CurioData = new InlineDataExtensionManager();
+
+  // Register built-in Markdown Table adapter
+  window.CurioData.register(
+    {
+      id: 'curio-data-markdown-table',
+      name: 'Markdown Table Adapter',
+      version: '1.0.0',
+      type: 'data-extension',
+      dataExtension: {
+        formats: ['markdown', 'md'],
+        fileExtensions: ['.md', '.markdown', '.txt'],
+        mimeType: 'text/markdown',
+        modes: ['import', 'export']
+      }
+    },
+    {
+      async parse(raw, api, options = {}) {
+        if (!raw || typeof raw !== 'string') return [];
+        const lines = raw.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+        const tableLines = lines.filter(l => l.startsWith('|') && l.endsWith('|'));
+        const items = [];
+
+        if (tableLines.length >= 2) {
+          const headers = tableLines[0].split('|').slice(1, -1).map(h => h.trim().toLowerCase());
+          const titleIdx = headers.findIndex(h => h.includes('title') || h.includes('name') || h.includes('item'));
+          const drawerIdx = headers.findIndex(h => h.includes('drawer') || h.includes('category') || h.includes('folder'));
+          const statusIdx = headers.findIndex(h => h.includes('status') || h.includes('state'));
+          const tagsIdx = headers.findIndex(h => h.includes('tag'));
+          const ratingIdx = headers.findIndex(h => h.includes('rating') || h.includes('score'));
+          const notesIdx = headers.findIndex(h => h.includes('note') || h.includes('desc'));
+          const linkIdx = headers.findIndex(h => h.includes('link') || h.includes('url'));
+
+          for (const row of tableLines.slice(2)) {
+            if (/^\|[-:\s|]+\|$/.test(row)) continue;
+            const cells = row.split('|').slice(1, -1).map(c => c.trim());
+            const title = (titleIdx !== -1 && cells[titleIdx]) ? cells[titleIdx] : (cells[0] || '');
+            if (!title) continue;
+            const drawer = (drawerIdx !== -1 && cells[drawerIdx]) ? cells[drawerIdx] : (options.defaultDrawer || api.getDefaultDrawer());
+            const status = (statusIdx !== -1 && cells[statusIdx]) ? cells[statusIdx] : 'Idea';
+            const rawTags = (tagsIdx !== -1 && cells[tagsIdx]) ? cells[tagsIdx] : '';
+            const tags = rawTags.split(/[,;\s]+/).map(t => t.replace(/^#/, '').trim()).filter(Boolean);
+            const rating = (ratingIdx !== -1 && cells[ratingIdx]) ? parseInt(cells[ratingIdx], 10) || 0 : 0;
+            const notes = (notesIdx !== -1 && cells[notesIdx]) ? cells[notesIdx] : '';
+            const link = (linkIdx !== -1 && cells[linkIdx]) ? cells[linkIdx] : '';
+            items.push(api.createItem({ title, drawer, status, tags, rating, notes, link }));
+          }
+        } else {
+          for (const line of lines) {
+            const bulletMatch = line.match(/^[-*+]\s+(?:\[([ xX])\]\s+)?(.+)$/);
+            if (bulletMatch) {
+              const isDone = bulletMatch[1] && bulletMatch[1].toLowerCase() === 'x';
+              let text = bulletMatch[2].trim();
+              const tags = [];
+              text = text.replace(/#([\w-]+)/g, (_, t) => { tags.push(t); return ''; });
+              let drawer = options.defaultDrawer || api.getDefaultDrawer();
+              const drawerMatch = text.match(/\(([^)]+)\)$/);
+              if (drawerMatch) {
+                drawer = drawerMatch[1].trim();
+                text = text.replace(/\(([^)]+)\)$/, '').trim();
+              }
+              items.push(api.createItem({ title: text || 'Untitled Item', drawer, status: isDone ? 'Completed' : 'Idea', tags }));
+            }
+          }
+        }
+        return items;
+      },
+      async serialize(items = [], catalog = {}, api, options = {}) {
+        const catName = catalog.name || 'Catalog';
+        const dateStr = new Date().toLocaleDateString();
+        let md = '# ' + catName + '\n> Exported from Curio on ' + dateStr + ' (' + items.length + ' items)\n\n';
+        md += '| Title | Drawer | Status | Tags | Rating | Notes | Link |\n';
+        md += '| :--- | :--- | :--- | :--- | :---: | :--- | :--- |\n';
+        for (const it of items) {
+          const esc = s => String(s || '').replace(/\|/g, '\\|').replace(/\r?\n/g, ' ');
+          md += '| ' + esc(it.title) + ' | ' + esc(it.drawer || 'Inbox') + ' | ' + esc(it.status || 'Idea') + ' | ' + (it.tags || []).join(', ') + ' | ' + (it.rating || 0) + ' | ' + esc(it.notes) + ' | ' + esc(it.link) + ' |\n';
+        }
+        return md;
+      }
+    }
+  );
+
+  window.exportActiveCatalogAsMarkdown = async function() {
+    try {
+      showToast('Generating Markdown table export...', 'info');
+      const md = await window.CurioData.exportData('markdown');
+      const blob = new Blob([md], { type: 'text/markdown;charset=utf-8;' });
+      const cat = State.activeCatalog || { name: 'catalog' };
+      const filename = (cat.name || 'curio_export').toLowerCase().replace(/[^a-z0-9_-]/g, '_') + '.md';
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Exported "' + filename + '" successfully! 📄', 'success');
+    } catch (err) {
+      console.error('Markdown export error:', err);
+      showToast('Export failed: ' + err.message, 'error');
+    }
+  };
+
 
     // Storage tab actions
     const expBtn = document.getElementById("settings-export-btn");

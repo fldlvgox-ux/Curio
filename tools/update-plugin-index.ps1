@@ -25,8 +25,9 @@ foreach ($dir in $subDirs) {
                 author = if ($manifestContent.author) { $manifestContent.author } else { "Unknown" }
                 description = if ($manifestContent.description) { $manifestContent.description } else { "" }
                 family = if ($manifestContent.family) { $manifestContent.family } else { "custom" }
-                preview = if ($manifestContent.preview) { $manifestContent.preview } else { "preview.png" }
+                preview = if ($manifestContent.preview) { $manifestContent.preview } else { $null }
                 mountPoint = if ($manifestContent.mountPoint) { $manifestContent.mountPoint } else { $null }
+                dataExtension = if ($manifestContent.dataExtension) { $manifestContent.dataExtension } else { $null }
                 path = $relativeDir
             }
             $pluginList += $entry
@@ -43,7 +44,7 @@ $indexObject = [ordered]@{
     plugins = $pluginList
 }
 
-$jsonOutput = $indexObject | ConvertTo-Json -Depth 4
-[System.IO.File]::WriteAllText($outputFile, $jsonOutput, [System.Text.Encoding]::UTF8)
+$jsonOutput = $indexObject | ConvertTo-Json -Depth 5
+[System.IO.File]::WriteAllText($outputFile, $jsonOutput, (New-Object System.Text.UTF8Encoding $false))
 
 Write-Host "`nPlugin index updated with $($pluginList.Count) plugin(s) at: $outputFile" -ForegroundColor Cyan

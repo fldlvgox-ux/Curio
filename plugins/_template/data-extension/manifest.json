@@ -1,0 +1,22 @@
+{
+  "id": "curio-data-starter",
+  "name": "Starter Data Adapter",
+  "version": "1.0.0",
+  "type": "data-extension",
+  "contract": "1.0.0",
+  "author": "Curio Author",
+  "description": "Starter template for authoring custom Curio data import and export extensions.",
+  "family": "data-format",
+  "preview": null,
+  "mountPoint": null,
+  "files": {
+    "adapter": "adapter.js"
+  },
+  "dataExtension": {
+    "displayName": "Plain List (*.txt)",
+    "formats": ["starter", "txt"],
+    "fileExtensions": [".txt"],
+    "mimeType": "text/plain",
+    "modes": ["import", "export"]
+  }
+}
