@@ -1,0 +1,341 @@
+/* ============================================================
+   Curio Theme Plugin: Iron Man Jarvis / Holographic HUD
+   Family: scifi-hud | Contract: 1.0.0
+   ID: curio-theme-jarvis
+   ============================================================ */
+
+/* ============================================================
+       IRON MAN JARVIS / HOLOGRAPHIC HUD (Stark Industries Arc-Reactor)
+       ============================================================ */
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] {
+      --bg-canvas: #020914;
+      --bg-surface: rgba(3, 18, 38, 0.85);
+      --bg-surface-raised: rgba(5, 26, 54, 0.9);
+      --bg-glass: rgba(3, 18, 38, 0.7);
+      --border-subtle: rgba(0, 240, 255, 0.3);
+      --border-strong: #00f0ff;
+      --text-primary: #e0f7ff;
+      --text-secondary: #80deea;
+      --text-muted: #4dd0e1;
+      --accent-cyan: #00f0ff;
+      --accent-cyan-glow: rgba(0, 240, 255, 0.5);
+      --shadow-md: 0 4px 20px rgba(0, 240, 255, 0.15);
+      --shadow-lg: 0 8px 32px rgba(0, 240, 255, 0.25);
+      --radius-md: 4px;
+    }
+
+    /* Holographic Arc-Reactor Radial Rings & Telemetry Scanline Canvas */
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] body {
+      background-color: #020914 !important;
+      background-image:
+        radial-gradient(circle at 50% 30%, rgba(0, 240, 255, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 50% 30%, transparent 140px, rgba(0, 240, 255, 0.12) 141px, transparent 143px),
+        radial-gradient(circle at 50% 30%, transparent 280px, rgba(0, 240, 255, 0.08) 281px, transparent 283px),
+        radial-gradient(circle at 50% 30%, transparent 420px, rgba(0, 240, 255, 0.05) 421px, transparent 423px),
+        repeating-linear-gradient(0deg, rgba(0, 240, 255, 0.03) 0px, transparent 2px, transparent 6px) !important;
+      background-attachment: fixed !important;
+      font-family: 'Rajdhani', 'Orbitron', 'Consolas', system-ui, sans-serif !important;
+    }
+
+    /* Top Bar Holographic Command Console */
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .top-bar {
+      background: linear-gradient(180deg, rgba(4, 20, 42, 0.95), rgba(2, 10, 22, 0.9)) !important;
+      border-bottom: 1px solid rgba(0, 240, 255, 0.5) !important;
+      box-shadow: 0 2px 18px rgba(0, 240, 255, 0.2) !important;
+      backdrop-filter: blur(12px);
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .top-bar * {
+      color: #e0f7ff !important;
+      letter-spacing: 0.04em;
+    }
+
+    /* Sidebar HUD Diagnostic Panel */
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .sidebar {
+      background: linear-gradient(180deg, rgba(3, 16, 34, 0.95), rgba(1, 8, 18, 0.98)) !important;
+      border-right: 1px solid rgba(0, 240, 255, 0.4) !important;
+      box-shadow: 2px 0 16px rgba(0, 240, 255, 0.1) !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .sidebar * {
+      color: #80deea !important;
+    }
+
+    /* Telemetry Search & Form Inputs */
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .search-box-container,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .form-input,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .form-textarea,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .select-custom,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .form-select,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .tag-search-box {
+      background: rgba(2, 14, 30, 0.8) !important;
+      border: 1px solid rgba(0, 240, 255, 0.5) !important;
+      border-radius: 4px !important;
+      color: #00f0ff !important;
+      box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.1), 0 0 8px rgba(0, 240, 255, 0.15) !important;
+      font-family: 'Rajdhani', 'Consolas', monospace !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .search-input {
+      color: #e0f7ff !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .top-bar .search-box-container {
+      background: rgba(2, 14, 30, 0.8) !important;
+      border: 1px solid rgba(0, 240, 255, 0.5) !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .top-bar .search-input {
+      color: #00f0ff !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .top-bar .search-input::placeholder,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .search-input::placeholder,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .tag-search-input::placeholder {
+      color: #4dd0e1 !important;
+      letter-spacing: 0.08em;
+    }
+
+    /* Arc-Reactor Glowing Buttons */
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .btn-primary {
+      background: linear-gradient(135deg, #00f0ff 0%, #00b4d8 100%) !important;
+      border: 1px solid #00f0ff !important;
+      border-radius: 4px !important;
+      color: #020914 !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.6), inset 0 0 8px rgba(255, 255, 255, 0.5) !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .btn-primary:hover {
+      background: linear-gradient(135deg, #ffd000 0%, #ff9100 100%) !important;
+      border-color: #ffd000 !important;
+      color: #020914 !important;
+      box-shadow: 0 0 22px rgba(255, 208, 0, 0.8) !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .btn-secondary,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .btn-icon,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .btn-icon-xs,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .view-btn,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .pill-toggle,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .tag-mode-btn,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .tag-expand-btn,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .clear-filters-btn {
+      background: rgba(3, 20, 42, 0.7) !important;
+      border: 1px solid rgba(0, 240, 255, 0.4) !important;
+      border-radius: 4px !important;
+      color: #80deea !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .top-bar .btn-secondary,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .top-bar .btn-icon,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .top-bar .view-btn {
+      background: rgba(3, 20, 42, 0.8) !important;
+      border: 1px solid rgba(0, 240, 255, 0.4) !important;
+      color: #e0f7ff !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .top-bar .view-btn.active {
+      background: rgba(0, 240, 255, 0.25) !important;
+      border-color: #00f0ff !important;
+      color: #00f0ff !important;
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.5) !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .top-bar .view-btn.active * {
+      color: #00f0ff !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .view-btn.active,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .pill-toggle.active {
+      background: rgba(0, 240, 255, 0.25) !important;
+      border-color: #00f0ff !important;
+      color: #00f0ff !important;
+    }
+
+    /* Filter & Tag Panels */
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .filter-panel {
+      background: rgba(3, 18, 38, 0.9) !important;
+      border: 1px solid rgba(0, 240, 255, 0.4) !important;
+      border-radius: 4px !important;
+      box-shadow: 0 4px 18px rgba(0, 240, 255, 0.15) !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .filter-panel * {
+      color: #80deea !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .tag-filter-bar {
+      background: rgba(2, 12, 26, 0.85) !important;
+      border-bottom: 1px solid rgba(0, 240, 255, 0.3) !important;
+    }
+
+    /* Holographic HUD Cards with Chamfered Tech Corners & Telemetry Sweep */
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .item-card,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .detail-card {
+      background: linear-gradient(135deg, rgba(3, 20, 44, 0.85) 0%, rgba(1, 10, 24, 0.9) 100%) !important;
+      border: 1px solid rgba(0, 240, 255, 0.45) !important;
+      border-radius: 4px !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 240, 255, 0.12), inset 0 0 15px rgba(0, 240, 255, 0.05) !important;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      backdrop-filter: blur(8px);
+    }
+    /* Corner HUD status label */
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .item-card::after,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .detail-card::after {
+      content: "SYS.OK";
+      position: absolute;
+      top: 4px;
+      right: 6px;
+      font-size: 8px;
+      font-weight: 700;
+      color: #00f0ff;
+      letter-spacing: 0.12em;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 5;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .item-card:hover,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .detail-card:hover {
+      border-color: #00f0ff !important;
+      box-shadow: 0 0 25px rgba(0, 240, 255, 0.45), 0 0 50px rgba(0, 240, 255, 0.15), inset 0 0 20px rgba(0, 240, 255, 0.15) !important;
+      transform: translateY(-3px) scale(1.015);
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .item-card-media {
+      border-bottom: 1px solid rgba(0, 240, 255, 0.35) !important;
+      filter: contrast(1.08) brightness(0.95);
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .item-card .card-meta-row,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .detail-card .detail-header {
+      border-bottom: 1px solid rgba(0, 240, 255, 0.2) !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .item-card .card-meta-row .drawer-chip {
+      background: rgba(0, 240, 255, 0.15) !important;
+      color: #00f0ff !important;
+      border: 1px solid #00f0ff !important;
+      border-radius: 2px !important;
+      font-size: 0.65rem !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      box-shadow: 0 0 6px rgba(0, 240, 255, 0.3) !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .card-body {
+      padding: 0.75rem !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .card-body * {
+      color: #e0f7ff !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .card-title {
+      color: #00f0ff !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      font-size: 0.9rem !important;
+      text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .card-notes {
+      color: #80deea !important;
+      font-size: 0.78rem !important;
+      line-height: 1.45 !important;
+    }
+
+    /* Stark Angled HUD Tags */
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .tag-pill,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .card-tag {
+      background: rgba(0, 240, 255, 0.1) !important;
+      border: 1px solid rgba(0, 240, 255, 0.35) !important;
+      color: #80deea !important;
+      border-radius: 2px !important;
+      font-size: 0.65rem !important;
+      letter-spacing: 0.05em !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .tag-pill.active {
+      background: linear-gradient(135deg, rgba(255, 183, 0, 0.3), rgba(255, 145, 0, 0.2)) !important;
+      border-color: #ffb700 !important;
+      color: #ffd000 !important;
+      box-shadow: 0 0 10px rgba(255, 183, 0, 0.5) !important;
+    }
+
+    /* Jarvis Telemetry Drawer Navigation */
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .drawer-item {
+      color: #80deea !important;
+      border-radius: 4px !important;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .drawer-item:hover {
+      background: rgba(0, 240, 255, 0.12) !important;
+      border-color: rgba(0, 240, 255, 0.4) !important;
+      color: #00f0ff !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .drawer-item.active {
+      background: linear-gradient(90deg, rgba(0, 240, 255, 0.2), rgba(0, 240, 255, 0.05)) !important;
+      border: 1px solid rgba(0, 240, 255, 0.6) !important;
+      border-left: 4px solid #00f0ff !important;
+      box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.1) !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .drawer-item.active span,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .drawer-item.active .drawer-count {
+      color: #00f0ff !important;
+      font-weight: 700 !important;
+      text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+    }
+
+    /* Holographic Modal Glass */
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .modal-window {
+      background: linear-gradient(135deg, rgba(2, 14, 32, 0.95), rgba(4, 22, 48, 0.92)) !important;
+      border: 1px solid #00f0ff !important;
+      border-radius: 6px !important;
+      box-shadow: 0 0 40px rgba(0, 240, 255, 0.3), 0 20px 60px rgba(0, 0, 0, 0.8) !important;
+      backdrop-filter: blur(16px);
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .modal-header {
+      border-bottom: 1px solid rgba(0, 240, 255, 0.4) !important;
+      background: rgba(0, 240, 255, 0.08) !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .modal-title {
+      color: #00f0ff !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      text-shadow: 0 0 12px rgba(0, 240, 255, 0.7);
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .modal-body,
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .modal-footer {
+      background: transparent !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .modal-body * {
+      color: #e0f7ff !important;
+    }
+
+    /* Arc-Reactor Power Storage Gauge */
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .storage-container {
+      background: rgba(2, 12, 26, 0.8) !important;
+      border-top: 1px solid rgba(0, 240, 255, 0.4) !important;
+      color: #80deea !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .storage-bar-track {
+      background: rgba(1, 10, 22, 0.8) !important;
+      border: 1px solid rgba(0, 240, 255, 0.4) !important;
+      border-radius: 4px !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .storage-bar-fill {
+      background: linear-gradient(90deg, #00f0ff, #ffd000) !important;
+      border-radius: 3px !important;
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.8), 0 0 20px rgba(255, 208, 0, 0.5) !important;
+    }
+
+    /* Holographic Table View */
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .catalog-table th {
+      background: rgba(2, 14, 32, 0.9) !important;
+      color: #00f0ff !important;
+      border-bottom: 2px solid #00f0ff !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .catalog-table td {
+      color: #e0f7ff !important;
+      border-bottom: 1px solid rgba(0, 240, 255, 0.15) !important;
+    }
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .catalog-table tr:hover td {
+      background: rgba(0, 240, 255, 0.1) !important;
+    }
+
+
+/* Surgical & Contrast Overrides */
+    [data-theme="curio-theme-jarvis"], [data-theme="jarvis"] .btn-danger {
+      background: rgba(255, 40, 40, 0.15) !important;
+      color: #ff4d4d !important;
+      border: 1px solid #ff3333 !important;
+      box-shadow: 0 0 12px rgba(255, 40, 40, 0.4) !important;
+      font-family: monospace !important;
+    }

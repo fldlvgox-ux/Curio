@@ -1,0 +1,348 @@
+/* ============================================================
+   Curio Theme Plugin: Blueprint / Technical Drawing
+   Family: technical-cad | Contract: 1.0.0
+   ID: curio-theme-blueprint
+   ============================================================ */
+
+/* ============================================================
+       BLUEPRINT / TECHNICAL DRAWING (Prussian Blue Engineering CAD)
+       ============================================================ */
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] {
+      --bg-canvas: #0b2545;
+      --bg-surface: rgba(13, 40, 75, 0.85);
+      --bg-surface-raised: rgba(17, 54, 102, 0.9);
+      --bg-glass: rgba(13, 40, 75, 0.7);
+      --border-subtle: rgba(96, 165, 250, 0.35);
+      --border-strong: rgba(56, 189, 248, 0.7);
+      --text-primary: #f0f9ff;
+      --text-secondary: #93c5fd;
+      --text-muted: #60a5fa;
+      --accent-cyan: #38bdf8;
+      --accent-cyan-glow: rgba(56, 189, 248, 0.45);
+      --shadow-md: 0 4px 16px rgba(5, 18, 36, 0.5);
+      --shadow-lg: 0 8px 30px rgba(5, 18, 36, 0.7);
+      --radius-md: 3px;
+    }
+
+    /* Architectural Drafting Grid Background */
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] body {
+      background-color: #0b2545 !important;
+      background-image:
+        linear-gradient(rgba(56, 189, 248, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.18) 1px, transparent 1px),
+        linear-gradient(rgba(96, 165, 250, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(96, 165, 250, 0.08) 1px, transparent 1px) !important;
+      background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px !important;
+      background-attachment: fixed !important;
+      font-family: 'Consolas', 'Courier New', 'Liberation Mono', monospace !important;
+    }
+
+    /* Top Bar & Engineering Title Block */
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .top-bar {
+      background: #081d38 !important;
+      border-bottom: 2px solid #38bdf8 !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .top-bar * {
+      color: #e0f2fe !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+    }
+
+    /* Sidebar Parts List */
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .sidebar {
+      background: #071930 !important;
+      border-right: 2px solid #38bdf8 !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .sidebar * {
+      color: #93c5fd !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+    }
+
+    /* Technical Inputs & Drafting Crosshair Focus */
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .search-box-container,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .form-input,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .form-textarea,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .select-custom,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .form-select,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .tag-search-box {
+      background: #061528 !important;
+      border: 1px solid #38bdf8 !important;
+      border-radius: 2px !important;
+      color: #f0f9ff !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+      box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .search-input {
+      color: #f0f9ff !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .top-bar .search-box-container {
+      background: #061528 !important;
+      border: 1px solid #38bdf8 !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .top-bar .search-input {
+      color: #f0f9ff !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .top-bar .search-input::placeholder,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .search-input::placeholder,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .tag-search-input::placeholder {
+      color: #60a5fa !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+    }
+
+    /* Technical Wireframe Buttons */
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .btn-primary {
+      background: #0284c7 !important;
+      border: 1px solid #38bdf8 !important;
+      border-radius: 2px !important;
+      color: #ffffff !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.3) !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .btn-primary:hover {
+      background: #0369a1 !important;
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.6) !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .btn-secondary,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .btn-icon,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .btn-icon-xs,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .view-btn,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .pill-toggle,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .tag-mode-btn,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .tag-expand-btn,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .clear-filters-btn {
+      background: #0d2850 !important;
+      border: 1px solid #38bdf8 !important;
+      border-radius: 2px !important;
+      color: #7dd3fc !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .top-bar .btn-secondary,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .top-bar .btn-icon,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .top-bar .view-btn {
+      background: #071930 !important;
+      border: 1px solid #38bdf8 !important;
+      color: #e0f2fe !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .top-bar .view-btn.active {
+      background: #0284c7 !important;
+      border-color: #7dd3fc !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.4) !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .top-bar .view-btn.active * {
+      color: #ffffff !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .btn-secondary:active,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .view-btn.active,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .pill-toggle.active,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .clear-filters-btn:active {
+      background: #0284c7 !important;
+      border-color: #38bdf8 !important;
+      color: #ffffff !important;
+    }
+
+    /* Filter & Tag Bar */
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .filter-panel {
+      background: #081d38 !important;
+      border: 1px solid #38bdf8 !important;
+      border-radius: 2px !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .filter-panel * {
+      color: #93c5fd !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .tag-filter-bar {
+      background: #071a33 !important;
+      border-bottom: 1px solid #38bdf8 !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .tag-filter-bar * {
+      color: #93c5fd !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+    }
+
+    /* Blueprint Cards — Technical schematic panels with corner crosshairs */
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .item-card,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .detail-card {
+      background: rgba(11, 37, 69, 0.88) !important;
+      border: 1px solid #38bdf8 !important;
+      border-radius: 2px !important;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(56, 189, 248, 0.05) !important;
+      position: relative;
+      transition: all 0.2s ease !important;
+    }
+    /* Corner crosshair ticks */
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .item-card::before,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .detail-card::before {
+      content: "+";
+      position: absolute;
+      top: 3px;
+      right: 6px;
+      color: #38bdf8;
+      font-family: 'Consolas', monospace;
+      font-size: 11px;
+      line-height: 1;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 5;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .item-card:hover,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .detail-card:hover {
+      border-color: #7dd3fc !important;
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.4), inset 0 0 15px rgba(56, 189, 248, 0.1) !important;
+      transform: translateY(-2px);
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .item-card-media {
+      border-bottom: 1px solid #38bdf8 !important;
+      filter: contrast(1.1) brightness(0.9) hue-rotate(185deg) saturate(1.2);
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .item-card .card-meta-row,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .detail-card .detail-header {
+      border-bottom: 1px dashed rgba(56, 189, 248, 0.4) !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .item-card .card-meta-row .drawer-chip {
+      background: #071930 !important;
+      color: #38bdf8 !important;
+      border: 1px solid #38bdf8 !important;
+      border-radius: 2px !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+      font-size: 0.65rem !important;
+      text-transform: uppercase !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .card-body {
+      padding: 0.75rem !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .card-body * {
+      color: #e0f2fe !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .card-title {
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+      font-size: 0.88rem !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .card-notes {
+      color: #93c5fd !important;
+      font-size: 0.78rem !important;
+      line-height: 1.45 !important;
+    }
+
+    /* Technical Revision Tags */
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .tag-pill,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .card-tag {
+      background: #081d38 !important;
+      border: 1px dashed #38bdf8 !important;
+      color: #7dd3fc !important;
+      border-radius: 2px !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+      font-size: 0.65rem !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .tag-pill.active {
+      background: #0284c7 !important;
+      border-style: solid !important;
+      border-color: #e0f2fe !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 6px rgba(56, 189, 248, 0.5) !important;
+    }
+
+    /* Blueprint Drawer Items (Bill-of-Materials rows) */
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .drawer-item {
+      color: #93c5fd !important;
+      border-radius: 2px !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+      border: 1px solid transparent;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .drawer-item:hover {
+      background: #0d2850 !important;
+      border-color: #38bdf8 !important;
+      color: #e0f2fe !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .drawer-item.active {
+      background: #0d3268 !important;
+      border: 1px solid #38bdf8 !important;
+      border-left: 4px solid #38bdf8 !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .drawer-item.active span,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .drawer-item.active .drawer-count {
+      color: #38bdf8 !important;
+      font-weight: 700 !important;
+    }
+
+    /* Blueprint Technical Modal Window */
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .modal-window {
+      background: #081d38 !important;
+      border: 2px solid #38bdf8 !important;
+      border-radius: 2px !important;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(56, 189, 248, 0.25) !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .modal-header {
+      border-bottom: 2px solid #38bdf8 !important;
+      background: #061528 !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .modal-title {
+      color: #38bdf8 !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .modal-body,
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .modal-footer {
+      background: #081d38 !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .modal-body * {
+      color: #e0f2fe !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+    }
+
+    /* Technical Ruler / Storage Meter */
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .storage-container {
+      background: #061528 !important;
+      border-top: 2px solid #38bdf8 !important;
+      color: #93c5fd !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .storage-bar-track {
+      background: #081d38 !important;
+      border: 1px solid #38bdf8 !important;
+      border-radius: 2px !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .storage-bar-fill {
+      background: linear-gradient(90deg, #0284c7, #38bdf8) !important;
+      border-radius: 1px !important;
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.6) !important;
+    }
+
+    /* Blueprint Table View */
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .catalog-table th {
+      background: #061528 !important;
+      color: #38bdf8 !important;
+      border-bottom: 2px solid #38bdf8 !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .catalog-table td {
+      color: #e0f2fe !important;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2) !important;
+      font-family: 'Consolas', 'Courier New', monospace !important;
+    }
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .catalog-table tr:hover td {
+      background: rgba(56, 189, 248, 0.1) !important;
+    }
+
+
+/* Surgical & Contrast Overrides */
+    [data-theme="curio-theme-blueprint"], [data-theme="blueprint"] .btn-danger {
+      background: rgba(239, 68, 68, 0.15) !important;
+      color: #fca5a5 !important;
+      border: 1px dashed #ef4444 !important;
+      border-radius: 2px !important;
+      font-family: monospace !important;
+    }

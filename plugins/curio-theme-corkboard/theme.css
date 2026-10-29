@@ -1,0 +1,398 @@
+/* ============================================================
+   Curio Theme Plugin: Polaroid / Corkboard
+   Family: tactile-physical | Contract: 1.0.0
+   ID: curio-theme-corkboard
+   ============================================================ */
+
+/* ========================================================
+       POLAROID / CORKBOARD (TACTILE PINBOARD & PHOTO-WALL)
+       ======================================================== */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] {
+      --bg-base: #b8864e;
+      --bg-surface: #4a331e;
+      --bg-surface-raised: #ffffff;
+      --bg-surface-hover: #fff9ed;
+      --bg-panel: #3a2514;
+      --border-subtle: #d2b48c;
+      --border-medium: #8c6239;
+      --border-bright: #e65100;
+      --accent-cyan: #d84315;
+      --accent-cyan-glow: rgba(216, 67, 21, 0.3);
+      --text-main: #2b1f17;
+      --text-muted: #5d4037;
+      --text-dim: #8d6e63;
+      --shadow-glow: none;
+      --radius-sm: 2px;
+      --radius-md: 4px;
+      --radius-lg: 8px;
+      --font-sans: 'Segoe Print', 'Ink Free', 'Chalkboard', 'Comic Sans MS', cursive, sans-serif;
+      --font-mono: 'Courier New', monospace;
+    }
+
+    /* Corkboard Bulletin Canvas */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] body {
+      background-color: #b8864e;
+      background-image: radial-gradient(#9e6f38 18%, transparent 19%), radial-gradient(#cca068 18%, transparent 19%);
+      background-size: 8px 8px;
+      background-position: 0 0, 4px 4px;
+      color: #2b1f17;
+      font-family: var(--font-sans);
+    }
+
+    /* Dark Mahogany Wood Header */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .top-bar {
+      background: #4a331e !important;
+      border-bottom: 3px solid #22140a !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4) !important;
+      color: #f7eedb !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .top-bar .top-left-tools span,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .top-bar .view-btn-label {
+      color: #f7eedb !important;
+    }
+
+    /* Wooden Bulletin Sidebar */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .sidebar {
+      background: #3a2514 !important;
+      border-right: 3px solid #22140a !important;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.4) !important;
+      color: #f7eedb !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .sidebar-title,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .sidebar-subtitle,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .switcher-title,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .section-header span,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .storage-header,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] #storage-text {
+      color: #f7eedb !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .sidebar .btn-icon-xs {
+      color: #2b1f17 !important;
+    }
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .sidebar .btn-icon-xs svg {
+      stroke: #2b1f17 !important;
+    }
+
+    /* Search & Inputs as Paper Strips */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .search-box-container,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .form-input,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .form-textarea,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .select-custom,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .form-select,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .tag-search-box {
+      background: #fdfbf7 !important;
+      color: #2b1f17 !important;
+      border: 1px solid #8c6239 !important;
+      border-radius: 3px !important;
+      box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .search-input {
+      color: #2b1f17 !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .top-bar .search-box-container {
+      background: #fdfbf7 !important;
+      border: 1px solid #22140a !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .top-bar .search-input {
+      color: #2b1f17 !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .top-bar .search-input::placeholder {
+      color: #8d6e63 !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .search-input::placeholder,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .tag-search-input::placeholder {
+      color: #8d6e63 !important;
+    }
+
+    /* Buttons as Pinned Wooden Badges / Paper Labels */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .btn-primary {
+      background: linear-gradient(180deg, #d84315 0%, #bf360c 100%) !important;
+      color: #ffffff !important;
+      border: 1px solid #872605 !important;
+      border-radius: 4px !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+      font-weight: 700 !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .btn-secondary,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .btn-icon,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .btn-icon-xs,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .view-btn,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .pill-toggle,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .tag-mode-btn,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .tag-expand-btn,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .clear-filters-btn {
+      background: #fdfbf7 !important;
+      color: #2b1f17 !important;
+      border: 1px solid #a68a68 !important;
+      border-radius: 4px !important;
+      box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15) !important;
+      font-weight: 600 !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .top-bar .btn-secondary,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .top-bar .btn-icon,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .top-bar .view-btn {
+      background: #5d4037 !important;
+      color: #f7eedb !important;
+      border: 1px solid #22140a !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .top-bar .view-btn.active {
+      background: #fdfbf7 !important;
+      color: #bf360c !important;
+      border-color: #22140a !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .top-bar .view-btn.active * {
+      color: #bf360c !important;
+    }
+
+    /* Pressed Button */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .btn-secondary:active,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .view-btn.active,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .pill-toggle.active,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .clear-filters-btn:active {
+      background: #e65100 !important;
+      color: #ffffff !important;
+      border-color: #872605 !important;
+    }
+
+    /* Filter & Tag Bar */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .filter-panel {
+      background: #5a3d24 !important;
+      border-bottom: 2px solid #22140a !important;
+      color: #f7eedb !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .filter-panel * {
+      color: #f7eedb;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .tag-filter-bar {
+      background: #fdfbf7 !important;
+      border: 1px solid #8c6239 !important;
+      border-radius: 4px !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .tag-filter-bar * {
+      color: #2b1f17 !important;
+    }
+
+    /* Pinned Polaroid Cards */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .item-card,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .detail-card {
+      background: #ffffff !important;
+      border: 1px solid #e0d8c8 !important;
+      border-radius: 3px !important;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+      padding: 10px 10px 14px 10px !important;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    }
+
+    /* Organic Micro-Rotation for Polaroid Look */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .catalog-grid .item-card:nth-child(even) {
+      transform: rotate(0.8deg);
+    }
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .catalog-grid .item-card:nth-child(odd) {
+      transform: rotate(-0.8deg);
+    }
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .catalog-grid .item-card:nth-child(3n) {
+      transform: rotate(1.2deg);
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .item-card:hover,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .detail-card:hover {
+      transform: scale(1.03) rotate(0deg) !important;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45) !important;
+      z-index: 15;
+    }
+
+    /* Red Pushpin / Thumbtack on Polaroid Top */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .item-card::before,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .detail-card::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      background: radial-gradient(circle at 35% 35%, #ff5252 0%, #d32f2f 65%, #7f0000 100%);
+      border-radius: 50%;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+      z-index: 5;
+    }
+
+    /* Polaroid Image Frame with Sepia Hint */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .item-card-media {
+      border: 1px solid #dcd3be !important;
+      background: #f7f4ed !important;
+      filter: contrast(1.04) saturate(0.95) sepia(0.06);
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .item-card .card-meta-row,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .detail-card .detail-header {
+      background: transparent !important;
+      border-bottom: none !important;
+      padding: 0 0 6px 0 !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .item-card .card-meta-row .drawer-chip {
+      background: #fff9c4 !important;
+      color: #3e2723 !important;
+      border: 1px dashed #d4c264 !important;
+      font-weight: 700 !important;
+      font-size: 0.68rem !important;
+      border-radius: 2px !important;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .card-body {
+      background: #ffffff !important;
+      color: #2b1f17 !important;
+      padding: 0.4rem 0 !important;
+    }
+
+    /* Handwritten Caption Title */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .card-title {
+      color: #2b1f17 !important;
+      font-weight: 700 !important;
+      font-size: 0.95rem !important;
+      border-bottom: 1px dashed #dcd3be;
+      padding-bottom: 0.25rem;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .card-notes {
+      color: #4e342e !important;
+      font-size: 0.8rem !important;
+    }
+
+    /* Post-It Note Style Tags */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .tag-pill,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .card-tag {
+      background: #fff9c4 !important;
+      color: #3e2723 !important;
+      border: 1px solid #e0d070 !important;
+      border-radius: 2px !important;
+      font-size: 0.65rem !important;
+      font-weight: 600 !important;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .tag-pill.active {
+      background: #ff5252 !important;
+      color: #ffffff !important;
+      border-color: #b71c1c !important;
+    }
+
+    /* Drawer Items as Manila Tabs */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .drawer-item {
+      border-radius: 3px !important;
+      color: #f7eedb !important;
+      margin: 2px 0 !important;
+      border-left: 3px solid transparent !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .drawer-item:hover {
+      background: #5d4037 !important;
+      color: #ffffff !important;
+      border-left-color: #ffab40 !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .drawer-item.active {
+      background: #8d6e63 !important;
+      color: #ffffff !important;
+      border-left-color: #ff5252 !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .drawer-item.active span,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .drawer-item.active .drawer-count {
+      color: #ffffff !important;
+    }
+
+    /* Investigation Caseboard Modal */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .modal-window {
+      background: #fdfbf7 !important;
+      border: 3px solid #4a331e !important;
+      border-radius: 6px !important;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55) !important;
+      padding: 0 !important;
+      color: #2b1f17 !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .modal-header {
+      background: #4a331e !important;
+      color: #f7eedb !important;
+      border-bottom: 2px solid #22140a !important;
+      padding: 8px 14px !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .modal-title {
+      color: #f7eedb !important;
+      font-weight: 700 !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .modal-body,
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .modal-footer {
+      background: #fdfbf7 !important;
+      color: #2b1f17 !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .modal-body * {
+      color: #2b1f17;
+    }
+
+    /* Wooden Storage Bar */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .storage-container {
+      background: #3a2514 !important;
+      border-top: 2px solid #22140a !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .storage-bar-track {
+      background: #22140a !important;
+      border: 1px solid #5d4037 !important;
+      border-radius: 4px !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .storage-bar-fill {
+      background: linear-gradient(90deg, #ffab40 0%, #ff6d00 100%) !important;
+      border-radius: 3px !important;
+    }
+
+    /* Table View */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .catalog-table th {
+      background: #4a331e !important;
+      color: #f7eedb !important;
+      border-bottom: 2px solid #22140a !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .catalog-table td {
+      border-bottom: 1px solid #dcd3be !important;
+      color: #2b1f17 !important;
+      background: #fdfbf7 !important;
+    }
+
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .catalog-table tr:hover td {
+      background: #fff9e6 !important;
+    }
+
+
+/* Surgical & Contrast Overrides */
+    [data-theme="curio-theme-corkboard"], [data-theme="corkboard"] .btn-danger {
+      background: #ffebee !important;
+      color: #c62828 !important;
+      border: 1px dashed #c62828 !important;
+      border-radius: 4px !important;
+      font-weight: 700 !important;
+    }
