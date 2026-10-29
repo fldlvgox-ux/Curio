@@ -38,3 +38,16 @@ Cards and interactive controls must **never remain generic web components with r
 - All vector logos, textures, and ornaments must be procedural (CSS gradients, SVG data URIs).
 - Never use external network URLs or `@import`.
 - Keep plugins fully self-contained within their respective `plugins/` directories.
+
+### 5. Per-Section Custom Artwork Mandate
+Every theme must embed **unique, lore-specific decorative artwork** into each major UI zone — not just a single brand logo. Artwork must be procedural inline SVG (`data:image/svg+xml`) or CSS-painted via pseudo-elements. The minimum coverage:
+
+- **`.brand-header` / `.brand-title::before`** — Custom logo emblem reflecting the theme's world.
+- **`.sidebar::after`** — Decorative crest, medallion, or lore motif as a `background-image` or pseudo-element placed at the bottom or top of the sidebar.
+- **`.top-bar::before` / `.top-bar::after`** — Period ornament, engraved rail, banner art, or HUD telemetry stripe along the top or bottom edge.
+- **`.filter-panel::before`** — Decorative ruled divider, architectural detail, or thematic separator art.
+- **`.item-card::before` / `.item-card::after`** — Frame corners, border inlays, inventory slot rims, or themed border art. Never leave a card as a plain rectangle.
+- **`.modal-header::before`** or **`.modal-content::after`** — Scroll endcaps, carved header border, or lore illustration on dialogs.
+- **`body::after`** — Global atmospheric overlay (scanlines, stone bricks, vignette, grid) with `pointer-events: none`.
+
+Each artwork element must be meaningfully distinct — it must **look like it belongs to only that theme's world** and would be conspicuously wrong on any other theme.
