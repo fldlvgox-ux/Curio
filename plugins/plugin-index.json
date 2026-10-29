@@ -1,6 +1,6 @@
 {
     "version":  "1.0.0",
-    "updatedAt":  "2026-10-29T16:39:35Z",
+    "updatedAt":  "2026-10-29T17:00:51Z",
     "plugins":  [
                     {
                         "id":  "curio-component-quick-stats",
@@ -206,7 +206,7 @@
                         "version":  "1.0.0",
                         "type":  "theme",
                         "author":  "Curio \u0026 Theme Atlas Research",
-                        "description":  "16-bit RPG fantasy game interface with inventory slot grids, swallowtail quest ribbons, golden shield crest, and pixelated keycaps.",
+                        "description":  "16-bit RPG fantasy game interface with 9-slice studded frames, recessed inventory slot grids, swallowtail quest ribbons, golden shield crest, and pixelated keycaps.",
                         "family":  "pixel-fantasy-game",
                         "preview":  null,
                         "mountPoint":  null,

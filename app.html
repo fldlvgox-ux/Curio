@@ -6528,96 +6528,134 @@
        PIXEL FANTASY GAME UI (THEME #14)
        ======================================================== */
     /* ============================================================
-       Curio Theme Plugin: Pixel Fantasy Game UI (Theme #14)
+       Curio Theme Plugin: Pixel Fantasy Game UI (Theme #14 - Revamped)
        Family: pixel-fantasy-game | Contract: 1.0.0
        ID: curio-theme-pixel-fantasy
-       Aesthetic: 16-bit RPG fantasy inventory, swallowtail quest ribbons,
-       golden shield crest, recessed slot grids, and pixelated keycaps.
+       Aesthetic: Authentic 16-bit RPG game interface based on kit references:
+       - Dungeon stone brick atmospheric background
+       - Slate-blue framed panels with metallic corner studs/rivets
+       - Recessed inventory slot cells with item count badges
+       - Swallowtail quest ribbon banners with notched ends
+       - Chunky 3D tactile pixel keycaps
+       - RPG HP/MP telemetry status bars & chunky gold pixel stars
        ============================================================ */
     
     /* ── 1. Tokens & Root Properties ── */
     [data-theme="curio-theme-pixel-fantasy"], [data-theme="pixel-fantasy"] {
-      /* Contract Tokens */
-      --bg:                 #1c130c;
-      --surface:            #e8dcc4;
-      --surface-2:          #d4c29e;
-      --text:               #1c130c;
-      --text-dim:           #6b5034;
-      --accent:             #e6a122;
-      --accent-2:           #cc8114;
-      --accent-text:        #1c130c;
-      --border:             #1c130c;
-      --select-bg:          #e6a122;
-      --select-fg:          #1c130c;
-      --danger:             #b83030;
-      --ok:                 #2f7a36;
-      --warn:               #d48816;
+      /* Contract Tokens (Adventurer Slate & Warm Peach Palette) */
+      --bg:                 #181520;
+      --surface:            #f3c9a5;
+      --surface-2:          #e5b88f;
+      --text:               #23170e;
+      --text-dim:           #6b492d;
+      --accent:             #d98b4a;
+      --accent-2:           #e6a122;
+      --accent-text:        #ffffff;
+      --border:             #23170e;
+      --select-bg:          #d98b4a;
+      --select-fg:          #ffffff;
+      --danger:             #c0392b;
+      --ok:                 #27ae60;
+      --warn:               #f39c12;
     
-      /* Typography (Razor-sharp pixel monospace) */
+      /* Typography (16-bit Crisp Pixel Monospace) */
       --font-ui:            'Courier New', 'Consolas', monospace;
       --font-display:       'Courier New', 'Consolas', monospace;
       --font-mono:          'Courier New', 'Consolas', monospace;
       --font-size-base:     12px;
       --font-smoothing:     none;
     
-      /* Shape & Density (Strict 0px pixel corners with integer scale) */
+      /* Shape & Density (Strict 0px pixel corners with integer 2px scale) */
       --radius-window:      0px;
       --radius-control:     0px;
       --radius-chip:        0px;
       --avatar-shape:       0%;
-      --bevel-width:        2px;
-      --bevel-light:        #f4ecd9;
-      --bevel-dark:         #b09f82;
+      --bevel-width:        3px;
+      --bevel-light:        #fce28a;
+      --bevel-dark:         #1a1008;
     
-      /* Depth & Shadow (Hard stepped pixel offset) */
-      --shadow-raised:      2px 2px 0 #000000;
-      --shadow-hard:        3px 3px 0 #000000;
-      --shadow-pressed:     inset 2px 2px 0 #000000;
-      --focus-ring:         0 0 0 2px #e6a122;
-      --default-button-ring:0 0 0 2px #1c130c;
+      /* Depth & Shadow (Chunky 16-bit stepped pixel offsets) */
+      --shadow-raised:      3px 3px 0 #000000;
+      --shadow-hard:        4px 4px 0 #000000;
+      --shadow-pressed:     inset 3px 3px 0 #000000;
+      --focus-ring:         0 0 0 3px #f1c40f;
+      --default-button-ring:0 0 0 3px #23170e;
+    
+      /* Slate & Dungeon Special Tokens */
+      --slate-frame:        #3b4a66;
+      --slate-dark:         #273347;
+      --slate-border:       #19212e;
+      --peach-paper:        #f3c9a5;
+      --peach-dark:         #d49d6a;
+      --timber-border:      #2b180d;
+      --gold-accent:        #f1c40f;
+      --gold-highlight:     #fef08a;
     
       /* Legacy variable mappings for app.html compatibility */
-      --bg-base:            #1c130c;
-      --bg-surface:         #e8dcc4;
-      --bg-surface-raised:  #d4c29e;
-      --bg-surface-hover:   #f4ebd7;
-      --bg-panel:           #2b1d13;
-      --border-subtle:      #3d2b1c;
-      --border-medium:      #1c130c;
-      --border-bright:      #e6a122;
-      --accent-cyan:        #e6a122;
-      --accent-cyan-glow:   rgba(230, 161, 34, 0.4);
-      --text-main:          #1c130c;
-      --text-muted:         #6b5034;
-      --text-dim-legacy:    #8f7355;
+      --bg-base:            #181520;
+      --bg-surface:         #f3c9a5;
+      --bg-surface-raised:  #e5b88f;
+      --bg-surface-hover:   #fde5cd;
+      --bg-panel:           #2b364c;
+      --border-subtle:      #3b4a66;
+      --border-medium:      #19212e;
+      --border-bright:      #d98b4a;
+      --accent-cyan:        #d98b4a;
+      --accent-cyan-glow:   rgba(217, 139, 74, 0.4);
+      --text-main:          #23170e;
+      --text-muted:         #6b492d;
+      --text-dim-legacy:    #8f6743;
       --shadow-glow:        none;
     }
     
-    /* ── 2. Pixel Crispness & Shell Canvas ── */
+    /* ── 2. Pixel Crispness & Atmospheric Dungeon Stone Brick Canvas ── */
     [data-theme="curio-theme-pixel-fantasy"], [data-theme="pixel-fantasy"] {
-      background-color: #1c130c !important;
-      color: #1c130c !important;
-      font-family: var(--font-ui) !important;
       image-rendering: pixelated !important;
       -webkit-font-smoothing: none !important;
       font-smooth: never !important;
+      background-color: #181520 !important;
+      color: #f3c9a5 !important;
+      font-family: var(--font-ui) !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] body,
     [data-theme="pixel-fantasy"] body {
-      background-color: #1c130c;
-      color: #1c130c;
-      font-family: var(--font-ui);
-      image-rendering: pixelated;
-      -webkit-font-smoothing: none;
+      image-rendering: pixelated !important;
+      -webkit-font-smoothing: none !important;
+      font-smooth: never !important;
+      background-color: #181520 !important;
+      color: #f3c9a5 !important;
+      font-family: var(--font-ui) !important;
     }
     
-    /* ── 3. Brand Header & Custom 16-Bit Golden Shield Crest ── */
+    /* Procedural 16-Bit Dungeon Stone Brick Background Overlay */
+    [data-theme="curio-theme-pixel-fantasy"] body::after,
+    [data-theme="pixel-fantasy"] body::after {
+      content: "" !important;
+      position: fixed !important;
+      inset: 0 !important;
+      pointer-events: none !important;
+      z-index: 0 !important;
+      opacity: 0.35 !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='32' viewBox='0 0 64 32'%3E%3Cpath fill='%23282333' d='M0 0h64v32H0z'/%3E%3Cpath fill='%23363045' d='M2 2h28v12H2zm32 0h28v12H34zm-16 16h28v12H18zm32 0h12v12H50zM2 18h12v12H2z'/%3E%3Cpath fill='%23463e59' d='M2 2h28v2H2zm32 0h28v2H34zm-16 16h28v2H18zm32 0h12v2H50zM2 18h12v2H2z'/%3E%3Cpath fill='%23191621' d='M0 14h64v2H0zm0 16h64v2H0zm30 0h2V0h-2zm-16 16h2v16h-2zm32 0h2v16h-2z'/%3E%3C/svg%3E") !important;
+      background-repeat: repeat !important;
+    }
+    
+    /* Ensure app content stays sharp above dungeon wallpaper */
+    [data-theme="curio-theme-pixel-fantasy"] .app-shell,
+    [data-theme="pixel-fantasy"] .app-shell {
+      position: relative !important;
+      z-index: 1 !important;
+    }
+    
+    /* ── 3. Brand Header & Swallowtail Guild Crest Logo ── */
     [data-theme="curio-theme-pixel-fantasy"] .brand-header,
     [data-theme="pixel-fantasy"] .brand-header {
-      background: #150e09 !important;
-      border-bottom: 3px solid #1c130c !important;
+      background: #273347 !important;
+      border-bottom: 4px solid #19212e !important;
       padding: 0.85rem 1rem !important;
+      position: relative !important;
+      box-shadow: 0 4px 0 #000000 !important;
     }
     
     /* Hide default SVG folder icon */
@@ -6626,19 +6664,19 @@
       display: none !important;
     }
     
-    /* Inject Custom 16-bit RPG Shield & Sword Crest */
+    /* 16-Bit Golden Shield Crest with Corner Rivets */
     [data-theme="curio-theme-pixel-fantasy"] .brand-title::before,
     [data-theme="pixel-fantasy"] .brand-title::before {
       content: "" !important;
       display: inline-block !important;
-      width: 22px !important;
-      height: 22px !important;
+      width: 26px !important;
+      height: 26px !important;
       flex-shrink: 0 !important;
       background-size: contain !important;
       background-repeat: no-repeat !important;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23e6a122' d='M2 1h12v2H2zM1 3h14v5h-1v2h-1v2h-2v2h-2v2H7v-2H5v-2H3v-2H2V8H1V3z'/%3E%3Cpath fill='%23fce28a' d='M3 3h10v4h-1v2h-1v2h-2v2H7v-2H5V9H4V7H3V3z'/%3E%3Cpath fill='%23b83030' d='M7 4h2v7H7z'/%3E%3Cpath fill='%23b83030' d='M5 6h6v2H5z'/%3E%3Cpath fill='%231c130c' d='M2 1v2H1v5h1v2h1v2h2v2h2v2h2v-2h2v-2h2v-2h1V8h1V3h-1V1h-2V0H4v1H2z' fill-rule='evenodd'/%3E%3C/svg%3E") !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%2319212e' d='M2 0h12v2h1v7h-1v2h-1v2h-2v2h-2v1H7v-1H5v-2H3v-2H2V9H1V2h1V0z'/%3E%3Cpath fill='%23d98b4a' d='M3 2h10v6h-1v2h-1v2h-2v2H7v-2H5v-2H4V8H3V2z'/%3E%3Cpath fill='%23fce28a' d='M4 3h8v4h-1v2h-1v2H8v1H7V9H5V7H4V3z'/%3E%3Cpath fill='%23c0392b' d='M7 4h2v6H7z'/%3E%3Cpath fill='%23c0392b' d='M5 6h6v2H5z'/%3E%3Ccircle cx='4' cy='4' r='1' fill='%23ffffff'/%3E%3Ccircle cx='12' cy='4' r='1' fill='%23ffffff'/%3E%3C/svg%3E") !important;
       filter: drop-shadow(2px 2px 0 #000000) !important;
-      margin-right: 0.55rem !important;
+      margin-right: 0.65rem !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .brand-title,
@@ -6646,188 +6684,226 @@
       color: #fce28a !important;
       font-family: var(--font-display) !important;
       font-weight: 900 !important;
-      font-size: 0.92rem !important;
-      letter-spacing: 0.12em !important;
+      font-size: 1.05rem !important;
+      letter-spacing: 0.14em !important;
       text-transform: uppercase !important;
-      text-shadow: 2px 2px 0 #000000 !important;
+      text-shadow: 2px 2px 0 #000000, -1px -1px 0 #19212e !important;
+      display: flex !important;
+      align-items: center !important;
     }
     
+    /* Guild Badge (Ruby HP Gem) */
     [data-theme="curio-theme-pixel-fantasy"] .brand-title .badge-tag,
     [data-theme="pixel-fantasy"] .brand-title .badge-tag {
-      background: #b83030 !important;
+      background: #c0392b !important;
       color: #ffffff !important;
-      border: 1px solid #1c130c !important;
+      border: 2px solid #19212e !important;
       border-radius: 0 !important;
       font-family: var(--font-mono) !important;
-      font-weight: bold !important;
-      letter-spacing: 0.08em !important;
-      box-shadow: 1px 1px 0 #000000 !important;
+      font-weight: 900 !important;
+      font-size: 0.68rem !important;
+      padding: 2px 6px !important;
+      letter-spacing: 0.1em !important;
+      box-shadow: 2px 2px 0 #000000 !important;
+      margin-left: 0.5rem !important;
     }
     
-    /* ── 4. Sidebar & Catalog Navigation (Dark Timber & Gold Indices) ── */
+    /* ── 4. Sidebar: Armor Rack & Quest Grimoire Drawers ── */
     [data-theme="curio-theme-pixel-fantasy"] .sidebar,
     [data-theme="pixel-fantasy"] .sidebar {
-      background: #251910 !important;
-      border-right: 3px solid #1c130c !important;
-      color: #e8dcc4 !important;
+      background: #273347 !important;
+      border-right: 4px solid #19212e !important;
+      color: #f3c9a5 !important;
+      box-shadow: 4px 0 0 rgba(0, 0, 0, 0.4) !important;
     }
     
+    /* Grimoire Active Catalog Panel */
     [data-theme="curio-theme-pixel-fantasy"] .catalog-switcher-panel,
     [data-theme="pixel-fantasy"] .catalog-switcher-panel {
-      border-bottom: 2px solid #1c130c !important;
-      background: #1c130c !important;
+      border-bottom: 3px solid #19212e !important;
+      background: #1e2736 !important;
+      padding: 0.75rem 0.85rem !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .switcher-title,
     [data-theme="pixel-fantasy"] .switcher-title {
-      color: #e6a122 !important;
+      color: #fce28a !important;
       font-family: var(--font-display) !important;
-      font-size: 0.72rem !important;
-      font-weight: 800 !important;
-      letter-spacing: 0.08em !important;
+      font-size: 0.75rem !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.1em !important;
       text-transform: uppercase !important;
       text-shadow: 1px 1px 0 #000000 !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .switcher-title svg,
     [data-theme="pixel-fantasy"] .switcher-title svg {
-      color: #e6a122 !important;
+      color: #d98b4a !important;
     }
     
+    /* Catalog Dropdown: Gilded Wooden Chest Selector */
     [data-theme="curio-theme-pixel-fantasy"] .catalog-select-dropdown,
     [data-theme="pixel-fantasy"] .catalog-select-dropdown {
-      background: #2b1d13 !important;
+      background: #3b4a66 !important;
       color: #fce28a !important;
-      border: 2px solid #1c130c !important;
-      border-bottom: 2px solid #e6a122 !important;
+      border: 3px solid #19212e !important;
+      border-bottom: 3px solid #d98b4a !important;
       border-radius: 0 !important;
       font-family: var(--font-mono) !important;
-      font-weight: bold !important;
-      box-shadow: inset 1px 1px 0 #000000 !important;
+      font-weight: 900 !important;
+      padding: 0.4rem 0.6rem !important;
+      box-shadow: inset 2px 2px 0 #19212e, 2px 2px 0 #000000 !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .section-header span,
     [data-theme="pixel-fantasy"] .section-header span {
-      color: #e6a122 !important;
+      color: #fce28a !important;
       font-family: var(--font-display) !important;
       font-weight: 900 !important;
-      letter-spacing: 0.1em !important;
+      letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
       text-shadow: 1px 1px 0 #000000 !important;
     }
     
+    /* Drawer Items: Chunky Wooden Inventory Tabs */
     [data-theme="curio-theme-pixel-fantasy"] .drawer-item,
     [data-theme="pixel-fantasy"] .drawer-item {
-      color: #e8dcc4 !important;
+      color: #f3c9a5 !important;
+      background: #1e2736 !important;
+      border: 2px solid #19212e !important;
+      border-left: 4px solid #3b4a66 !important;
       border-radius: 0 !important;
       font-family: var(--font-display) !important;
-      font-weight: 700 !important;
+      font-weight: 800 !important;
       text-transform: uppercase !important;
-      letter-spacing: 0.05em !important;
-      border: 1px solid transparent !important;
-      border-left: 3px solid transparent !important;
-      margin-bottom: 3px !important;
+      letter-spacing: 0.06em !important;
+      margin-bottom: 5px !important;
+      padding: 0.45rem 0.65rem !important;
+      box-shadow: 2px 2px 0 #000000 !important;
+      transition: all 0.05s ease !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .drawer-item svg,
     [data-theme="pixel-fantasy"] .drawer-item svg {
-      color: #e6a122 !important;
+      color: #d98b4a !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .drawer-item:hover,
     [data-theme="pixel-fantasy"] .drawer-item:hover {
-      background: #3d291a !important;
+      background: #3b4a66 !important;
       color: #ffffff !important;
       border-left-color: #fce28a !important;
+      transform: translateX(2px) !important;
     }
     
+    /* Active Drawer Item: Gilded Quest Scroll Tab */
     [data-theme="curio-theme-pixel-fantasy"] .drawer-item.active,
     [data-theme="pixel-fantasy"] .drawer-item.active {
-      background: #e6a122 !important;
-      color: #1c130c !important;
-      border: 2px solid #1c130c !important;
-      box-shadow: 2px 2px 0 #000000 !important;
+      background: #d98b4a !important;
+      color: #1a1008 !important;
+      border: 2px solid #19212e !important;
+      border-left: 5px solid #fce28a !important;
+      box-shadow: 3px 3px 0 #000000 !important;
       font-weight: 900 !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .drawer-item.active svg,
     [data-theme="pixel-fantasy"] .drawer-item.active svg {
-      color: #1c130c !important;
+      color: #1a1008 !important;
     }
     
+    /* Item Count Badge: Blackened Iron Inset Cell */
     [data-theme="curio-theme-pixel-fantasy"] .drawer-count,
     [data-theme="pixel-fantasy"] .drawer-count {
-      background: #1c130c !important;
+      background: #19212e !important;
       color: #fce28a !important;
       border: 1px solid #000000 !important;
       border-radius: 0 !important;
       font-family: var(--font-mono) !important;
-      font-weight: bold !important;
-      padding: 1px 5px !important;
+      font-weight: 900 !important;
+      padding: 1px 6px !important;
+      box-shadow: inset 1px 1px 0 #000000 !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .drawer-item.active .drawer-count,
     [data-theme="pixel-fantasy"] .drawer-item.active .drawer-count {
-      background: #1c130c !important;
-      color: #e6a122 !important;
+      background: #1a1008 !important;
+      color: #fce28a !important;
     }
     
-    /* ── 5. Top Header Bar (Swallowtail Quest Ribbon Banner) ── */
+    /* ── 5. Top Bar: 16-Bit RPG Quest HUD with HP & Mana Telemetry ── */
     [data-theme="curio-theme-pixel-fantasy"] .top-bar,
     [data-theme="pixel-fantasy"] .top-bar {
-      background: #e6a122 !important;
-      color: #1c130c !important;
-      border-bottom: 3px solid #1c130c !important;
+      background: #3b4a66 !important;
+      color: #f3c9a5 !important;
+      border-bottom: 4px solid #19212e !important;
       box-shadow: 0 4px 0 #000000 !important;
+      position: relative !important;
+    }
+    
+    /* Upper Beveled Wooden Rail Ornament on Top Bar */
+    [data-theme="curio-theme-pixel-fantasy"] .top-bar::before,
+    [data-theme="pixel-fantasy"] .top-bar::before {
+      content: "" !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 4px !important;
+      background: linear-gradient(90deg, #d98b4a, #fce28a, #d98b4a) !important;
+      border-bottom: 1px solid #19212e !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .top-bar .catalog-title,
     [data-theme="pixel-fantasy"] .top-bar .catalog-title {
-      color: #1c130c !important;
+      color: #fce28a !important;
       font-family: var(--font-display) !important;
       font-weight: 900 !important;
-      letter-spacing: 0.1em !important;
+      letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
-      text-shadow: 1px 1px 0 #fce28a !important;
+      text-shadow: 2px 2px 0 #000000 !important;
     }
     
+    /* Search Box: Sunken Iron Lockbox */
     [data-theme="curio-theme-pixel-fantasy"] .search-input,
     [data-theme="pixel-fantasy"] .search-input {
-      background: #2b1d13 !important;
-      border: 2px solid #1c130c !important;
-      border-bottom: 3px solid #fce28a !important;
+      background: #1e2736 !important;
+      border: 3px solid #19212e !important;
+      border-bottom: 3px solid #d98b4a !important;
       border-radius: 0 !important;
       color: #fce28a !important;
       font-family: var(--font-mono) !important;
-      font-weight: 600 !important;
-      box-shadow: 2px 2px 0 #000000 !important;
+      font-weight: 700 !important;
+      box-shadow: inset 2px 2px 0 #000000, 2px 2px 0 #000000 !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .search-input::placeholder,
     [data-theme="pixel-fantasy"] .search-input::placeholder {
-      color: #d4c29e !important;
+      color: #a38b72 !important;
       font-family: var(--font-mono) !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .search-icon,
     [data-theme="pixel-fantasy"] .search-icon {
-      color: #e6a122 !important;
+      color: #fce28a !important;
     }
     
-    /* ── 6. Filter Panel & Guild Controls ── */
+    /* ── 6. Filter Panel: Slate Tactical Grid ── */
     [data-theme="curio-theme-pixel-fantasy"] .filter-panel,
     [data-theme="pixel-fantasy"] .filter-panel {
-      background: #2b1d13 !important;
-      border-bottom: 3px solid #1c130c !important;
-      color: #e8dcc4 !important;
+      background: #273347 !important;
+      border-bottom: 4px solid #19212e !important;
+      color: #f3c9a5 !important;
+      box-shadow: 0 4px 0 #000000 !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .filter-label,
     [data-theme="pixel-fantasy"] .filter-label {
-      color: #e6a122 !important;
+      color: #fce28a !important;
       font-family: var(--font-mono) !important;
       font-weight: 900 !important;
       letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
       text-shadow: 1px 1px 0 #000000 !important;
     }
     
@@ -6835,10 +6911,10 @@
     [data-theme="curio-theme-pixel-fantasy"] .filter-panel select,
     [data-theme="pixel-fantasy"] .select-custom,
     [data-theme="pixel-fantasy"] .filter-panel select {
-      background: #1c130c !important;
+      background: #1e2736 !important;
       color: #fce28a !important;
-      border: 2px solid #1c130c !important;
-      border-bottom: 2px solid #e6a122 !important;
+      border: 2px solid #19212e !important;
+      border-bottom: 2px solid #d98b4a !important;
       border-radius: 0 !important;
       font-family: var(--font-mono) !important;
       font-weight: 700 !important;
@@ -6847,74 +6923,75 @@
     
     [data-theme="curio-theme-pixel-fantasy"] .tag-filter-bar,
     [data-theme="pixel-fantasy"] .tag-filter-bar {
-      background: #24180f !important;
-      border-top: 1px solid #1c130c !important;
+      background: #1e2736 !important;
+      border-top: 2px solid #19212e !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .tag-search-input,
     [data-theme="pixel-fantasy"] .tag-search-input {
-      background: #1c130c !important;
+      background: #141b26 !important;
       color: #fce28a !important;
-      border: 1px solid #3d2b1c !important;
+      border: 2px solid #19212e !important;
       border-radius: 0 !important;
       font-family: var(--font-mono) !important;
+      box-shadow: inset 1px 1px 0 #000000 !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .tag-search-input::placeholder,
     [data-theme="pixel-fantasy"] .tag-search-input::placeholder {
-      color: #8f7355 !important;
+      color: #7b6855 !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .tag-pill,
     [data-theme="pixel-fantasy"] .tag-pill {
-      background: #e8dcc4 !important;
-      color: #1c130c !important;
-      border: 2px solid #1c130c !important;
+      background: #f3c9a5 !important;
+      color: #1a1008 !important;
+      border: 2px solid #19212e !important;
       border-radius: 0 !important;
       font-family: var(--font-mono) !important;
-      font-weight: 700 !important;
-      box-shadow: 1px 1px 0 #000000 !important;
+      font-weight: 800 !important;
+      box-shadow: 2px 2px 0 #000000 !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .tag-pill.active,
     [data-theme="pixel-fantasy"] .tag-pill.active {
-      background: #e6a122 !important;
-      color: #1c130c !important;
-      border-color: #1c130c !important;
-      box-shadow: inset 1px 1px 0 #000000 !important;
+      background: #d98b4a !important;
+      color: #ffffff !important;
+      border-color: #19212e !important;
+      box-shadow: inset 2px 2px 0 #000000 !important;
+      font-weight: 900 !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .results-count,
     [data-theme="pixel-fantasy"] .results-count {
-      color: #d4c29e !important;
+      color: #f3c9a5 !important;
       font-family: var(--font-mono) !important;
       font-weight: 700 !important;
-      letter-spacing: 0.05em !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .results-count strong,
     [data-theme="pixel-fantasy"] .results-count strong {
-      color: #e6a122 !important;
+      color: #fce28a !important;
     }
     
-    /* ── 7. Interactive Keycap Buttons (Physically Depress on Click) ── */
+    /* ── 7. Chunky 3D Tactile Pixel Keycaps (2px Physical Depress Physics) ── */
     [data-theme="curio-theme-pixel-fantasy"] .btn-primary,
     [data-theme="pixel-fantasy"] .btn-primary {
-      background: #e6a122 !important;
-      color: #1c130c !important;
-      border: 2px solid #1c130c !important;
+      background: #d98b4a !important;
+      color: #1a1008 !important;
+      border: 3px solid #19212e !important;
       border-radius: 0 !important;
       font-family: var(--font-display) !important;
       font-weight: 900 !important;
       text-transform: uppercase !important;
-      letter-spacing: 0.08em !important;
+      letter-spacing: 0.1em !important;
       box-shadow: 3px 3px 0 #000000 !important;
       transition: transform 0.05s ease, box-shadow 0.05s ease !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .btn-primary:active,
     [data-theme="pixel-fantasy"] .btn-primary:active {
-      transform: translate(2px, 2px) !important;
+      transform: translate(2px, 3px) !important;
       box-shadow: 1px 1px 0 #000000 !important;
     }
     
@@ -6924,14 +7001,15 @@
     [data-theme="pixel-fantasy"] .btn-secondary,
     [data-theme="pixel-fantasy"] .view-btn,
     [data-theme="pixel-fantasy"] .pill-toggle {
-      background: #e8dcc4 !important;
-      color: #1c130c !important;
-      border: 2px solid #1c130c !important;
+      background: #f3c9a5 !important;
+      color: #1a1008 !important;
+      border: 2px solid #19212e !important;
       border-radius: 0 !important;
       font-family: var(--font-display) !important;
-      font-weight: 800 !important;
+      font-weight: 900 !important;
       text-transform: uppercase !important;
-      box-shadow: 2px 2px 0 #000000 !important;
+      box-shadow: 3px 3px 0 #000000 !important;
+      transition: transform 0.05s ease, box-shadow 0.05s ease !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .btn-secondary:hover,
@@ -6947,19 +7025,19 @@
     [data-theme="curio-theme-pixel-fantasy"] .pill-toggle.active,
     [data-theme="pixel-fantasy"] .view-btn.active,
     [data-theme="pixel-fantasy"] .pill-toggle.active {
-      background: #e6a122 !important;
-      color: #1c130c !important;
-      border-color: #1c130c !important;
+      background: #d98b4a !important;
+      color: #1a1008 !important;
+      border-color: #19212e !important;
       box-shadow: inset 2px 2px 0 #000000 !important;
-      transform: translate(1px, 1px) !important;
+      transform: translate(1px, 2px) !important;
       font-weight: 900 !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .btn-danger,
     [data-theme="pixel-fantasy"] .btn-danger {
-      background: #b83030 !important;
+      background: #c0392b !important;
       color: #ffffff !important;
-      border: 2px solid #1c130c !important;
+      border: 3px solid #19212e !important;
       border-radius: 0 !important;
       font-family: var(--font-display) !important;
       font-weight: 900 !important;
@@ -6969,129 +7047,195 @@
     
     [data-theme="curio-theme-pixel-fantasy"] .btn-danger:active,
     [data-theme="pixel-fantasy"] .btn-danger:active {
-      transform: translate(2px, 2px) !important;
+      transform: translate(2px, 3px) !important;
       box-shadow: 1px 1px 0 #000000 !important;
     }
     
-    /* ── 8. Item Cards (Recessed Inventory Slots with 9-Slice Stepped Corners) ── */
+    /* ── 8. Cards: 9-Slice Studded Frame & Sunken RPG Inventory Cells ── */
     [data-theme="curio-theme-pixel-fantasy"] .item-card,
-    [data-theme="curio-theme-pixel-fantasy"] .detail-card,
-    [data-theme="pixel-fantasy"] .item-card,
-    [data-theme="pixel-fantasy"] .detail-card {
-      background: #e8dcc4 !important;
-      color: #1c130c !important;
-      border: 3px solid #1c130c !important;
+    [data-theme="pixel-fantasy"] .item-card {
+      background: #f3c9a5 !important;
+      color: #23170e !important;
+      border: 4px solid #19212e !important;
       border-radius: 0 !important;
-      box-shadow: 4px 4px 0 #000000, inset 2px 2px 0 #f4ecd9, inset -2px -2px 0 #b09f82 !important;
-      transition: transform 0.08s ease, box-shadow 0.08s ease !important;
+      box-shadow: 5px 5px 0 #000000 !important;
       position: relative !important;
+      padding: 0 !important;
+      overflow: visible !important;
+      transition: transform 0.08s ease, box-shadow 0.08s ease !important;
+    }
+    
+    /* Metallic Corner Rivets / Studs on all 4 corners (9-Slice Accent) */
+    [data-theme="curio-theme-pixel-fantasy"] .item-card::before,
+    [data-theme="pixel-fantasy"] .item-card::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: -6px !important;
+      pointer-events: none !important;
+      z-index: 10 !important;
+      background-image: 
+        radial-gradient(circle 3px at 3px 3px, #fce28a 100%, transparent 0),
+        radial-gradient(circle 3px at calc(100% - 3px) 3px, #fce28a 100%, transparent 0),
+        radial-gradient(circle 3px at 3px calc(100% - 3px), #fce28a 100%, transparent 0),
+        radial-gradient(circle 3px at calc(100% - 3px) calc(100% - 3px), #fce28a 100%, transparent 0) !important;
+      filter: drop-shadow(1px 1px 0 #000000) !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .item-card:hover,
     [data-theme="pixel-fantasy"] .item-card:hover {
       transform: translate(-2px, -2px) !important;
-      box-shadow: 6px 6px 0 #000000, inset 2px 2px 0 #fce28a !important;
-      border-color: #e6a122 !important;
+      box-shadow: 7px 7px 0 #000000 !important;
     }
     
-    [data-theme="curio-theme-pixel-fantasy"] .card-title,
-    [data-theme="pixel-fantasy"] .card-title {
-      color: #1c130c !important;
+    /* Sunken 16-Bit Inventory Slot (Thumbnail Area) */
+    [data-theme="curio-theme-pixel-fantasy"] .item-card .card-thumb,
+    [data-theme="curio-theme-pixel-fantasy"] .item-card .card-thumb-wrap,
+    [data-theme="curio-theme-pixel-fantasy"] .item-card .card-image,
+    [data-theme="pixel-fantasy"] .item-card .card-thumb,
+    [data-theme="pixel-fantasy"] .item-card .card-thumb-wrap,
+    [data-theme="pixel-fantasy"] .item-card .card-image {
+      background: #141b26 !important;
+      border-bottom: 4px solid #19212e !important;
+      position: relative !important;
+      box-shadow: inset 3px 3px 0 #000000, inset -3px -3px 0 #3b4a66 !important;
+    }
+    
+    /* Item Slot Corner Rarity Border */
+    [data-theme="curio-theme-pixel-fantasy"] .item-card .card-thumb img,
+    [data-theme="pixel-fantasy"] .item-card .card-thumb img {
+      image-rendering: pixelated !important;
+      filter: contrast(105%) !important;
+    }
+    
+    /* Card Body: Warm Peach Parchment Scroll */
+    [data-theme="curio-theme-pixel-fantasy"] .item-card .card-body,
+    [data-theme="curio-theme-pixel-fantasy"] .item-card .card-content,
+    [data-theme="pixel-fantasy"] .item-card .card-body,
+    [data-theme="pixel-fantasy"] .item-card .card-content {
+      background: #f3c9a5 !important;
+      color: #23170e !important;
+      padding: 0.85rem !important;
+    }
+    
+    /* Item Title: Swallowtail Quest Ribbon Banner Header */
+    [data-theme="curio-theme-pixel-fantasy"] .item-card .card-title,
+    [data-theme="pixel-fantasy"] .item-card .card-title {
+      color: #1a1008 !important;
       font-family: var(--font-display) !important;
       font-weight: 900 !important;
-      letter-spacing: 0.03em !important;
+      font-size: 0.92rem !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+      background: #e5b88f !important;
+      padding: 3px 6px !important;
+      border: 2px solid #19212e !important;
+      border-left: 4px solid #d98b4a !important;
+      box-shadow: 2px 2px 0 #000000 !important;
+      margin-bottom: 0.5rem !important;
     }
     
-    [data-theme="curio-theme-pixel-fantasy"] .card-notes,
-    [data-theme="pixel-fantasy"] .card-notes {
-      color: #4a3420 !important;
-      font-family: var(--font-ui) !important;
-      font-size: 0.8rem !important;
+    [data-theme="curio-theme-pixel-fantasy"] .item-card .card-desc,
+    [data-theme="curio-theme-pixel-fantasy"] .item-card .card-notes,
+    [data-theme="pixel-fantasy"] .item-card .card-desc,
+    [data-theme="pixel-fantasy"] .item-card .card-notes {
+      color: #4a2f1c !important;
+      font-family: var(--font-mono) !important;
+      font-size: 0.78rem !important;
+      line-height: 1.35 !important;
     }
     
-    /* ── 9. RPG Stat & Spell Status Badges (Docked Stack Badges) ── */
-    [data-theme="curio-theme-pixel-fantasy"] .status-badge,
-    [data-theme="curio-theme-pixel-fantasy"] .item-card .card-meta-row .status-badge,
-    [data-theme="pixel-fantasy"] .status-badge,
-    [data-theme="pixel-fantasy"] .item-card .card-meta-row .status-badge {
-      border: 2px solid #1c130c !important;
-      background: #b83030 !important; /* Ruby HP Idea */
-      color: #ffffff !important;
+    /* RPG Stat Badges (Ruby HP, Sapphire Mana, Emerald Quest Clear) */
+    [data-theme="curio-theme-pixel-fantasy"] .badge-status,
+    [data-theme="curio-theme-pixel-fantasy"] .item-card .badge,
+    [data-theme="pixel-fantasy"] .badge-status,
+    [data-theme="pixel-fantasy"] .item-card .badge {
       border-radius: 0 !important;
       font-family: var(--font-mono) !important;
       font-weight: 900 !important;
+      font-size: 0.65rem !important;
+      letter-spacing: 0.08em !important;
       text-transform: uppercase !important;
-      letter-spacing: 0.06em !important;
-      box-shadow: 1px 1px 0 #000000 !important;
-      padding: 1px 5px !important;
+      padding: 2px 6px !important;
+      border: 2px solid #19212e !important;
+      box-shadow: 2px 2px 0 #000000 !important;
     }
     
-    [data-theme="curio-theme-pixel-fantasy"] .status-badge.status-progress,
-    [data-theme="pixel-fantasy"] .status-badge.status-progress {
-      background: #2c69b8 !important; /* Sapphire Mana Progress */
+    /* To Explore -> Ruby HP Badge */
+    [data-theme="curio-theme-pixel-fantasy"] .badge-status[data-status="to-explore"],
+    [data-theme="curio-theme-pixel-fantasy"] .badge-status[data-status="idea"],
+    [data-theme="pixel-fantasy"] .badge-status[data-status="to-explore"],
+    [data-theme="pixel-fantasy"] .badge-status[data-status="idea"] {
+      background: #c0392b !important;
       color: #ffffff !important;
     }
     
-    [data-theme="curio-theme-pixel-fantasy"] .status-badge.status-completed,
-    [data-theme="pixel-fantasy"] .status-badge.status-completed {
-      background: #2f7a36 !important; /* Emerald Quest Clear */
+    /* In Progress -> Sapphire Mana Badge */
+    [data-theme="curio-theme-pixel-fantasy"] .badge-status[data-status="in-progress"],
+    [data-theme="curio-theme-pixel-fantasy"] .badge-status[data-status="progress"],
+    [data-theme="pixel-fantasy"] .badge-status[data-status="in-progress"],
+    [data-theme="pixel-fantasy"] .badge-status[data-status="progress"] {
+      background: #2980b9 !important;
       color: #ffffff !important;
     }
     
-    [data-theme="curio-theme-pixel-fantasy"] .status-badge.status-archived,
-    [data-theme="pixel-fantasy"] .status-badge.status-archived {
-      background: #5e5750 !important; /* Withered Stone */
+    /* Curated / Completed -> Emerald Quest Clear */
+    [data-theme="curio-theme-pixel-fantasy"] .badge-status[data-status="curated"],
+    [data-theme="curio-theme-pixel-fantasy"] .badge-status[data-status="completed"],
+    [data-theme="pixel-fantasy"] .badge-status[data-status="curated"],
+    [data-theme="pixel-fantasy"] .badge-status[data-status="completed"] {
+      background: #27ae60 !important;
       color: #ffffff !important;
     }
     
-    [data-theme="curio-theme-pixel-fantasy"] .drawer-chip,
-    [data-theme="pixel-fantasy"] .drawer-chip {
-      background: #d4c29e !important;
-      color: #1c130c !important;
-      border: 1px solid #1c130c !important;
-      border-radius: 0 !important;
-      font-family: var(--font-mono) !important;
-      font-size: 0.72rem !important;
-      font-weight: bold !important;
+    /* Archived -> Obsidian Vault Stone */
+    [data-theme="curio-theme-pixel-fantasy"] .badge-status[data-status="archived"],
+    [data-theme="pixel-fantasy"] .badge-status[data-status="archived"] {
+      background: #4a4a4a !important;
+      color: #e5b88f !important;
     }
     
-    /* ── 10. Quest Log Scroll Modals ── */
+    /* 16-Bit Chunky Gold Pixel Rating Stars */
+    [data-theme="curio-theme-pixel-fantasy"] .rating-stars,
+    [data-theme="curio-theme-pixel-fantasy"] .star-rating,
+    [data-theme="pixel-fantasy"] .rating-stars,
+    [data-theme="pixel-fantasy"] .star-rating {
+      color: #f1c40f !important;
+      text-shadow: 1px 1px 0 #19212e, -1px -1px 0 #19212e, 1px -1px 0 #19212e, -1px 1px 0 #19212e !important;
+      letter-spacing: 0.15em !important;
+      font-size: 0.95rem !important;
+    }
+    
+    /* ── 9. Modals & Detail View: Grimoire Parchment Quest Scroll ── */
     [data-theme="curio-theme-pixel-fantasy"] .modal-content,
-    [data-theme="curio-theme-pixel-fantasy"] .lightbox-content,
+    [data-theme="curio-theme-pixel-fantasy"] .detail-modal,
+    [data-theme="curio-theme-pixel-fantasy"] .detail-view,
     [data-theme="pixel-fantasy"] .modal-content,
-    [data-theme="pixel-fantasy"] .lightbox-content {
-      background: #e8dcc4 !important;
-      border: 4px solid #1c130c !important;
+    [data-theme="pixel-fantasy"] .detail-modal,
+    [data-theme="pixel-fantasy"] .detail-view {
+      background: #f3c9a5 !important;
+      color: #23170e !important;
+      border: 5px solid #19212e !important;
       border-radius: 0 !important;
-      box-shadow: 8px 8px 0 #000000, inset 3px 3px 0 #f4ecd9, inset -3px -3px 0 #b09f82 !important;
-      color: #1c130c !important;
+      box-shadow: 8px 8px 0 #000000 !important;
+      position: relative !important;
     }
     
+    /* Top & Bottom Turned Wooden Scroll Rods */
     [data-theme="curio-theme-pixel-fantasy"] .modal-header,
     [data-theme="pixel-fantasy"] .modal-header {
-      border-bottom: 3px solid #1c130c !important;
-      background: #e6a122 !important;
-      color: #1c130c !important;
+      background: #d98b4a !important;
+      border-bottom: 4px solid #19212e !important;
+      color: #1a1008 !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .modal-title,
     [data-theme="pixel-fantasy"] .modal-title {
-      color: #1c130c !important;
+      color: #1a1008 !important;
       font-family: var(--font-display) !important;
       font-weight: 900 !important;
       letter-spacing: 0.1em !important;
       text-transform: uppercase !important;
       text-shadow: 1px 1px 0 #fce28a !important;
-    }
-    
-    [data-theme="curio-theme-pixel-fantasy"] .form-label,
-    [data-theme="pixel-fantasy"] .form-label {
-      color: #1c130c !important;
-      font-family: var(--font-display) !important;
-      font-size: 0.75rem !important;
-      font-weight: 800 !important;
-      letter-spacing: 0.05em !important;
-      text-transform: uppercase !important;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] .form-input,
@@ -7100,41 +7244,33 @@
     [data-theme="pixel-fantasy"] .form-input,
     [data-theme="pixel-fantasy"] .form-textarea,
     [data-theme="pixel-fantasy"] .form-select {
-      background: #f4ecd9 !important;
-      color: #1c130c !important;
-      border: 2px solid #1c130c !important;
+      background: #1e2736 !important;
+      color: #fce28a !important;
+      border: 3px solid #19212e !important;
+      border-bottom: 3px solid #d98b4a !important;
       border-radius: 0 !important;
       font-family: var(--font-mono) !important;
-      font-weight: 600 !important;
+      box-shadow: inset 2px 2px 0 #000000 !important;
     }
     
-    [data-theme="curio-theme-pixel-fantasy"] .form-input:focus,
-    [data-theme="curio-theme-pixel-fantasy"] .form-textarea:focus,
-    [data-theme="curio-theme-pixel-fantasy"] .form-select:focus,
-    [data-theme="pixel-fantasy"] .form-input:focus,
-    [data-theme="pixel-fantasy"] .form-textarea:focus,
-    [data-theme="pixel-fantasy"] .form-select:focus {
-      outline: none !important;
-      border-color: #e6a122 !important;
-      box-shadow: 0 0 0 2px #e6a122 !important;
-    }
-    
-    /* ── 11. Scrollbars (Chunky Pixel Sliders) ── */
+    /* ── 10. Scrollbars: 16-Bit Beveled Timber Rails ── */
     [data-theme="curio-theme-pixel-fantasy"] ::-webkit-scrollbar,
     [data-theme="pixel-fantasy"] ::-webkit-scrollbar {
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] ::-webkit-scrollbar-track,
     [data-theme="pixel-fantasy"] ::-webkit-scrollbar-track {
-      background: #1c130c;
+      background: #19212e;
+      border: 2px solid #000000;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] ::-webkit-scrollbar-thumb,
     [data-theme="pixel-fantasy"] ::-webkit-scrollbar-thumb {
-      background: #e6a122;
-      border: 2px solid #1c130c;
+      background: #d98b4a;
+      border: 2px solid #19212e;
+      box-shadow: inset 1px 1px 0 #fce28a, inset -1px -1px 0 #9c5c24;
     }
     
     [data-theme="curio-theme-pixel-fantasy"] ::-webkit-scrollbar-thumb:hover,
