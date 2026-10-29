@@ -1,6 +1,6 @@
 {
     "version":  "1.0.0",
-    "updatedAt":  "2026-10-29T16:03:14Z",
+    "updatedAt":  "2026-10-29T16:39:35Z",
     "plugins":  [
                     {
                         "id":  "curio-component-quick-stats",
@@ -199,6 +199,19 @@
                         "mountPoint":  null,
                         "dataExtension":  null,
                         "path":  "./plugins/curio-theme-palm"
+                    },
+                    {
+                        "id":  "curio-theme-pixel-fantasy",
+                        "name":  "Pixel Fantasy Game UI",
+                        "version":  "1.0.0",
+                        "type":  "theme",
+                        "author":  "Curio \u0026 Theme Atlas Research",
+                        "description":  "16-bit RPG fantasy game interface with inventory slot grids, swallowtail quest ribbons, golden shield crest, and pixelated keycaps.",
+                        "family":  "pixel-fantasy-game",
+                        "preview":  null,
+                        "mountPoint":  null,
+                        "dataExtension":  null,
+                        "path":  "./plugins/curio-theme-pixel-fantasy"
                     },
                     {
                         "id":  "curio-theme-synthwave",
