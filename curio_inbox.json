@@ -302,6 +302,97 @@
       ],
       "dateAdded": "2026-10-02T14:13:41.000Z",
       "dateModified": "2026-10-02T14:13:41.000Z"
+    },
+    {
+      "id": "item-discord-1791370381170",
+      "title": "Text Hub",
+      "drawer": "Desktop & OS Utilities",
+      "status": "to-explore",
+      "tags": [
+        "text-hub",
+        "encoding",
+        "decryption",
+        "utilities",
+        "developer-tools",
+        "open-source"
+      ],
+      "rating": 5,
+      "notes": "Text Hub is an open-source utility collection featuring over 70 tools for text encoding, decoding, and encryption. It provides digital creators and developers with a comprehensive suite for handling data manipulation tasks efficiently.",
+      "link": "https://github.com/Cat-zilla/Text-hub",
+      "logo": "https://opengraph.githubassets.com/c4d14eb04e90cb0a1ae8b8ce05dada4fc52530c61858b5f5053c0459b7416d2c/Cat-zilla/Text-hub",
+      "gallery": [
+        "https://opengraph.githubassets.com/c4d14eb04e90cb0a1ae8b8ce05dada4fc52530c61858b5f5053c0459b7416d2c/Cat-zilla/Text-hub"
+      ],
+      "dateAdded": "2026-10-07T10:53:01.000Z",
+      "dateModified": "2026-10-07T10:53:01.000Z"
+    },
+    {
+      "id": "item-discord-1791370429030",
+      "title": "Dokvio PDF Reader & Scanner",
+      "drawer": "Reference & Docs",
+      "status": "to-explore",
+      "tags": [
+        "dokvio",
+        "pdf",
+        "scanner",
+        "document-viewer",
+        "productivity",
+        "android"
+      ],
+      "rating": 4,
+      "notes": "Dokvio is a versatile mobile document suite that allows users to read, view, scan, merge, and compress PDFs, Word, Excel, and PowerPoint files on the go. It provides digital creators and professionals with an efficient way to manage and organize essential documentation directly from their mobile devices.",
+      "link": "https://play.google.com/store/apps/details?id=com.mykhann.dokvio",
+      "logo": "https://play-lh.googleusercontent.com/J4SEDc-vd9uHSeXTHs1Lt_msuu3A_71qOdUKeZov47d_lZJtUmMDjtSYPaN6XyvkOLoS0xOahaEU7wprOvrRxg=s0-br30",
+      "gallery": [
+        "https://play-lh.googleusercontent.com/J4SEDc-vd9uHSeXTHs1Lt_msuu3A_71qOdUKeZov47d_lZJtUmMDjtSYPaN6XyvkOLoS0xOahaEU7wprOvrRxg=s0-br30"
+      ],
+      "dateAdded": "2026-10-07T10:53:49.000Z",
+      "dateModified": "2026-10-07T10:53:49.000Z"
+    },
+    {
+      "id": "item-discord-1791370468688",
+      "title": "8XDL - Secure Download Manager",
+      "drawer": "Desktop & OS Utilities",
+      "status": "to-explore",
+      "tags": [
+        "8xdl",
+        "download-manager",
+        "browser",
+        "ad-blocker",
+        "file-manager",
+        "android"
+      ],
+      "rating": 4,
+      "notes": "8XDL is a secure mobile download manager featuring a built-in private browser, smart download acceleration, and an integrated ad blocker. It enables digital creators and users to efficiently manage files and media playback on the go.",
+      "link": "https://play.google.com/store/apps/details?id=com.codex.torrentx&pli=1",
+      "logo": "https://play-lh.googleusercontent.com/OT5HXJs88EzvtzLGPjFlewWIM2JN_6jQ4EBWPNLFXfGZDLCDU0dDFuxbzhUPjsltfW-f_xKaIqRMDfNYN7hAsg=s0-br30",
+      "gallery": [
+        "https://play-lh.googleusercontent.com/OT5HXJs88EzvtzLGPjFlewWIM2JN_6jQ4EBWPNLFXfGZDLCDU0dDFuxbzhUPjsltfW-f_xKaIqRMDfNYN7hAsg=s0-br30"
+      ],
+      "dateAdded": "2026-10-07T10:54:28.000Z",
+      "dateModified": "2026-10-07T10:54:28.000Z"
+    },
+    {
+      "id": "item-discord-1791370511802",
+      "title": "CalUnity",
+      "drawer": "Desktop & OS Utilities",
+      "status": "to-explore",
+      "tags": [
+        "calunity",
+        "calendar",
+        "productivity",
+        "ai",
+        "sync"
+      ],
+      "rating": 5,
+      "notes": "CalUnity is an AI-powered calendar management tool that seamlessly connects Google, Microsoft, and Apple calendars into a single interface. It enables digital creators and developers to streamline their schedules with lightning-fast sync and total privacy.",
+      "link": "https://calunity.com/",
+      "logo": "https://calunity.com/og-image.png",
+      "gallery": [
+        "https://calunity.com/og-image.png"
+      ],
+      "dateAdded": "2026-10-07T10:55:11.000Z",
+      "dateModified": "2026-10-07T10:55:11.000Z"
     }
   ]
 }
