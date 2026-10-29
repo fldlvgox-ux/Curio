@@ -1,0 +1,121 @@
+/**
+ * Curio Starter Theme Stylesheet
+ * Scoped strictly to [data-theme="curio-theme-starter"]
+ */
+
+[data-theme="curio-theme-starter"] {
+  /* Inherit fonts and base canvas background */
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+}
+
+/* =========================================================================
+ * 1. Top Navigation & Toolbars
+ * ========================================================================= */
+[data-theme="curio-theme-starter"] .toolbar,
+[data-theme="curio-theme-starter"] .top-bar,
+[data-theme="curio-theme-starter"] .header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+/* =========================================================================
+ * 2. Panels, Drawers, and Modals
+ * ========================================================================= */
+[data-theme="curio-theme-starter"] .sidebar,
+[data-theme="curio-theme-starter"] .drawer,
+[data-theme="curio-theme-starter"] .drawer-item {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+[data-theme="curio-theme-starter"] .drawer-item:hover {
+  background: var(--surface-2);
+}
+
+[data-theme="curio-theme-starter"] .drawer-item.active {
+  background: var(--select-bg);
+  color: var(--select-fg);
+}
+
+[data-theme="curio-theme-starter"] .modal-content,
+[data-theme="curio-theme-starter"] .dialog-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-window);
+  box-shadow: var(--shadow-raised);
+}
+
+/* =========================================================================
+ * 3. Buttons & Interactive Controls
+ * ========================================================================= */
+[data-theme="curio-theme-starter"] .btn,
+[data-theme="curio-theme-starter"] button {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  font-family: var(--font-ui);
+  transition: filter 0.15s ease;
+}
+
+[data-theme="curio-theme-starter"] .btn:hover {
+  filter: brightness(1.1);
+}
+
+[data-theme="curio-theme-starter"] .btn:active {
+  box-shadow: var(--shadow-pressed);
+}
+
+[data-theme="curio-theme-starter"] .btn-primary {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+
+[data-theme="curio-theme-starter"] .btn-danger {
+  background: var(--danger);
+  color: #ffffff;
+  border-color: var(--danger);
+}
+
+/* =========================================================================
+ * 4. Cards & Content Tiles
+ * ========================================================================= */
+[data-theme="curio-theme-starter"] .catalog-card,
+[data-theme="curio-theme-starter"] .item-card,
+[data-theme="curio-theme-starter"] .theme-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  color: var(--text);
+}
+
+[data-theme="curio-theme-starter"] .catalog-card:hover,
+[data-theme="curio-theme-starter"] .item-card:hover {
+  border-color: var(--accent);
+}
+
+/* =========================================================================
+ * 5. Form Fields & Inputs
+ * ========================================================================= */
+[data-theme="curio-theme-starter"] input[type="text"],
+[data-theme="curio-theme-starter"] input[type="search"],
+[data-theme="curio-theme-starter"] textarea,
+[data-theme="curio-theme-starter"] select {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  color: var(--text);
+  font-family: var(--font-ui);
+}
+
+[data-theme="curio-theme-starter"] input:focus,
+[data-theme="curio-theme-starter"] textarea:focus,
+[data-theme="curio-theme-starter"] select:focus {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-color: var(--accent);
+}

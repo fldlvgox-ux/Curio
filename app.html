@@ -7,6 +7,7 @@
   <link rel="icon" type="image/svg+xml" href="logo.svg">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#06b6d4">
+  <link rel="stylesheet" href="src/styles/token-bridge.css">
   <script>
     (function() {
       try {
@@ -7807,7 +7808,25 @@
           <span class="theme-section-sub">Distinct visual overhauls & historical OS paradigms</span>
         </div>
         
+        <!-- Plugin Themes Hub Action Bar -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; padding:0.5rem 0.75rem; background:var(--bg-surface-raised); border:1px solid var(--border-subtle); border-radius:var(--radius-md);">
+          <div style="font-size:0.8rem; color:var(--text-muted); display:flex; align-items:center; gap:0.4rem;">
+            <span>🧩 <strong>Plugin Hub:</strong> Drop-in folder & ZIP themes supported</span>
+          </div>
+          <div style="display:flex; gap:0.5rem;">
+            <input type="file" id="plugin-theme-zip-input" accept=".zip" onchange="window._handlePluginZipUpload(this)" style="display:none;">
+            <button type="button" class="btn btn-secondary" id="btn-import-theme-zip" onclick="document.getElementById('plugin-theme-zip-input').click()" style="font-size:0.75rem; padding:0.25rem 0.6rem; display:inline-flex; align-items:center; gap:0.3rem; cursor:pointer;">
+              <span>📦 Import Theme (.zip)</span>
+            </button>
+            <button type="button" class="btn btn-secondary" id="btn-refresh-plugins" onclick="window._renderImportedThemeCards()" style="font-size:0.75rem; padding:0.25rem 0.6rem; display:inline-flex; align-items:center; gap:0.3rem; cursor:pointer;" title="Refresh plugin index">
+              <span>🔄 Refresh</span>
+            </button>
+          </div>
+        </div>
+        
         <div class="theme-grid">
+          <!-- Dynamic Plugin Theme Cards Container -->
+          <div id="plugin-themes-container" style="display:contents;"></div>
           <!-- Cyberpunk (Default) -->
           <div class="theme-card active" data-theme-id="cyber">
             <div class="theme-preview-box" style="background:#090d16; border:1px solid #1e293b;">
@@ -36338,6 +36357,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     const input = document.getElementById("palette-search-input");
     if (!modal || !input) return;
 
+    if (window._renderImportedThemeCards) window._renderImportedThemeCards();
     modal.classList.add("open");
     input.value = "";
     input.focus();
@@ -37744,8 +37764,19 @@ https://github.com/nodeca/pako/blob/main/LICENSE
   function setTheme(themeName) {
     if (themeName === "cyber") {
       document.documentElement.removeAttribute("data-theme");
+      if (window.CurioPluginEngine) window.CurioPluginEngine.clearActivePluginStyle();
     } else {
       document.documentElement.setAttribute("data-theme", themeName);
+      try {
+        const stored = JSON.parse(localStorage.getItem('curio_imported_themes') || '{}');
+        if (stored[themeName] && window.applyPluginTheme) {
+          window.applyPluginTheme(themeName, stored[themeName].manifest, stored[themeName].css);
+        } else if (window.CurioPluginEngine && themeName.startsWith("curio-theme-")) {
+          window.CurioPluginEngine.activateTheme(themeName);
+        } else if (window.CurioPluginEngine) {
+          window.CurioPluginEngine.clearActivePluginStyle();
+        }
+      } catch (e) {}
     }
     localStorage.setItem("curio_active_theme", themeName);
 
@@ -37835,6 +37866,156 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         showToast(`Switched theme to ${card.querySelector(".theme-title").innerText}`, "info");
       });
     });
+
+
+  // --- 10.5.1 UNIVERSAL PLUG-IN THEME ENGINE (FILE:// & DESKTOP COMPATIBLE) ---
+  window.applyPluginTheme = function(id, manifest, css) {
+    let tag = document.getElementById('curio-plugin-active-style');
+    if (!tag) {
+      tag = document.createElement('style');
+      tag.id = 'curio-plugin-active-style';
+      document.head.appendChild(tag);
+    }
+    let tokenCss = '';
+    if (manifest && manifest.tokens) {
+      const entries = Object.entries(manifest.tokens).map(([k, v]) => "  " + k + ": " + v + ";").join("\n");
+      tokenCss = '[data-theme="' + id + '"] {\n' + entries + '\n}\n';
+    }
+    tag.textContent = tokenCss + "\n" + (css || '');
+    document.documentElement.setAttribute('data-theme', id);
+    localStorage.setItem('curio_active_theme', id);
+
+    document.querySelectorAll('.theme-card').forEach(c => {
+      const isAct = (c.getAttribute('data-theme-id') || c.getAttribute('data-theme')) === id;
+      c.classList.toggle('active', isAct);
+      const pill = c.querySelector('.theme-status-pill');
+      if (pill) pill.innerText = isAct ? 'Active' : 'Select';
+    });
+  };
+
+  window._renderImportedThemeCards = function() {
+    const container = document.getElementById('plugin-themes-container');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const activeTheme = localStorage.getItem('curio_active_theme') || 'cyber';
+
+    // Built-in Win95 plugin card
+    const win95Card = document.createElement('div');
+    win95Card.className = 'theme-card' + (activeTheme === 'curio-theme-win95' ? ' active' : '');
+    win95Card.setAttribute('data-theme-id', 'curio-theme-win95');
+    win95Card.innerHTML = `
+      <div class="theme-preview-box" style="background:#008080; border:2px outset #ffffff; overflow:hidden; position:relative;">
+        <div class="mini-titlebar" style="background:linear-gradient(90deg, #000080, #1084d0); color:#ffffff; padding:1px 3px; font-size:7px; font-weight:bold;">
+          <span>WIN95.EXE [PLUGIN]</span>
+        </div>
+        <div class="mini-content" style="background:#c0c0c0; border:1px inset #808080; margin:3px; height:18px; display:flex; align-items:center; justify-content:center;">
+          <span style="font-size:7px; font-weight:bold; color:#000;">3D BEVEL</span>
+        </div>
+      </div>
+      <div class="theme-info">
+        <span class="theme-title">📦 Windows 95 (Plugin)</span>
+        <span class="theme-desc">Modular plugin version with strict contract tokens & bevels</span>
+      </div>
+      <span class="theme-status-pill">${activeTheme === 'curio-theme-win95' ? 'Active' : 'Select'}</span>
+    `;
+    win95Card.addEventListener('click', async () => {
+      try {
+        const res = await fetch('./plugins/curio-theme-win95/manifest.json');
+        const manifest = await res.json();
+        const cssRes = await fetch('./plugins/curio-theme-win95/theme.css');
+        const css = await cssRes.text();
+        window.applyPluginTheme('curio-theme-win95', manifest, css);
+        showToast('Switched to Windows 95 (Plugin)', 'info');
+      } catch (e) {
+        // Fallback for file:// without local server
+        setTheme('win95');
+        showToast('Switched to Windows 95', 'info');
+      }
+    });
+    container.appendChild(win95Card);
+
+    // Any imported .zip themes from localStorage
+    try {
+      const stored = JSON.parse(localStorage.getItem('curio_imported_themes') || '{}');
+      for (const [id, data] of Object.entries(stored)) {
+        const card = document.createElement('div');
+        card.className = 'theme-card' + (activeTheme === id ? ' active' : '');
+        card.setAttribute('data-theme-id', id);
+        card.innerHTML = `
+          <div class="theme-preview-box" style="background:var(--bg-surface-raised); border:1px solid var(--border-subtle); display:flex; align-items:center; justify-content:center;">
+            <div style="font-size:1.2rem;">🎨</div>
+          </div>
+          <div class="theme-info">
+            <span class="theme-title">📦 ${data.manifest.name || id}</span>
+            <span class="theme-desc">${data.manifest.description || 'Imported ZIP Theme'}</span>
+          </div>
+          <span class="theme-status-pill">${activeTheme === id ? 'Active' : 'Select'}</span>
+        `;
+        card.addEventListener('click', () => {
+          window.applyPluginTheme(id, data.manifest, data.css);
+          showToast('Switched to ' + (data.manifest.name || id), 'info');
+        });
+        container.appendChild(card);
+      }
+    } catch (e) {
+      console.warn('Error reading imported themes:', e);
+    }
+  };
+
+  window._handlePluginZipUpload = async function(input) {
+    const file = input && input.files && input.files[0];
+    if (!file) return;
+    try {
+      showToast('Unpacking theme archive...', 'info');
+      if (typeof JSZip === 'undefined') {
+        throw new Error('JSZip is not available.');
+      }
+      const zip = await JSZip.loadAsync(file);
+      let manifestFile = null;
+      let rootPrefix = '';
+      for (const relPath in zip.files) {
+        if (relPath.endsWith('manifest.json') && !zip.files[relPath].dir) {
+          manifestFile = zip.files[relPath];
+          if (relPath.includes('/')) {
+            rootPrefix = relPath.substring(0, relPath.lastIndexOf('/') + 1);
+          }
+          break;
+        }
+      }
+      if (!manifestFile) {
+        throw new Error('manifest.json not found in ZIP archive.');
+      }
+      const manifestText = await manifestFile.async('text');
+      const manifest = JSON.parse(manifestText);
+      const cssFileName = manifest.files && manifest.files.css ? manifest.files.css : 'theme.css';
+      const cssFile = zip.files[rootPrefix + cssFileName];
+      if (!cssFile) {
+        throw new Error('CSS file "' + cssFileName + '" not found in ZIP.');
+      }
+      const rawCss = await cssFile.async('text');
+
+      // Security check
+      if (/@import\b/i.test(rawCss) || /url\s*\(\s*(?!['"]?data:)[^)]+\)/i.test(rawCss)) {
+        throw new Error('Security violation: External @import or network URLs are prohibited.');
+      }
+
+      // Persist in localStorage
+      const stored = JSON.parse(localStorage.getItem('curio_imported_themes') || '{}');
+      stored[manifest.id] = { manifest, css: rawCss };
+      localStorage.setItem('curio_imported_themes', JSON.stringify(stored));
+
+      // Apply & activate
+      window.applyPluginTheme(manifest.id, manifest, rawCss);
+      window._renderImportedThemeCards();
+      showToast('Theme "' + (manifest.name || manifest.id) + '" imported & activated! 🎉', 'success');
+    } catch (err) {
+      console.error('Theme import error:', err);
+      alert('Failed to import theme: ' + err.message);
+    } finally {
+      input.value = '';
+    }
+  };
 
     // Storage tab actions
     const expBtn = document.getElementById("settings-export-btn");
@@ -39287,5 +39468,113 @@ https://github.com/nodeca/pako/blob/main/LICENSE
   });
 })();
 </script>
+
+<!-- =========================================================================
+     CURIO UNIVERSAL PLUGIN ENGINE INITIALIZATION (ZERO-BUILD ES MODULE)
+     ========================================================================= -->
+<script type="module">
+  import { PluginLoader } from './src/plugins/loader.js';
+  import { importThemeZip, restoreImportedThemes } from './src/plugins/importer.js';
+
+  const pluginLoader = new PluginLoader();
+  window.CurioPluginEngine = pluginLoader;
+
+  async function renderPluginCards() {
+    const container = document.getElementById('plugin-themes-container');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const plugins = pluginLoader.getPlugins('theme');
+    const activeTheme = localStorage.getItem('curio_active_theme') || 'cyber';
+
+    for (const p of plugins) {
+      const card = document.createElement('div');
+      card.className = 'theme-card' + (activeTheme === p.id ? ' active' : '');
+      card.setAttribute('data-theme-id', p.id);
+      
+      const previewSrc = p.importedZip ? '' : `${p.path}/${p.preview}`;
+      
+      card.innerHTML = `
+        <div class="theme-preview-box" style="background:#090d16; border:1px solid var(--border-subtle); overflow:hidden; position:relative; display:flex; align-items:center; justify-content:center;">
+          ${previewSrc ? `<img src="${previewSrc}" alt="${p.name}" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">` : ''}
+          <div class="mini-titlebar" style="position:absolute; top:0; left:0; right:0; background:rgba(0,0,0,0.6); padding:2px 4px; font-size:7px; color:#fff;">
+            <span>${p.name.toUpperCase()} (PLUGIN)</span>
+          </div>
+        </div>
+        <div class="theme-info">
+          <span class="theme-title">📦 ${p.name}</span>
+          <span class="theme-desc">${p.description || 'Drop-in plugin theme'}</span>
+        </div>
+        <span class="theme-status-pill">${activeTheme === p.id ? 'Active' : 'Select'}</span>
+      `;
+
+      card.addEventListener('click', async () => {
+        const ok = await pluginLoader.activateTheme(p.id);
+        if (ok) {
+          document.querySelectorAll('.theme-card').forEach(c => {
+            const isAct = c.getAttribute('data-theme-id') === p.id;
+            c.classList.toggle('active', isAct);
+            const pill = c.querySelector('.theme-status-pill');
+            if (pill) pill.innerText = isAct ? 'Active' : 'Select';
+          });
+          if (window.showToast) window.showToast(`Switched to plugin theme ${p.name}`, 'info');
+        }
+      });
+
+      container.appendChild(card);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    try {
+      await pluginLoader.init();
+      restoreImportedThemes(pluginLoader);
+
+      // Check if current theme is a plugin theme
+      const savedTheme = localStorage.getItem('curio_active_theme');
+      if (savedTheme && savedTheme.startsWith('curio-theme-')) {
+        await pluginLoader.activateTheme(savedTheme);
+      }
+
+      await renderPluginCards();
+
+      // Hook Import Theme (.zip)
+      const importBtn = document.getElementById('btn-import-theme-zip');
+      const fileInput = document.getElementById('plugin-theme-zip-input');
+      if (importBtn && fileInput) {
+        importBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', async (e) => {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+          try {
+            if (window.showToast) window.showToast('Unpacking theme package...', 'info');
+            const imported = await importThemeZip(file, pluginLoader);
+            await pluginLoader.activateTheme(imported.id);
+            await renderPluginCards();
+            if (window.showToast) window.showToast(`Theme "${imported.name}" installed and activated!`, 'success');
+          } catch (err) {
+            alert('Failed to import theme: ' + err.message);
+          } finally {
+            fileInput.value = '';
+          }
+        });
+      }
+
+      // Hook Refresh
+      const refreshBtn = document.getElementById('btn-refresh-plugins');
+      if (refreshBtn) {
+        refreshBtn.addEventListener('click', async () => {
+          await pluginLoader.refreshIndex();
+          restoreImportedThemes(pluginLoader);
+          await renderPluginCards();
+          if (window.showToast) window.showToast('Plugin registry refreshed.', 'info');
+        });
+      }
+    } catch (e) {
+      console.warn('[CurioPluginEngine] Startup error:', e);
+    }
+  });
+</script>
+
 </body>
 </html>

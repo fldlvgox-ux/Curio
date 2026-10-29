@@ -1,0 +1,17 @@
+﻿{
+    "version":  "1.0.0",
+    "updatedAt":  "2026-10-29T14:31:48Z",
+    "plugins":  [
+                    {
+                        "id":  "curio-theme-win95",
+                        "name":  "Windows 95",
+                        "version":  "1.0.0",
+                        "type":  "theme",
+                        "author":  "Microsoft (Aesthetic replica for Curio)",
+                        "description":  "Authentic Windows 95 gray 3D bevels, sunken inputs, teal desktop background, and classic titlebars.",
+                        "family":  "retro-os",
+                        "preview":  "preview.png",
+                        "path":  "./plugins/curio-theme-win95"
+                    }
+                ]
+}
