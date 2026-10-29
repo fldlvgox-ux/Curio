@@ -1,6 +1,6 @@
 {
     "version":  "1.0.0",
-    "updatedAt":  "2026-10-29T15:28:49Z",
+    "updatedAt":  "2026-10-29T16:03:14Z",
     "plugins":  [
                     {
                         "id":  "curio-component-quick-stats",
@@ -212,6 +212,19 @@
                         "mountPoint":  null,
                         "dataExtension":  null,
                         "path":  "./plugins/curio-theme-synthwave"
+                    },
+                    {
+                        "id":  "curio-theme-tva",
+                        "name":  "TVA Bureaucracy",
+                        "version":  "1.0.0",
+                        "type":  "theme",
+                        "author":  "Curio \u0026 TVA Research Archive",
+                        "description":  "Brutalist mid-century bureaucracy with warm cream laminates, dark brown ink, bold orange signage, and glowing amber CRT chronomonitors.",
+                        "family":  "retro-bureaucracy",
+                        "preview":  null,
+                        "mountPoint":  null,
+                        "dataExtension":  null,
+                        "path":  "./plugins/curio-theme-tva"
                     },
                     {
                         "id":  "curio-theme-vaporwave",

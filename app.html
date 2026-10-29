@@ -5909,6 +5909,482 @@
       background: rgba(0, 240, 255, 0.1) !important;
     }
 
+    /* ========================================================
+       TVA BUREAUCRACY (RETRO-FUTURIST BUREAUCRACY #16)
+       ======================================================== */
+    /* ============================================================
+       Curio Theme Plugin: TVA Bureaucracy (Theme #16)
+       Family: retro-bureaucracy | Contract: 1.0.0
+       ID: curio-theme-tva
+       Aesthetic: "Mad Men meets Cold-War brutalism & Blade Runner"
+       Warm office laminate, roadside signage orange, hard shadows,
+       and amber phosphor CRT chronomonitors.
+       ============================================================ */
+    
+    /* ── 1. Tokens & Root Properties ── */
+    [data-theme="curio-theme-tva"], [data-theme="tva"] {
+      /* Contract Tokens */
+      --bg:                 #2A1D14;
+      --surface:            #EDE0C4;
+      --surface-2:          #D9C7A0;
+      --text:               #2B1A10;
+      --text-dim:           #6B5338;
+      --accent:             #D9822B;
+      --accent-2:           #E0A82E;
+      --accent-text:        #FFFFFF;
+      --border:             #2B1A10;
+      --select-bg:          #D9822B;
+      --select-fg:          #FFFFFF;
+      --danger:             #9A3B26;
+      --ok:                 #7C8A3A;
+      --warn:               #E0A82E;
+    
+      /* Typography */
+      --font-ui:            'Jost', 'Century Gothic', 'Futura', 'Avenir Next', system-ui, sans-serif;
+      --font-display:       'Jost', 'Century Gothic', 'Futura', sans-serif;
+      --font-mono:          ui-monospace, 'Courier New', monospace;
+      --font-size-base:     13px;
+      --font-smoothing:     antialiased;
+    
+      /* Shape & Density */
+      --radius-window:      0px;
+      --radius-control:     0px;
+      --radius-chip:        0px;
+      --avatar-shape:       0%;
+      --bevel-width:        0px;
+    
+      /* Depth & Shadow (Hard brutalist offset - no soft blur) */
+      --shadow-raised:      3px 3px 0 #2B1A10;
+      --shadow-hard:        4px 4px 0 #2B1A10;
+      --shadow-pressed:     inset 2px 2px 0 #2B1A10;
+      --focus-ring:         0 0 0 2px #D9822B;
+      --default-button-ring:0 0 0 2px #2B1A10;
+    
+      /* TVA Screen & CRT Spec Tokens */
+      --screen-bg:          #16100A;
+      --screen-ink:         #FFA63D;
+      --screen-ink-dim:     #8A5320;
+      --radius-screen:      18px;
+    
+      /* Legacy variable mappings for app.html compatibility */
+      --bg-base:            #2A1D14;
+      --bg-surface:         #EDE0C4;
+      --bg-surface-raised:  #D9C7A0;
+      --bg-surface-hover:   #F5EBDA;
+      --bg-panel:           #24180F;
+      --border-subtle:      #3D2B1E;
+      --border-medium:      #2B1A10;
+      --border-bright:      #D9822B;
+      --accent-cyan:        #D9822B;
+      --accent-cyan-glow:   rgba(217, 130, 43, 0.4);
+      --text-main:          #2B1A10;
+      --text-muted:         #6B5338;
+      --text-dim-legacy:    #8F7355;
+      --shadow-glow:        none;
+    }
+    
+    /* ── 2. Canvas, Shell & Background ── */
+    [data-theme="curio-theme-tva"], [data-theme="tva"] {
+      background-color: #2A1D14 !important;
+      color: #2B1A10 !important;
+      font-family: var(--font-ui) !important;
+    }
+    
+    [data-theme="curio-theme-tva"] body,
+    [data-theme="tva"] body {
+      background-color: #2A1D14;
+      color: #2B1A10;
+      font-family: var(--font-ui);
+    }
+    
+    /* ── 3. Top Header Bar (Brutalist Signage Block) ── */
+    [data-theme="curio-theme-tva"] .top-bar,
+    [data-theme="tva"] .top-bar {
+      background: #D9822B !important;
+      color: #FFFFFF !important;
+      border-bottom: 3px solid #2B1A10 !important;
+      box-shadow: 0 4px 0 #1A110B !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .top-bar .catalog-title,
+    [data-theme="tva"] .top-bar .catalog-title {
+      color: #FFFFFF !important;
+      font-family: var(--font-display) !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      text-shadow: 1px 1px 0 #2B1A10 !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .top-bar .search-box-container,
+    [data-theme="tva"] .top-bar .search-box-container {
+      background: #EDE0C4 !important;
+      border: 2px solid #2B1A10 !important;
+      border-radius: 0 !important;
+      box-shadow: 2px 2px 0 #2B1A10 !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .top-bar .search-input,
+    [data-theme="tva"] .top-bar .search-input {
+      color: #2B1A10 !important;
+      font-family: var(--font-mono) !important;
+      font-weight: 600 !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .top-bar .search-input::placeholder,
+    [data-theme="tva"] .top-bar .search-input::placeholder {
+      color: #8A6E50 !important;
+      font-family: var(--font-ui) !important;
+    }
+    
+    /* ── 4. Sidebar & Catalog Navigation ── */
+    [data-theme="curio-theme-tva"] .sidebar,
+    [data-theme="tva"] .sidebar {
+      background: #24180F !important;
+      border-right: 3px solid #2B1A10 !important;
+      color: #EDE0C4 !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .sidebar-header,
+    [data-theme="tva"] .sidebar-header {
+      border-bottom: 2px solid #3D2B1E !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .drawer-item,
+    [data-theme="tva"] .drawer-item {
+      color: #D9C7A0 !important;
+      border-radius: 0 !important;
+      font-family: var(--font-display) !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
+      border-left: 3px solid transparent !important;
+      margin-bottom: 2px !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .drawer-item:hover,
+    [data-theme="tva"] .drawer-item:hover {
+      background: #3A271A !important;
+      color: #FFFFFF !important;
+      border-left-color: #E0A82E !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .drawer-item.active,
+    [data-theme="tva"] .drawer-item.active {
+      background: #D9822B !important;
+      color: #FFFFFF !important;
+      border-left-color: #FFFFFF !important;
+      box-shadow: 2px 2px 0 #16100A !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .drawer-count,
+    [data-theme="tva"] .drawer-count {
+      background: #1A110B !important;
+      color: #FFA63D !important;
+      border: 1px solid #3D2B1E !important;
+      border-radius: 0 !important;
+      font-family: var(--font-mono) !important;
+      font-weight: bold !important;
+      padding: 1px 5px !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .drawer-item.active .drawer-count,
+    [data-theme="tva"] .drawer-item.active .drawer-count {
+      background: #2B1A10 !important;
+      color: #FFFFFF !important;
+      border-color: #FFFFFF !important;
+    }
+    
+    /* ── 5. Filter Panel & Controls ── */
+    [data-theme="curio-theme-tva"] .filter-panel,
+    [data-theme="tva"] .filter-panel {
+      background: #332216 !important;
+      border-bottom: 2px solid #2B1A10 !important;
+      color: #EDE0C4 !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .results-count,
+    [data-theme="tva"] .results-count {
+      color: #D9C7A0 !important;
+      font-family: var(--font-mono) !important;
+      letter-spacing: 0.05em !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .results-count strong,
+    [data-theme="tva"] .results-count strong {
+      color: #FFA63D !important;
+    }
+    
+    /* ── 6. Buttons (Chunky Flat Blocks with Hard Inset Press) ── */
+    [data-theme="curio-theme-tva"] .btn-primary,
+    [data-theme="tva"] .btn-primary {
+      background: #D9822B !important;
+      color: #FFFFFF !important;
+      border: 2px solid #2B1A10 !important;
+      border-radius: 0 !important;
+      font-family: var(--font-display) !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      box-shadow: 3px 3px 0 #2B1A10 !important;
+      transition: transform 0.08s ease, box-shadow 0.08s ease !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .btn-primary:active,
+    [data-theme="tva"] .btn-primary:active {
+      transform: translate(2px, 2px) !important;
+      box-shadow: 1px 1px 0 #2B1A10 !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .btn-secondary,
+    [data-theme="curio-theme-tva"] .view-btn,
+    [data-theme="curio-theme-tva"] .pill-toggle,
+    [data-theme="tva"] .btn-secondary,
+    [data-theme="tva"] .view-btn,
+    [data-theme="tva"] .pill-toggle {
+      background: #EDE0C4 !important;
+      color: #2B1A10 !important;
+      border: 2px solid #2B1A10 !important;
+      border-radius: 0 !important;
+      font-family: var(--font-display) !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      box-shadow: 2px 2px 0 #2B1A10 !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .btn-secondary:hover,
+    [data-theme="curio-theme-tva"] .view-btn:hover,
+    [data-theme="curio-theme-tva"] .pill-toggle:hover,
+    [data-theme="tva"] .btn-secondary:hover,
+    [data-theme="tva"] .view-btn:hover,
+    [data-theme="tva"] .pill-toggle:hover {
+      background: #F5EBDA !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .view-btn.active,
+    [data-theme="curio-theme-tva"] .pill-toggle.active,
+    [data-theme="tva"] .view-btn.active,
+    [data-theme="tva"] .pill-toggle.active {
+      background: #D9822B !important;
+      color: #FFFFFF !important;
+      box-shadow: inset 2px 2px 0 #2B1A10 !important;
+      transform: translate(1px, 1px) !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .btn-danger,
+    [data-theme="tva"] .btn-danger {
+      background: #9A3B26 !important;
+      color: #FFFFFF !important;
+      border: 2px solid #2B1A10 !important;
+      border-radius: 0 !important;
+      font-family: var(--font-display) !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      box-shadow: 3px 3px 0 #2B1A10 !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .btn-danger:active,
+    [data-theme="tva"] .btn-danger:active {
+      transform: translate(2px, 2px) !important;
+      box-shadow: 1px 1px 0 #2B1A10 !important;
+    }
+    
+    /* ── 7. Item Cards (Cream Paper Laminate Blocks) ── */
+    [data-theme="curio-theme-tva"] .item-card,
+    [data-theme="curio-theme-tva"] .detail-card,
+    [data-theme="tva"] .item-card,
+    [data-theme="tva"] .detail-card {
+      background: #EDE0C4 !important;
+      color: #2B1A10 !important;
+      border: 2px solid #2B1A10 !important;
+      border-radius: 0 !important;
+      box-shadow: 4px 4px 0 #1A110B !important;
+      transition: transform 0.1s ease, box-shadow 0.1s ease !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .item-card:hover,
+    [data-theme="tva"] .item-card:hover {
+      transform: translate(-2px, -2px) !important;
+      box-shadow: 6px 6px 0 #1A110B !important;
+      border-color: #D9822B !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .card-title,
+    [data-theme="tva"] .card-title {
+      color: #2B1A10 !important;
+      font-family: var(--font-display) !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.02em !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .card-notes,
+    [data-theme="tva"] .card-notes {
+      color: #4A3322 !important;
+      font-family: var(--font-ui) !important;
+    }
+    
+    /* ── 8. Rubber-Stamp Badges (Tilted Authentic Bureaucracy) ── */
+    [data-theme="curio-theme-tva"] .status-badge,
+    [data-theme="curio-theme-tva"] .item-card .card-meta-row .status-badge,
+    [data-theme="tva"] .status-badge,
+    [data-theme="tva"] .item-card .card-meta-row .status-badge {
+      border: 2px solid #9A3B26 !important;
+      background: rgba(154, 59, 38, 0.12) !important;
+      color: #9A3B26 !important;
+      border-radius: 0 !important;
+      font-family: var(--font-mono) !important;
+      font-weight: 900 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      transform: rotate(-2deg) !important;
+      display: inline-block !important;
+      padding: 1px 6px !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .status-badge.status-completed,
+    [data-theme="tva"] .status-badge.status-completed {
+      border-color: #7C8A3A !important;
+      color: #4E5920 !important;
+      background: rgba(124, 138, 58, 0.15) !important;
+      transform: rotate(2deg) !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .drawer-chip,
+    [data-theme="tva"] .drawer-chip {
+      background: #D9C7A0 !important;
+      color: #2B1A10 !important;
+      border: 1px solid #2B1A10 !important;
+      border-radius: 0 !important;
+      font-family: var(--font-mono) !important;
+      font-size: 0.72rem !important;
+      font-weight: 700 !important;
+    }
+    
+    /* ── 9. Chronomonitor Recessed CRT Screens (Modals & Inspectors) ── */
+    [data-theme="curio-theme-tva"] .modal-content,
+    [data-theme="curio-theme-tva"] .lightbox-content,
+    [data-theme="tva"] .modal-content,
+    [data-theme="tva"] .lightbox-content {
+      background: #16100A !important;
+      border: 4px solid #2B1A10 !important;
+      border-radius: 18px !important;
+      box-shadow: 0 0 0 6px #24180F, 8px 8px 0 #000000 !important;
+      color: #FFA63D !important;
+      position: relative !important;
+    }
+    
+    /* Subtle CRT Scanlines & Tube Curve Vignette */
+    [data-theme="curio-theme-tva"] .modal-content::before,
+    [data-theme="tva"] .modal-content::before {
+      content: "" !important;
+      position: absolute !important;
+      top: 0; left: 0; right: 0; bottom: 0 !important;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 2px,
+        transparent 2px,
+        transparent 4px
+      ) !important;
+      pointer-events: none !important;
+      border-radius: 14px !important;
+      z-index: 10 !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .modal-header,
+    [data-theme="tva"] .modal-header {
+      border-bottom: 2px solid #3D2B1E !important;
+      background: #1F170E !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .modal-title,
+    [data-theme="tva"] .modal-title {
+      color: #FFA63D !important;
+      font-family: var(--font-mono) !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      text-shadow: 0 0 8px rgba(255, 166, 61, 0.5) !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .form-label,
+    [data-theme="tva"] .form-label {
+      color: #FFA63D !important;
+      font-family: var(--font-display) !important;
+      font-size: 0.75rem !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+    }
+    
+    /* ── 10. Form Inputs (Ruled Paperwork Style) ── */
+    [data-theme="curio-theme-tva"] .form-input,
+    [data-theme="curio-theme-tva"] .form-textarea,
+    [data-theme="curio-theme-tva"] .form-select,
+    [data-theme="tva"] .form-input,
+    [data-theme="tva"] .form-textarea,
+    [data-theme="tva"] .form-select {
+      background: #110C07 !important;
+      color: #FFA63D !important;
+      border: 1px solid #3D2B1E !important;
+      border-bottom: 2px solid #FFA63D !important;
+      border-radius: 0 !important;
+      font-family: var(--font-mono) !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .form-input:focus,
+    [data-theme="curio-theme-tva"] .form-textarea:focus,
+    [data-theme="curio-theme-tva"] .form-select:focus,
+    [data-theme="tva"] .form-input:focus,
+    [data-theme="tva"] .form-textarea:focus,
+    [data-theme="tva"] .form-select:focus {
+      outline: none !important;
+      border-color: #FFA63D !important;
+      box-shadow: 0 0 10px rgba(255, 166, 61, 0.4) !important;
+    }
+    
+    /* ── 11. Tags, Chips & Pills ── */
+    [data-theme="curio-theme-tva"] .tag-pill,
+    [data-theme="tva"] .tag-pill {
+      background: #EDE0C4 !important;
+      color: #2B1A10 !important;
+      border: 1px solid #2B1A10 !important;
+      border-radius: 0 !important;
+      font-family: var(--font-mono) !important;
+      font-size: 0.72rem !important;
+      box-shadow: 1px 1px 0 #2B1A10 !important;
+    }
+    
+    [data-theme="curio-theme-tva"] .tag-pill.active,
+    [data-theme="tva"] .tag-pill.active {
+      background: #D9822B !important;
+      color: #FFFFFF !important;
+      border-color: #2B1A10 !important;
+      box-shadow: inset 1px 1px 0 #2B1A10 !important;
+    }
+    
+    /* ── 12. Scrollbars (Brutalist Blocks) ── */
+    [data-theme="curio-theme-tva"] ::-webkit-scrollbar,
+    [data-theme="tva"] ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    
+    [data-theme="curio-theme-tva"] ::-webkit-scrollbar-track,
+    [data-theme="tva"] ::-webkit-scrollbar-track {
+      background: #24180F;
+    }
+    
+    [data-theme="curio-theme-tva"] ::-webkit-scrollbar-thumb,
+    [data-theme="tva"] ::-webkit-scrollbar-thumb {
+      background: #6B5338;
+      border: 2px solid #24180F;
+    }
+    
+    [data-theme="curio-theme-tva"] ::-webkit-scrollbar-thumb:hover,
+    [data-theme="tva"] ::-webkit-scrollbar-thumb:hover {
+      background: #D9822B;
+    }
+    
+
     /* ======================== */
     /* Easter Eggs System Styles */
     /* ======================== */
@@ -7866,6 +8342,23 @@
           </div>
 
           <!-- Windows 95 -->
+          <!-- TVA Bureaucracy -->
+          <div class="theme-card" data-theme-id="tva" onclick="setTheme('tva')">
+            <div class="theme-preview-box" style="background:#2A1D14; border:2px solid #2B1A10; overflow:hidden;">
+              <div class="mini-titlebar" style="background:#D9822B; color:#FFFFFF; padding:1px 3px; font-size:7px; font-weight:900; letter-spacing:0.05em;">
+                <span>CHRONO // DEPT 04</span>
+              </div>
+              <div class="mini-content" style="background:#EDE0C4; border:1px solid #2B1A10; margin:3px; height:18px; display:flex; align-items:center; justify-content:center;">
+                <span style="font-size:7px; font-weight:900; color:#9A3B26; border:1px solid #9A3B26; padding:0 2px; transform:rotate(-2deg);">PENDING</span>
+              </div>
+            </div>
+            <div class="theme-info">
+              <span class="theme-title">⌛ TVA Bureaucracy</span>
+              <span class="theme-desc">Warm office laminate, roadside signage orange & amber CRT displays</span>
+            </div>
+            <span class="theme-status-pill">Select</span>
+          </div>
+
           <div class="theme-card" data-theme-id="win95">
             <div class="theme-preview-box" style="background:#008080; border:2px outset #ffffff;">
               <div class="mini-titlebar" style="background:linear-gradient(90deg, #000080, #1084d0); color:#ffffff;">
@@ -36403,6 +36896,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     { id: "vaporwave", name: "Vaporwave / A E S T H E T I C", icon: "🌺", tag: "Interface Theme" },
     { id: "blueprint", name: "Blueprint / Technical Drawing", icon: "📐", tag: "Interface Theme" },
     { id: "jarvis", name: "Iron Man Jarvis / Holographic HUD", icon: "🤖", tag: "Interface Theme" },
+    { id: "tva", name: "TVA Bureaucracy", icon: "⌛", tag: "Interface Theme" },
     { id: "synthwave", name: "Synthwave Sunset", icon: "🌅", tag: "Studio Palette" },
     { id: "nord", name: "Nord Frost", icon: "❄️", tag: "Studio Palette" },
     { id: "matrix", name: "Matrix Terminal", icon: "🟢", tag: "Studio Palette" },
