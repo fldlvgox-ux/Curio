@@ -1,0 +1,35 @@
+<div class="quick-stats-hud-card" id="hud-root">
+  <div class="hud-header">
+    <div class="hud-header-left">
+      <span class="hud-status-dot"></span>
+      <span class="hud-title">CURIO TELEMETRY</span>
+    </div>
+    <div class="hud-header-actions">
+      <button class="hud-action-btn" id="hud-toggle-btn" title="Minimize / Expand">_</button>
+      <button class="hud-action-btn" id="hud-close-btn" title="Dismiss HUD">✕</button>
+    </div>
+  </div>
+
+  <div class="hud-body" id="hud-body-content">
+    <div class="hud-catalog-row">
+      <span class="hud-label">CATALOG</span>
+      <span class="hud-val-highlight" id="hud-val-catalog">Loading...</span>
+    </div>
+
+    <div class="hud-grid-metrics">
+      <div class="hud-metric-tile">
+        <span class="hud-metric-number" id="hud-val-items">0</span>
+        <span class="hud-metric-label">TOTAL ITEMS</span>
+      </div>
+      <div class="hud-metric-tile">
+        <span class="hud-metric-number" id="hud-val-drawers">0</span>
+        <span class="hud-metric-label">DRAWERS</span>
+      </div>
+    </div>
+
+    <div class="hud-footer-row">
+      <span class="hud-view-pill" id="hud-val-view">GRID VIEW</span>
+      <button class="hud-btn-pulse" id="hud-btn-ping">Ping State ⚡</button>
+    </div>
+  </div>
+</div>

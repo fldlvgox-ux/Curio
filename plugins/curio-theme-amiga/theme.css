@@ -1,0 +1,329 @@
+/* ============================================================
+   Curio Theme Plugin: Amiga Workbench 3.1
+   Family: retro-computing | Contract: 1.0.0
+   ID: curio-theme-amiga
+   ============================================================ */
+
+/* ========================================================
+       AMIGA WORKBENCH 3.1 (COMMODORE 4-COLOR RETRO COMPUTING)
+       ======================================================== */
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] {
+      --bg-base: #0055aa;
+      --bg-surface: #a0a0a0;
+      --bg-surface-raised: #b4b4b4;
+      --bg-surface-hover: #ffffff;
+      --bg-panel: #888888;
+      --border-subtle: #666666;
+      --border-medium: #333333;
+      --border-bright: #ffffff;
+      --accent-cyan: #ff8800;
+      --accent-cyan-glow: rgba(255, 136, 0, 0.3);
+      --text-main: #000000;
+      --text-muted: #222222;
+      --text-dim: #444444;
+      --shadow-glow: none;
+      --radius-sm: 0px;
+      --radius-md: 0px;
+      --radius-lg: 0px;
+      --font-sans: 'Topaz', 'DejaVu Sans Mono', 'Courier New', monospace;
+      --font-mono: 'Topaz', 'Courier New', monospace;
+    }
+
+    /* Amiga Workbench Deep Blue Backdrop */
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] body {
+      background-color: #0055aa;
+      background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.15) 2px, rgba(0, 0, 0, 0.15) 4px);
+      color: #000000;
+      font-family: var(--font-sans);
+    }
+
+    /* Amiga Top Bar - Workbench Screen Header */
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .top-bar {
+      background: #a0a0a0 !important;
+      border-bottom: 2px solid #000000 !important;
+      box-shadow: inset 1px 1px 0px #ffffff, inset -1px -1px 0px #444444 !important;
+      color: #000000 !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .top-bar * {
+      color: #000000 !important;
+    }
+
+    /* Workbench Disk Volume Sidebar */
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .sidebar {
+      background: #a0a0a0 !important;
+      border-right: 2px solid #000000 !important;
+      box-shadow: inset 1px 1px 0px #ffffff, inset -1px 0px 0px #555555 !important;
+    }
+
+    /* Inset Text Boxes & Search */
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .search-box-container,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .form-input,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .form-textarea,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .select-custom,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .form-select,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .tag-search-box {
+      background: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+      border-radius: 0px !important;
+      box-shadow: inset 2px 2px 0px #000000, inset -1px -1px 0px #ffffff !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .search-input {
+      color: #000000 !important;
+      font-family: var(--font-mono) !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .search-input::placeholder,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .tag-search-input::placeholder {
+      color: #666666 !important;
+    }
+
+    /* Beveled Workbench Buttons */
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .btn-primary,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .btn-secondary,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .btn-icon,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .btn-icon-xs,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .view-btn,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .pill-toggle,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .tag-mode-btn,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .tag-expand-btn,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .clear-filters-btn {
+      background: #a0a0a0 !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+      border-radius: 0px !important;
+      box-shadow: inset 1px 1px 0px #ffffff, inset -1px -1px 0px #444444 !important;
+      font-weight: 700 !important;
+      font-family: var(--font-sans) !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .btn-primary {
+      background: #0055aa !important;
+      color: #ffffff !important;
+      box-shadow: inset 2px 2px 0px #4488dd, inset -2px -2px 0px #002255 !important;
+    }
+
+    /* Inverted Pressed Button State */
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .btn-primary:active,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .btn-secondary:active,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .view-btn.active,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .pill-toggle.active,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .clear-filters-btn:active {
+      background: #ff8800 !important;
+      color: #000000 !important;
+      box-shadow: inset 2px 2px 0px #994400, inset -2px -2px 0px #ffbb66 !important;
+      border-color: #000000 !important;
+    }
+
+    /* Filter Panel */
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .filter-panel {
+      background: #888888 !important;
+      border-bottom: 2px solid #000000 !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .tag-filter-bar {
+      background: #a0a0a0 !important;
+      border: 1px solid #000000 !important;
+      box-shadow: inset 1px 1px 0px #ffffff, inset -1px -1px 0px #444444 !important;
+      border-radius: 0px !important;
+    }
+
+    /* Amiga Workbench Window Cards with Checkered Drag Bar */
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .item-card,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .detail-card {
+      background: #a0a0a0 !important;
+      border: 2px solid #000000 !important;
+      border-radius: 0px !important;
+      box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #444444, 3px 3px 0px rgba(0, 0, 0, 0.6) !important;
+      padding: 0 !important;
+      overflow: hidden;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .item-card:hover {
+      box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #444444, 4px 4px 0px #000000 !important;
+      transform: translateY(-1px) !important;
+    }
+
+    /* Checkered Orange & White Titlebar */
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .item-card .card-meta-row,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .detail-card .detail-header {
+      background: repeating-linear-gradient(45deg, #ff8800, #ff8800 3px, #ffffff 3px, #ffffff 6px) !important;
+      border-bottom: 2px solid #000000 !important;
+      padding: 3px 5px !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .item-card .card-meta-row .status-badge,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .status-badge {
+      background: #0055aa !important;
+      color: #ffffff !important;
+      border: 1px solid #000000 !important;
+      border-radius: 0px !important;
+      font-weight: 700 !important;
+      font-size: 0.68rem !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+      box-shadow: 1px 1px 0px #000 !important;
+    }
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .status-badge::before {
+      background: #ff8800 !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .drawer-count {
+      background: #0055aa !important;
+      color: #ffffff !important;
+      border: 1px solid #000000 !important;
+      font-weight: bold !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .item-card .card-meta-row .drawer-chip {
+      background: #000000 !important;
+      color: #ffffff !important;
+      border: 1px solid #ffffff !important;
+      font-weight: 700 !important;
+      font-size: 0.68rem !important;
+      border-radius: 0px !important;
+      box-shadow: 1px 1px 0px #000 !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .card-body {
+      background: #a0a0a0 !important;
+      color: #000000 !important;
+      padding: 0.5rem !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .card-title {
+      color: #000000 !important;
+      font-weight: 800 !important;
+      border-bottom: 2px solid #000000;
+      padding-bottom: 0.2rem;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .card-notes {
+      color: #111111 !important;
+      font-family: var(--font-mono) !important;
+    }
+
+    /* Amiga Tag Badges */
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .tag-pill,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .card-tag {
+      background: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+      border-radius: 0px !important;
+      box-shadow: inset 1px 1px 0px #ffffff, inset -1px -1px 0px #444444 !important;
+      font-size: 0.65rem !important;
+      font-weight: 700 !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .tag-pill.active {
+      background: #ff8800 !important;
+      color: #000000 !important;
+      border-color: #000000 !important;
+    }
+
+    /* Amiga Drawer List Items */
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .drawer-item {
+      border-radius: 0px !important;
+      color: #000000 !important;
+      border: 1px solid transparent !important;
+      margin: 1px 0 !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .drawer-item:hover {
+      background: #888888 !important;
+      border: 1px solid #000000 !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .drawer-item.active {
+      background: #0055aa !important;
+      color: #ffffff !important;
+      border: 1px solid #000000 !important;
+      box-shadow: inset 1px 1px 0px #4488dd, inset -1px -1px 0px #002255 !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .drawer-item.active span,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .drawer-item.active .drawer-count {
+      color: #ffffff !important;
+    }
+
+    /* Amiga Dialog Modal */
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .modal-window {
+      background: #a0a0a0 !important;
+      border: 2px solid #000000 !important;
+      border-radius: 0px !important;
+      box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #444444, 6px 6px 0px rgba(0, 0, 0, 0.7) !important;
+      padding: 0 !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .modal-header {
+      background: repeating-linear-gradient(45deg, #ff8800, #ff8800 4px, #ffffff 4px, #ffffff 8px) !important;
+      color: #000000 !important;
+      border-bottom: 2px solid #000000 !important;
+      padding: 6px 10px !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .modal-title {
+      background: #000000 !important;
+      color: #ffffff !important;
+      padding: 2px 8px !important;
+      font-weight: 800 !important;
+      border: 1px solid #ffffff !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .modal-body,
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .modal-footer {
+      background: #a0a0a0 !important;
+      color: #000000 !important;
+    }
+
+    /* Amiga Storage Gauge */
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .storage-container {
+      background: #888888 !important;
+      border-top: 2px solid #000000 !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .storage-bar-track {
+      background: #ffffff !important;
+      border: 1px solid #000000 !important;
+      border-radius: 0px !important;
+      box-shadow: inset 1px 1px 0px #000000 !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .storage-bar-fill {
+      background: #ff8800 !important;
+      border-radius: 0px !important;
+      border-right: 1px solid #000000 !important;
+    }
+
+    /* Amiga Table View */
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .catalog-table th {
+      background: #888888 !important;
+      color: #000000 !important;
+      border-bottom: 2px solid #000000 !important;
+      box-shadow: inset 1px 1px 0px #ffffff !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .catalog-table td {
+      border-bottom: 1px solid #777777 !important;
+      color: #000000 !important;
+    }
+
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .catalog-table tr:hover td {
+      background: #b0b0b0 !important;
+    }
+
+
+/* Surgical & Contrast Overrides */
+    [data-theme="curio-theme-amiga"], [data-theme="amiga"] .btn-danger {
+      background: #ff4444 !important;
+      color: #ffffff !important;
+      border: 2px solid #000000 !important;
+      box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000 !important;
+      border-radius: 0 !important;
+      font-family: var(--font-sans) !important;
+      font-weight: bold !important;
+    }

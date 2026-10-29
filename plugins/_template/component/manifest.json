@@ -1,0 +1,15 @@
+{
+  "id": "curio-component-starter",
+  "name": "Starter Widget",
+  "version": "1.0.0",
+  "type": "component",
+  "contract": "1.0.0",
+  "author": "Curio Author",
+  "description": "Baseline template demonstrating full Curio UI component API conformance.",
+  "mountPoint": "floating-widget",
+  "files": {
+    "template": "template.html",
+    "script": "script.js",
+    "css": "styles.css"
+  }
+}

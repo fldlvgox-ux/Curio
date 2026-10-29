@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "contractVersion": "1.0.0",
+  "description": "Universal contract specification for Curio plugins and themes.",
+  "tokens": {
+    "color": {
+      "--bg": { "type": "color", "description": "App/page canvas background", "default": "#090d16" },
+      "--surface": { "type": "color", "description": "Card, panel, and modal background", "default": "#111726" },
+      "--surface-2": { "type": "color", "description": "Raised/nested surface level", "default": "#182238" },
+      "--text": { "type": "color", "description": "Primary high-contrast text", "default": "#f1f5f9" },
+      "--text-dim": { "type": "color", "description": "Secondary or muted text", "default": "#94a3b8" },
+      "--accent": { "type": "color", "description": "Primary interactive color", "default": "#06b6d4" },
+      "--accent-text": { "type": "color", "description": "Text rendered over accent backgrounds", "default": "#ffffff" },
+      "--border": { "type": "color", "description": "Standard border stroke", "default": "#1e293b" },
+      "--select-bg": { "type": "color", "description": "Selected item or active tab background", "default": "#3b82f6" },
+      "--select-fg": { "type": "color", "description": "Selected item text", "default": "#ffffff" },
+      "--danger": { "type": "color", "description": "Destructive or error state", "default": "#f43f5e" },
+      "--ok": { "type": "color", "description": "Success or verified state", "default": "#10b981" },
+      "--warn": { "type": "color", "description": "Warning or attention state", "default": "#f59e0b" }
+    },
+    "type": {
+      "--font-ui": { "type": "font-stack", "default": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" },
+      "--font-display": { "type": "font-stack", "default": "inherit" },
+      "--font-mono": { "type": "font-stack", "default": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" },
+      "--font-size-base": { "type": "length", "default": "14px" },
+      "--font-smoothing": { "type": "keyword", "default": "antialiased" }
+    },
+    "space": {
+      "--space-1": { "type": "length", "default": "4px" },
+      "--space-2": { "type": "length", "default": "8px" },
+      "--space-3": { "type": "length", "default": "12px" },
+      "--space-4": { "type": "length", "default": "16px" },
+      "--space-5": { "type": "length", "default": "24px" },
+      "--row-height": { "type": "length", "default": "36px" },
+      "--control-height": { "type": "length", "default": "32px" },
+      "--pixel-scale": { "type": "number", "default": "1" }
+    },
+    "shape": {
+      "--radius-window": { "type": "length", "default": "12px" },
+      "--radius-control": { "type": "length", "default": "6px" },
+      "--radius-chip": { "type": "length", "default": "999px" },
+      "--avatar-shape": { "type": "keyword", "default": "50%" },
+      "--cut-tl": { "type": "length", "default": "0" },
+      "--cut-tr": { "type": "length", "default": "0" },
+      "--cut-br": { "type": "length", "default": "0" },
+      "--cut-bl": { "type": "length", "default": "0" }
+    },
+    "material": {
+      "--bevel-light": { "type": "color", "default": "transparent" },
+      "--bevel-dark": { "type": "color", "default": "transparent" },
+      "--bevel-width": { "type": "length", "default": "0" },
+      "--shadow-raised": { "type": "shadow", "default": "0 2px 8px rgba(0,0,0,0.3)" },
+      "--shadow-pressed": { "type": "shadow", "default": "inset 0 2px 4px rgba(0,0,0,0.3)" },
+      "--shadow-hard": { "type": "shadow", "default": "none" },
+      "--gradient-title": { "type": "gradient", "default": "none" },
+      "--gradient-button": { "type": "gradient", "default": "none" },
+      "--grain": { "type": "keyword", "default": "none" },
+      "--dither-pattern": { "type": "keyword", "default": "none" }
+    },
+    "focus": {
+      "--focus-ring": { "type": "shadow", "default": "0 0 0 2px var(--accent)" },
+      "--default-button-ring": { "type": "shadow", "default": "none" }
+    }
+  },
+  "parts": [
+    "window", "titlebar", "menubar", "toolbar", "panel", "header", "banner",
+    "tabstrip", "tab", "statusbar", "group", "sidebar",
+    "button", "toggle", "switch", "chip",
+    "slider", "checkbox", "radio", "textfield", "dropdown",
+    "readout", "list", "listrow", "propertyrow", "statblock", "badge",
+    "progress", "segmentmap", "visualizer", "avatar", "datagrid", "tree", "scrollbar",
+    "dialog", "alert", "note", "taskbar", "taskbar-item"
+  ],
+  "states": ["idle", "hover", "pressed", "disabled", "focus", "selected"],
+  "security": {
+    "allowed": ["CSS", "SVG", "JSON", "system fonts", "data: URIs"],
+    "forbidden": [
+      "JavaScript in themes",
+      "@import",
+      "url() to remote domains (only data: allowed)",
+      "iframe",
+      "object",
+      "foreignObject in SVG",
+      "expression() or behavior:",
+      "external network requests"
+    ]
+  }
+}

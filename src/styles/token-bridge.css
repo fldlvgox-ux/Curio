@@ -1,0 +1,85 @@
+/**
+ * Curio Token Bridge (Non-breaking compatibility layer)
+ * Maps universal v1.0 contract tokens to/from legacy Curio variables.
+ * Safe to include globally without changing existing layouts.
+ */
+
+:root {
+  /* =========================================================================
+   * Bridge: Contract Tokens -> Fallback to Curio Legacy Tokens
+   * ========================================================================= */
+  --bg: var(--bg-base, #090d16);
+  --surface: var(--bg-surface, #111726);
+  --surface-2: var(--bg-surface-raised, #182238);
+  --text: var(--text-main, #f1f5f9);
+  --text-dim: var(--text-muted, #94a3b8);
+  --accent: var(--accent-cyan, #06b6d4);
+  --accent-text: #ffffff;
+  --border: var(--border-subtle, #1e293b);
+  --select-bg: var(--status-explore, #38bdf8);
+  --select-fg: #ffffff;
+  --danger: var(--accent-rose, #f43f5e);
+  --ok: var(--accent-emerald, #10b981);
+  --warn: var(--accent-amber, #f59e0b);
+
+  --font-ui: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  --font-display: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  /* --font-mono is unchanged in both systems */
+
+  --radius-window: var(--radius-lg, 12px);
+  --radius-control: var(--radius-sm, 4px);
+  --radius-chip: var(--radius-xl, 16px);
+
+  --shadow-raised: var(--shadow-lg, 0 10px 30px -5px rgba(0, 0, 0, 0.6));
+  --focus-ring: 0 0 0 2px var(--accent, #06b6d4);
+
+  /* Defaults for material tokens */
+  --bevel-light: transparent;
+  --bevel-dark: transparent;
+  --bevel-width: 0px;
+  --shadow-pressed: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-hard: none;
+  --gradient-title: none;
+  --gradient-button: none;
+  --grain: none;
+  --dither-pattern: none;
+  --cut-tl: 0px;
+  --cut-tr: 0px;
+  --cut-br: 0px;
+  --cut-bl: 0px;
+}
+
+/* =========================================================================
+ * Reverse Bridge for Plugin Themes:
+ * When a plugin theme sets --bg, --surface, --accent, etc.,
+ * mirror them back to legacy variables so the core app updates seamlessly.
+ * ========================================================================= */
+[data-theme^="curio-theme-"] {
+  --bg-base: var(--bg);
+  --bg-surface: var(--surface);
+  --bg-surface-raised: var(--surface-2);
+  --bg-surface-hover: var(--surface-2);
+  --bg-panel: var(--surface);
+  
+  --border-subtle: var(--border);
+  --border-medium: var(--border);
+  --border-bright: var(--accent);
+
+  --text-main: var(--text);
+  --text-muted: var(--text-dim);
+  --text-dim: var(--text-dim);
+
+  --accent-cyan: var(--accent);
+  --accent-cyan-glow: rgba(6, 182, 212, 0.25);
+  --accent-emerald: var(--ok);
+  --accent-amber: var(--warn);
+  --accent-rose: var(--danger);
+
+  --radius-sm: var(--radius-control);
+  --radius-md: var(--radius-control);
+  --radius-lg: var(--radius-window);
+  --radius-xl: var(--radius-chip);
+
+  --font-sans: var(--font-ui);
+  --shadow-lg: var(--shadow-raised);
+}

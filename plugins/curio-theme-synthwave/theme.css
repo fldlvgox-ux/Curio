@@ -1,0 +1,41 @@
+/* ============================================================
+   Curio Plugin: Synthwave Sunset
+   Family: studio-palette | Contract: 1.0.0
+   Deep purple base with rose-pink accents
+   ============================================================ */
+
+[data-theme="curio-theme-synthwave"] {
+  /* ── Contract Tokens ── */
+  --bg:           #0c0817;
+  --surface:      #17112c;
+  --surface-2:    #231942;
+  --text:         #fdf2f8;
+  --text-dim:     #f472b6;
+  --accent:       #f43f5e;
+  --accent-text:  #ffffff;
+  --border:       #2d1f54;
+  --select-bg:    #f43f5e;
+  --select-fg:    #ffffff;
+  --danger:       #ef4444;
+  --ok:           #10b981;
+  --warn:         #eab308;
+
+  --shadow-raised: 0 2px 8px rgba(244, 63, 94, 0.15);
+  --focus-ring:    0 0 0 2px rgba(244, 63, 94, 0.5);
+
+  /* ── Legacy Aliases (consumed by app.html via token-bridge) ── */
+  --bg-base:           #0c0817;
+  --bg-surface:        #17112c;
+  --bg-surface-raised: #231942;
+  --bg-surface-hover:  #31225c;
+  --bg-panel:          #1b1335;
+  --border-subtle:     #2d1f54;
+  --border-medium:     #473285;
+  --border-bright:     #f43f5e;
+  --accent-cyan:       #f43f5e;
+  --accent-cyan-glow:  rgba(244, 63, 94, 0.3);
+  --text-main:         #fdf2f8;
+  --text-muted:        #f472b6;
+  --text-dim-legacy:   #9d4edd;
+  --shadow-glow:       0 0 15px rgba(244, 63, 94, 0.35);
+}

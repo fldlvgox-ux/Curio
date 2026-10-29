@@ -1,0 +1,22 @@
+{
+  "id": "curio-data-markdown-table",
+  "name": "Markdown Table Adapter",
+  "version": "1.0.0",
+  "type": "data-extension",
+  "contract": "1.0.0",
+  "author": "Curio Core",
+  "description": "Imports and exports Curio catalog items to and from Markdown tables with headers, drawers, tags, and notes.",
+  "family": "data-format",
+  "preview": null,
+  "mountPoint": null,
+  "files": {
+    "adapter": "adapter.js"
+  },
+  "dataExtension": {
+    "displayName": "Markdown Table (*.md)",
+    "formats": ["markdown", "md"],
+    "fileExtensions": [".md", ".markdown", ".txt"],
+    "mimeType": "text/markdown",
+    "modes": ["import", "export"]
+  }
+}

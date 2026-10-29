@@ -1,0 +1,15 @@
+{
+  "id": "curio-component-quick-stats",
+  "name": "Quick Stats HUD",
+  "version": "1.0.0",
+  "type": "component",
+  "contract": "1.0.0",
+  "author": "Curio Core",
+  "description": "Real-time floating telemetry HUD displaying active catalog metrics, total items tally, and drawer counts.",
+  "mountPoint": "floating-widget",
+  "files": {
+    "template": "template.html",
+    "script": "script.js",
+    "css": "styles.css"
+  }
+}

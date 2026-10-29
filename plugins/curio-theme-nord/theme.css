@@ -1,0 +1,41 @@
+/* ============================================================
+   Curio Plugin: Nord Frost
+   Family: studio-palette | Contract: 1.0.0
+   Cool blue-gray tones inspired by the Nord palette
+   ============================================================ */
+
+[data-theme="curio-theme-nord"] {
+  /* ── Contract Tokens ── */
+  --bg:           #161a22;
+  --surface:      #1f2430;
+  --surface-2:    #282e3d;
+  --text:         #f8fafc;
+  --text-dim:     #94a3b8;
+  --accent:       #38bdf8;
+  --accent-text:  #0f172a;
+  --border:       #2f384a;
+  --select-bg:    #38bdf8;
+  --select-fg:    #0f172a;
+  --danger:       #ef4444;
+  --ok:           #22c55e;
+  --warn:         #eab308;
+
+  --shadow-raised: 0 2px 8px rgba(56, 189, 248, 0.12);
+  --focus-ring:    0 0 0 2px rgba(56, 189, 248, 0.5);
+
+  /* ── Legacy Aliases (consumed by app.html via token-bridge) ── */
+  --bg-base:           #161a22;
+  --bg-surface:        #1f2430;
+  --bg-surface-raised: #282e3d;
+  --bg-surface-hover:  #343c4f;
+  --bg-panel:          #222836;
+  --border-subtle:     #2f384a;
+  --border-medium:     #414d64;
+  --border-bright:     #38bdf8;
+  --accent-cyan:       #38bdf8;
+  --accent-cyan-glow:  rgba(56, 189, 248, 0.25);
+  --text-main:         #f8fafc;
+  --text-muted:        #94a3b8;
+  --text-dim-legacy:   #64748b;
+  --shadow-glow:       0 0 15px rgba(56, 189, 248, 0.35);
+}
