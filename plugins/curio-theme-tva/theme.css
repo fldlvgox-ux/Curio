@@ -4,7 +4,7 @@
    ID: curio-theme-tva
    Aesthetic: "Mad Men meets Cold-War brutalism & Blade Runner"
    Warm office laminate, roadside signage orange, hard shadows,
-   and amber phosphor CRT chronomonitors.
+   amber phosphor CRT chronomonitors, and full atmospheric overlays.
    ============================================================ */
 
 /* ── 1. Tokens & Root Properties ── */
@@ -14,7 +14,7 @@
   --surface:            #EDE0C4;
   --surface-2:          #D9C7A0;
   --text:               #2B1A10;
-  --text-dim:           #6B5338;
+  --text-dim:           #8F7355;
   --accent:             #D9822B;
   --accent-2:           #E0A82E;
   --accent-text:        #FFFFFF;
@@ -57,7 +57,7 @@
   --bg-surface:         #EDE0C4;
   --bg-surface-raised:  #D9C7A0;
   --bg-surface-hover:   #F5EBDA;
-  --bg-panel:           #24180F;
+  --bg-panel:           #1F140C;
   --border-subtle:      #3D2B1E;
   --border-medium:      #2B1A10;
   --border-bright:      #D9822B;
@@ -69,7 +69,26 @@
   --shadow-glow:        none;
 }
 
-/* ── 2. Canvas, Shell & Background ── */
+/* ── 2. Atmospheric CRT Scanline & Warm Tungsten Vignette Overlay ── */
+[data-theme="curio-theme-tva"] body::after,
+[data-theme="tva"] body::after {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 99999 !important;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.08),
+      rgba(0, 0, 0, 0.08) 2px,
+      transparent 2px,
+      transparent 4px
+    ) !important;
+  box-shadow: inset 0 0 120px rgba(22, 16, 10, 0.6) !important;
+}
+
+/* ── 3. Canvas & Shell ── */
 [data-theme="curio-theme-tva"], [data-theme="tva"] {
   background-color: #2A1D14 !important;
   color: #2B1A10 !important;
@@ -83,62 +102,111 @@
   font-family: var(--font-ui);
 }
 
-/* ── 3. Top Header Bar (Brutalist Signage Block) ── */
-[data-theme="curio-theme-tva"] .top-bar,
-[data-theme="tva"] .top-bar {
-  background: #D9822B !important;
-  color: #FFFFFF !important;
-  border-bottom: 3px solid #2B1A10 !important;
-  box-shadow: 0 4px 0 #1A110B !important;
+/* ── 4. Brand Header & Custom TVA Hourglass Logo ── */
+[data-theme="curio-theme-tva"] .brand-header,
+[data-theme="tva"] .brand-header {
+  background: #1A110A !important;
+  border-bottom: 2px solid #3D2B1E !important;
+  padding: 0.85rem 1rem !important;
 }
 
-[data-theme="curio-theme-tva"] .top-bar .catalog-title,
-[data-theme="tva"] .top-bar .catalog-title {
-  color: #FFFFFF !important;
+/* Hide default folder SVG */
+[data-theme="curio-theme-tva"] .brand-title svg,
+[data-theme="tva"] .brand-title svg {
+  display: none !important;
+}
+
+/* Inject Custom Glowing TVA Hourglass Emblem */
+[data-theme="curio-theme-tva"] .brand-title::before,
+[data-theme="tva"] .brand-title::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 22px !important;
+  height: 22px !important;
+  flex-shrink: 0 !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFA63D'%3E%3Cpath d='M6 2v6l4 4-4 4v6h12v-6l-4-4 4-4V2H6zm10 14.5V20H8v-3.5l4-4 4 4zM12 11.5L8 7.5V4h8v3.5l-4 4z'/%3E%3Ccircle cx='12' cy='12' r='1.5' fill='%23FFA63D'/%3E%3C/svg%3E") !important;
+  filter: drop-shadow(0 0 5px rgba(255, 166, 61, 0.7)) !important;
+  margin-right: 0.5rem !important;
+}
+
+[data-theme="curio-theme-tva"] .brand-title,
+[data-theme="tva"] .brand-title {
+  color: #EDE0C4 !important;
   font-family: var(--font-display) !important;
   font-weight: 900 !important;
-  letter-spacing: 0.12em !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
-  text-shadow: 1px 1px 0 #2B1A10 !important;
+  text-shadow: 0 0 10px rgba(255, 166, 61, 0.3) !important;
 }
 
-[data-theme="curio-theme-tva"] .top-bar .search-box-container,
-[data-theme="tva"] .top-bar .search-box-container {
-  background: #EDE0C4 !important;
-  border: 2px solid #2B1A10 !important;
+[data-theme="curio-theme-tva"] .brand-title .badge-tag,
+[data-theme="tva"] .brand-title .badge-tag {
+  background: #2A1D14 !important;
+  color: #FFA63D !important;
+  border: 1px solid #FFA63D !important;
   border-radius: 0 !important;
-  box-shadow: 2px 2px 0 #2B1A10 !important;
-}
-
-[data-theme="curio-theme-tva"] .top-bar .search-input,
-[data-theme="tva"] .top-bar .search-input {
-  color: #2B1A10 !important;
   font-family: var(--font-mono) !important;
-  font-weight: 600 !important;
+  font-weight: bold !important;
+  letter-spacing: 0.08em !important;
+  box-shadow: 1px 1px 0 #000000 !important;
 }
 
-[data-theme="curio-theme-tva"] .top-bar .search-input::placeholder,
-[data-theme="tva"] .top-bar .search-input::placeholder {
-  color: #8A6E50 !important;
-  font-family: var(--font-ui) !important;
+/* ── 5. Active Catalog Switcher & Labels (Contrast Fix) ── */
+[data-theme="curio-theme-tva"] .catalog-switcher-panel,
+[data-theme="tva"] .catalog-switcher-panel {
+  border-bottom: 2px solid #3D2B1E !important;
+  background: #24180F !important;
 }
 
-/* ── 4. Sidebar & Catalog Navigation ── */
+[data-theme="curio-theme-tva"] .switcher-title,
+[data-theme="tva"] .switcher-title {
+  color: #FFA63D !important;
+  font-family: var(--font-display) !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+[data-theme="curio-theme-tva"] .switcher-title svg,
+[data-theme="tva"] .switcher-title svg {
+  color: #D9822B !important;
+}
+
+[data-theme="curio-theme-tva"] .catalog-select-dropdown,
+[data-theme="tva"] .catalog-select-dropdown {
+  background: #16100A !important;
+  color: #FFA63D !important;
+  border: 2px solid #3D2B1E !important;
+  border-bottom: 2px solid #D9822B !important;
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  box-shadow: inset 1px 1px 2px #000000 !important;
+}
+
+/* ── 6. Sidebar Drawers Navigation (Contrast Fix) ── */
 [data-theme="curio-theme-tva"] .sidebar,
 [data-theme="tva"] .sidebar {
   background: #24180F !important;
   border-right: 3px solid #2B1A10 !important;
-  color: #EDE0C4 !important;
 }
 
-[data-theme="curio-theme-tva"] .sidebar-header,
-[data-theme="tva"] .sidebar-header {
-  border-bottom: 2px solid #3D2B1E !important;
+[data-theme="curio-theme-tva"] .section-header span,
+[data-theme="tva"] .section-header span {
+  color: #FFA63D !important;
+  font-family: var(--font-display) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
 }
 
 [data-theme="curio-theme-tva"] .drawer-item,
 [data-theme="tva"] .drawer-item {
-  color: #D9C7A0 !important;
+  color: #EDE0C4 !important;
   border-radius: 0 !important;
   font-family: var(--font-display) !important;
   font-weight: 700 !important;
@@ -146,6 +214,11 @@
   letter-spacing: 0.05em !important;
   border-left: 3px solid transparent !important;
   margin-bottom: 2px !important;
+}
+
+[data-theme="curio-theme-tva"] .drawer-item svg,
+[data-theme="tva"] .drawer-item svg {
+  color: #D9822B !important;
 }
 
 [data-theme="curio-theme-tva"] .drawer-item:hover,
@@ -163,9 +236,14 @@
   box-shadow: 2px 2px 0 #16100A !important;
 }
 
+[data-theme="curio-theme-tva"] .drawer-item.active svg,
+[data-theme="tva"] .drawer-item.active svg {
+  color: #FFFFFF !important;
+}
+
 [data-theme="curio-theme-tva"] .drawer-count,
 [data-theme="tva"] .drawer-count {
-  background: #1A110B !important;
+  background: #16100A !important;
   color: #FFA63D !important;
   border: 1px solid #3D2B1E !important;
   border-radius: 0 !important;
@@ -181,18 +259,118 @@
   border-color: #FFFFFF !important;
 }
 
-/* ── 5. Filter Panel & Controls ── */
+/* ── 7. Top Header Bar & Search Prompt ── */
+[data-theme="curio-theme-tva"] .top-bar,
+[data-theme="tva"] .top-bar {
+  background: #D9822B !important;
+  color: #FFFFFF !important;
+  border-bottom: 3px solid #2B1A10 !important;
+  box-shadow: 0 4px 0 #1A110B !important;
+}
+
+[data-theme="curio-theme-tva"] .search-input-wrap,
+[data-theme="tva"] .search-input-wrap {
+  position: relative !important;
+}
+
+[data-theme="curio-theme-tva"] .search-input,
+[data-theme="tva"] .search-input {
+  background: #16100A !important;
+  border: 2px solid #2B1A10 !important;
+  border-bottom: 3px solid #FFA63D !important;
+  border-radius: 0 !important;
+  color: #FFA63D !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 600 !important;
+  box-shadow: 2px 2px 0 #1A110B !important;
+  padding-left: 2rem !important;
+}
+
+[data-theme="curio-theme-tva"] .search-input::placeholder,
+[data-theme="tva"] .search-input::placeholder {
+  color: #D9C7A0 !important;
+  font-family: var(--font-ui) !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="curio-theme-tva"] .search-icon,
+[data-theme="tva"] .search-icon {
+  color: #FFA63D !important;
+}
+
+/* ── 8. Filter Panel & Dropdowns (Full Contrast Fix) ── */
 [data-theme="curio-theme-tva"] .filter-panel,
 [data-theme="tva"] .filter-panel {
-  background: #332216 !important;
+  background: #1F140C !important;
   border-bottom: 2px solid #2B1A10 !important;
   color: #EDE0C4 !important;
+}
+
+[data-theme="curio-theme-tva"] .filter-label,
+[data-theme="tva"] .filter-label {
+  color: #FFA63D !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+}
+
+[data-theme="curio-theme-tva"] .select-custom,
+[data-theme="curio-theme-tva"] .filter-panel select,
+[data-theme="tva"] .select-custom,
+[data-theme="tva"] .filter-panel select {
+  background: #16100A !important;
+  color: #FFA63D !important;
+  border: 1px solid #3D2B1E !important;
+  border-bottom: 2px solid #D9822B !important;
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="curio-theme-tva"] .tag-filter-bar,
+[data-theme="tva"] .tag-filter-bar {
+  background: #1F140C !important;
+  border-top: 1px solid #2B1A10 !important;
+}
+
+[data-theme="curio-theme-tva"] .tag-search-input,
+[data-theme="tva"] .tag-search-input {
+  background: #16100A !important;
+  color: #FFA63D !important;
+  border: 1px solid #3D2B1E !important;
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+}
+
+[data-theme="curio-theme-tva"] .tag-search-input::placeholder,
+[data-theme="tva"] .tag-search-input::placeholder {
+  color: #8A6E50 !important;
+}
+
+[data-theme="curio-theme-tva"] .tag-pill,
+[data-theme="tva"] .tag-pill {
+  background: #EDE0C4 !important;
+  color: #2B1A10 !important;
+  border: 1px solid #2B1A10 !important;
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  box-shadow: 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-tva"] .tag-pill.active,
+[data-theme="tva"] .tag-pill.active {
+  background: #D9822B !important;
+  color: #FFFFFF !important;
+  border-color: #2B1A10 !important;
+  box-shadow: inset 1px 1px 0 #2B1A10 !important;
 }
 
 [data-theme="curio-theme-tva"] .results-count,
 [data-theme="tva"] .results-count {
   color: #D9C7A0 !important;
   font-family: var(--font-mono) !important;
+  font-weight: 600 !important;
   letter-spacing: 0.05em !important;
 }
 
@@ -201,7 +379,7 @@
   color: #FFA63D !important;
 }
 
-/* ── 6. Buttons (Chunky Flat Blocks with Hard Inset Press) ── */
+/* ── 9. View Switcher & Action Buttons ── */
 [data-theme="curio-theme-tva"] .btn-primary,
 [data-theme="tva"] .btn-primary {
   background: #D9822B !important;
@@ -233,7 +411,7 @@
   border: 2px solid #2B1A10 !important;
   border-radius: 0 !important;
   font-family: var(--font-display) !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
   text-transform: uppercase !important;
   box-shadow: 2px 2px 0 #2B1A10 !important;
 }
@@ -253,6 +431,7 @@
 [data-theme="tva"] .pill-toggle.active {
   background: #D9822B !important;
   color: #FFFFFF !important;
+  border-color: #2B1A10 !important;
   box-shadow: inset 2px 2px 0 #2B1A10 !important;
   transform: translate(1px, 1px) !important;
 }
@@ -275,7 +454,7 @@
   box-shadow: 1px 1px 0 #2B1A10 !important;
 }
 
-/* ── 7. Item Cards (Cream Paper Laminate Blocks) ── */
+/* ── 10. Item Cards (Laminate Paper & Rubber Stamps) ── */
 [data-theme="curio-theme-tva"] .item-card,
 [data-theme="curio-theme-tva"] .detail-card,
 [data-theme="tva"] .item-card,
@@ -309,13 +488,12 @@
   font-family: var(--font-ui) !important;
 }
 
-/* ── 8. Rubber-Stamp Badges (Tilted Authentic Bureaucracy) ── */
 [data-theme="curio-theme-tva"] .status-badge,
 [data-theme="curio-theme-tva"] .item-card .card-meta-row .status-badge,
 [data-theme="tva"] .status-badge,
 [data-theme="tva"] .item-card .card-meta-row .status-badge {
   border: 2px solid #9A3B26 !important;
-  background: rgba(154, 59, 38, 0.12) !important;
+  background: rgba(154, 59, 38, 0.15) !important;
   color: #9A3B26 !important;
   border-radius: 0 !important;
   font-family: var(--font-mono) !important;
@@ -331,7 +509,7 @@
 [data-theme="tva"] .status-badge.status-completed {
   border-color: #7C8A3A !important;
   color: #4E5920 !important;
-  background: rgba(124, 138, 58, 0.15) !important;
+  background: rgba(124, 138, 58, 0.18) !important;
   transform: rotate(2deg) !important;
 }
 
@@ -346,7 +524,7 @@
   font-weight: 700 !important;
 }
 
-/* ── 9. Chronomonitor Recessed CRT Screens (Modals & Inspectors) ── */
+/* ── 11. Chronomonitor Recessed CRT Screens (Modals) ── */
 [data-theme="curio-theme-tva"] .modal-content,
 [data-theme="curio-theme-tva"] .lightbox-content,
 [data-theme="tva"] .modal-content,
@@ -357,24 +535,6 @@
   box-shadow: 0 0 0 6px #24180F, 8px 8px 0 #000000 !important;
   color: #FFA63D !important;
   position: relative !important;
-}
-
-/* Subtle CRT Scanlines & Tube Curve Vignette */
-[data-theme="curio-theme-tva"] .modal-content::before,
-[data-theme="tva"] .modal-content::before {
-  content: "" !important;
-  position: absolute !important;
-  top: 0; left: 0; right: 0; bottom: 0 !important;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.15) 2px,
-    transparent 2px,
-    transparent 4px
-  ) !important;
-  pointer-events: none !important;
-  border-radius: 14px !important;
-  z-index: 10 !important;
 }
 
 [data-theme="curio-theme-tva"] .modal-header,
@@ -401,7 +561,6 @@
   text-transform: uppercase !important;
 }
 
-/* ── 10. Form Inputs (Ruled Paperwork Style) ── */
 [data-theme="curio-theme-tva"] .form-input,
 [data-theme="curio-theme-tva"] .form-textarea,
 [data-theme="curio-theme-tva"] .form-select,
@@ -427,27 +586,7 @@
   box-shadow: 0 0 10px rgba(255, 166, 61, 0.4) !important;
 }
 
-/* ── 11. Tags, Chips & Pills ── */
-[data-theme="curio-theme-tva"] .tag-pill,
-[data-theme="tva"] .tag-pill {
-  background: #EDE0C4 !important;
-  color: #2B1A10 !important;
-  border: 1px solid #2B1A10 !important;
-  border-radius: 0 !important;
-  font-family: var(--font-mono) !important;
-  font-size: 0.72rem !important;
-  box-shadow: 1px 1px 0 #2B1A10 !important;
-}
-
-[data-theme="curio-theme-tva"] .tag-pill.active,
-[data-theme="tva"] .tag-pill.active {
-  background: #D9822B !important;
-  color: #FFFFFF !important;
-  border-color: #2B1A10 !important;
-  box-shadow: inset 1px 1px 0 #2B1A10 !important;
-}
-
-/* ── 12. Scrollbars (Brutalist Blocks) ── */
+/* ── 12. Scrollbars ── */
 [data-theme="curio-theme-tva"] ::-webkit-scrollbar,
 [data-theme="tva"] ::-webkit-scrollbar {
   width: 10px;
