@@ -4,8 +4,14 @@ Thumbs.db
 *.tmp
 *.log
 
-# Desktop build artifacts & release archives
+# Desktop & Mobile build artifacts & release archives
 desktop/resources/
+CURIO-*-Windows/
+CURIO-v1.2-Windows/
+CURIO - Google Play package/
+*.apk
+*.aab
+*.keystore
 
 # Local marketing notes (private)
 MARKETING_GUIDE.md
