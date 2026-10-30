@@ -8664,6 +8664,1005 @@
     }
     
 
+    /* ========================================================
+       HAND-DRAWN UI KIT & SKETCHBOOK (THEME #20)
+       ======================================================== */
+    /* ============================================================
+       Curio Theme Plugin: Hand-Drawn UI Kit (Theme #20)
+       Family: handdrawn | Contract: 1.0.0
+       ID: curio-theme-handdrawn / curio-theme-handdrawn-retro
+       Aesthetic: Authentic hand-sketched wireframe & notebook UI
+       - Organic wobbly multi-radii borders
+       - Hatched ink shading & highlighter felt-pen fills
+       - Dot-grid notebook paper background
+       - Bespoke §5 procedural artwork across 7 UI zones:
+         1. Brand Logo: Pen & notebook ink doodle
+         2. Sidebar Bottom: Coffee ring stain & paperclip doodle
+         3. Top Bar: Hand-drawn ruler markings & tick marks
+         4. Filter Panel: Squiggly hand-drawn separator
+         5. Item Cards: Scotch-tape corner strips & wobbly brackets
+         6. Modals: Spiral notebook wire binding rings
+         7. Body: 24px notebook dot-grid canvas
+       ============================================================ */
+    
+    /* ══════════════════════════════════════════════════════════════
+       1. ROOT VARIABLES & TOKENS — SKETCHBOOK INK (DEFAULT)
+       ══════════════════════════════════════════════════════════════ */
+    [data-theme="curio-theme-handdrawn"], [data-theme="handdrawn"] {
+      --bg:                  #FAF7F0;
+      --surface:             #FFFFFF;
+      --surface-2:           #F4EFE6;
+      --text:                #1A1A1A;
+      --text-dim:            #666059;
+      --accent:              #E67E22;
+      --accent-2:            #FFE066;
+      --accent-text:         #1A1A1A;
+      --border:              #1A1A1A;
+      --select-bg:           #FFE066;
+      --select-fg:           #1A1A1A;
+      --danger:              #D63031;
+      --ok:                  #00B894;
+      --warn:                #F39C12;
+    
+      --font-ui:             'Caveat', 'Comic Sans MS', 'Chalkboard SE', 'Patrick Hand', cursive, sans-serif;
+      --font-display:        'Caveat', 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
+      --font-mono:           'Short Stack', 'Courier New', monospace;
+      --font-size-base:      14px;
+      --font-smoothing:      antialiased;
+    
+      --radius-window:       255px 15px 225px 15px/15px 225px 15px 255px;
+      --radius-control:      255px 25px 225px 25px/25px 225px 25px 255px;
+      --radius-chip:         255px 25px 225px 25px/25px 225px 25px 255px;
+      --avatar-shape:        50% 48% 52% 49% / 49% 51% 48% 52%;
+    
+      --bevel-light:         transparent;
+      --bevel-dark:          transparent;
+      --bevel-width:         0px;
+    
+      --shadow-raised:       2px 3px 0 #1A1A1A;
+      --shadow-pressed:      1px 1px 0 #1A1A1A;
+      --shadow-hard:         3px 4px 0 #1A1A1A;
+      --focus-ring:          0 0 0 2px #E67E22;
+      --default-button-ring: 0 0 0 3px #1A1A1A;
+    
+      /* Legacy mappings */
+      --bg-base:             #FAF7F0;
+      --bg-surface:          #FFFFFF;
+      --bg-surface-raised:   #F4EFE6;
+      --bg-surface-hover:    #FFFBEB;
+      --bg-panel:            #F4EFE6;
+      --border-subtle:       #1A1A1A;
+      --border-medium:       #1A1A1A;
+      --border-bright:       #E67E22;
+      --accent-cyan:         #E67E22;
+      --accent-cyan-glow:    rgba(230, 126, 34, 0.3);
+      --text-main:           #1A1A1A;
+      --text-muted:          #666059;
+      --text-dim-legacy:     #8C8275;
+      --shadow-glow:         none;
+    }
+    
+    /* ══════════════════════════════════════════════════════════════
+       2. GLOBAL CANVAS & §5 ART: NOTEBOOK DOT-GRID BACKGROUND
+       ══════════════════════════════════════════════════════════════ */
+    [data-theme="curio-theme-handdrawn"], [data-theme="handdrawn"] {
+      background-color: #FAF7F0 !important;
+      color: #1A1A1A !important;
+      font-family: var(--font-ui) !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] body,
+    [data-theme="handdrawn"] body {
+      background-color: #FAF7F0 !important;
+      color: #1A1A1A !important;
+      font-family: var(--font-ui) !important;
+    }
+    
+    /* §5 Art 7: Global Canvas — Notebook Dot-Grid Texture */
+    [data-theme="curio-theme-handdrawn"] body::after,
+    [data-theme="handdrawn"] body::after {
+      content: "" !important;
+      position: fixed !important;
+      inset: 0 !important;
+      pointer-events: none !important;
+      z-index: 0 !important;
+      opacity: 0.45 !important;
+      background-image: radial-gradient(#6B7280 1.2px, transparent 1.2px) !important;
+      background-size: 24px 24px !important;
+      background-position: 0 0, 12px 12px !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .app-shell,
+    [data-theme="handdrawn"] .app-shell {
+      position: relative !important;
+      z-index: 1 !important;
+    }
+    
+    /* ══════════════════════════════════════════════════════════════
+       3. BRAND HEADER & §5 ART: PEN & SKETCHBOOK DOODLE LOGO
+       ══════════════════════════════════════════════════════════════ */
+    [data-theme="curio-theme-handdrawn"] .brand-header,
+    [data-theme="handdrawn"] .brand-header {
+      background: #F4EFE6 !important;
+      border-bottom: 2.5px solid #1A1A1A !important;
+      padding: 0.85rem 1rem !important;
+      position: relative !important;
+    }
+    
+    /* Hide default SVG folder */
+    [data-theme="curio-theme-handdrawn"] .brand-title svg,
+    [data-theme="handdrawn"] .brand-title svg {
+      display: none !important;
+    }
+    
+    /* §5 Art 1: Hand-Drawn Nib Pen & Notebook Emblem */
+    [data-theme="curio-theme-handdrawn"] .brand-title::before,
+    [data-theme="handdrawn"] .brand-title::before {
+      content: "" !important;
+      display: inline-block !important;
+      width: 26px !important;
+      height: 26px !important;
+      flex-shrink: 0 !important;
+      margin-right: 0.6rem !important;
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M4 6 C4 4, 6 3, 10 3 L24 4 C27 4, 28 6, 28 9 L27 25 C27 28, 25 29, 21 29 L7 28 C4 28, 3 26, 4 23 Z' fill='%23FAF7F0' stroke='%231A1A1A' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='9' y1='3' x2='9' y2='28' stroke='%231A1A1A' stroke-width='1.8' stroke-dasharray='2,2'/%3E%3Cpath d='M18 7 L24 13 L14 23 L8 24 L9 18 Z' fill='%23FFE066' stroke='%231A1A1A' stroke-width='1.8' stroke-linejoin='round'/%3E%3Ccircle cx='9' cy='23' r='1' fill='%231A1A1A'/%3E%3C/svg%3E") !important;
+      filter: drop-shadow(1px 2px 0 #1A1A1A) !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .brand-title,
+    [data-theme="handdrawn"] .brand-title {
+      color: #1A1A1A !important;
+      font-family: var(--font-display) !important;
+      font-weight: 800 !important;
+      font-size: 1.15rem !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    
+    /* Wobbly Hand-Drawn Badge Tag */
+    [data-theme="curio-theme-handdrawn"] .brand-title .badge-tag,
+    [data-theme="handdrawn"] .brand-title .badge-tag {
+      background: #FFE066 !important;
+      color: #1A1A1A !important;
+      border: 2px solid #1A1A1A !important;
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+      font-family: var(--font-mono) !important;
+      font-weight: 800 !important;
+      font-size: 0.65rem !important;
+      padding: 1px 7px !important;
+      box-shadow: 1.5px 2px 0 #1A1A1A !important;
+      margin-left: 0.45rem !important;
+      transform: rotate(-2deg) !important;
+    }
+    
+    /* ══════════════════════════════════════════════════════════════
+       4. SIDEBAR & §5 ART: COFFEE STAIN & PAPERCLIP MARGIN DOODLE
+       ══════════════════════════════════════════════════════════════ */
+    [data-theme="curio-theme-handdrawn"] .sidebar,
+    [data-theme="handdrawn"] .sidebar {
+      background: #F4EFE6 !important;
+      border-right: 2.5px solid #1A1A1A !important;
+      color: #1A1A1A !important;
+      position: relative !important;
+    }
+    
+    /* §5 Art 2: Sidebar Bottom — Coffee Cup Stain & Paperclip Doodle */
+    [data-theme="curio-theme-handdrawn"] .sidebar::after,
+    [data-theme="handdrawn"] .sidebar::after {
+      content: "" !important;
+      position: absolute !important;
+      bottom: 18px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 80px !important;
+      height: 80px !important;
+      pointer-events: none !important;
+      opacity: 0.35 !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Coffee Stain --%3E%3Cpath d='M50 15 C30 14, 15 28, 15 48 C14 68, 30 84, 52 83 C72 82, 85 66, 83 48 C82 30, 68 16, 50 15 Z' fill='none' stroke='%238B5A2B' stroke-width='4' stroke-dasharray='12,4,30,8'/%3E%3Cpath d='M52 18 C33 19, 20 32, 20 48 C20 64, 34 78, 51 78 C68 78, 80 64, 79 48 C78 33, 67 20, 52 18 Z' fill='none' stroke='%238B5A2B' stroke-width='1.5' stroke-dasharray='18,10'/%3E%3C!-- Paperclip Doodle --%3E%3Cpath d='M75 10 C75 5, 82 5, 82 10 L82 35 C82 42, 70 42, 70 35 L70 14 C70 11, 76 11, 76 14 L76 33' fill='none' stroke='%231A1A1A' stroke-width='2' stroke-linecap='round' transform='rotate(15 75 25)'/%3E%3C/svg%3E") !important;
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+    }
+    
+    /* Active Catalog Panel */
+    [data-theme="curio-theme-handdrawn"] .catalog-switcher-panel,
+    [data-theme="handdrawn"] .catalog-switcher-panel {
+      background: #FAF7F0 !important;
+      border-bottom: 2px dashed #1A1A1A !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .switcher-title,
+    [data-theme="handdrawn"] .switcher-title {
+      color: #1A1A1A !important;
+      font-family: var(--font-display) !important;
+      font-size: 0.8rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .switcher-title svg,
+    [data-theme="handdrawn"] .switcher-title svg {
+      color: #E67E22 !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .catalog-select-dropdown,
+    [data-theme="handdrawn"] .catalog-select-dropdown {
+      background: #FFFFFF !important;
+      color: #1A1A1A !important;
+      border: 2px solid #1A1A1A !important;
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+      font-family: var(--font-ui) !important;
+      font-weight: 700 !important;
+      font-size: 0.85rem !important;
+      box-shadow: 2px 2px 0 #1A1A1A !important;
+      padding: 0.3rem 0.5rem !important;
+    }
+    
+    /* Section Header */
+    [data-theme="curio-theme-handdrawn"] .section-header span,
+    [data-theme="handdrawn"] .section-header span {
+      color: #1A1A1A !important;
+      font-family: var(--font-display) !important;
+      font-size: 0.78rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+    }
+    
+    /* Drawer Navigation Tabs — Hand-Drawn Wobbly Pockets */
+    [data-theme="curio-theme-handdrawn"] .drawer-item,
+    [data-theme="handdrawn"] .drawer-item {
+      color: #1A1A1A !important;
+      background: transparent !important;
+      border: 1.5px solid transparent !important;
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+      font-family: var(--font-ui) !important;
+      font-size: 0.95rem !important;
+      font-weight: 700 !important;
+      padding: 0.35rem 0.65rem !important;
+      margin-bottom: 4px !important;
+      transition: all 0.08s ease !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .drawer-item svg,
+    [data-theme="handdrawn"] .drawer-item svg {
+      color: #1A1A1A !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .drawer-item:hover,
+    [data-theme="handdrawn"] .drawer-item:hover {
+      background: #FFF9E6 !important;
+      border-color: #1A1A1A !important;
+      transform: translateX(3px) !important;
+    }
+    
+    /* Active Drawer Item: Highlighter Yellow Felt-Pen Fill */
+    [data-theme="curio-theme-handdrawn"] .drawer-item.active,
+    [data-theme="handdrawn"] .drawer-item.active {
+      background: #FFE066 !important;
+      color: #1A1A1A !important;
+      border: 2px solid #1A1A1A !important;
+      box-shadow: 2px 2px 0 #1A1A1A !important;
+      font-weight: 800 !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .drawer-count,
+    [data-theme="handdrawn"] .drawer-count {
+      background: #FFFFFF !important;
+      color: #1A1A1A !important;
+      border: 1.5px solid #1A1A1A !important;
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+      font-family: var(--font-mono) !important;
+      font-weight: 800 !important;
+      font-size: 0.72rem !important;
+      padding: 0px 5px !important;
+      box-shadow: 1px 1px 0 #1A1A1A !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .drawer-item.active .drawer-count,
+    [data-theme="handdrawn"] .drawer-item.active .drawer-count {
+      background: #1A1A1A !important;
+      color: #FFE066 !important;
+    }
+    
+    /* ══════════════════════════════════════════════════════════════
+       5. TOP BAR & §5 ART: HAND-SKETCHED WOODEN RULER RAIL
+       ══════════════════════════════════════════════════════════════ */
+    [data-theme="curio-theme-handdrawn"] .top-bar,
+    [data-theme="handdrawn"] .top-bar {
+      background: #FAF7F0 !important;
+      color: #1A1A1A !important;
+      border-bottom: 2.5px solid #1A1A1A !important;
+      position: relative !important;
+    }
+    
+    /* §5 Art 3: Top Bar — Hand-Drawn Wooden Ruler Ticks & Markings */
+    [data-theme="curio-theme-handdrawn"] .top-bar::before,
+    [data-theme="handdrawn"] .top-bar::before {
+      content: "" !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 6px !important;
+      pointer-events: none !important;
+      background-image: repeating-linear-gradient(
+        90deg,
+        #1A1A1A 0px, #1A1A1A 1.5px,
+        transparent 1.5px, transparent 10px,
+        #1A1A1A 10px, #1A1A1A 11.5px,
+        transparent 11.5px, transparent 20px,
+        #1A1A1A 20px, #1A1A1A 22px,
+        transparent 22px, transparent 40px
+      ) !important;
+      opacity: 0.65 !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .top-bar .catalog-title,
+    [data-theme="handdrawn"] .top-bar .catalog-title {
+      color: #1A1A1A !important;
+      font-family: var(--font-display) !important;
+      font-weight: 800 !important;
+      font-size: 1.05rem !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+    }
+    
+    /* Search Box: Wobbly Hand-Drawn Input Field */
+    [data-theme="curio-theme-handdrawn"] .search-input,
+    [data-theme="handdrawn"] .search-input {
+      background: #FFFFFF !important;
+      border: 2px solid #1A1A1A !important;
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+      color: #1A1A1A !important;
+      font-family: var(--font-ui) !important;
+      font-size: 0.95rem !important;
+      font-weight: 700 !important;
+      box-shadow: 2px 2px 0 #1A1A1A !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .search-input::placeholder,
+    [data-theme="handdrawn"] .search-input::placeholder {
+      color: #8C8275 !important;
+      font-family: var(--font-ui) !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .search-icon,
+    [data-theme="handdrawn"] .search-icon {
+      color: #1A1A1A !important;
+    }
+    
+    /* ══════════════════════════════════════════════════════════════
+       6. FILTER PANEL & §5 ART: HAND-DRAWN SQUIGGLY SEPARATOR
+       ══════════════════════════════════════════════════════════════ */
+    [data-theme="curio-theme-handdrawn"] .filter-panel,
+    [data-theme="handdrawn"] .filter-panel {
+      background: #F4EFE6 !important;
+      border-bottom: 2.5px solid #1A1A1A !important;
+      color: #1A1A1A !important;
+      position: relative !important;
+      padding-top: 10px !important;
+    }
+    
+    /* §5 Art 4: Hand-Drawn Squiggly / Zigzag Ink Divider */
+    [data-theme="curio-theme-handdrawn"] .filter-panel::before,
+    [data-theme="handdrawn"] .filter-panel::before {
+      content: "" !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 6px !important;
+      pointer-events: none !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 6' preserveAspectRatio='none'%3E%3Cpath d='M0 3 Q 5 0, 10 3 T 20 3 T 30 3 T 40 3' fill='none' stroke='%231A1A1A' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+      background-repeat: repeat-x !important;
+      background-size: 32px 6px !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .filter-label,
+    [data-theme="handdrawn"] .filter-label {
+      color: #1A1A1A !important;
+      font-family: var(--font-display) !important;
+      font-size: 0.8rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .select-custom,
+    [data-theme="curio-theme-handdrawn"] .filter-panel select,
+    [data-theme="handdrawn"] .select-custom,
+    [data-theme="handdrawn"] .filter-panel select {
+      background: #FFFFFF !important;
+      color: #1A1A1A !important;
+      border: 2px solid #1A1A1A !important;
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+      font-family: var(--font-ui) !important;
+      font-size: 0.85rem !important;
+      font-weight: 700 !important;
+      box-shadow: 2px 2px 0 #1A1A1A !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .tag-filter-bar,
+    [data-theme="handdrawn"] .tag-filter-bar {
+      background: #FAF7F0 !important;
+      border-top: 1.5px dashed #1A1A1A !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .tag-search-input,
+    [data-theme="handdrawn"] .tag-search-input {
+      background: #FFFFFF !important;
+      color: #1A1A1A !important;
+      border: 1.5px solid #1A1A1A !important;
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+      font-family: var(--font-ui) !important;
+      font-size: 0.85rem !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .tag-search-input::placeholder,
+    [data-theme="handdrawn"] .tag-search-input::placeholder {
+      color: #8C8275 !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .tag-pill,
+    [data-theme="handdrawn"] .tag-pill {
+      background: #FFFFFF !important;
+      color: #1A1A1A !important;
+      border: 1.5px solid #1A1A1A !important;
+      border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+      font-family: var(--font-mono) !important;
+      font-weight: 700 !important;
+      font-size: 0.75rem !important;
+      box-shadow: 1.5px 1.5px 0 #1A1A1A !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .tag-pill.active,
+    [data-theme="handdrawn"] .tag-pill.active {
+      background: #FFE066 !important;
+      color: #1A1A1A !important;
+      box-shadow: inset 1px 1px 0 #1A1A1A !important;
+      font-weight: 800 !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .results-count,
+    [data-theme="handdrawn"] .results-count {
+      color: #666059 !important;
+      font-family: var(--font-ui) !important;
+      font-size: 0.9rem !important;
+      font-weight: 700 !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .results-count strong,
+    [data-theme="handdrawn"] .results-count strong {
+      color: #E67E22 !important;
+    }
+    
+    /* ══════════════════════════════════════════════════════════════
+       7. CHUNKY HAND-DRAWN BUTTONS & HATCHED ACTIVE PHYSICS
+       ══════════════════════════════════════════════════════════════ */
+    [data-theme="curio-theme-handdrawn"] .btn-primary,
+    [data-theme="handdrawn"] .btn-primary {
+      background: #FFE066 !important;
+      color: #1A1A1A !important;
+      border: 2px solid #1A1A1A !important;
+      border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+      font-family: var(--font-display) !important;
+      font-weight: 800 !important;
+      font-size: 0.95rem !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+      box-shadow: 3px 3px 0 #1A1A1A !important;
+      transition: transform 0.05s ease, box-shadow 0.05s ease !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .btn-primary:active,
+    [data-theme="handdrawn"] .btn-primary:active {
+      transform: translate(2px, 2px) !important;
+      box-shadow: 1px 1px 0 #1A1A1A !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .btn-secondary,
+    [data-theme="curio-theme-handdrawn"] .view-btn,
+    [data-theme="curio-theme-handdrawn"] .pill-toggle,
+    [data-theme="handdrawn"] .btn-secondary,
+    [data-theme="handdrawn"] .view-btn,
+    [data-theme="handdrawn"] .pill-toggle {
+      background: #FFFFFF !important;
+      color: #1A1A1A !important;
+      border: 2px solid #1A1A1A !important;
+      border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+      font-family: var(--font-ui) !important;
+      font-weight: 700 !important;
+      font-size: 0.88rem !important;
+      box-shadow: 2px 2px 0 #1A1A1A !important;
+      transition: transform 0.05s ease, box-shadow 0.05s ease !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .btn-secondary:hover,
+    [data-theme="curio-theme-handdrawn"] .view-btn:hover,
+    [data-theme="curio-theme-handdrawn"] .pill-toggle:hover,
+    [data-theme="handdrawn"] .btn-secondary:hover,
+    [data-theme="handdrawn"] .view-btn:hover,
+    [data-theme="handdrawn"] .pill-toggle:hover {
+      background: #FFF9E6 !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .view-btn.active,
+    [data-theme="curio-theme-handdrawn"] .pill-toggle.active,
+    [data-theme="handdrawn"] .view-btn.active,
+    [data-theme="handdrawn"] .pill-toggle.active {
+      background: #FFE066 !important;
+      color: #1A1A1A !important;
+      box-shadow: inset 2px 2px 0 #1A1A1A !important;
+      transform: translate(1px, 1px) !important;
+      font-weight: 800 !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .btn-danger,
+    [data-theme="handdrawn"] .btn-danger {
+      background: #FF7675 !important;
+      color: #1A1A1A !important;
+      border: 2px solid #1A1A1A !important;
+      border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+      font-family: var(--font-display) !important;
+      font-weight: 800 !important;
+      box-shadow: 3px 3px 0 #1A1A1A !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .btn-danger:active,
+    [data-theme="handdrawn"] .btn-danger:active {
+      transform: translate(2px, 2px) !important;
+      box-shadow: 1px 1px 0 #1A1A1A !important;
+    }
+    
+    /* ══════════════════════════════════════════════════════════════
+       8. ITEM CARDS & §5 ART: SCOTCH TAPE STRIP & DOODLE BRACKETS
+       ══════════════════════════════════════════════════════════════ */
+    [data-theme="curio-theme-handdrawn"] .item-card,
+    [data-theme="handdrawn"] .item-card {
+      background: #FFFFFF !important;
+      color: #1A1A1A !important;
+      border: 2.5px solid #1A1A1A !important;
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+      box-shadow: 4px 5px 0 #1A1A1A !important;
+      position: relative !important;
+      overflow: visible !important;
+      transition: transform 0.08s ease, box-shadow 0.08s ease !important;
+    }
+    
+    /* §5 Art 5: Card Top Scotch-Tape Strip & Doodle Corners */
+    [data-theme="curio-theme-handdrawn"] .item-card::before,
+    [data-theme="handdrawn"] .item-card::before {
+      content: "" !important;
+      position: absolute !important;
+      top: -10px !important;
+      left: 50% !important;
+      transform: translateX(-50%) rotate(-1deg) !important;
+      width: 54px !important;
+      height: 18px !important;
+      pointer-events: none !important;
+      z-index: 10 !important;
+      background: rgba(255, 230, 160, 0.75) !important;
+      border: 1px dashed rgba(180, 140, 60, 0.6) !important;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .item-card:hover,
+    [data-theme="handdrawn"] .item-card:hover {
+      transform: translateY(-2px) rotate(0.5deg) !important;
+      box-shadow: 5px 7px 0 #1A1A1A !important;
+    }
+    
+    /* Thumbnail Area with Hand-Drawn Inset Border */
+    [data-theme="curio-theme-handdrawn"] .item-card .card-thumb,
+    [data-theme="curio-theme-handdrawn"] .item-card .card-thumb-wrap,
+    [data-theme="handdrawn"] .item-card .card-thumb,
+    [data-theme="handdrawn"] .item-card .card-thumb-wrap {
+      background: #FAF7F0 !important;
+      border-bottom: 2px solid #1A1A1A !important;
+      border-radius: 250px 10px 0 0/10px 250px 0 0 !important;
+    }
+    
+    /* Card Title: Hand-Underlined Ink Marker Header */
+    [data-theme="curio-theme-handdrawn"] .item-card .card-title,
+    [data-theme="handdrawn"] .item-card .card-title {
+      color: #1A1A1A !important;
+      font-family: var(--font-display) !important;
+      font-weight: 800 !important;
+      font-size: 1.05rem !important;
+      letter-spacing: 0.04em !important;
+      text-decoration: underline wavy #FFE066 !important;
+      text-underline-offset: 4px !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .item-card .card-desc,
+    [data-theme="curio-theme-handdrawn"] .item-card .card-notes,
+    [data-theme="handdrawn"] .item-card .card-desc,
+    [data-theme="handdrawn"] .item-card .card-notes {
+      color: #4A4A4A !important;
+      font-family: var(--font-ui) !important;
+      font-size: 0.88rem !important;
+      line-height: 1.35 !important;
+    }
+    
+    /* Hand-Drawn Status Badges with Hatched Shading */
+    [data-theme="curio-theme-handdrawn"] .badge-status,
+    [data-theme="curio-theme-handdrawn"] .item-card .badge,
+    [data-theme="handdrawn"] .badge-status,
+    [data-theme="handdrawn"] .item-card .badge {
+      border: 1.5px solid #1A1A1A !important;
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+      font-family: var(--font-mono) !important;
+      font-weight: 800 !important;
+      font-size: 0.65rem !important;
+      padding: 2px 7px !important;
+      box-shadow: 1.5px 1.5px 0 #1A1A1A !important;
+      text-transform: uppercase !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .badge-status[data-status="to-explore"],
+    [data-theme="curio-theme-handdrawn"] .badge-status[data-status="idea"],
+    [data-theme="handdrawn"] .badge-status[data-status="to-explore"],
+    [data-theme="handdrawn"] .badge-status[data-status="idea"] {
+      background: #FFE066 !important;
+      color: #1A1A1A !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .badge-status[data-status="in-progress"],
+    [data-theme="curio-theme-handdrawn"] .badge-status[data-status="progress"],
+    [data-theme="handdrawn"] .badge-status[data-status="in-progress"],
+    [data-theme="handdrawn"] .badge-status[data-status="progress"] {
+      background: #74B9FF !important;
+      color: #1A1A1A !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .badge-status[data-status="curated"],
+    [data-theme="curio-theme-handdrawn"] .badge-status[data-status="completed"],
+    [data-theme="handdrawn"] .badge-status[data-status="curated"],
+    [data-theme="handdrawn"] .badge-status[data-status="completed"] {
+      background: #55EFC4 !important;
+      color: #1A1A1A !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .badge-status[data-status="archived"],
+    [data-theme="handdrawn"] .badge-status[data-status="archived"] {
+      background: #DFE6E9 !important;
+      color: #636E72 !important;
+    }
+    
+    /* Doodle Rating Stars */
+    [data-theme="curio-theme-handdrawn"] .rating-stars,
+    [data-theme="curio-theme-handdrawn"] .star-rating,
+    [data-theme="handdrawn"] .rating-stars,
+    [data-theme="handdrawn"] .star-rating {
+      color: #E67E22 !important;
+      font-size: 1rem !important;
+      letter-spacing: 0.1em !important;
+    }
+    
+    /* ══════════════════════════════════════════════════════════════
+       9. MODALS & §5 ART: SPIRAL NOTEBOOK WIRE BINDING RINGS
+       ══════════════════════════════════════════════════════════════ */
+    [data-theme="curio-theme-handdrawn"] .modal-content,
+    [data-theme="curio-theme-handdrawn"] .detail-modal,
+    [data-theme="curio-theme-handdrawn"] .detail-view,
+    [data-theme="handdrawn"] .modal-content,
+    [data-theme="handdrawn"] .detail-modal,
+    [data-theme="handdrawn"] .detail-view {
+      background: #FAF7F0 !important;
+      color: #1A1A1A !important;
+      border: 3px solid #1A1A1A !important;
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+      box-shadow: 6px 8px 0 #1A1A1A !important;
+      position: relative !important;
+    }
+    
+    /* §5 Art 6: Modal Header — Spiral Notebook Binding Rings */
+    [data-theme="curio-theme-handdrawn"] .modal-header,
+    [data-theme="handdrawn"] .modal-header {
+      background: #F4EFE6 !important;
+      border-bottom: 2.5px solid #1A1A1A !important;
+      padding: 10px 14px !important;
+      position: relative !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .modal-header::before,
+    [data-theme="handdrawn"] .modal-header::before {
+      content: "" !important;
+      position: absolute !important;
+      top: -12px !important;
+      left: 20px !important;
+      right: 20px !important;
+      height: 18px !important;
+      pointer-events: none !important;
+      background-image: repeating-linear-gradient(
+        90deg,
+        transparent 0px, transparent 18px,
+        #1A1A1A 18px, #1A1A1A 21px,
+        #DFE6E9 21px, #DFE6E9 25px,
+        #1A1A1A 25px, #1A1A1A 28px,
+        transparent 28px, transparent 38px
+      ) !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .modal-title,
+    [data-theme="handdrawn"] .modal-title {
+      color: #1A1A1A !important;
+      font-family: var(--font-display) !important;
+      font-weight: 800 !important;
+      font-size: 1.1rem !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .modal-header .btn-icon-xs,
+    [data-theme="curio-theme-handdrawn"] .modal-header #close-settings-modal-btn,
+    [data-theme="handdrawn"] .modal-header .btn-icon-xs,
+    [data-theme="handdrawn"] .modal-header #close-settings-modal-btn {
+      background: #FFFFFF !important;
+      color: #1A1A1A !important;
+      border: 2px solid #1A1A1A !important;
+      border-radius: 50% !important;
+      box-shadow: 2px 2px 0 #1A1A1A !important;
+      width: 24px !important;
+      height: 24px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-weight: 800 !important;
+      cursor: pointer !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .modal-header .btn-icon-xs:hover,
+    [data-theme="curio-theme-handdrawn"] .modal-header #close-settings-modal-btn:hover,
+    [data-theme="handdrawn"] .modal-header .btn-icon-xs:hover,
+    [data-theme="handdrawn"] .modal-header #close-settings-modal-btn:hover {
+      background: #FF7675 !important;
+    }
+    
+    /* Settings Tabs in Sketchbook */
+    [data-theme="curio-theme-handdrawn"] .settings-tab-btn,
+    [data-theme="handdrawn"] .settings-tab-btn {
+      background: #FFFFFF !important;
+      color: #1A1A1A !important;
+      border: 2px solid #1A1A1A !important;
+      border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+      font-family: var(--font-display) !important;
+      font-weight: 700 !important;
+      font-size: 0.95rem !important;
+      box-shadow: 2px 2px 0 #1A1A1A !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] .settings-tab-btn.active,
+    [data-theme="handdrawn"] .settings-tab-btn.active {
+      background: #FFE066 !important;
+      box-shadow: inset 1px 1px 0 #1A1A1A !important;
+      font-weight: 800 !important;
+    }
+    
+    /* Inputs & Textareas inside Modals */
+    [data-theme="curio-theme-handdrawn"] .form-input,
+    [data-theme="curio-theme-handdrawn"] .form-textarea,
+    [data-theme="curio-theme-handdrawn"] .form-select,
+    [data-theme="handdrawn"] .form-input,
+    [data-theme="handdrawn"] .form-textarea,
+    [data-theme="handdrawn"] .form-select {
+      background: #FFFFFF !important;
+      color: #1A1A1A !important;
+      border: 2px solid #1A1A1A !important;
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+      font-family: var(--font-ui) !important;
+      font-size: 0.95rem !important;
+      box-shadow: 2px 2px 0 #1A1A1A !important;
+    }
+    
+    /* ══════════════════════════════════════════════════════════════
+       10. SCROLLBARS — HAND-DRAWN HATCHED TRACK & THUMB
+       ══════════════════════════════════════════════════════════════ */
+    [data-theme="curio-theme-handdrawn"] ::-webkit-scrollbar,
+    [data-theme="handdrawn"] ::-webkit-scrollbar {
+      width: 14px;
+      height: 14px;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] ::-webkit-scrollbar-track,
+    [data-theme="handdrawn"] ::-webkit-scrollbar-track {
+      background: #F4EFE6;
+      border-left: 2px solid #1A1A1A;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] ::-webkit-scrollbar-thumb,
+    [data-theme="handdrawn"] ::-webkit-scrollbar-thumb {
+      background: #FFE066;
+      border: 2px solid #1A1A1A;
+      border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+    }
+    
+    [data-theme="curio-theme-handdrawn"] ::-webkit-scrollbar-thumb:hover,
+    [data-theme="handdrawn"] ::-webkit-scrollbar-thumb:hover {
+      background: #E67E22;
+    }
+    
+    
+    /* ══════════════════════════════════════════════════════════════
+       11. COMPANION SUB-PALETTE: HAND-DRAWN RETRO WINDOWS
+       (Based on "Free vector hand drawn retro computer windows.jfif")
+       ══════════════════════════════════════════════════════════════ */
+    [data-theme="curio-theme-handdrawn-retro"], [data-theme="handdrawn-retro"] {
+      --bg:                  #EAD7C5;
+      --surface:             #FFF5EA;
+      --surface-2:           #F2E0D0;
+      --text:                #1A1A1A;
+      --text-dim:            #665545;
+      --accent:              #FF9248;
+      --accent-2:            #4D96FF;
+      --accent-text:         #1A1A1A;
+      --border:              #1A1A1A;
+      --select-bg:           #FF9248;
+      --select-fg:           #FFFFFF;
+      --danger:              #E74C3C;
+      --ok:                  #2ECC71;
+      --warn:                #F1C40F;
+    
+      --font-ui:             'Comic Sans MS', 'Chalkboard SE', system-ui, cursive, sans-serif;
+      --font-display:        'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
+      --font-mono:           'Courier New', monospace;
+      --font-size-base:      14px;
+    
+      --radius-window:       12px 14px 10px 15px / 14px 10px 15px 12px;
+      --radius-control:      8px 10px 8px 10px;
+      --radius-chip:         16px;
+    
+      --bevel-light:         transparent;
+      --bevel-dark:          transparent;
+      --bevel-width:         0px;
+    
+      --shadow-raised:       2px 3px 0 #1A1A1A;
+      --shadow-pressed:      1px 1px 0 #1A1A1A;
+      --shadow-hard:         4px 4px 0 #1A1A1A;
+    
+      --bg-base:             #EAD7C5;
+      --bg-surface:          #FFF5EA;
+      --bg-surface-raised:   #F2E0D0;
+      --bg-surface-hover:    #FFF9F2;
+      --bg-panel:            #F2E0D0;
+      --border-subtle:       #1A1A1A;
+      --border-medium:       #1A1A1A;
+      --border-bright:       #FF9248;
+      --accent-cyan:         #FF9248;
+      --accent-cyan-glow:    rgba(255, 146, 72, 0.4);
+      --text-main:           #1A1A1A;
+      --text-muted:          #665545;
+      --text-dim-legacy:     #8C7765;
+      --shadow-glow:         none;
+    }
+    
+    [data-theme="curio-theme-handdrawn-retro"], [data-theme="handdrawn-retro"] {
+      background-color: #EAD7C5 !important;
+      color: #1A1A1A !important;
+      font-family: var(--font-ui) !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn-retro"] body,
+    [data-theme="handdrawn-retro"] body {
+      background-color: #EAD7C5 !important;
+      color: #1A1A1A !important;
+      font-family: var(--font-ui) !important;
+    }
+    
+    /* Warm Parchment Desk Canvas */
+    [data-theme="curio-theme-handdrawn-retro"] body::after,
+    [data-theme="handdrawn-retro"] body::after {
+      content: "" !important;
+      position: fixed !important;
+      inset: 0 !important;
+      pointer-events: none !important;
+      z-index: 0 !important;
+      opacity: 0.25 !important;
+      background-image: repeating-linear-gradient(
+        0deg,
+        transparent 0px, transparent 23px,
+        #D0BDB0 23px, #D0BDB0 24px
+      ) !important;
+    }
+    
+    /* Retro Orange Titlebar */
+    [data-theme="curio-theme-handdrawn-retro"] .brand-header,
+    [data-theme="curio-theme-handdrawn-retro"] .top-bar,
+    [data-theme="curio-theme-handdrawn-retro"] .modal-header,
+    [data-theme="handdrawn-retro"] .brand-header,
+    [data-theme="handdrawn-retro"] .top-bar,
+    [data-theme="handdrawn-retro"] .modal-header {
+      background: #FF9248 !important;
+      color: #1A1A1A !important;
+      border-bottom: 2.5px solid #1A1A1A !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn-retro"] .brand-title,
+    [data-theme="curio-theme-handdrawn-retro"] .top-bar .catalog-title,
+    [data-theme="curio-theme-handdrawn-retro"] .modal-title,
+    [data-theme="handdrawn-retro"] .brand-title,
+    [data-theme="handdrawn-retro"] .top-bar .catalog-title,
+    [data-theme="handdrawn-retro"] .modal-title {
+      color: #1A1A1A !important;
+      font-weight: 800 !important;
+    }
+    
+    /* Retro Windows Window Controls: - [] X */
+    [data-theme="curio-theme-handdrawn-retro"] .modal-header .btn-icon-xs,
+    [data-theme="curio-theme-handdrawn-retro"] .modal-header #close-settings-modal-btn,
+    [data-theme="handdrawn-retro"] .modal-header .btn-icon-xs,
+    [data-theme="handdrawn-retro"] .modal-header #close-settings-modal-btn {
+      background: #FF9248 !important;
+      color: #1A1A1A !important;
+      border: 2px solid #1A1A1A !important;
+      border-radius: 4px !important;
+      box-shadow: 1.5px 1.5px 0 #1A1A1A !important;
+    }
+    
+    /* Retro Windows Sidebar */
+    [data-theme="curio-theme-handdrawn-retro"] .sidebar,
+    [data-theme="handdrawn-retro"] .sidebar {
+      background: #F2E0D0 !important;
+      border-right: 2.5px solid #1A1A1A !important;
+    }
+    
+    /* Active Drawer Item in Retro Windows */
+    [data-theme="curio-theme-handdrawn-retro"] .drawer-item.active,
+    [data-theme="handdrawn-retro"] .drawer-item.active {
+      background: #FF9248 !important;
+      color: #1A1A1A !important;
+      border: 2px solid #1A1A1A !important;
+      box-shadow: 2px 2px 0 #1A1A1A !important;
+    }
+    
+    /* Retro Windows Cards */
+    [data-theme="curio-theme-handdrawn-retro"] .item-card,
+    [data-theme="handdrawn-retro"] .item-card {
+      background: #FFF5EA !important;
+      border: 2.5px solid #1A1A1A !important;
+      border-radius: 10px 12px 8px 11px !important;
+      box-shadow: 4px 4px 0 #1A1A1A !important;
+    }
+    
+    /* Buttons in Retro Windows */
+    [data-theme="curio-theme-handdrawn-retro"] .btn-primary,
+    [data-theme="handdrawn-retro"] .btn-primary {
+      background: #FF9248 !important;
+      color: #1A1A1A !important;
+      border: 2px solid #1A1A1A !important;
+      border-radius: 8px !important;
+      box-shadow: 3px 3px 0 #1A1A1A !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn-retro"] .btn-secondary,
+    [data-theme="curio-theme-handdrawn-retro"] .view-btn,
+    [data-theme="curio-theme-handdrawn-retro"] .settings-tab-btn,
+    [data-theme="handdrawn-retro"] .btn-secondary,
+    [data-theme="handdrawn-retro"] .view-btn,
+    [data-theme="handdrawn-retro"] .settings-tab-btn {
+      background: #FFF5EA !important;
+      color: #1A1A1A !important;
+      border: 2px solid #1A1A1A !important;
+      border-radius: 8px !important;
+      box-shadow: 2px 2px 0 #1A1A1A !important;
+    }
+    
+    [data-theme="curio-theme-handdrawn-retro"] .view-btn.active,
+    [data-theme="curio-theme-handdrawn-retro"] .settings-tab-btn.active,
+    [data-theme="handdrawn-retro"] .view-btn.active,
+    [data-theme="handdrawn-retro"] .settings-tab-btn.active {
+      background: #FF9248 !important;
+      box-shadow: inset 2px 2px 0 #1A1A1A !important;
+    }
+    
+
     /* ======================== */
     /* Easter Eggs System Styles */
     /* ======================== */
@@ -10624,6 +11623,40 @@
           <!-- TVA Bureaucracy -->
           <!-- Pixel Fantasy Game UI -->
           <!-- Mac OS 8 Antique -->
+          <!-- Hand-Drawn Sketchbook -->
+          <div class="theme-card" data-theme-id="handdrawn" onclick="setTheme('handdrawn')">
+            <div class="theme-preview-box" style="background:#FAF7F0; border:2px solid #1A1A1A; border-radius:15px 5px 12px 6px; overflow:hidden;">
+              <div class="mini-titlebar" style="background:#F4EFE6; border-bottom:1.5px solid #1A1A1A; color:#1A1A1A; padding:2px 4px; font-size:7px; font-weight:800; font-family:'Caveat','Comic Sans MS',cursive;">
+                <span>✏️ SKETCHBOOK // INK</span>
+              </div>
+              <div class="mini-content" style="background:#FFFFFF; border:1.5px solid #1A1A1A; border-radius:8px 4px 6px 5px; margin:3px; height:18px; display:flex; align-items:center; justify-content:center; box-shadow:1.5px 2px 0 #1A1A1A;">
+                <span style="font-size:7px; font-weight:800; background:#FFE066; color:#1A1A1A; padding:0 4px; border:1px solid #1A1A1A; border-radius:4px;">DOODLE</span>
+              </div>
+            </div>
+            <div class="theme-info">
+              <span class="theme-title">✏️ Hand-Drawn Sketchbook</span>
+              <span class="theme-desc">Wobbly organic ink strokes, dot-grid canvas & marker felt-pen fills</span>
+            </div>
+            <span class="theme-status-pill">Select</span>
+          </div>
+
+          <!-- Hand-Drawn Retro Windows -->
+          <div class="theme-card" data-theme-id="handdrawn-retro" onclick="setTheme('handdrawn-retro')">
+            <div class="theme-preview-box" style="background:#EAD7C5; border:2px solid #1A1A1A; border-radius:8px 10px 8px 10px; overflow:hidden;">
+              <div class="mini-titlebar" style="background:#FF9248; border-bottom:1.5px solid #1A1A1A; color:#1A1A1A; padding:2px 4px; font-size:7px; font-weight:800; font-family:'Comic Sans MS',cursive;">
+                <span>📐 RETRO WINDOWS</span>
+              </div>
+              <div class="mini-content" style="background:#FFF5EA; border:1.5px solid #1A1A1A; border-radius:6px; margin:3px; height:18px; display:flex; align-items:center; justify-content:center; box-shadow:2px 2px 0 #1A1A1A;">
+                <span style="font-size:7px; font-weight:800; background:#FF9248; color:#1A1A1A; padding:0 4px; border:1px solid #1A1A1A; border-radius:4px;">OK</span>
+              </div>
+            </div>
+            <div class="theme-info">
+              <span class="theme-title">📐 Hand-Drawn Retro Windows</span>
+              <span class="theme-desc">Warm peach/orange window titlebars, doodle icons & ballpoint blue accents</span>
+            </div>
+            <span class="theme-status-pill">Select</span>
+          </div>
+
           <div class="theme-card" data-theme-id="macos8" onclick="setTheme('macos8')">
             <div class="theme-preview-box" style="background:#1A0A06; border:2px solid #000000; overflow:hidden;">
               <div class="mini-titlebar" style="background:repeating-linear-gradient(0deg, #1A0A06 0px, #1A0A06 1px, #2C1008 1px, #2C1008 2px); color:#F0E4CC; padding:1px 3px; font-size:7px; font-weight:bold;">
@@ -39230,6 +40263,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     { id: "pixel-fantasy", name: "Pixel Fantasy Game UI", icon: "⚔️", tag: "Interface Theme" },
     { id: "macos8", name: "Mac OS 8 Antique", icon: "🕰️", tag: "Interface Theme" },
     { id: "macos8-onyx", name: "Mac OS 8 Onyx", icon: "⚠️", tag: "Interface Theme" },
+    { id: "handdrawn", name: "Hand-Drawn Sketchbook", icon: "✏️", tag: "Interface Theme" },
+    { id: "handdrawn-retro", name: "Hand-Drawn Retro Windows", icon: "📐", tag: "Interface Theme" },
     { id: "synthwave", name: "Synthwave Sunset", icon: "🌅", tag: "Studio Palette" },
     { id: "nord", name: "Nord Frost", icon: "❄️", tag: "Studio Palette" },
     { id: "matrix", name: "Matrix Terminal", icon: "🟢", tag: "Studio Palette" },
