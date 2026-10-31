@@ -1,6 +1,6 @@
 {
     "version":  "1.0.0",
-    "updatedAt":  "2026-10-31T08:31:36Z",
+    "updatedAt":  "2026-10-31T08:45:34Z",
     "plugins":  [
                     {
                         "id":  "curio-component-quick-stats",
@@ -238,6 +238,19 @@
                         "mountPoint":  null,
                         "dataExtension":  null,
                         "path":  "./plugins/curio-theme-pixel-fantasy"
+                    },
+                    {
+                        "id":  "curio-theme-steel-instrument",
+                        "name":  "Steel-Blue Instrument Panel",
+                        "version":  "1.0.0",
+                        "type":  "theme",
+                        "author":  "Curio Audio Engineering",
+                        "description":  "Winamp-style brushed steel-blue audio rack with glowing electric-cyan LCD readouts, graphic equalizer faders, and tactile transport controls.",
+                        "family":  "instrument",
+                        "preview":  null,
+                        "mountPoint":  null,
+                        "dataExtension":  null,
+                        "path":  "./plugins/curio-theme-steel-instrument"
                     },
                     {
                         "id":  "curio-theme-synthwave",

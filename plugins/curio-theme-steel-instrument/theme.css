@@ -1,0 +1,646 @@
+/* ==========================================================================
+   Curio Theme Plugin: Steel-Blue Instrument Panel (Winamp Modern / Bento Audio Rack)
+   Family: instrument | Contract: 1.0.0
+   ID: curio-theme-steel-instrument / steel-instrument / winamp
+   Aesthetic: Dense brushed steel-blue audio rack, glowing electric-cyan LCD
+   readouts, tactile metallic transport keycaps, graphic equalizer faders,
+   and precision telemetry ornaments.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. TOKENS & CANVAS SETUP
+   -------------------------------------------------------------------------- */
+[data-theme="curio-theme-steel-instrument"],
+[data-theme="steel-instrument"],
+[data-theme="winamp"] {
+  --bg:                  #0B1019;
+  --surface:             #C5D0E0;
+  --surface-2:           #131C2B;
+  --text:                #0E1726;
+  --text-dim:            #52627A;
+  --accent:              #00E5FF;
+  --accent-text:         #08101E;
+  --border:              #4B5E7A;
+  --select-bg:           #1D4E89;
+  --select-fg:           #FFFFFF;
+  --danger:              #FF3366;
+  --ok:                  #00FFA3;
+  --warn:                #FFB800;
+
+  --font-ui:             system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display:        ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+  --font-mono:           ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+  --font-size-base:      13px;
+  --font-smoothing:      antialiased;
+
+  --row-height:          30px;
+  --control-height:      28px;
+  --radius-window:       4px;
+  --radius-control:      3px;
+  --radius-chip:         12px;
+
+  --bevel-light:         #E8F0FA;
+  --bevel-dark:          #324055;
+  --bevel-width:         2px;
+  --shadow-raised:       0 2px 6px rgba(0,0,0,0.4), inset 1px 1px 0 rgba(255,255,255,0.7);
+  --shadow-pressed:      inset 2px 2px 4px rgba(0,0,0,0.6), inset -1px -1px 0 rgba(255,255,255,0.2);
+
+  background-color: #0B1019 !important;
+  color: #0E1726 !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] body,
+[data-theme="steel-instrument"] body,
+[data-theme="winamp"] body {
+  background-color: #0B1019 !important;
+  color: #0E1726 !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. ARTWORK ZONE 7: GLOBAL ATMOSPHERIC OSCILLOSCOPE CRT MATRIX GRID
+   -------------------------------------------------------------------------- */
+[data-theme="curio-theme-steel-instrument"] body::after,
+[data-theme="steel-instrument"] body::after,
+[data-theme="winamp"] body::after {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  opacity: 0.18 !important;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(0, 229, 255, 0.06) 0%, transparent 80%) !important;
+  background-size: 20px 20px, 20px 20px, 100% 100% !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .app-shell,
+[data-theme="steel-instrument"] .app-shell,
+[data-theme="winamp"] .app-shell {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. SIDEBAR: ANODIZED RACK HOUSING & ARTWORK ZONE 2: SPECTRUM ANALYZER
+   -------------------------------------------------------------------------- */
+[data-theme="curio-theme-steel-instrument"] .sidebar,
+[data-theme="steel-instrument"] .sidebar,
+[data-theme="winamp"] .sidebar {
+  background: linear-gradient(180deg, #162030 0%, #0E1522 100%) !important;
+  border-right: 2px solid #3A4C66 !important;
+  box-shadow: inset -1px 0 0 #5B7294, inset 1px 0 0 #080D15, 3px 0 8px rgba(0,0,0,0.5) !important;
+  color: #F1F5F9 !important;
+  position: relative !important;
+}
+
+/* Artwork Zone 2: Multi-Band Graphic Equalizer / Spectrum Telemetry at sidebar bottom */
+[data-theme="curio-theme-steel-instrument"] .sidebar::after,
+[data-theme="steel-instrument"] .sidebar::after,
+[data-theme="winamp"] .sidebar::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 12px !important;
+  left: 12px !important;
+  right: 12px !important;
+  height: 52px !important;
+  pointer-events: none !important;
+  border: 1px solid #364963 !important;
+  border-radius: 3px !important;
+  background-color: #080E18 !important;
+  box-shadow: inset 1px 1px 3px #000000, 0 1px 0 rgba(255,255,255,0.15) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 48'%3E%3Crect width='200' height='48' fill='%23080E18'/%3E%3C!-- Grid Lines --%3E%3Cline x1='0' y1='12' x2='200' y2='12' stroke='%23132238' stroke-width='0.8' stroke-dasharray='2,2'/%3E%3Cline x1='0' y1='24' x2='200' y2='24' stroke='%23132238' stroke-width='0.8' stroke-dasharray='2,2'/%3E%3Cline x1='0' y1='36' x2='200' y2='36' stroke='%23132238' stroke-width='0.8' stroke-dasharray='2,2'/%3E%3C!-- Telemetry Labels --%3E%3Ctext x='4' y='9' fill='%2300E5FF' font-family='monospace' font-size='6' font-weight='bold' opacity='0.8'%3E%2B12dB%3C/text%3E%3Ctext x='4' y='45' fill='%2300E5FF' font-family='monospace' font-size='6' font-weight='bold' opacity='0.8'%3E-12dB%3C/text%3E%3Ctext x='155' y='9' fill='%2300FFA3' font-family='monospace' font-size='6' font-weight='bold'%3E44.1kHz%3C/text%3E%3C!-- Spectrum Bars --%3E%3Cg fill='%2300E5FF'%3E%3Crect x='36' y='22' width='8' height='22' rx='1' fill='%2300E5FF'/%3E%3Crect x='48' y='14' width='8' height='30' rx='1' fill='%2300E5FF'/%3E%3Crect x='60' y='8' width='8' height='36' rx='1' fill='%2300FFA3'/%3E%3Crect x='72' y='18' width='8' height='26' rx='1' fill='%2300E5FF'/%3E%3Crect x='84' y='10' width='8' height='34' rx='1' fill='%2300FFA3'/%3E%3Crect x='96' y='26' width='8' height='18' rx='1' fill='%2300E5FF'/%3E%3Crect x='108' y='16' width='8' height='28' rx='1' fill='%2300E5FF'/%3E%3Crect x='120' y='6' width='8' height='38' rx='1' fill='%23FFB800'/%3E%3Crect x='132' y='20' width='8' height='24' rx='1' fill='%2300E5FF'/%3E%3Crect x='144' y='28' width='8' height='16' rx='1' fill='%2300E5FF'/%3E%3C/g%3E%3C!-- Peak Ticks --%3E%3Crect x='36' y='19' width='8' height='1.5' fill='%23FFFFFF'/%3E%3Crect x='48' y='10' width='8' height='1.5' fill='%23FFFFFF'/%3E%3Crect x='60' y='5' width='8' height='1.5' fill='%23FFFFFF'/%3E%3Crect x='72' y='14' width='8' height='1.5' fill='%23FFFFFF'/%3E%3Crect x='84' y='7' width='8' height='1.5' fill='%23FFFFFF'/%3E%3Crect x='96' y='22' width='8' height='1.5' fill='%23FFFFFF'/%3E%3Crect x='108' y='12' width='8' height='1.5' fill='%23FFFFFF'/%3E%3Crect x='120' y='2' width='8' height='1.5' fill='%23FF3366'/%3E%3Crect x='132' y='16' width='8' height='1.5' fill='%23FFFFFF'/%3E%3Crect x='144' y='24' width='8' height='1.5' fill='%23FFFFFF'/%3E%3C/svg%3E") !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. BRAND HEADER & ARTWORK ZONE 1: WINAMP LIGHTNING & OSCILLOSCOPE LOGO
+   -------------------------------------------------------------------------- */
+[data-theme="curio-theme-steel-instrument"] .brand-header,
+[data-theme="steel-instrument"] .brand-header,
+[data-theme="winamp"] .brand-header {
+  background: linear-gradient(180deg, #2A3C56 0%, #172437 100%) !important;
+  border-bottom: 2px solid #080E18 !important;
+  box-shadow: inset 0 1px 0 #527099, inset 0 -1px 0 #364C6E !important;
+  padding: 0.75rem 0.85rem !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .brand-title svg,
+[data-theme="steel-instrument"] .brand-title svg,
+[data-theme="winamp"] .brand-title svg {
+  display: none !important;
+}
+
+/* Artwork Zone 1: Mini Winamp-Style Lightning Bolt & Circular Scope */
+[data-theme="curio-theme-steel-instrument"] .brand-title::before,
+[data-theme="steel-instrument"] .brand-title::before,
+[data-theme="winamp"] .brand-title::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 26px !important;
+  height: 24px !important;
+  flex-shrink: 0 !important;
+  margin-right: 0.55rem !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 26'%3E%3Cdefs%3E%3ClinearGradient id='metalBg' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%233B4F6E'/%3E%3Cstop offset='1' stop-color='%23182538'/%3E%3C/linearGradient%3E%3ClinearGradient id='boltGrad' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23FFF066'/%3E%3Cstop offset='50' stop-color='%23FFA600'/%3E%3Cstop offset='100' stop-color='%23FF3300'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='1' y='1' width='26' height='24' rx='4' fill='url(%23metalBg)' stroke='%23080E18' stroke-width='1.2'/%3E%3Crect x='2' y='2' width='24' height='22' rx='3' fill='none' stroke='%235E7CA6' stroke-width='0.8'/%3E%3C!-- Oscilloscope waveform --%3E%3Cpath d='M4 14 Q 8 6 11 14 T 18 14 T 24 14' fill='none' stroke='%2300E5FF' stroke-width='1.2' opacity='0.7'/%3E%3C!-- Lightning spark --%3E%3Cpolygon points='15,3 8,15 14,15 12,23 21,11 15,11' fill='url(%23boltGrad)' stroke='%23661A00' stroke-width='0.8'/%3E%3C/svg%3E") !important;
+  filter: drop-shadow(0 0 4px rgba(0, 229, 255, 0.4)) !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .brand-title,
+[data-theme="steel-instrument"] .brand-title,
+[data-theme="winamp"] .brand-title {
+  background: #080E18 !important;
+  color: #00E5FF !important;
+  border: 1px solid #364C6E !important;
+  border-radius: 3px !important;
+  padding: 3px 8px !important;
+  font-family: var(--font-display) !important;
+  font-weight: 800 !important;
+  font-size: 0.88rem !important;
+  letter-spacing: 0.1em !important;
+  box-shadow: inset 1px 1px 3px #000000, 0 1px 0 rgba(255,255,255,0.2) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .brand-title .badge-tag,
+[data-theme="steel-instrument"] .brand-title .badge-tag,
+[data-theme="winamp"] .brand-title .badge-tag {
+  background: #00FFA3 !important;
+  color: #080E18 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 900 !important;
+  font-size: 0.65rem !important;
+  padding: 1px 6px !important;
+  border-radius: 2px !important;
+  letter-spacing: 0.05em !important;
+  margin-left: 0.45rem !important;
+  box-shadow: 0 0 6px rgba(0, 255, 163, 0.6) !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. CATALOG & DRAWER NAVIGATION (AUDIO TAPE DECKS & FOLDER TABS)
+   -------------------------------------------------------------------------- */
+[data-theme="curio-theme-steel-instrument"] .catalog-switcher-panel,
+[data-theme="steel-instrument"] .catalog-switcher-panel,
+[data-theme="winamp"] .catalog-switcher-panel {
+  background: #111A27 !important;
+  border-bottom: 1px solid #29384E !important;
+  padding: 0.6rem 0.85rem !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .switcher-title,
+[data-theme="steel-instrument"] .switcher-title,
+[data-theme="winamp"] .switcher-title {
+  color: #8CA4C4 !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] #catalog-selector,
+[data-theme="steel-instrument"] #catalog-selector,
+[data-theme="winamp"] #catalog-selector,
+[data-theme="curio-theme-steel-instrument"] .select-custom,
+[data-theme="steel-instrument"] .select-custom,
+[data-theme="winamp"] .select-custom {
+  background: #080E18 !important;
+  color: #00E5FF !important;
+  border: 1px solid #364C6E !important;
+  border-radius: 3px !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 600 !important;
+  box-shadow: inset 1px 1px 3px #000000 !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .drawer-item,
+[data-theme="steel-instrument"] .drawer-item,
+[data-theme="winamp"] .drawer-item {
+  color: #D3DFEE !important;
+  border-radius: 3px !important;
+  padding: 0.4rem 0.6rem !important;
+  font-family: var(--font-ui) !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  transition: all 0.12s ease !important;
+  border: 1px solid transparent !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .drawer-item:hover,
+[data-theme="steel-instrument"] .drawer-item:hover,
+[data-theme="winamp"] .drawer-item:hover {
+  background: #1C283B !important;
+  color: #00E5FF !important;
+  border-color: #364C6E !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .drawer-item.active,
+[data-theme="steel-instrument"] .drawer-item.active,
+[data-theme="winamp"] .drawer-item.active {
+  background: linear-gradient(90deg, #1D4E89 0%, #153863 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid #00E5FF !important;
+  box-shadow: inset 0 1px 0 #5AA2FF, 0 0 8px rgba(0, 229, 255, 0.35) !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .drawer-item .item-count,
+[data-theme="steel-instrument"] .drawer-item .item-count,
+[data-theme="winamp"] .drawer-item .item-count {
+  background: #080E18 !important;
+  color: #00E5FF !important;
+  border: 1px solid #2B3D55 !important;
+  border-radius: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.65rem !important;
+  font-weight: 700 !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. TOP BAR: BRUSHED CHASSIS & ARTWORK ZONE 3: RACK RAIL & CALIBRATION TICKS
+   -------------------------------------------------------------------------- */
+[data-theme="curio-theme-steel-instrument"] .top-bar,
+[data-theme="steel-instrument"] .top-bar,
+[data-theme="winamp"] .top-bar {
+  background: linear-gradient(180deg, #D4DEEC 0%, #AEC0D6 60%, #90A4BE 100%) !important;
+  border-bottom: 2px solid #364860 !important;
+  box-shadow: inset 0 1px 0 #FFFFFF, 0 2px 8px rgba(0,0,0,0.3) !important;
+  color: #0E1726 !important;
+  position: relative !important;
+}
+
+/* Artwork Zone 3: Millimeter Ruler / Telemetry Track / Chassis Bolts along Top Bar */
+[data-theme="curio-theme-steel-instrument"] .top-bar::after,
+[data-theme="steel-instrument"] .top-bar::after,
+[data-theme="winamp"] .top-bar::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 5px !important;
+  pointer-events: none !important;
+  background-image:
+    repeating-linear-gradient(90deg, #2A3C54 0px, #2A3C54 1px, transparent 1px, transparent 8px),
+    linear-gradient(180deg, #6C819E 0%, #3B4E68 100%) !important;
+  border-top: 1px solid #B0C4DC !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .top-bar .catalog-title,
+[data-theme="steel-instrument"] .top-bar .catalog-title,
+[data-theme="winamp"] .top-bar .catalog-title {
+  color: #0A1320 !important;
+  font-family: var(--font-display) !important;
+  font-weight: 900 !important;
+  font-size: 1.1rem !important;
+  letter-spacing: 0.05em !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.7) !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. FILTER PANEL & ARTWORK ZONE 4: RECESSED EQUALIZER SCALE
+   -------------------------------------------------------------------------- */
+[data-theme="curio-theme-steel-instrument"] .filter-panel,
+[data-theme="steel-instrument"] .filter-panel,
+[data-theme="winamp"] .filter-panel {
+  background: #121A28 !important;
+  border-right: 1px solid #2B3A4F !important;
+  border-bottom: 1px solid #2B3A4F !important;
+  color: #D3DFEE !important;
+  position: relative !important;
+}
+
+/* Artwork Zone 4: Frequency Telemetry Scale Divider */
+[data-theme="curio-theme-steel-instrument"] .filter-panel::before,
+[data-theme="steel-instrument"] .filter-panel::before,
+[data-theme="winamp"] .filter-panel::before {
+  content: "" !important;
+  display: block !important;
+  width: 100% !important;
+  height: 22px !important;
+  margin-bottom: 0.65rem !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  border-bottom: 1px solid #2B3D55 !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20'%3E%3Crect width='200' height='20' fill='%230A121E'/%3E%3Ctext x='8' y='13' fill='%2300E5FF' font-family='monospace' font-size='8' font-weight='bold'%3EPRESET: STUDIO EQ%3C/text%3E%3Ctext x='130' y='13' fill='%2300FFA3' font-family='monospace' font-size='8' font-weight='bold'%3E+3.5 dB%3C/text%3E%3Cline x1='0' y1='18' x2='200' y2='18' stroke='%2300E5FF' stroke-width='0.8' opacity='0.5'/%3E%3C/svg%3E") !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .filter-label,
+[data-theme="steel-instrument"] .filter-label,
+[data-theme="winamp"] .filter-label {
+  color: #00E5FF !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+/* Tag Pills: Sleek Pill Toggles (like EQ Presets: ON/AUTO/OFF) */
+[data-theme="curio-theme-steel-instrument"] .pill-toggle,
+[data-theme="steel-instrument"] .pill-toggle,
+[data-theme="winamp"] .pill-toggle,
+[data-theme="curio-theme-steel-instrument"] .tag-pill,
+[data-theme="steel-instrument"] .tag-pill,
+[data-theme="winamp"] .tag-pill {
+  background: linear-gradient(180deg, #2A3A52 0%, #152233 100%) !important;
+  color: #B2C8E4 !important;
+  border: 1px solid #3B4F6C !important;
+  border-radius: 12px !important;
+  padding: 0.2rem 0.6rem !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 1px 2px rgba(0,0,0,0.4) !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .pill-toggle.active,
+[data-theme="steel-instrument"] .pill-toggle.active,
+[data-theme="winamp"] .pill-toggle.active,
+[data-theme="curio-theme-steel-instrument"] .tag-pill.active,
+[data-theme="steel-instrument"] .tag-pill.active,
+[data-theme="winamp"] .tag-pill.active {
+  background: linear-gradient(180deg, #00C8E6 0%, #008AA0 100%) !important;
+  color: #08101E !important;
+  border-color: #00FFA3 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.6) !important;
+}
+
+/* --------------------------------------------------------------------------
+   8. ITEM CARDS & ARTWORK ZONE 5: ANODIZED MODULE WITH 4 HEX SCREWS & LED
+   -------------------------------------------------------------------------- */
+[data-theme="curio-theme-steel-instrument"] .content-viewport,
+[data-theme="steel-instrument"] .content-viewport,
+[data-theme="winamp"] .content-viewport {
+  background: linear-gradient(180deg, #0D1420 0%, #070B12 100%) !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .item-card,
+[data-theme="steel-instrument"] .item-card,
+[data-theme="winamp"] .item-card,
+[data-theme="curio-theme-steel-instrument"] .detail-card,
+[data-theme="steel-instrument"] .detail-card,
+[data-theme="winamp"] .detail-card {
+  background: linear-gradient(180deg, #CAD5E5 0%, #AABACF 40%, #8D9EB5 100%) !important;
+  border: 2px solid #2B3A50 !important;
+  border-radius: 4px !important;
+  box-shadow: inset 1px 1px 0 #FFFFFF, inset -1px -1px 0 #5E728E, 0 4px 12px rgba(0,0,0,0.5) !important;
+  color: #0E1726 !important;
+  position: relative !important;
+  overflow: visible !important;
+  transition: transform 0.12s ease, box-shadow 0.12s ease !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .item-card:hover,
+[data-theme="steel-instrument"] .item-card:hover,
+[data-theme="winamp"] .item-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: inset 1px 1px 0 #FFFFFF, 0 6px 18px rgba(0, 229, 255, 0.35) !important;
+  border-color: #00E5FF !important;
+}
+
+/* Artwork Zone 5A: Top-Left & Top-Right Chassis Hex-Socket Screws */
+[data-theme="curio-theme-steel-instrument"] .item-card::before,
+[data-theme="steel-instrument"] .item-card::before,
+[data-theme="winamp"] .item-card::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 5px !important;
+  left: 6px !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle, #3D4F66 30%, #CAD5E5 70%, #152233 100%) !important;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.6), inset 0 0 1px #000000 !important;
+  border: 1px solid #1C283B !important;
+  z-index: 2 !important;
+}
+
+/* Artwork Zone 5B: Top-Right Hex Screw + Cyan Status Diode */
+[data-theme="curio-theme-steel-instrument"] .item-card::after,
+[data-theme="steel-instrument"] .item-card::after,
+[data-theme="winamp"] .item-card::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 5px !important;
+  right: 6px !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle, #00FFA3 35%, #008855 80%, #0E1726 100%) !important;
+  box-shadow: 0 0 5px #00FFA3, 1px 1px 1px rgba(0,0,0,0.5) !important;
+  border: 1px solid #004422 !important;
+  z-index: 2 !important;
+}
+
+/* Recessed LCD Title Bar on item card */
+[data-theme="curio-theme-steel-instrument"] .item-card-title,
+[data-theme="steel-instrument"] .item-card-title,
+[data-theme="winamp"] .item-card-title {
+  background: #080E18 !important;
+  color: #00E5FF !important;
+  border: 1px solid #2B3E58 !important;
+  border-radius: 2px !important;
+  padding: 4px 8px !important;
+  font-family: var(--font-display) !important;
+  font-weight: 800 !important;
+  font-size: 0.88rem !important;
+  letter-spacing: 0.05em !important;
+  box-shadow: inset 1px 1px 3px #000000, 0 1px 0 rgba(255,255,255,0.4) !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .item-card-desc,
+[data-theme="steel-instrument"] .item-card-desc,
+[data-theme="winamp"] .item-card-desc {
+  color: #1A2738 !important;
+  font-size: 0.82rem !important;
+  font-weight: 500 !important;
+}
+
+/* --------------------------------------------------------------------------
+   9. TACTILE KEYCAPS & ACTION BUTTONS (CIRCULAR TRANSPORT & BEVELED SLABS)
+   -------------------------------------------------------------------------- */
+[data-theme="curio-theme-steel-instrument"] .btn-primary,
+[data-theme="steel-instrument"] .btn-primary,
+[data-theme="winamp"] .btn-primary {
+  background: linear-gradient(180deg, #E2ECF8 0%, #B8C8DD 50%, #8DA0B8 100%) !important;
+  color: #08121E !important;
+  border: 1px solid #2A3A50 !important;
+  border-radius: 3px !important;
+  box-shadow: inset 1px 1px 0 #FFFFFF, inset -1px -1px 0 #5E728E, 0 2px 4px rgba(0,0,0,0.3) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition: all 0.08s ease !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .btn-primary:hover,
+[data-theme="steel-instrument"] .btn-primary:hover,
+[data-theme="winamp"] .btn-primary:hover {
+  background: linear-gradient(180deg, #F0F6FD 0%, #CAD8EB 50%, #A2B5CE 100%) !important;
+  border-color: #00E5FF !important;
+  box-shadow: inset 1px 1px 0 #FFFFFF, 0 0 8px rgba(0, 229, 255, 0.4) !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .btn-primary:active,
+[data-theme="steel-instrument"] .btn-primary:active,
+[data-theme="winamp"] .btn-primary:active {
+  transform: translateY(1px) !important;
+  background: linear-gradient(180deg, #8A9EBA 0%, #B0C1D7 100%) !important;
+  box-shadow: inset 2px 2px 4px rgba(0,0,0,0.6) !important;
+}
+
+/* Secondary Button (Recessed Dark Transport Key) */
+[data-theme="curio-theme-steel-instrument"] .btn-secondary,
+[data-theme="steel-instrument"] .btn-secondary,
+[data-theme="winamp"] .btn-secondary {
+  background: linear-gradient(180deg, #24344A 0%, #141E2D 100%) !important;
+  color: #00E5FF !important;
+  border: 1px solid #3B4F6C !important;
+  border-radius: 3px !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 2px 4px rgba(0,0,0,0.4) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+}
+
+/* --------------------------------------------------------------------------
+   10. MODALS & ARTWORK ZONE 6: RACK-MOUNT MODULE WITH HANDLE BRACKETS
+   -------------------------------------------------------------------------- */
+[data-theme="curio-theme-steel-instrument"] .modal-content,
+[data-theme="steel-instrument"] .modal-content,
+[data-theme="winamp"] .modal-content {
+  background: linear-gradient(180deg, #CAD5E5 0%, #A8B8CD 50%, #8D9EB5 100%) !important;
+  border: 3px solid #24344A !important;
+  border-radius: 5px !important;
+  box-shadow:
+    inset 1px 1px 0 #FFFFFF,
+    inset -1px -1px 0 #5E728E,
+    0 16px 40px rgba(0,0,0,0.8),
+    0 0 20px rgba(0, 229, 255, 0.25) !important;
+  color: #0E1726 !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .modal-header,
+[data-theme="steel-instrument"] .modal-header,
+[data-theme="winamp"] .modal-header {
+  background: linear-gradient(180deg, #273A54 0%, #141F30 100%) !important;
+  border-bottom: 2px solid #080E18 !important;
+  box-shadow: inset 0 1px 0 #5E7A9E !important;
+  padding: 0.75rem 1rem !important;
+  position: relative !important;
+}
+
+/* Artwork Zone 6: Rack Handle Brackets on Modal Header */
+[data-theme="curio-theme-steel-instrument"] .modal-header::before,
+[data-theme="steel-instrument"] .modal-header::before,
+[data-theme="winamp"] .modal-header::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 8px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 14px !important;
+  height: 24px !important;
+  border: 2px solid #5A7496 !important;
+  border-radius: 2px !important;
+  background: linear-gradient(90deg, #8FA6C4 0%, #3B4F68 100%) !important;
+  box-shadow: 1px 1px 2px #000000 !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .modal-title,
+[data-theme="steel-instrument"] .modal-title,
+[data-theme="winamp"] .modal-title {
+  background: #080E18 !important;
+  color: #00E5FF !important;
+  border: 1px solid #364C6E !important;
+  border-radius: 3px !important;
+  padding: 4px 12px !important;
+  font-family: var(--font-display) !important;
+  font-weight: 800 !important;
+  font-size: 0.92rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  margin-left: 18px !important;
+  box-shadow: inset 1px 1px 3px #000000, 0 1px 0 rgba(255,255,255,0.2) !important;
+}
+
+/* --------------------------------------------------------------------------
+   11. INPUTS, SEARCH BOX & FORMS (RECESSED LCD FREQUENCY READOUTS)
+   -------------------------------------------------------------------------- */
+[data-theme="curio-theme-steel-instrument"] input[type="text"],
+[data-theme="curio-theme-steel-instrument"] input[type="search"],
+[data-theme="curio-theme-steel-instrument"] textarea,
+[data-theme="curio-theme-steel-instrument"] select,
+[data-theme="steel-instrument"] input[type="text"],
+[data-theme="steel-instrument"] input[type="search"],
+[data-theme="steel-instrument"] textarea,
+[data-theme="steel-instrument"] select,
+[data-theme="winamp"] input[type="text"],
+[data-theme="winamp"] input[type="search"],
+[data-theme="winamp"] textarea,
+[data-theme="winamp"] select {
+  background: #080E18 !important;
+  color: #00E5FF !important;
+  border: 1px solid #33465E !important;
+  border-radius: 3px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  box-shadow: inset 1px 1px 4px #000000, 0 1px 0 rgba(255,255,255,0.25) !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] input::placeholder,
+[data-theme="steel-instrument"] input::placeholder,
+[data-theme="winamp"] input::placeholder {
+  color: #3B5472 !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] input:focus,
+[data-theme="steel-instrument"] input:focus,
+[data-theme="winamp"] input:focus {
+  border-color: #00FFA3 !important;
+  outline: none !important;
+  box-shadow: inset 1px 1px 4px #000000, 0 0 6px rgba(0, 255, 163, 0.5) !important;
+}
+
+/* --------------------------------------------------------------------------
+   12. SCROLLBARS (PRECISION MACHINED GROOVES)
+   -------------------------------------------------------------------------- */
+[data-theme="curio-theme-steel-instrument"] ::-webkit-scrollbar,
+[data-theme="steel-instrument"] ::-webkit-scrollbar,
+[data-theme="winamp"] ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+[data-theme="curio-theme-steel-instrument"] ::-webkit-scrollbar-track,
+[data-theme="steel-instrument"] ::-webkit-scrollbar-track,
+[data-theme="winamp"] ::-webkit-scrollbar-track {
+  background: #0B111A;
+  border-left: 1px solid #1F2D40;
+}
+
+[data-theme="curio-theme-steel-instrument"] ::-webkit-scrollbar-thumb,
+[data-theme="steel-instrument"] ::-webkit-scrollbar-thumb,
+[data-theme="winamp"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #A8B8CC 0%, #7E90A8 100%);
+  border: 1px solid #2B3A50;
+  border-radius: 2px;
+  box-shadow: inset 1px 1px 0 #FFFFFF;
+}
+
+[data-theme="curio-theme-steel-instrument"] ::-webkit-scrollbar-thumb:hover,
+[data-theme="steel-instrument"] ::-webkit-scrollbar-thumb:hover,
+[data-theme="winamp"] ::-webkit-scrollbar-thumb:hover {
+  background: #00E5FF;
+  border-color: #008899;
+}
