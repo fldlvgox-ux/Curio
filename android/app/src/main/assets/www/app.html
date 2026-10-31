@@ -13083,39 +13083,39 @@
   --mb-font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
 }
 
-/* --- 1. TOOLBAR SIGIL TRIGGER --- */
+/* --- 1. TOOLBAR SIGIL TRIGGER (Theme Adaptive & Responsive) --- */
 .mind-blunder-sigil-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: radial-gradient(circle at center, #0f1624 0%, #05070c 100%);
-  border: 1px solid rgba(0, 243, 255, 0.35);
-  border-radius: 6px;
+  width: var(--control-height, 30px);
+  height: var(--control-height, 30px);
+  background: var(--surface-2, radial-gradient(circle at center, #0f1624 0%, #05070c 100%));
+  border: 1px solid var(--border, rgba(0, 243, 255, 0.35));
+  border-radius: var(--radius-control, 6px);
   cursor: pointer;
-  color: var(--mb-cyan);
-  font-size: 16px;
+  color: var(--accent, var(--mb-cyan, #00f3ff));
+  font-size: 15px;
   line-height: 1;
   padding: 0;
   margin: 0 4px;
   outline: none;
   transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-  box-shadow: 0 0 10px rgba(0, 243, 255, 0.15), inset 0 0 8px rgba(0, 243, 255, 0.08);
+  box-shadow: var(--shadow-raised, 0 0 10px rgba(0, 243, 255, 0.15));
   user-select: none;
 }
 
 .mind-blunder-sigil-btn:hover {
-  border-color: var(--mb-cyan);
-  color: #ffffff;
+  border-color: var(--accent, var(--mb-cyan, #00f3ff));
+  color: var(--accent-text, #ffffff);
   transform: translateY(-1px) scale(1.05);
-  box-shadow: 0 0 16px rgba(0, 243, 255, 0.45), 0 0 25px rgba(255, 0, 85, 0.3), inset 0 0 10px rgba(0, 243, 255, 0.2);
-  text-shadow: 0 0 8px var(--mb-cyan), 0 0 14px var(--mb-magenta);
+  box-shadow: var(--shadow-raised, 0 0 16px rgba(0, 243, 255, 0.45));
 }
 
 .mind-blunder-sigil-btn:active {
   transform: translateY(1px) scale(0.96);
+  box-shadow: var(--shadow-pressed, inset 0 2px 4px rgba(0,0,0,0.4));
 }
 
 .mb-sigil-icon {
@@ -13128,8 +13128,8 @@
 .mb-sigil-pulse {
   position: absolute;
   inset: -1px;
-  border-radius: 6px;
-  border: 1px solid var(--mb-cyan);
+  border-radius: inherit;
+  border: 1px solid var(--accent, var(--mb-cyan, #00f3ff));
   opacity: 0;
   pointer-events: none;
   animation: mb-sigil-pulse-anim 3.5s infinite;
@@ -13139,13 +13139,12 @@
   0%, 100% {
     transform: scale(1);
     opacity: 0.85;
-    filter: drop-shadow(0 0 3px var(--mb-cyan));
+    filter: drop-shadow(0 0 3px var(--accent, var(--mb-cyan, #00f3ff)));
   }
   50% {
-    transform: scale(1.15) rotate(45deg);
+    transform: scale(1.18) rotate(45deg);
     opacity: 1;
-    filter: drop-shadow(0 0 7px var(--mb-magenta));
-    color: #ff3377;
+    filter: drop-shadow(0 0 6px var(--accent, var(--mb-cyan, #00f3ff)));
   }
 }
 
@@ -13153,6 +13152,178 @@
   0% { transform: scale(1); opacity: 0.7; }
   60% { transform: scale(1.35); opacity: 0; }
   100% { transform: scale(1.35); opacity: 0; }
+}
+
+/* ── Theme Adaptations for Toolbar Sigil ── */
+
+/* Monochrome LCD */
+[data-theme="curio-theme-monochrome-lcd"] .mind-blunder-sigil-btn,
+[data-theme="monochrome-lcd"] .mind-blunder-sigil-btn {
+  background: #97A378 !important;
+  border: 2px solid #5C6347 !important;
+  border-radius: 2px !important;
+  box-shadow: 1px 1px 0 #5C6347 !important;
+  color: #2B2F1E !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .mind-blunder-sigil-btn:hover,
+[data-theme="monochrome-lcd"] .mind-blunder-sigil-btn:hover {
+  background: #A8B38A !important;
+  color: #2B2F1E !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .mind-blunder-sigil-btn:active,
+[data-theme="monochrome-lcd"] .mind-blunder-sigil-btn:active {
+  background: #5C6347 !important;
+  color: #C5CF9F !important;
+  box-shadow: inset 1px 1px 0 #3A3F2C !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .mb-sigil-pulse,
+[data-theme="monochrome-lcd"] .mb-sigil-pulse {
+  border-color: #5C6347 !important;
+  border-radius: 2px !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .mb-sigil-icon,
+[data-theme="monochrome-lcd"] .mb-sigil-icon {
+  filter: none !important;
+}
+
+/* Steel-Blue Instrument (Winamp) */
+[data-theme="curio-theme-steel-instrument"] .mind-blunder-sigil-btn,
+[data-theme="steel-instrument"] .mind-blunder-sigil-btn,
+[data-theme="winamp"] .mind-blunder-sigil-btn {
+  background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #DDE8F4 45%, #ABC0D6 85%, #859BB2 100%) !important;
+  border: 1.5px solid #6B7F98 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 2px 5px rgba(20,35,55,0.25), inset 1px 1px 0 #FFFFFF, inset -1px -1px 0 #8FA2B8 !important;
+  color: #00A8CC !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .mind-blunder-sigil-btn:hover,
+[data-theme="steel-instrument"] .mind-blunder-sigil-btn:hover,
+[data-theme="winamp"] .mind-blunder-sigil-btn:hover {
+  background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #E8F2FC 45%, #BFD5ED 85%, #9BB4CE 100%) !important;
+  color: #00E5FF !important;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.4), inset 1px 1px 0 #FFFFFF !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .mb-sigil-pulse,
+[data-theme="steel-instrument"] .mb-sigil-pulse,
+[data-theme="winamp"] .mb-sigil-pulse {
+  border-color: #00A8CC !important;
+  border-radius: 14px !important;
+}
+
+/* Hand-Drawn Sketchbook & Retro Windows */
+[data-theme="curio-theme-handdrawn"] .mind-blunder-sigil-btn,
+[data-theme="handdrawn"] .mind-blunder-sigil-btn,
+[data-theme="handdrawn-retro"] .mind-blunder-sigil-btn {
+  background: #FFFBF0 !important;
+  border: 2px solid #1A1A1A !important;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+  box-shadow: 2px 2px 0 #1A1A1A !important;
+  color: #1A1A1A !important;
+}
+
+[data-theme="curio-theme-handdrawn"] .mb-sigil-pulse,
+[data-theme="handdrawn"] .mb-sigil-pulse,
+[data-theme="handdrawn-retro"] .mb-sigil-pulse {
+  display: none !important;
+}
+
+[data-theme="curio-theme-handdrawn"] .mb-sigil-icon,
+[data-theme="handdrawn"] .mb-sigil-icon,
+[data-theme="handdrawn-retro"] .mb-sigil-icon {
+  filter: none !important;
+}
+
+/* TVA Bureaucracy */
+[data-theme="curio-theme-tva"] .mind-blunder-sigil-btn,
+[data-theme="tva"] .mind-blunder-sigil-btn {
+  background: #24180F !important;
+  border: 2px solid #3D2B1E !important;
+  border-radius: 3px !important;
+  box-shadow: 2px 2px 0 #120A05 !important;
+  color: #FFA63D !important;
+}
+
+[data-theme="curio-theme-tva"] .mb-sigil-pulse,
+[data-theme="tva"] .mb-sigil-pulse {
+  border-color: #FFA63D !important;
+  border-radius: 3px !important;
+}
+
+[data-theme="curio-theme-tva"] .mb-sigil-icon,
+[data-theme="tva"] .mb-sigil-icon {
+  filter: drop-shadow(0 0 4px #FFA63D) !important;
+}
+
+/* Classic Desktop OS (Mac OS 8, 9, Win95) */
+[data-theme="macos8"] .mind-blunder-sigil-btn,
+[data-theme="macos9"] .mind-blunder-sigil-btn,
+[data-theme="win95"] .mind-blunder-sigil-btn {
+  background: #C0C0C0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: inset 1px 1px #FFFFFF, inset -1px -1px #000000, inset 2px 2px #DFDFDF, inset -2px -2px #808080 !important;
+  color: #000000 !important;
+}
+
+[data-theme="macos8"] .mind-blunder-sigil-btn:active,
+[data-theme="macos9"] .mind-blunder-sigil-btn:active,
+[data-theme="win95"] .mind-blunder-sigil-btn:active {
+  box-shadow: inset 1px 1px #000000, inset -1px -1px #FFFFFF, inset 2px 2px #808080, inset -2px -2px #DFDFDF !important;
+}
+
+[data-theme="macos8"] .mb-sigil-pulse,
+[data-theme="macos9"] .mb-sigil-pulse,
+[data-theme="win95"] .mb-sigil-pulse {
+  display: none !important;
+}
+
+[data-theme="macos8"] .mb-sigil-icon,
+[data-theme="macos9"] .mb-sigil-icon,
+[data-theme="win95"] .mb-sigil-icon {
+  filter: none !important;
+}
+
+/* Card Catalog & Corkboard */
+[data-theme="card-catalog"] .mind-blunder-sigil-btn,
+[data-theme="corkboard"] .mind-blunder-sigil-btn {
+  background: #FDFBF7 !important;
+  border: 1px solid #A68A68 !important;
+  border-radius: 4px !important;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.15) !important;
+  color: #5C4033 !important;
+}
+
+[data-theme="card-catalog"] .mb-sigil-icon,
+[data-theme="corkboard"] .mb-sigil-icon {
+  filter: none !important;
+}
+
+/* Pixel Fantasy */
+[data-theme="curio-theme-pixel-fantasy"] .mind-blunder-sigil-btn,
+[data-theme="pixel-fantasy"] .mind-blunder-sigil-btn {
+  background: #3B4A66 !important;
+  border: 2px solid #19212E !important;
+  border-bottom: 2px solid #D98B4A !important;
+  border-radius: 0 !important;
+  box-shadow: 2px 2px 0 #000000 !important;
+  color: #FCE28A !important;
+}
+
+[data-theme="curio-theme-pixel-fantasy"] .mb-sigil-pulse,
+[data-theme="pixel-fantasy"] .mb-sigil-pulse {
+  border-color: #FCE28A !important;
+  border-radius: 0 !important;
+}
+
+[data-theme="curio-theme-pixel-fantasy"] .mb-sigil-icon,
+[data-theme="pixel-fantasy"] .mb-sigil-icon {
+  filter: drop-shadow(0 0 4px #D98B4A) !important;
 }
 
 /* --- 2. CRT GLITCH TRANSITION CANVAS & OVERLAY --- */
@@ -14440,6 +14611,7 @@
 .mb-arcade-tabs {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .mb-arcade-tab-btn {
@@ -49489,6 +49661,8 @@ const MindBlunderController = {
                     <button class="mb-arcade-tab-btn active" data-game="defender">👾 PIXEL DEFENDER</button>
                     <button class="mb-arcade-tab-btn" data-game="snake">🐍 DATA SNAKE</button>
                     <button class="mb-arcade-tab-btn" data-game="sniper">🎯 TAG SNIPER</button>
+                    <button class="mb-arcade-tab-btn" data-game="breakout">🧱 CYBER BREAKOUT</button>
+                    <button class="mb-arcade-tab-btn" data-game="maze">ᗧ CYBER MAZE</button>
                   </div>
                 </div>
 
@@ -51526,6 +51700,63 @@ const MindBlunderController = {
    */
 
   // 8-Bit Procedural Web Audio Sound Synthesizers
+  playArcadeBounce() {
+    if (!this.audioEnabled) return;
+    try {
+      const ctx = this.getAudioContext();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      const now = ctx.currentTime;
+      osc.frequency.setValueAtTime(580, now);
+      osc.frequency.exponentialRampToValueAtTime(880, now + 0.05);
+      gain.gain.setValueAtTime(0.12, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.05);
+    } catch {}
+  },
+
+  playArcadeGlassBreak() {
+    if (!this.audioEnabled) return;
+    try {
+      const ctx = this.getAudioContext();
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(1400, now);
+      osc.frequency.exponentialRampToValueAtTime(300, now + 0.08);
+      gain.gain.setValueAtTime(0.14, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.08);
+    } catch {}
+  },
+
+  playMazeChompSound() {
+    if (!this.audioEnabled) return;
+    try {
+      const ctx = this.getAudioContext();
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      this._mazeToneToggle = !this._mazeToneToggle;
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(this._mazeToneToggle ? 440 : 330, now);
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.06);
+    } catch {}
+  },
+
   playArcadeLaser() {
     if (!this.audioEnabled) return;
     try {
@@ -51711,6 +51942,8 @@ const MindBlunderController = {
       if (gameId === 'defender') helpEl.innerText = '[MOUSE / ARROWS / A-D] Move · [CLICK / SPACE] Fire Laser · Clear data bugs!';
       if (gameId === 'snake')    helpEl.innerText = '[ARROWS / WASD / D-PAD] Slither · Ingest catalog data crystals to grow!';
       if (gameId === 'sniper')   helpEl.innerText = '[MOUSE] Aim Scope & Click the WANTED tag target · Avoid red malware traps!';
+      if (gameId === 'breakout') helpEl.innerText = '[MOUSE / ARROWS] Steer Paddle · [CLICK / SPACE] Launch Ball · Collect Power-Up capsules!';
+      if (gameId === 'maze')     helpEl.innerText = '[ARROWS / WASD] Chomp data pellets · Eat Oracle Crystals to chomp glitch ghosts!';
     }
 
     // Reset current score
@@ -51721,6 +51954,8 @@ const MindBlunderController = {
     if (gameId === 'defender') this.initPixelDefender();
     if (gameId === 'snake')    this.initDataSnake();
     if (gameId === 'sniper')   this.initTagSniper();
+    if (gameId === 'breakout') this.initCyberBreakout();
+    if (gameId === 'maze')     this.initCyberMaze();
 
     this._arcadeLastFrame = performance.now();
     this._runArcadeLoop();
@@ -51872,6 +52107,8 @@ const MindBlunderController = {
   handleArcadeFireAction() {
     if (this.activeArcadeGame === 'defender' && this._defenderState) {
       this.firePixelDefenderLaser();
+    } else if (this.activeArcadeGame === 'breakout' && this._breakoutState) {
+      this.handleBreakoutAction();
     }
   },
 
@@ -51880,6 +52117,8 @@ const MindBlunderController = {
       this.firePixelDefenderLaser();
     } else if (this.activeArcadeGame === 'sniper' && this._sniperState) {
       this.fireTagSniperShot(mx, my);
+    } else if (this.activeArcadeGame === 'breakout' && this._breakoutState) {
+      this.handleBreakoutAction();
     }
   },
 
@@ -51897,6 +52136,8 @@ const MindBlunderController = {
       if (this.activeArcadeGame === 'defender') this.updateAndRenderDefender(ctx, w, h, dt, now);
       if (this.activeArcadeGame === 'snake')    this.updateAndRenderSnake(ctx, w, h, dt, now);
       if (this.activeArcadeGame === 'sniper')   this.updateAndRenderSniper(ctx, w, h, dt, now);
+      if (this.activeArcadeGame === 'breakout') this.updateAndRenderBreakout(ctx, w, h, dt, now);
+      if (this.activeArcadeGame === 'maze')     this.updateAndRenderMaze(ctx, w, h, dt, now);
     }
 
     this._arcadeRaf = requestAnimationFrame(() => this._runArcadeLoop());
@@ -53735,6 +53976,684 @@ ${tagRatio < 90 ? '* Enrich items missing taxonomy tags to boost companion curio
 
 Audit validated by Mind Blunder Sub-Level Diagnostics Engine.
 =============================================================`;
+  },
+  // ═════════════════════════════════════════════════════════════════════════
+  // 4. GAME 4: 🧱 CYBER BREAKOUT (ARKANOID VS CATALOG DRAWER BRICKS)
+  // ═════════════════════════════════════════════════════════════════════════
+  initCyberBreakout() {
+    const items = this.api ? this.api.state.getItems() : [];
+    const drawers = this.api ? this.api.state.getDrawers() : [];
+    const drawerNames = drawers.length > 0 ? drawers.map(d => d.name || d) : ['GENERAL', 'ARCHIVE', 'VAULT', 'SYSTEM'];
+
+    this._breakoutState = {
+      paddleX: 275,
+      paddleY: 385,
+      paddleW: 90,
+      paddleH: 16,
+      paddleSpeed: 420,
+      balls: [
+        { x: 320, y: 375, vx: 0, vy: 0, r: 5, stuck: true }
+      ],
+      lasers: [],
+      capsules: [],
+      particles: [],
+      laserTimer: 0,
+      wideTimer: 0,
+      slowTimer: 0,
+      lives: 3,
+      bricks: [],
+      wave: 1
+    };
+
+    this.spawnBreakoutBricks(drawerNames);
+  },
+
+  spawnBreakoutBricks(drawerNames) {
+    const s = this._breakoutState;
+    s.bricks = [];
+    const rows = 5;
+    const cols = 9;
+    const colors = ['#00f3ff', '#39ff14', '#ffcc00', '#bd00ff', '#ff0055'];
+    const brickW = 60;
+    const brickH = 20;
+    const padX = (640 - (cols * (brickW + 6) - 6)) / 2;
+    const padY = 55;
+
+    for (let r = 0; r < rows; r++) {
+      const dName = drawerNames[r % drawerNames.length] || 'DRAWER';
+      for (let c = 0; c < cols; c++) {
+        // 20% chance to drop powerup capsule
+        const hasCapsule = Math.random() < 0.22;
+        const capType = ['multi', 'laser', 'wide', 'slow'][Math.floor(Math.random() * 4)];
+
+        s.bricks.push({
+          x: padX + c * (brickW + 6),
+          y: padY + r * (brickH + 8),
+          w: brickW,
+          h: brickH,
+          label: dName.slice(0, 7).toUpperCase(),
+          color: colors[r % colors.length],
+          health: r === 0 ? 2 : 1, // Top row takes 2 hits
+          maxHealth: r === 0 ? 2 : 1,
+          hasCapsule: hasCapsule,
+          capType: capType,
+          alive: true
+        });
+      }
+    }
+  },
+
+  handleBreakoutAction() {
+    const s = this._breakoutState;
+    if (!s) return;
+
+    // Launch any stuck balls
+    let launched = false;
+    for (const b of s.balls) {
+      if (b.stuck) {
+        b.stuck = false;
+        const angle = -Math.PI / 2 + (Math.random() - 0.5) * 0.5;
+        const speed = 360;
+        b.vx = Math.cos(angle) * speed;
+        b.vy = Math.sin(angle) * speed;
+        launched = true;
+      }
+    }
+
+    // If lasers active, fire laser blasters from paddle edges
+    if (s.laserTimer > 0) {
+      s.lasers.push({ x: s.paddleX + 6, y: s.paddleY, speed: 520 });
+      s.lasers.push({ x: s.paddleX + s.paddleW - 10, y: s.paddleY, speed: 520 });
+      this.playArcadeLaser();
+    } else if (launched) {
+      this.playArcadeBounce();
+    }
+  },
+
+  updateAndRenderBreakout(ctx, w, h, dt, nowMs) {
+    const s = this._breakoutState;
+    if (!s) return;
+    const keys = this.arcadeKeys;
+    const mouse = this._arcadeMouse;
+
+    // Background
+    ctx.fillStyle = '#050a16';
+    ctx.fillRect(0, 0, w, h);
+
+    // Timers
+    if (s.laserTimer > 0) s.laserTimer -= dt;
+    if (s.slowTimer > 0) s.slowTimer -= dt;
+    if (s.wideTimer > 0) {
+      s.wideTimer -= dt;
+      s.paddleW = 125;
+    } else {
+      s.paddleW = 88;
+    }
+
+    // ── Paddle Movement (Mouse OR Keyboard) ──
+    if (mouse.onCanvas) {
+      const targetX = mouse.x - s.paddleW / 2;
+      s.paddleX += (targetX - s.paddleX) * Math.min(1, dt * 22);
+    } else {
+      if (keys['a'] || keys['left']) s.paddleX -= s.paddleSpeed * dt;
+      if (keys['d'] || keys['right']) s.paddleX += s.paddleSpeed * dt;
+    }
+    s.paddleX = Math.max(8, Math.min(w - s.paddleW - 8, s.paddleX));
+
+    // ── Update & Render Balls ──
+    const ballSpeedMult = s.slowTimer > 0 ? 0.7 : 1;
+    let livingBalls = 0;
+
+    for (let i = s.balls.length - 1; i >= 0; i--) {
+      const b = s.balls[i];
+
+      if (b.stuck) {
+        // Ball rides on paddle
+        b.x = s.paddleX + s.paddleW / 2;
+        b.y = s.paddleY - b.r - 2;
+        livingBalls++;
+      } else {
+        // Integrate motion
+        b.x += b.vx * ballSpeedMult * dt;
+        b.y += b.vy * ballSpeedMult * dt;
+
+        // Wall collisions
+        if (b.x - b.r <= 8) { b.x = 8 + b.r; b.vx *= -1; this.playArcadeBounce(); }
+        if (b.x + b.r >= w - 8) { b.x = w - 8 - b.r; b.vx *= -1; this.playArcadeBounce(); }
+        if (b.y - b.r <= 8) { b.y = 8 + b.r; b.vy *= -1; this.playArcadeBounce(); }
+
+        // Paddle Collision
+        if (b.y + b.r >= s.paddleY && b.y - b.r <= s.paddleY + s.paddleH) {
+          if (b.x >= s.paddleX - 4 && b.x <= s.paddleX + s.paddleW + 4) {
+            b.y = s.paddleY - b.r - 1;
+            // Angle reflection based on hit offset from paddle center
+            const offset = (b.x - (s.paddleX + s.paddleW / 2)) / (s.paddleW / 2);
+            const speed = Math.sqrt(b.vx * b.vx + b.vy * b.vy) * 1.01; // subtle speedup
+            const maxAngle = Math.PI * 0.42; // Max 75 degrees
+            const angle = -Math.PI / 2 + offset * maxAngle;
+            b.vx = Math.sin(angle + Math.PI / 2) * speed;
+            b.vy = -Math.abs(Math.cos(angle + Math.PI / 2) * speed);
+            this.playArcadeBounce();
+          }
+        }
+
+        // Check Brick Collisions
+        for (const br of s.bricks) {
+          if (!br.alive) continue;
+          if (b.x + b.r >= br.x && b.x - b.r <= br.x + br.w && b.y + b.r >= br.y && b.y - b.r <= br.y + br.h) {
+            // Rebound ball
+            b.vy *= -1;
+            br.health--;
+
+            if (br.health <= 0) {
+              br.alive = false;
+              this.arcadeCurrentScore += 50;
+              this.awardArcadePetXp(1);
+              this.playArcadeGlassBreak();
+
+              // Spawn capsule
+              if (br.hasCapsule) {
+                s.capsules.push({ x: br.x + br.w / 2, y: br.y + br.h, type: br.capType, vy: 140 });
+              }
+
+              // Debris
+              for (let p = 0; p < 12; p++) {
+                s.particles.push({
+                  x: br.x + br.w / 2, y: br.y + br.h / 2,
+                  vx: (Math.random() - 0.5) * 180, vy: (Math.random() - 0.5) * 180,
+                  life: 0.4, color: br.color
+                });
+              }
+            } else {
+              this.playArcadeBounce();
+            }
+            break;
+          }
+        }
+
+        // Bottom pit check
+        if (b.y > h + 20) {
+          s.balls.splice(i, 1);
+          continue;
+        }
+
+        livingBalls++;
+      }
+
+      // Draw Ball with neon glow
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+      ctx.fillStyle = '#ffffff';
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r * 2.2, 0, Math.PI * 2);
+      ctx.fillStyle = '#00f3ff';
+      ctx.globalAlpha = 0.25;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+
+    // Ball lost!
+    if (livingBalls === 0) {
+      s.lives--;
+      this.playArcadeHit();
+      if (s.lives <= 0) {
+        this.triggerArcadeGameOver('MATRIX SHATTERED', `Final Score: ${this.arcadeCurrentScore} · Wave: ${s.wave}`);
+        return;
+      }
+      // Respawn 1 ball stuck on paddle
+      s.balls = [{ x: s.paddleX + s.paddleW / 2, y: s.paddleY - 8, vx: 0, vy: 0, r: 5, stuck: true }];
+    }
+
+    // ── Wave Cleared Check ──
+    const remainingBricks = s.bricks.filter(b => b.alive).length;
+    if (remainingBricks === 0) {
+      this.playArcadeFanfare();
+      s.wave++;
+      this.arcadeCurrentScore += 400;
+      this.awardArcadePetXp(15);
+      const drawers = this.api ? this.api.state.getDrawers() : [];
+      const names = drawers.length ? drawers.map(d=>d.name||d) : ['VAULT', 'CYBER'];
+      this.spawnBreakoutBricks(names);
+      s.balls = [{ x: s.paddleX + s.paddleW / 2, y: s.paddleY - 8, vx: 0, vy: 0, r: 5, stuck: true }];
+    }
+
+    // ── Update & Render Falling Power-Up Capsules ──
+    for (let cIdx = s.capsules.length - 1; cIdx >= 0; cIdx--) {
+      const cap = s.capsules[cIdx];
+      cap.y += cap.vy * dt;
+
+      // Draw capsule pill
+      const capColors = { multi: '#00f3ff', laser: '#ff0055', wide: '#39ff14', slow: '#ffcc00' };
+      const cColor = capColors[cap.type] || '#00f3ff';
+
+      ctx.fillStyle = 'rgba(6, 16, 32, 0.95)';
+      ctx.strokeStyle = cColor;
+      ctx.lineWidth = 1.5;
+      ctx.fillRect(cap.x - 12, cap.y - 7, 24, 14);
+      ctx.strokeRect(cap.x - 12, cap.y - 7, 24, 14);
+
+      ctx.font = 'bold 8px monospace';
+      ctx.fillStyle = cColor;
+      ctx.textAlign = 'center';
+      ctx.fillText(cap.type.slice(0, 3).toUpperCase(), cap.x, cap.y + 3);
+
+      // Check paddle catch
+      if (cap.y >= s.paddleY && cap.y <= s.paddleY + s.paddleH && cap.x >= s.paddleX && cap.x <= s.paddleX + s.paddleW) {
+        this.playArcadeCoin();
+        this.awardArcadePetXp(2);
+        this.arcadeCurrentScore += 100;
+
+        if (cap.type === 'multi') {
+          // Clone balls
+          const newBalls = [];
+          for (const b of s.balls) {
+            newBalls.push({ x: b.x, y: b.y, vx: b.vx * 0.9 - 100, vy: b.vy, r: b.r, stuck: false });
+            newBalls.push({ x: b.x, y: b.y, vx: b.vx * 0.9 + 100, vy: b.vy, r: b.r, stuck: false });
+          }
+          s.balls.push(...newBalls.slice(0, 4));
+        } else if (cap.type === 'laser') {
+          s.laserTimer = 12; // 12 seconds of laser blasters
+        } else if (cap.type === 'wide') {
+          s.wideTimer = 14;
+        } else if (cap.type === 'slow') {
+          s.slowTimer = 12;
+        }
+
+        s.capsules.splice(cIdx, 1);
+        continue;
+      }
+
+      if (cap.y > h + 15) s.capsules.splice(cIdx, 1);
+    }
+
+    // ── Update & Render Paddle Lasers ──
+    for (let lIdx = s.lasers.length - 1; lIdx >= 0; lIdx--) {
+      const l = s.lasers[lIdx];
+      l.y -= l.speed * dt;
+      ctx.fillStyle = '#ff0055';
+      ctx.fillRect(l.x, l.y, 3, 10);
+
+      // Check hit with bricks
+      for (const br of s.bricks) {
+        if (!br.alive) continue;
+        if (l.x >= br.x && l.x <= br.x + br.w && l.y >= br.y && l.y <= br.y + br.h) {
+          br.health--;
+          if (br.health <= 0) {
+            br.alive = false;
+            this.arcadeCurrentScore += 50;
+            this.playArcadeGlassBreak();
+          }
+          s.lasers.splice(lIdx, 1);
+          break;
+        }
+      }
+      if (l.y < -10) s.lasers.splice(lIdx, 1);
+    }
+
+    // ── Render Bricks ──
+    for (const br of s.bricks) {
+      if (!br.alive) continue;
+      ctx.fillStyle = br.health === 2 ? 'rgba(15, 30, 55, 0.95)' : 'rgba(8, 20, 38, 0.92)';
+      ctx.strokeStyle = br.color;
+      ctx.lineWidth = 1.2;
+      ctx.fillRect(br.x, br.y, br.w, br.h);
+      ctx.strokeRect(br.x, br.y, br.w, br.h);
+
+      // Label
+      ctx.font = 'bold 8px monospace';
+      ctx.fillStyle = br.color;
+      ctx.textAlign = 'center';
+      ctx.fillText(br.label, br.x + br.w / 2, br.y + 13);
+    }
+
+    // ── Render Particles ──
+    for (let p = s.particles.length - 1; p >= 0; p--) {
+      const part = s.particles[p];
+      part.x += part.vx * dt;
+      part.y += part.vy * dt;
+      part.life -= dt;
+      if (part.life <= 0) { s.particles.splice(p, 1); continue; }
+      ctx.fillStyle = part.color;
+      ctx.globalAlpha = part.life / 0.4;
+      ctx.fillRect(part.x, part.y, 3, 3);
+    }
+    ctx.globalAlpha = 1;
+
+    // ── Render Hero Paddle (With Cockpit & Laser Cannons) ──
+    ctx.fillStyle = '#00f3ff';
+    ctx.fillRect(s.paddleX, s.paddleY, s.paddleW, s.paddleH);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(s.paddleX + 4, s.paddleY + 2, s.paddleW - 8, 3);
+
+    // Mini Cyber-Pet Familiar in Center Cockpit
+    const petDef = (this.currentPet && CYBER_PETS[this.currentPet.id]) ? CYBER_PETS[this.currentPet.id] : CYBER_PETS['circuit-dog'];
+    ctx.fillStyle = petDef.color || '#ff0055';
+    ctx.fillRect(s.paddleX + s.paddleW / 2 - 5, s.paddleY + 4, 10, 8);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(s.paddleX + s.paddleW / 2 - 3, s.paddleY + 6, 2, 2);
+    ctx.fillRect(s.paddleX + s.paddleW / 2 + 1, s.paddleY + 6, 2, 2);
+
+    // Twin Laser Blasters if active
+    if (s.laserTimer > 0) {
+      ctx.fillStyle = '#ff0055';
+      ctx.fillRect(s.paddleX - 3, s.paddleY - 4, 4, 10);
+      ctx.fillRect(s.paddleX + s.paddleW - 1, s.paddleY - 4, 4, 10);
+    }
+
+    // HUD: Lives & Wave
+    ctx.font = 'bold 11px monospace';
+    ctx.fillStyle = '#00f3ff';
+    ctx.textAlign = 'left';
+    ctx.fillText(`BALLS: ${'● '.repeat(s.lives)}`, 14, h - 14);
+
+    if (s.laserTimer > 0) {
+      ctx.fillStyle = '#ff0055';
+      ctx.fillText(`LASERS: ${Math.ceil(s.laserTimer)}s`, 120, h - 14);
+    }
+
+    ctx.textAlign = 'right';
+    ctx.fillStyle = '#00f3ff';
+    ctx.fillText(`WAVE ${s.wave}`, w - 14, h - 14);
+  },
+
+  // ═════════════════════════════════════════════════════════════════════════
+  // 5. GAME 5: ᗧ CYBER MAZE (PAC-RUNNER VS GLITCH PHANTOMS)
+  // ═════════════════════════════════════════════════════════════════════════
+  initCyberMaze() {
+    const items = this.api ? this.api.state.getItems() : [];
+    const bonusTitle = items.length ? items[Math.floor(Math.random() * items.length)].title : 'CURIO DATA';
+
+    // 24 columns x 18 rows grid
+    const cols = 24;
+    const rows = 18;
+    const cellW = 640 / cols;
+    const cellH = 420 / rows;
+
+    // 0: Pellet, 1: Wall, 2: Empty, 3: Power Crystal
+    const grid = [
+      [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+      [1,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,3,1],
+      [1,0,1,1,1,0,0,1,0,1,1,1,1,1,1,0,1,0,0,1,1,1,0,1],
+      [1,0,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,1,1,0,1],
+      [1,0,0,0,0,0,1,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1],
+      [1,1,1,0,1,0,1,1,1,0,1,1,1,1,0,1,1,1,0,1,0,1,1,1],
+      [2,2,0,0,1,0,0,0,0,0,1,2,2,1,0,0,0,0,0,1,0,0,2,2],
+      [1,1,1,0,1,0,1,0,1,1,1,2,2,1,1,1,0,1,0,1,0,1,1,1],
+      [1,1,1,0,0,0,1,0,0,0,2,2,2,2,0,0,0,1,0,0,0,1,1,1],
+      [1,1,1,0,1,0,1,0,1,1,1,1,1,1,1,1,0,1,0,1,0,1,1,1],
+      [2,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,2,2],
+      [1,1,1,0,1,0,1,1,1,0,1,1,1,1,0,1,1,1,0,1,0,1,1,1],
+      [1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1],
+      [1,0,1,1,1,0,1,1,1,1,0,0,0,0,1,1,1,1,0,1,1,1,0,1],
+      [1,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,0,0,0,1],
+      [1,1,0,0,1,0,1,1,1,0,0,1,1,0,0,1,1,1,0,1,0,0,1,1],
+      [1,3,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,3,1],
+      [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+    ];
+
+    // Clone grid
+    const liveGrid = grid.map(r => [...r]);
+
+    // Ghosts
+    const ghosts = [
+      { x: 11, y: 7, dir: { x: 0, y: -1 }, color: '#ff0055', name: 'BLINKY', baseSpeed: 80, respawnTimer: 0 },
+      { x: 12, y: 7, dir: { x: 0, y: -1 }, color: '#00f3ff', name: 'INKY',   baseSpeed: 75, respawnTimer: 0 },
+      { x: 11, y: 8, dir: { x: 1, y: 0 },  color: '#ffaa00', name: 'CLYDE',  baseSpeed: 70, respawnTimer: 0 },
+      { x: 12, y: 8, dir: { x: -1, y: 0 }, color: '#bd00ff', name: 'PINKY',  baseSpeed: 72, respawnTimer: 0 }
+    ];
+
+    this._mazeState = {
+      cols, rows, cellW, cellH,
+      grid: liveGrid,
+      player: { x: 11.5, y: 12, dir: { x: 1, y: 0 }, nextDir: { x: 1, y: 0 }, speed: 100 },
+      ghosts: ghosts,
+      frightenedTimer: 0,
+      comboGhostMultiplier: 1,
+      bonusItem: { x: 11.5, y: 10, title: bonusTitle, active: true },
+      bonusTimer: 18,
+      lives: 3
+    };
+  },
+
+  updateAndRenderMaze(ctx, w, h, dt, nowMs) {
+    const s = this._mazeState;
+    if (!s) return;
+    const keys = this.arcadeKeys;
+    const p = s.player;
+
+    // Background
+    ctx.fillStyle = '#050a16';
+    ctx.fillRect(0, 0, w, h);
+
+    // Direction input buffering
+    if (keys['w'] || keys['up'])    p.nextDir = { x: 0, y: -1 };
+    if (keys['s'] || keys['down'])  p.nextDir = { x: 0, y: 1 };
+    if (keys['a'] || keys['left'])  p.nextDir = { x: -1, y: 0 };
+    if (keys['d'] || keys['right']) p.nextDir = { x: 1, y: 0 };
+
+    // Frightened Timer
+    if (s.frightenedTimer > 0) {
+      s.frightenedTimer -= dt;
+      if (s.frightenedTimer <= 0) s.comboGhostMultiplier = 1;
+    }
+
+    // ── Player Navigation with Grid Snapping ──
+    const targetCellX = Math.round(p.x);
+    const targetCellY = Math.round(p.y);
+    const distToCenter = Math.abs(p.x - targetCellX) + Math.abs(p.y - targetCellY);
+
+    if (distToCenter < 0.18) {
+      // Check if nextDir is valid
+      const nextX = targetCellX + p.nextDir.x;
+      const nextY = targetCellY + p.nextDir.y;
+      if (nextX >= 0 && nextX < s.cols && nextY >= 0 && nextY < s.rows && s.grid[nextY][nextX] !== 1) {
+        p.dir = p.nextDir;
+        p.x = targetCellX;
+        p.y = targetCellY;
+      }
+    }
+
+    // Move player in current dir if not blocked by wall
+    const checkX = Math.round(p.x + p.dir.x * 0.52);
+    const checkY = Math.round(p.y + p.dir.y * 0.52);
+    if (checkX >= 0 && checkX < s.cols && checkY >= 0 && checkY < s.rows && s.grid[checkY][checkX] !== 1) {
+      p.x += p.dir.x * (p.speed / s.cellW) * dt;
+      p.y += p.dir.y * (p.speed / s.cellH) * dt;
+    }
+
+    // Screen wrap tunnel
+    if (p.x < -0.5) p.x = s.cols - 0.5;
+    if (p.x >= s.cols) p.x = -0.5;
+
+    // ── Chomp Pellets & Power Crystals ──
+    const curCellX = Math.floor(p.x + 0.5);
+    const curCellY = Math.floor(p.y + 0.5);
+    if (curCellX >= 0 && curCellX < s.cols && curCellY >= 0 && curCellY < s.rows) {
+      const cellVal = s.grid[curCellY][curCellX];
+      if (cellVal === 0) {
+        // Data Pellet
+        s.grid[curCellY][curCellX] = 2; // Empty
+        this.arcadeCurrentScore += 10;
+        this.awardArcadePetXp(1);
+        this.playMazeChompSound();
+      } else if (cellVal === 3) {
+        // Oracle Power Crystal!
+        s.grid[curCellY][curCellX] = 2;
+        this.arcadeCurrentScore += 100;
+        this.awardArcadePetXp(5);
+        this.playArcadeCoin();
+        s.frightenedTimer = 8.5; // 8.5s vulnerable ghosts
+        s.comboGhostMultiplier = 1;
+      }
+    }
+
+    // ── Check Bonus Item in Center ──
+    if (s.bonusItem && s.bonusItem.active) {
+      const bx = s.bonusItem.x;
+      const by = s.bonusItem.y;
+      if (Math.abs(p.x - bx) < 0.8 && Math.abs(p.y - by) < 0.8) {
+        s.bonusItem.active = false;
+        this.playArcadeFanfare();
+        this.arcadeCurrentScore += 500;
+        this.awardArcadePetXp(12);
+      }
+    }
+
+    // ── Render Maze Walls & Pellets ──
+    for (let r = 0; r < s.rows; r++) {
+      for (let c = 0; c < s.cols; c++) {
+        const type = s.grid[r][c];
+        const cx = c * s.cellW;
+        const cy = r * s.cellH;
+
+        if (type === 1) {
+          // Cyber Wall
+          ctx.fillStyle = 'rgba(8, 24, 48, 0.95)';
+          ctx.strokeStyle = '#00f3ff';
+          ctx.lineWidth = 1;
+          ctx.fillRect(cx, cy, s.cellW, s.cellH);
+          ctx.strokeRect(cx, cy, s.cellW, s.cellH);
+        } else if (type === 0) {
+          // Data Pellet
+          ctx.fillStyle = '#39ff14';
+          ctx.fillRect(cx + s.cellW / 2 - 2, cy + s.cellH / 2 - 2, 4, 4);
+        } else if (type === 3) {
+          // Oracle Power Crystal
+          const pulse = 0.7 + 0.3 * Math.sin(nowMs / 120);
+          ctx.beginPath();
+          ctx.arc(cx + s.cellW / 2, cy + s.cellH / 2, 6 * pulse, 0, Math.PI * 2);
+          ctx.fillStyle = '#00f3ff';
+          ctx.fill();
+        }
+      }
+    }
+
+    // ── Render Bonus Item in Center Corridor ──
+    if (s.bonusItem && s.bonusItem.active) {
+      const bx = s.bonusItem.x * s.cellW;
+      const by = s.bonusItem.y * s.cellH;
+      ctx.fillStyle = '#ffcc00';
+      ctx.font = 'bold 9px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('★ ' + s.bonusItem.title.slice(0, 10), bx, by + 4);
+    }
+
+    // ── Update & Render Glitch Phantoms ──
+    for (const g of s.ghosts) {
+      const isFrightened = s.frightenedTimer > 0;
+      const ghostSpeed = (isFrightened ? 45 : g.baseSpeed);
+
+      // Simple AI corridor traversal
+      const gx = Math.round(g.x);
+      const gy = Math.round(g.y);
+      const distToG = Math.abs(g.x - gx) + Math.abs(g.y - gy);
+
+      if (distToG < 0.15) {
+        // Pick valid random direction at intersections
+        const possibleDirs = [
+          { x: 0, y: -1 }, { x: 0, y: 1 }, { x: -1, y: 0 }, { x: 1, y: 0 }
+        ].filter(d => {
+          // Don't reverse immediately
+          if (d.x === -g.dir.x && d.y === -g.dir.y) return false;
+          const nx = gx + d.x;
+          const ny = gy + d.y;
+          return nx >= 0 && nx < s.cols && ny >= 0 && ny < s.rows && s.grid[ny][nx] !== 1;
+        });
+
+        if (possibleDirs.length > 0) {
+          g.dir = possibleDirs[Math.floor(Math.random() * possibleDirs.length)];
+          g.x = gx;
+          g.y = gy;
+        } else {
+          g.dir = { x: -g.dir.x, y: -g.dir.y };
+        }
+      }
+
+      g.x += g.dir.x * (ghostSpeed / s.cellW) * dt;
+      g.y += g.dir.y * (ghostSpeed / s.cellH) * dt;
+
+      // Wrap tunnel
+      if (g.x < -0.5) g.x = s.cols - 0.5;
+      if (g.x >= s.cols) g.x = -0.5;
+
+      // Check collision with player
+      const pDist = Math.sqrt((p.x - g.x) ** 2 + (p.y - g.y) ** 2);
+      if (pDist < 0.8) {
+        if (isFrightened) {
+          // Eat ghost!
+          this.playArcadeCoin();
+          const pts = 200 * s.comboGhostMultiplier;
+          this.arcadeCurrentScore += pts;
+          this.awardArcadePetXp(6);
+          s.comboGhostMultiplier = Math.min(8, s.comboGhostMultiplier * 2);
+          g.x = 11.5;
+          g.y = 7.5; // Respawn in cage
+        } else {
+          // Player hit!
+          s.lives--;
+          this.playArcadeHit();
+          if (s.lives <= 0) {
+            this.triggerArcadeGameOver('DATA PHANTOM INTERCEPT', `Final Score: ${this.arcadeCurrentScore} · Pellets Chomped!`);
+            return;
+          }
+          // Reset positions
+          p.x = 11.5; p.y = 12;
+          g.x = 11.5; g.y = 7.5;
+        }
+      }
+
+      // Render Ghost Sprite
+      const px = g.x * s.cellW;
+      const py = g.y * s.cellH;
+      const gColor = isFrightened ? (s.frightenedTimer < 2 && Math.floor(nowMs / 150) % 2 === 0 ? '#ffffff' : '#0033cc') : g.color;
+
+      ctx.fillStyle = gColor;
+      ctx.beginPath();
+      ctx.arc(px, py - 2, s.cellW * 0.45, Math.PI, 0);
+      ctx.lineTo(px + s.cellW * 0.45, py + s.cellH * 0.4);
+      ctx.lineTo(px - s.cellW * 0.45, py + s.cellH * 0.4);
+      ctx.fill();
+
+      // Ghost Eyes
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(px - 5, py - 5, 3, 4);
+      ctx.fillRect(px + 2, py - 5, 3, 4);
+    }
+
+    // ── Render Player Cyber-Pet ──
+    const petDef = (this.currentPet && CYBER_PETS[this.currentPet.id]) ? CYBER_PETS[this.currentPet.id] : CYBER_PETS['void-fox'];
+    const playerX = p.x * s.cellW;
+    const playerY = p.y * s.cellH;
+
+    // Chomping mouth animation
+    const mouthAngle = 0.25 * Math.sin(nowMs * 0.015) + 0.25;
+    ctx.fillStyle = petDef.color || '#ff0055';
+    ctx.beginPath();
+    let baseHeading = 0;
+    if (p.dir.x === 1) baseHeading = 0;
+    if (p.dir.x === -1) baseHeading = Math.PI;
+    if (p.dir.y === 1) baseHeading = Math.PI / 2;
+    if (p.dir.y === -1) baseHeading = -Math.PI / 2;
+
+    ctx.arc(playerX, playerY, s.cellW * 0.48, baseHeading + mouthAngle, baseHeading + Math.PI * 2 - mouthAngle);
+    ctx.lineTo(playerX, playerY);
+    ctx.fill();
+
+    // Eye
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(playerX - 2, playerY - 6, 3, 3);
+
+    // HUD: Lives & Frightened Indicator
+    ctx.font = 'bold 11px monospace';
+    ctx.fillStyle = '#00f3ff';
+    ctx.textAlign = 'left';
+    ctx.fillText(`LIVES: ${'ᗧ '.repeat(s.lives)}`, 14, h - 14);
+
+    if (s.frightenedTimer > 0) {
+      ctx.fillStyle = '#ff0055';
+      ctx.fillText(`ORACLE OVERLOAD: ${Math.ceil(s.frightenedTimer)}s (x${s.comboGhostMultiplier})`, 130, h - 14);
+    }
   },
   destroy() {
     this.stopSignalVisualizer();
