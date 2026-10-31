@@ -2,52 +2,38 @@
 
 ## Theme Design & Art Direction Standard
 
-In Curio, themes **must never be bland, shallow, or swappable color palettes**. Every theme must have its own **unique design, art style, and personality**—acting as an immersive artifact designed to transport the user into another machine, era, or reality.
+In Curio, themes **must never be bland, shallow, or swappable color palettes**, nor should they follow a **formulaic cookie-cutter checklist**. Every theme must have its own **unique design, physical form-factor, tactile materials, and authentic personality**—faithfully capturing the visual reference as an immersive artifact.
 
 When authoring, reviewing, or debugging themes in this repository, always enforce these principles:
 
-### 0. Mandatory Visual Reference Calibration & Anti-Conflation
-- **Visual Sheet Extraction**: Always unpack, inspect, and calibrate against the actual visual reference sheets in `research and references on the THEMES UI/` (e.g. `Theme System Atlas.zip` images such as `kit.jpg`, `kit-inv.jpg`, `kit-hud.jpg`, or images in `Screenshot refs/`) before writing CSS. Never invent a color scheme from text prompts alone.
-- **Anti-Conflation Rule**: Contrast each new theme against existing themes in Curio. Never allow a new theme to borrow default colors or layout habits that blur its identity into another theme (e.g. Pixel Fantasy must use its authentic Slate-Blue `#3B4A66` & Warm Peach `#F3C9A5` palette rather than warm office browns that resemble TVA).
+### 0. Authentic Visual Reference Fidelity & Anti-Conflation
+- **Visual Reference First**: Always inspect and calibrate against the actual visual reference sheets in `research and references on the THEMES UI/` (e.g. `Theme System Atlas.zip` images such as `winamp.jpg`, `kit.jpg`, `kit-inv.jpg`, `kit-hud.jpg`, or images in `Screenshot refs/`).
+- **Faithful Canvas & Palette**: Never force every theme into a dark-mode web dashboard. If the reference is a light brushed-steel chassis on a periwinkle desktop (like Winamp), a warm cream paper document (like TVA), or a crisp ivory System 7 window, the theme must faithfully reflect that lightness, depth, and material finish.
+- **Radical Diversity (Anti-Conflation)**: Each theme must look completely distinct in color, silhouette, density, and layout feel. Themes share only the 46-token contract, never visual habits or identical dark layouts.
 
-### 1. The 6-Channel Immersion Rule
-Every theme must engage the complete design channels:
+### 1. Organic Immersion Over Formulaic Checklists
+Avoid mechanically pasting decorative SVG pseudo-elements onto generic web blocks. Instead, transform the actual interface components to match the physical artifact:
 1. **Tokens**: Full 46-token contract compliance with intentional palette discipline.
 2. **Parts**: Deep component-level styling across windows, cards, sidebars, buttons, inputs, and inspectors.
-3. **Shapes**: Intentional silhouettes (0px brutalist blocks, 45° chamfers, 9-slice pixel corners, or curved CRT housings).
-4. **Materials**: Tactile finishes (leather grain, cream laminate, brushed steel, warm timber, or parchment).
-5. **Ornaments & Atmospheric Overlays**:
-   - Use `body::after` or root pseudo-elements with `pointer-events: none` for atmospheric environmental textures (procedural 16-bit dungeon stone bricks, CRT scanlines, tungsten vignettes, CAD blueprint grids, tactile dither).
-   - Add period signature details (tilted rubber stamps, dashed sewn stitching, sci-fi corner brackets, inventory slot recesses).
-6. **Icons & Custom Logos**:
-   - Swap the default folder icon in `.brand-title svg` with a theme-specific inline vector SVG emblem (`data:image/svg+xml`) via `.brand-title::before`.
-   - Use CSS `mask-image` or themed glyph stand-ins for theme-specific UI icons.
+3. **Shapes & Silhouettes**: Intentional forms (beveled brushed metal slabs, chamfered HUD blocks, notebook spiral binding, or 9-slice pixel frames).
+4. **Materials & Finish**: Authentic tactile textures (brushed aluminium, cream laminate, leather grain, warm paper, or CRT glass).
+5. **Open Breathing Room**: Allow the canvas and content to breathe. Avoid overcrowding every surface with decals or dark borders.
+6. **Icons & Custom Logos**: Themed vector stand-in icons and brand emblems appropriate for that specific universe.
 
-### 2. Card & Component Anatomy Transformation
-Cards and interactive controls must **never remain generic web components with recolored fills**. Their physical anatomy must morph to match the source artifact:
-- **Game / Inventory**: 9-slice studded frames with 4-corner drop-shadowed rivets, sunken inventory slot cells (`box-shadow: inset 3px 3px 0 #000, inset -3px -3px 0 ...`), swallowtail quest ribbon title headers, and RPG stat gems (Ruby HP, Sapphire Mana, Emerald Clear).
-- **Bureaucracy / Office**: Cream paper laminate blocks with hard offset shadows, ruled formfields, and tilted rubber stamps.
-- **Glass / Aero**: Translucent frosted panels with white inner glare and glossy orb controls.
-- **Tactile Keycaps**: Buttons must have 3D pixel or beveled depth and physically depress into the canvas on click (`transform: translate(2px, 3px)`).
+### 2. Component & Layout Anatomy Transformation
+Morph the interactive components into the physical form factor of the source artifact:
+- **Audio / Instrument Panel (e.g. Winamp)**: Brushed steel-blue chassis, convex circular metallic transport keys, horizontal fader rails, angled trapezoid tabs, and recessed dark navy LCD display screens.
+- **Game / Inventory (e.g. Pixel Fantasy)**: Recessed inventory slot cells, studded 9-slice frames, swallowtail ribbon headers, and RPG stat gems.
+- **Bureaucracy / Office (e.g. TVA)**: Cream paper laminate blocks, ruled form fields, hard offset drop shadows, and tilted rubber stamps.
+- **Retro OS (e.g. Mac OS 8 / Win95)**: Crisp 3D beveled chrome, pinstriped titlebars, raised tactile buttons, and classic dialog styling.
 
 ### 3. Contrast Discipline & Accessibility
-- **Dark Sidebar & Panels**: When styling dark surfaces (e.g. `.sidebar`, `.filter-panel`, `#catalog-selector`, `.select-custom`, `.tag-search-input`), explicitly set text and labels to high-contrast colors (cream `#EDE0C4`, gold `#FCE28A`, glowing amber `#FFA63D`, white `#FFFFFF`, or bright accent).
-- Never allow elements to inherit dark text on dark surfaces. Always audit `.brand-title`, `.catalog-select-dropdown`, `.filter-label`, and search inputs.
+- **Intentional Contrast**:
+  - Dark surfaces (LCD screens, terminal readouts, dark panels) MUST have bright, high-contrast text (electric-cyan, phosphor green, glowing amber, or pure white).
+  - Light surfaces (brushed steel, paper, ivory, beige) MUST have dark, crisp text (deep obsidian, navy, or rich charcoal) with subtle relief text-shadows where appropriate.
+- Never allow elements to inherit unreadable low-contrast text (e.g. light gray on light gray, or dark blue on black).
 
 ### 4. Zero-Build Security Constraint
 - All vector logos, textures, and ornaments must be procedural (CSS gradients, SVG data URIs).
 - Never use external network URLs or `@import`.
 - Keep plugins fully self-contained within their respective `plugins/` directories.
-
-### 5. Per-Section Custom Artwork Mandate
-Every theme must embed **unique, lore-specific decorative artwork** into each major UI zone — not just a single brand logo. Artwork must be procedural inline SVG (`data:image/svg+xml`) or CSS-painted via pseudo-elements. The minimum coverage:
-
-- **`.brand-header` / `.brand-title::before`** — Custom logo emblem reflecting the theme's world.
-- **`.sidebar::after`** — Decorative crest, medallion, or lore motif as a `background-image` or pseudo-element placed at the bottom or top of the sidebar.
-- **`.top-bar::before` / `.top-bar::after`** — Period ornament, engraved rail, banner art, or HUD telemetry stripe along the top or bottom edge.
-- **`.filter-panel::before`** — Decorative ruled divider, architectural detail, or thematic separator art.
-- **`.item-card::before` / `.item-card::after`** — Frame corners, border inlays, inventory slot rims, or themed border art. Never leave a card as a plain rectangle.
-- **`.modal-header::before`** or **`.modal-content::after`** — Scroll endcaps, carved header border, or lore illustration on dialogs.
-- **`body::after`** — Global atmospheric overlay (scanlines, stone bricks, vignette, grid) with `pointer-events: none`.
-
-Each artwork element must be meaningfully distinct — it must **look like it belongs to only that theme's world** and would be conspicuously wrong on any other theme.
