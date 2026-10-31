@@ -1,122 +1,147 @@
-# Curio Theme Plugin — Cross-Agent Handoff Specification
+# Curio Theme Plugin — Cross-Agent Remote Prompt & Handoff Specification
 
-> **Instructions for the AI Assistant / Remote Model:**
-> You are tasked with generating a visual theme plugin for the **Curio** web and desktop application.
-> Read the contract rules below and output **two code blocks**:
-> 1. `manifest.json` (metadata and CSS variable tokens)
-> 2. `theme.css` (custom component rules scoped strictly under `[data-theme="curio-theme-<id>"]`)
+> **Copy & Paste this entire file into any AI model (Claude, ChatGPT, Gemini, DeepSeek, local LLM) to generate a fully immersive Curio Theme Plugin.**
 
 ---
 
-## 1. Strict Contract Requirements (Version 1.0.0)
+## Remote Agent Prompt Instructions
 
-### Mandatory Tokens in `manifest.json`
-You MUST define every token below under the `"tokens"` object in `manifest.json`. Unused tokens must be set to a harmless default (`"none"`, `"0"`, or `"transparent"`), never omitted.
+You are tasked with generating a production-grade visual theme plugin for **Curio** (an offline-first visual catalog, creative vault, and game design document tool).
 
-#### Colors (13 required)
-* `--bg`: Canvas / page background
-* `--surface`: Card, panel, and modal background
-* `--surface-2`: Raised/nested surface level
-* `--text`: Primary high-contrast text color
-* `--text-dim`: Secondary or muted text color
-* `--accent`: Primary interactive color (buttons, highlights)
-* `--accent-text`: Text color when rendered on top of `--accent`
-* `--border`: Standard border stroke
-* `--select-bg`: Selected item or active tab background
-* `--select-fg`: Selected item text color
-* `--danger`: Destructive/danger state color
-* `--ok`: Success/positive state color
-* `--warn`: Warning/caution state color
+In Curio, themes **must never be shallow color palette swaps**. Every theme must have its own **unique physical design, silhouette, tactile materials, and personality**—acting as an immersive artifact designed to transport the user into another machine, era, or reality.
 
-#### Typography (5 required)
-* `--font-ui`: Primary UI font stack (e.g. `'Segoe UI', sans-serif`, `'MS Sans Serif'`)
-* `--font-display`: Heading/display font stack (or `"inherit"`)
-* `--font-mono`: Monospace font stack (for data/readouts)
-* `--font-size-base`: Base font size (e.g. `"14px"`, `"11px"`)
-* `--font-smoothing`: `"antialiased"` or `"auto"`
-
-#### Spacing & Density (8 required)
-* `--space-1` to `--space-5`: Relative spacing increments (default `"4px"`, `"8px"`, `"12px"`, `"16px"`, `"24px"`)
-* `--row-height`: Table/list row height (e.g. `"36px"`)
-* `--control-height`: Standard input/button height (e.g. `"32px"`)
-* `--pixel-scale`: Integer scale factor (typically `"1"`, or `"2"` for retro pixel art)
-
-#### Shape (8 required)
-* `--radius-window`: Window and modal corner radius (e.g. `"12px"`, `"0px"`)
-* `--radius-control`: Button and input corner radius (e.g. `"6px"`, `"0px"`)
-* `--radius-chip`: Tag and pill radius (e.g. `"999px"`, `"0px"`)
-* `--avatar-shape`: Avatar border radius (e.g. `"50%"`, `"0px"`)
-* `--cut-tl`, `--cut-tr`, `--cut-br`, `--cut-bl`: Corner chamfer cuts for HUD/sci-fi shapes (default `"0px"`)
-
-#### Material & Depth (10 required)
-* `--bevel-light`: 3D bevel top/left highlight color
-* `--bevel-dark`: 3D bevel bottom/right shadow color
-* `--bevel-width`: Bevel thickness (e.g. `"2px"`, `"0px"`)
-* `--shadow-raised`: Box-shadow for resting cards/modals
-* `--shadow-pressed`: Inset box-shadow for pressed buttons
-* `--shadow-hard`: Hard offset shadow (e.g. `"4px 4px 0px #000"`, or `"none"`)
-* `--gradient-title`: Gradient for titlebars (or `"none"`)
-* `--gradient-button`: Gradient for buttons (or `"none"`)
-* `--grain`: Grain filter id or `"none"`
-* `--dither-pattern`: Dither texture or `"none"`
-
-#### Focus (2 required)
-* `--focus-ring`: Outline/ring on keyboard focus (e.g. `"0 0 0 2px var(--accent)"`)
-* `--default-button-ring`: Special highlight ring for primary actions or `"none"`
+You must respond with **TWO code blocks**:
+1. `manifest.json` — plugin metadata and all 46 mandatory CSS tokens.
+2. `theme.css` — component styles, tactile states, and 7 mandatory procedural SVG artwork zones, all scoped strictly under `[data-theme="curio-theme-<id>"]` and `[data-theme="<id>"]`.
 
 ---
 
-## 2. Security Rules (Mandatory)
+## 1. The 6-Channel Immersion Mandate
 
-1. **NO JavaScript**: Theme plugins are strictly declarative (CSS + JSON).
-2. **NO `@import`**: You cannot import external CSS stylesheets.
-3. **NO External URLs**: `url("https://...")` is forbidden. Only inline `data:` URIs or SVG masks are allowed.
-4. **NO `<script>` in SVG**: Icons or ornaments cannot contain scripts or event listeners (`onclick`, etc.).
-5. **Strict Scoping**: Every selector in `theme.css` must begin with `[data-theme="curio-theme-<id>"]`.
-
----
-
-## 3. Curio UI Component Class Map
-
-Use these standard classes in your `theme.css`:
-* **App Chrome**: `.toolbar`, `.top-bar`, `.sidebar`, `.header`, `.footer`
-* **Navigation**: `.drawer`, `.drawer-item`, `.tab-btn`, `.active`
-* **Containers**: `.modal-content`, `.dialog-box`, `.panel`, `.catalog-card`, `.item-card`
-* **Controls**: `.btn`, `.btn-primary`, `.btn-danger`, `.btn-icon`
-* **Inputs**: `input[type="text"]`, `input[type="search"]`, `textarea`, `select`, `.checkbox`
-* **Display**: `.badge`, `.status-pill`, `.progress-bar`, `.tag`, `.results-count`
+Every Curio theme must engage all six design channels:
+1. **Tokens**: Full 46-token contract compliance with intentional palette discipline.
+2. **Parts**: Deep component-level styling across windows, cards, sidebars, buttons, inputs, and inspectors.
+3. **Shapes**: Intentional silhouettes (0px brutalist blocks, 45° chamfers, 9-slice pixel corners, or curved CRT housings).
+4. **Materials**: Tactile finishes (leather grain, cream laminate, brushed steel, warm timber, or parchment).
+5. **Ornaments & Atmospheric Overlays**:
+   - `body::after` or root pseudo-elements with `pointer-events: none` for atmospheric environmental textures (procedural stone bricks, CRT scanlines, tungsten vignettes, CAD blueprint grids, tactile dither).
+   - Period signature details (tilted rubber stamps, dashed sewn stitching, sci-fi corner brackets, inventory slot recesses).
+6. **Icons & Custom Logos**:
+   - Replace default folder icons with custom inline vector SVG emblems (`data:image/svg+xml`).
 
 ---
 
-## 4. Output Format
+## 2. Mandatory 7-Zone Custom Artwork Requirement
 
-Respond strictly with the two code blocks below:
+Themes must embed **unique, lore-specific decorative artwork** into each of the 7 major UI zones:
+1. **`.brand-header` / `.brand-title::before`** — Custom logo emblem reflecting the theme's world (e.g. sci-fi delta, 16-bit shield, typewriter seal).
+2. **`.sidebar::after`** — Decorative crest, medallion, or lore motif placed at the bottom or top of the sidebar.
+3. **`.top-bar::before` or `.top-bar::after`** — Engraved brass rail, HUD telemetry stripe, or banner art along the toolbar edge.
+4. **`.filter-panel::before`** — Decorative ruled divider, architectural detail, or thematic separator art.
+5. **`.item-card::before` / `.item-card::after`** — Frame corners, border inlays, rivets, or themed border art. Never leave a card as a plain flat rectangle.
+6. **`.modal-header::before` or `.modal-title`** — Scroll endcaps, hazard striping, carved header border, or dedicated plaque.
+7. **`body::after`** — Global atmospheric texture with `pointer-events: none; z-index: 0;`.
 
-### Block 1: `manifest.json`
+All artwork must be procedural inline SVG data URIs (`data:image/svg+xml,...`) or pure CSS gradients.
+
+---
+
+## 3. High Contrast & Accessibility Discipline
+
+- **Dark Surfaces**: When styling dark surfaces (`.sidebar`, `.filter-panel`, `#catalog-selector`, `.select-custom`, `.tag-search-input`), explicitly set text and labels to high-contrast colors (cream `#EDE0C4`, gold `#FCE28A`, amber `#FFA63D`, or white `#FFFFFF`).
+- **Hazard / Dense Patterns**: Never place raw dark text directly over high-contrast repeating patterns (e.g. hazard stripes). Always place an opaque plaque (`background: #0A0A0A; border: 1px solid #FFD700; padding: 4px 8px;`) behind `.brand-title` and `.modal-title`.
+- Never allow elements to inherit unreadable low-contrast text.
+
+---
+
+## 4. Strict 46-Token Contract (`manifest.json`)
+
+You MUST define every single token below in the `"tokens"` object:
+
 ```json
 {
-  "id": "curio-theme-<your-theme-name>",
-  "name": "<Display Name>",
+  "id": "curio-theme-<your-id>",
+  "name": "<Theme Display Name>",
   "version": "1.0.0",
   "type": "theme",
-  "contract": "1.0.0",
-  "author": "<Author or AI Model Name>",
-  "description": "<One sentence aesthetic summary>",
-  "family": "<retro-os | cyberpunk | minimal | organic | modern>",
-  "preview": "preview.png",
-  "files": {
-    "css": "theme.css"
-  },
+  "author": "<Your Name>",
+  "description": "<One sentence summary>",
+  "family": "<classic | retro-sci-fi | fantasy | paper | aero | modern>",
+  "entry": "theme.css",
   "tokens": {
-    // ... all 46 required tokens from Section 1 ...
+    "--bg": "#090d16",
+    "--surface": "#111726",
+    "--surface-2": "#182238",
+    "--text": "#f1f5f9",
+    "--text-dim": "#94a3b8",
+    "--accent": "#06b6d4",
+    "--accent-text": "#ffffff",
+    "--border": "#1e293b",
+    "--select-bg": "#3b82f6",
+    "--select-fg": "#ffffff",
+    "--danger": "#f43f5e",
+    "--ok": "#10b981",
+    "--warn": "#f59e0b",
+    "--font-ui": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    "--font-display": "inherit",
+    "--font-mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+    "--font-size-base": "14px",
+    "--font-smoothing": "antialiased",
+    "--space-1": "4px",
+    "--space-2": "8px",
+    "--space-3": "12px",
+    "--space-4": "16px",
+    "--space-5": "24px",
+    "--row-height": "36px",
+    "--control-height": "32px",
+    "--pixel-scale": "1",
+    "--radius-window": "8px",
+    "--radius-control": "4px",
+    "--radius-chip": "999px",
+    "--avatar-shape": "50%",
+    "--cut-tl": "0px",
+    "--cut-tr": "0px",
+    "--cut-br": "0px",
+    "--cut-bl": "0px",
+    "--bevel-light": "transparent",
+    "--bevel-dark": "transparent",
+    "--bevel-width": "0px",
+    "--shadow-raised": "0 2px 8px rgba(0,0,0,0.3)",
+    "--shadow-pressed": "inset 0 2px 4px rgba(0,0,0,0.3)",
+    "--shadow-hard": "none",
+    "--gradient-title": "none",
+    "--gradient-button": "none",
+    "--grain": "none",
+    "--dither-pattern": "none",
+    "--focus-ring": "0 0 0 2px #06b6d4",
+    "--default-button-ring": "none"
   }
 }
 ```
 
-### Block 2: `theme.css`
-```css
-/* Scoped overrides */
-[data-theme="curio-theme-<your-theme-name>"] {
-  /* ... custom styling rules ... */
-}
+---
+
+## 5. Security & Zero-Build Constraint
+
+1. **NO JavaScript**: Theme plugins are strictly CSS + JSON.
+2. **NO `@import`**: External CSS stylesheets are prohibited.
+3. **NO External URLs**: No `http://` or `https://` font or image URLs. Only procedural `data:image/svg+xml,...` URIs are allowed.
+4. **Scoping**: All CSS rules must begin with both `[data-theme="curio-theme-<id>"]` and `[data-theme="<id>"]`.
+
+---
+
+## 6. How to Package and Install
+
+### Method A: Scaffold Locally
+```powershell
+powershell ./tools/scaffold-theme.ps1 -ThemeId "curio-theme-<id>" -ThemeName "<Display Name>" -Family "<family>"
 ```
+
+### Method B: Pack into ZIP for Instant Import
+```powershell
+powershell ./tools/pack-theme.ps1 -ThemeId "curio-theme-<id>"
+```
+Then in Curio:
+1. Open **Settings -> Themes**.
+2. Click **"Import Theme (.zip)"**.
+3. Select the generated `.zip` file — Curio mounts and activates it immediately without page refresh!
