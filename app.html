@@ -10102,16 +10102,17 @@
        ======================================================== */
 /* ==========================================================================
    Curio Theme Plugin: Steel-Blue Instrument Panel (Winamp Modern / Bento Audio Rack)
-   Version: 2.0.0
+   Version: 2.1.0
    Family: instrument | Contract: 1.0.0
    ID: curio-theme-steel-instrument / steel-instrument / winamp
    
    Aesthetic: Authentic Winamp Bento physical audio rack.
    - Open, airy periwinkle studio desktop canvas (#D5DDE8)
    - Heavy light-brushed steel-blue aluminium faceplates (#E8F1FB down to #A8BCCE)
-   - Genuine 3D convex circular metallic transport keys (Play/Pause/Stop styling)
-   - Sunken LCD marquee displays (cyan/green dot-matrix glow on deep navy glass)
-   - Equalizer fader deck with authentic toggle pills (ON / AUTO / PRESETS)
+   - Genuine 3D convex circular metallic transport keys in unified metallic track
+   - High-contrast glowing cyan LCD track marquee search display
+   - Equalizer fader deck with brushed metallic selectors and tactile toggle pills
+   - Sidebar utility deck: 3D metallic transport buttons and illuminated level meter
    - Audio cassette / CD jewel case cards with 100% crisp, high-contrast typography
    ========================================================================== */
 
@@ -10225,8 +10226,8 @@
 [data-theme="winamp"] #search-box {
   background: #081220 !important;
   color: #00E5FF !important;
-  border: 1.5px solid #233448 !important;
-  border-radius: 3px !important;
+  border: 1.5px solid #283C54 !important;
+  border-radius: 4px !important;
   font-family: var(--font-mono) !important;
   font-size: 0.82rem !important;
   font-weight: 700 !important;
@@ -10237,41 +10238,59 @@
 [data-theme="curio-theme-steel-instrument"] #search-box::placeholder,
 [data-theme="steel-instrument"] #search-box::placeholder,
 [data-theme="winamp"] #search-box::placeholder {
-  color: #385577 !important;
+  color: #6CE8FF !important;
+  opacity: 0.75 !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .search-icon,
+[data-theme="steel-instrument"] .search-icon,
+[data-theme="winamp"] .search-icon {
+  color: #00E5FF !important;
+}
+
+/* View Switcher: Sunken Metallic Transport Bay */
+[data-theme="curio-theme-steel-instrument"] .view-switcher,
+[data-theme="steel-instrument"] .view-switcher,
+[data-theme="winamp"] .view-switcher {
+  background: linear-gradient(180deg, #BACADA 0%, #CDD9E8 100%) !important;
+  border: 1.5px solid #627794 !important;
+  border-radius: 18px !important;
+  padding: 2px !important;
+  gap: 2px !important;
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3), 0 1px 0 #FFFFFF !important;
 }
 
 /* View Buttons: Genuine 3D Circular Metallic Transport Keys (Previous/Play/Pause/Stop) */
 [data-theme="curio-theme-steel-instrument"] .view-btn,
 [data-theme="steel-instrument"] .view-btn,
 [data-theme="winamp"] .view-btn {
-  background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #E2ECF8 40%, #B8C8DD 85%, #8FA2B8 100%) !important;
+  background: linear-gradient(180deg, #FFFFFF 0%, #DCE7F5 45%, #ADC2D8 100%) !important;
   color: #081524 !important;
-  border: 1.5px solid #4D627A !important;
-  border-radius: 16px !important;
+  border: 1px solid #758AA2 !important;
+  border-radius: 14px !important;
   padding: 0.25rem 0.65rem !important;
   font-family: var(--font-mono) !important;
   font-weight: 800 !important;
-  font-size: 0.75rem !important;
-  box-shadow: inset 1px 1px 1px #FFFFFF, inset -1px -1px 1px #647890, 0 2px 4px rgba(10,25,45,0.2) !important;
+  font-size: 0.72rem !important;
+  box-shadow: inset 1px 1px 0 #FFFFFF, 0 1px 2px rgba(10,25,45,0.2) !important;
   cursor: pointer !important;
-  transition: transform 0.08s ease, box-shadow 0.08s ease !important;
+  transition: all 0.08s ease !important;
 }
 
 [data-theme="curio-theme-steel-instrument"] .view-btn:hover,
 [data-theme="steel-instrument"] .view-btn:hover,
 [data-theme="winamp"] .view-btn:hover {
-  color: #0088AA !important;
-  box-shadow: inset 1px 1px 1px #FFFFFF, 0 0 6px rgba(0, 168, 204, 0.5) !important;
+  background: linear-gradient(180deg, #FFFFFF 0%, #E8F1FC 45%, #C2D4E8 100%) !important;
+  color: #007A99 !important;
 }
 
 [data-theme="curio-theme-steel-instrument"] .view-btn.active,
 [data-theme="steel-instrument"] .view-btn.active,
 [data-theme="winamp"] .view-btn.active {
-  background: radial-gradient(circle at 50% 50%, #153860 0%, #0A1B30 100%) !important;
-  color: #00E5FF !important;
-  border-color: #00A8CC !important;
-  box-shadow: inset 2px 2px 4px #000000, 0 0 8px rgba(0, 229, 255, 0.4) !important;
-  transform: translateY(1px) !important;
+  background: linear-gradient(180deg, #1D5496 0%, #133A6B 100%) !important;
+  color: #FFFFFF !important;
+  border-color: #0A2244 !important;
+  box-shadow: inset 1px 2px 3px rgba(0,0,0,0.6), 0 0 6px rgba(0, 168, 204, 0.4) !important;
 }
 
 /* Action Buttons in Topbar (Settings, Guide, New Item) */
@@ -10301,7 +10320,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   3. FILTER PANEL: WINAMP EQUALIZER DECK (BRUSHED STEEL WITH TACTILE PILLS)
+   3. FILTER PANEL: WINAMP EQUALIZER DECK (BRUSHED STEEL WITH HARMONIZED CONTROLS)
    -------------------------------------------------------------------------- */
 [data-theme="curio-theme-steel-instrument"] .filter-panel,
 [data-theme="steel-instrument"] .filter-panel,
@@ -10330,19 +10349,30 @@
   text-shadow: 0 1px 0 rgba(255,255,255,0.9) !important;
 }
 
-/* Filter Dropdowns (Rating, Media, Sort): Sunken Dark LCD Displays */
+/* Filter Dropdowns (Group By, Rating, Media, Sort): Brushed Metallic Beveled Selectors */
+[data-theme="curio-theme-steel-instrument"] .filter-panel .select-custom,
+[data-theme="steel-instrument"] .filter-panel .select-custom,
+[data-theme="winamp"] .filter-panel .select-custom,
 [data-theme="curio-theme-steel-instrument"] .filter-panel select,
 [data-theme="steel-instrument"] .filter-panel select,
 [data-theme="winamp"] .filter-panel select {
-  background: #081220 !important;
-  color: #00E5FF !important;
-  border: 1px solid #364C68 !important;
-  border-radius: 3px !important;
+  background: linear-gradient(180deg, #FFFFFF 0%, #DCE8F6 40%, #B8CBE0 100%) !important;
+  color: #081524 !important;
+  border: 1.5px solid #5A708C !important;
+  border-radius: 4px !important;
   font-family: var(--font-mono) !important;
   font-size: 0.75rem !important;
   font-weight: 700 !important;
-  padding: 0.2rem 0.5rem !important;
-  box-shadow: inset 1px 1px 3px #000000, 0 1px 0 #FFFFFF !important;
+  padding: 0.22rem 0.55rem !important;
+  box-shadow: inset 1px 1px 0 #FFFFFF, 0 1px 2px rgba(10,25,45,0.18) !important;
+  cursor: pointer !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .filter-panel .select-custom:hover,
+[data-theme="steel-instrument"] .filter-panel .select-custom:hover,
+[data-theme="winamp"] .filter-panel .select-custom:hover {
+  border-color: #0088AA !important;
+  color: #00607A !important;
 }
 
 /* Pill Toggles: Winamp Equalizer Capsule Switches (ON / AUTO / PRESETS) */
@@ -10389,7 +10419,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   4. SIDEBAR: WINAMP MEDIA LIBRARY / BENTO COMPONENT RACK
+   4. SIDEBAR: WINAMP MEDIA LIBRARY & UTILITIES DECK
    -------------------------------------------------------------------------- */
 [data-theme="curio-theme-steel-instrument"] .sidebar,
 [data-theme="steel-instrument"] .sidebar,
@@ -10486,10 +10516,7 @@
 
 [data-theme="curio-theme-steel-instrument"] #catalog-selector,
 [data-theme="steel-instrument"] #catalog-selector,
-[data-theme="winamp"] #catalog-selector,
-[data-theme="curio-theme-steel-instrument"] .select-custom,
-[data-theme="steel-instrument"] .select-custom,
-[data-theme="winamp"] .select-custom {
+[data-theme="winamp"] #catalog-selector {
   background: #081220 !important;
   color: #00E5FF !important;
   border: 1px solid #364C68 !important;
@@ -10544,6 +10571,130 @@
   font-family: var(--font-mono) !important;
   font-size: 0.65rem !important;
   font-weight: 800 !important;
+}
+
+/* Sidebar Footer: Brushed Steel Audio Rack Deck */
+[data-theme="curio-theme-steel-instrument"] .sidebar-footer,
+[data-theme="steel-instrument"] .sidebar-footer,
+[data-theme="winamp"] .sidebar-footer {
+  background: linear-gradient(180deg, #D4E0EE 0%, #C2D2E4 100%) !important;
+  border-top: 2px solid #526782 !important;
+  box-shadow: inset 0 1px 0 #FFFFFF !important;
+  padding: 0.75rem 0.85rem !important;
+}
+
+/* Storage Header: Crisp Deep Navy */
+[data-theme="curio-theme-steel-instrument"] .storage-header,
+[data-theme="steel-instrument"] .storage-header,
+[data-theme="winamp"] .storage-header {
+  color: #0A1626 !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.8) !important;
+  margin-bottom: 0.35rem !important;
+}
+
+/* Storage Level Meter: Sunken Groove with Illuminated LED Progress Bar */
+[data-theme="curio-theme-steel-instrument"] .storage-bar-bg,
+[data-theme="steel-instrument"] .storage-bar-bg,
+[data-theme="winamp"] .storage-bar-bg {
+  background: #081220 !important;
+  border: 1px solid #4B6380 !important;
+  border-radius: 4px !important;
+  height: 8px !important;
+  overflow: hidden !important;
+  box-shadow: inset 1px 1px 2px #000000, 0 1px 0 #FFFFFF !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .storage-bar-fill,
+[data-theme="steel-instrument"] .storage-bar-fill,
+[data-theme="winamp"] .storage-bar-fill {
+  background: linear-gradient(90deg, #00FFA3 0%, #00E5FF 70%, #FFB800 100%) !important;
+  box-shadow: 0 0 6px rgba(0, 229, 255, 0.7) !important;
+}
+
+/* Sync Inbox Button: Heavy 3D Metallic Transport Button */
+[data-theme="curio-theme-steel-instrument"] #btn-sync-cloud,
+[data-theme="steel-instrument"] #btn-sync-cloud,
+[data-theme="winamp"] #btn-sync-cloud {
+  background: linear-gradient(180deg, #FFFFFF 0%, #DCE8F6 35%, #B0C4DB 100%) !important;
+  color: #081524 !important;
+  border: 1.5px solid #4D6482 !important;
+  border-radius: 4px !important;
+  box-shadow: inset 1px 1px 0 #FFFFFF, inset -1px -1px 0 #7A90A8, 0 2px 4px rgba(10,25,45,0.18) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 800 !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.04em !important;
+  cursor: pointer !important;
+  transition: all 0.08s ease !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] #btn-sync-cloud:hover,
+[data-theme="steel-instrument"] #btn-sync-cloud:hover,
+[data-theme="winamp"] #btn-sync-cloud:hover {
+  background: linear-gradient(180deg, #FFFFFF 0%, #E8F2FD 35%, #C2D5E8 100%) !important;
+  border-color: #00A8CC !important;
+  color: #007799 !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] #btn-sync-cloud:active,
+[data-theme="steel-instrument"] #btn-sync-cloud:active,
+[data-theme="winamp"] #btn-sync-cloud:active {
+  transform: translateY(1px) !important;
+  box-shadow: inset 2px 2px 4px rgba(0,0,0,0.5) !important;
+}
+
+/* Export & Import Buttons (Sidebar Utils) */
+[data-theme="curio-theme-steel-instrument"] .sidebar-utils .btn-secondary,
+[data-theme="steel-instrument"] .sidebar-utils .btn-secondary,
+[data-theme="winamp"] .sidebar-utils .btn-secondary,
+[data-theme="curio-theme-steel-instrument"] #btn-clean-junk,
+[data-theme="steel-instrument"] #btn-clean-junk,
+[data-theme="winamp"] #btn-clean-junk {
+  background: linear-gradient(180deg, #FFFFFF 0%, #DCE8F6 35%, #B0C4DB 100%) !important;
+  color: #081524 !important;
+  border: 1.5px solid #4D6482 !important;
+  border-radius: 4px !important;
+  box-shadow: inset 1px 1px 0 #FFFFFF, 0 1px 2px rgba(10,25,45,0.15) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 800 !important;
+  font-size: 0.75rem !important;
+  cursor: pointer !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] .sidebar-utils .btn-secondary:hover,
+[data-theme="steel-instrument"] .sidebar-utils .btn-secondary:hover,
+[data-theme="winamp"] .sidebar-utils .btn-secondary:hover,
+[data-theme="curio-theme-steel-instrument"] #btn-clean-junk:hover,
+[data-theme="steel-instrument"] #btn-clean-junk:hover,
+[data-theme="winamp"] #btn-clean-junk:hover {
+  border-color: #00A8CC !important;
+  color: #007799 !important;
+}
+
+/* Clear Database: Authentic Industrial Safety Red Warning Button */
+[data-theme="curio-theme-steel-instrument"] #btn-clear-all,
+[data-theme="steel-instrument"] #btn-clear-all,
+[data-theme="winamp"] #btn-clear-all {
+  background: linear-gradient(180deg, #FFF0F2 0%, #F5CCD2 40%, #E29AA6 100%) !important;
+  color: #8C0A1E !important;
+  border: 1.5px solid #993344 !important;
+  border-radius: 4px !important;
+  box-shadow: inset 1px 1px 0 #FFFFFF, 0 1px 2px rgba(40,10,15,0.15) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 800 !important;
+  font-size: 0.75rem !important;
+  cursor: pointer !important;
+}
+
+[data-theme="curio-theme-steel-instrument"] #btn-clear-all:hover,
+[data-theme="steel-instrument"] #btn-clear-all:hover,
+[data-theme="winamp"] #btn-clear-all:hover {
+  background: linear-gradient(180deg, #FFD0D6 0%, #E87082 100%) !important;
+  color: #FFFFFF !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -10730,7 +10881,7 @@
 [data-theme="winamp"] .modal-header {
   background: linear-gradient(180deg, #F0F6FD 0%, #D8E5F4 35%, #AEC0D8 100%) !important;
   border-bottom: 2px solid #526782 !important;
-  box-shadow: inset 0 1px 0 #FFFFFF, 0 2px 4px rgba(10,20,35,0.15) !important;
+  box-shadow: inset 0 1px 0 #FFFFFF, 0 2px 4px rgba(10,25,45,0.15) !important;
   padding: 0.65rem 1rem !important;
 }
 
