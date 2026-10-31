@@ -1,6 +1,6 @@
 {
     "version":  "1.0.0",
-    "updatedAt":  "2026-10-31T11:54:57Z",
+    "updatedAt":  "2026-10-31T12:38:36Z",
     "plugins":  [
                     {
                         "id":  "curio-component-quick-stats",
@@ -251,6 +251,19 @@
                         "mountPoint":  null,
                         "dataExtension":  null,
                         "path":  "./plugins/curio-theme-palm"
+                    },
+                    {
+                        "id":  "curio-theme-pixel-8bit",
+                        "name":  "8-Bit Pixel RPG",
+                        "version":  "1.0.0",
+                        "type":  "theme",
+                        "author":  "Curio Arcade Lab",
+                        "description":  "Authentic 8-bit / 16-bit 2D pixel video game aesthetic. Hard-stepped pixel borders, zero border-radius, zero blur, classic RPG dialogue box frames, item inventory slots, and chunky pixelated controls.",
+                        "family":  "game",
+                        "preview":  null,
+                        "mountPoint":  null,
+                        "dataExtension":  null,
+                        "path":  "./plugins/curio-theme-pixel-8bit"
                     },
                     {
                         "id":  "curio-theme-pixel-fantasy",

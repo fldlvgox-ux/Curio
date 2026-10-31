@@ -1,0 +1,828 @@
+/* ========================================================
+   Curio Theme Plugin: 8-Bit Pixel RPG (Authentic 2D Video Game UI)
+   ID: curio-theme-pixel-8bit / pixel-8bit
+   ======================================================== */
+
+/* ── 1. Token Layer ── */
+[data-theme="curio-theme-pixel-8bit"],
+[data-theme="pixel-8bit"] {
+  --bg: #121526;
+  --surface: #1a2035;
+  --surface-2: #262f4d;
+  --text: #ffffff;
+  --text-dim: #9badb7;
+  --accent: #f3c669;
+  --accent-text: #121526;
+  --border: #000000;
+  --select-bg: #3b5dc9;
+  --select-fg: #ffffff;
+  --danger: #e43b44;
+  --ok: #38b764;
+  --warn: #feae34;
+  --font-ui: 'Courier New', Courier, 'Lucida Console', monospace;
+  --font-display: 'Courier New', Courier, monospace;
+  --font-mono: 'Courier New', Courier, 'Lucida Console', monospace;
+  --font-size-base: 12px;
+  --font-smoothing: none;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --row-height: 32px;
+  --control-height: 28px;
+  --pixel-scale: 2;
+  --radius-window: 0px;
+  --radius-control: 0px;
+  --radius-chip: 0px;
+  --avatar-shape: 0%;
+  --cut-tl: 0px;
+  --cut-tr: 0px;
+  --cut-br: 0px;
+  --cut-bl: 0px;
+  --bevel-light: #5b6ee1;
+  --bevel-dark: #000000;
+  --bevel-width: 2px;
+  --shadow-raised: 3px 3px 0 #000000, inset 2px 2px 0 #5b6ee1, inset -2px -2px 0 #0d1527;
+  --shadow-pressed: inset 3px 3px 0 #000000;
+  --shadow-hard: 4px 4px 0 #000000;
+  --gradient-title: none;
+  --gradient-button: none;
+  --grain: none;
+  --dither-pattern: none;
+  --focus-ring: 0 0 0 2px #f3c669;
+  --default-button-ring: 0 0 0 2px #000000;
+}
+
+/* ── 2. Global Zero-Radius & Pixelated Invariant ──
+   In an authentic 8-bit game, there are zero vector rounded corners,
+   zero blur on shadows, and zero anti-aliased curves. */
+[data-theme="curio-theme-pixel-8bit"] *,
+[data-theme="pixel-8bit"] * {
+  border-radius: 0 !important;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  font-smooth: never;
+}
+
+/* ── 3. Screen Canvas & CRT Pixel Grid ── */
+[data-theme="curio-theme-pixel-8bit"] body,
+[data-theme="pixel-8bit"] body {
+  background: #121526;
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* 8-bit screen scanline / pixel texture */
+[data-theme="curio-theme-pixel-8bit"] body::after,
+[data-theme="pixel-8bit"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0.08;
+  background-image: linear-gradient(0deg, #000000 1px, transparent 1px);
+  background-size: 100% 2px;
+}
+
+/* ── 4. App Shell ── */
+[data-theme="curio-theme-pixel-8bit"] .app-shell,
+[data-theme="pixel-8bit"] .app-shell {
+  background: #121526;
+}
+
+/* ── 5. Top Bar — 8-Bit HUD Banner ── */
+[data-theme="curio-theme-pixel-8bit"] .top-bar,
+[data-theme="pixel-8bit"] .top-bar {
+  background: #1a2035;
+  border-bottom: 3px solid #000000;
+  box-shadow: inset 0 -2px 0 #0d1527, inset 0 2px 0 #5b6ee1;
+  padding: 6px 12px;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .top-bar .catalog-title,
+[data-theme="pixel-8bit"] .top-bar .catalog-title,
+[data-theme="curio-theme-pixel-8bit"] .brand-title,
+[data-theme="pixel-8bit"] .brand-title {
+  color: #f3c669;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #000000;
+}
+
+/* ── 6. Search — 8-Bit RPG Input Box ── */
+[data-theme="curio-theme-pixel-8bit"] .search-container,
+[data-theme="pixel-8bit"] .search-container,
+[data-theme="curio-theme-pixel-8bit"] .search-input-wrap,
+[data-theme="pixel-8bit"] .search-input-wrap {
+  background: #0d1222;
+  border: 2px solid #000000;
+  box-shadow: inset 2px 2px 0 #000000, inset -1px -1px 0 #3a4b73;
+}
+
+[data-theme="curio-theme-pixel-8bit"] #search-box,
+[data-theme="pixel-8bit"] #search-box {
+  background: transparent;
+  color: #fee761;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  border: none;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] #search-box::placeholder,
+[data-theme="pixel-8bit"] #search-box::placeholder {
+  color: #5b6ee1;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .search-icon,
+[data-theme="pixel-8bit"] .search-icon {
+  color: #f3c669;
+}
+
+/* ── 7. View Switcher — Chunky 8-Bit Menu Tabs ── */
+[data-theme="curio-theme-pixel-8bit"] .view-switcher,
+[data-theme="pixel-8bit"] .view-switcher {
+  background: #0d1222;
+  border: 2px solid #000000;
+  gap: 0;
+  padding: 0;
+  box-shadow: 2px 2px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .view-btn,
+[data-theme="pixel-8bit"] .view-btn {
+  background: #262f4d;
+  color: #ffffff;
+  border: 1px solid #000000;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1px;
+  box-shadow: inset 1px 1px 0 #5b6ee1, inset -1px -1px 0 #0d1222;
+  padding: 4px 10px;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .view-btn:hover,
+[data-theme="pixel-8bit"] .view-btn:hover {
+  background: #3b4b73;
+  color: #fee761;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .view-btn.active,
+[data-theme="pixel-8bit"] .view-btn.active {
+  background: #f3c669;
+  color: #000000;
+  border-color: #000000;
+  box-shadow: inset 2px 2px 0 #ffffff, inset -2px -2px 0 #b57b2a;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .view-btn.active svg,
+[data-theme="pixel-8bit"] .view-btn.active svg {
+  stroke: #000000;
+}
+
+/* ── 8. Action & Toolbar Buttons (8-Bit Stepped Press Keys) ── */
+[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-primary,
+[data-theme="pixel-8bit"] .top-bar .btn-primary,
+[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-secondary,
+[data-theme="pixel-8bit"] .top-bar .btn-secondary,
+[data-theme="curio-theme-pixel-8bit"] .btn,
+[data-theme="pixel-8bit"] .btn {
+  background: #2b3a67;
+  color: #ffffff;
+  border: 2px solid #000000;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 2px 2px 0 #000000, inset 2px 2px 0 #5b6ee1, inset -2px -2px 0 #0d1222;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-primary:hover,
+[data-theme="pixel-8bit"] .top-bar .btn-primary:hover,
+[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-secondary:hover,
+[data-theme="pixel-8bit"] .top-bar .btn-secondary:hover,
+[data-theme="curio-theme-pixel-8bit"] .btn:hover,
+[data-theme="pixel-8bit"] .btn:hover {
+  background: #3b508d;
+  color: #fee761;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-primary:active,
+[data-theme="pixel-8bit"] .top-bar .btn-primary:active,
+[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-secondary:active,
+[data-theme="pixel-8bit"] .top-bar .btn-secondary:active,
+[data-theme="curio-theme-pixel-8bit"] .btn:active,
+[data-theme="pixel-8bit"] .btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: inset 2px 2px 0 #000000;
+}
+
+/* ── 9. Active Catalog Panel (Quest Log Header) ── */
+[data-theme="curio-theme-pixel-8bit"] .catalog-switcher-panel,
+[data-theme="pixel-8bit"] .catalog-switcher-panel {
+  background: #151a2e !important;
+  border-bottom: 3px solid #000000 !important;
+  box-shadow: inset 0 -2px 0 #0d1222, inset 0 2px 0 #3a4b73 !important;
+  padding: 8px 10px !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .switcher-title,
+[data-theme="pixel-8bit"] .switcher-title {
+  color: #fee761 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-size: 0.72rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  text-shadow: 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .switcher-title svg,
+[data-theme="pixel-8bit"] .switcher-title svg {
+  color: #fee761 !important;
+  stroke: #fee761 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .catalog-ctrl-btns .btn-icon-xs,
+[data-theme="pixel-8bit"] .catalog-ctrl-btns .btn-icon-xs {
+  background: #2b3a67 !important;
+  color: #fee761 !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 1px 1px 0 #000000, inset 1px 1px 0 #5b6ee1 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .catalog-ctrl-btns .btn-icon-xs:hover,
+[data-theme="pixel-8bit"] .catalog-ctrl-btns .btn-icon-xs:hover {
+  background: #f3c669 !important;
+  color: #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .catalog-select-dropdown,
+[data-theme="pixel-8bit"] .catalog-select-dropdown {
+  background: #0d1222 !important;
+  color: #ffffff !important;
+  border: 2px solid #000000 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+  box-shadow: inset 2px 2px 0 #000000, inset -1px -1px 0 #3a4b73 !important;
+  text-shadow: 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .catalog-select-dropdown:focus,
+[data-theme="pixel-8bit"] .catalog-select-dropdown:focus {
+  outline: none !important;
+  border-color: #f3c669 !important;
+  box-shadow: 0 0 0 2px #f3c669 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .catalog-select-dropdown option,
+[data-theme="pixel-8bit"] .catalog-select-dropdown option {
+  background: #0d1222 !important;
+  color: #ffffff !important;
+}
+
+/* ── 10. Sidebar — 8-Bit Status & Inventory Column ── */
+[data-theme="curio-theme-pixel-8bit"] .sidebar,
+[data-theme="pixel-8bit"] .sidebar {
+  background: #171d31;
+  border-right: 3px solid #000000;
+  box-shadow: inset -2px 0 0 #0d1222;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .brand-header,
+[data-theme="pixel-8bit"] .brand-header {
+  background: #121526;
+  border-bottom: 3px solid #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .drawers-section .section-header,
+[data-theme="pixel-8bit"] .drawers-section .section-header {
+  color: #f3c669 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  text-shadow: 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .drawers-section .section-header .btn-icon-xs,
+[data-theme="pixel-8bit"] .drawers-section .section-header .btn-icon-xs,
+[data-theme="curio-theme-pixel-8bit"] .drawer-actions .btn-icon-xs,
+[data-theme="pixel-8bit"] .drawer-actions .btn-icon-xs {
+  background: #2b3a67 !important;
+  color: #fee761 !important;
+  border: 1px solid #000000 !important;
+  box-shadow: 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .sidebar .drawer-item,
+[data-theme="pixel-8bit"] .sidebar .drawer-item {
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #0d1222;
+  margin: 1px 4px;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .sidebar .drawer-item:hover,
+[data-theme="pixel-8bit"] .sidebar .drawer-item:hover {
+  background: #263359;
+  border: 1px solid #000000;
+  box-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .sidebar .drawer-item.active,
+[data-theme="pixel-8bit"] .sidebar .drawer-item.active {
+  background: #3b5dc9;
+  color: #fee761;
+  border: 2px solid #000000;
+  box-shadow: inset 2px 2px 0 #5b6ee1, inset -2px -2px 0 #181425, 2px 2px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .sidebar .drawer-item.active span,
+[data-theme="pixel-8bit"] .sidebar .drawer-item.active span {
+  color: #fee761 !important;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .drawer-item .drawer-count,
+[data-theme="pixel-8bit"] .drawer-item .drawer-count {
+  background: #0d1222 !important;
+  color: #38b764 !important;
+  border: 1px solid #000000 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .drawer-item.active .drawer-count,
+[data-theme="pixel-8bit"] .drawer-item.active .drawer-count {
+  background: #000000 !important;
+  color: #fee761 !important;
+  border-color: #f3c669 !important;
+}
+
+/* Sidebar footer */
+[data-theme="curio-theme-pixel-8bit"] .sidebar-footer,
+[data-theme="pixel-8bit"] .sidebar-footer {
+  background: #121526;
+  border-top: 3px solid #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .storage-bar-bg,
+[data-theme="pixel-8bit"] .storage-bar-bg {
+  background: #0d1222;
+  border: 2px solid #000000;
+  box-shadow: inset 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .storage-bar-fill,
+[data-theme="pixel-8bit"] .storage-bar-fill {
+  background: #38b764;
+}
+
+/* ── 11. Filter Deck & Dropdowns (RPG Attribute Selector) ── */
+[data-theme="curio-theme-pixel-8bit"] .filter-panel,
+[data-theme="pixel-8bit"] .filter-panel {
+  background: #171d31;
+  border-bottom: 3px solid #000000;
+  box-shadow: inset 0 -2px 0 #0d1222;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .filter-label,
+[data-theme="pixel-8bit"] .filter-label,
+[data-theme="curio-theme-pixel-8bit"] .filter-section-title,
+[data-theme="pixel-8bit"] .filter-section-title {
+  color: #fee761;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .filter-panel .select-custom,
+[data-theme="pixel-8bit"] .filter-panel .select-custom,
+[data-theme="curio-theme-pixel-8bit"] .filter-panel select,
+[data-theme="pixel-8bit"] .filter-panel select {
+  background: #0d1222;
+  color: #ffffff;
+  border: 2px solid #000000;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  box-shadow: inset 1px 1px 0 #000000, 2px 2px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .filter-panel select option,
+[data-theme="pixel-8bit"] .filter-panel select option {
+  background: #0d1222;
+  color: #ffffff;
+}
+
+/* ── 12. Tag Filter Bar & Logic Controls ── */
+[data-theme="curio-theme-pixel-8bit"] .tag-filter-bar,
+[data-theme="pixel-8bit"] .tag-filter-bar {
+  background: #151a2e !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #3a4b73 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .tag-filter-controls .filter-label,
+[data-theme="pixel-8bit"] .tag-filter-controls .filter-label {
+  color: #fee761 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+  text-shadow: 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .tag-mode-btn,
+[data-theme="pixel-8bit"] .tag-mode-btn {
+  background: #2b3a67 !important;
+  color: #fee761 !important;
+  border: 2px solid #000000 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #5b6ee1 !important;
+  text-shadow: 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .tag-mode-btn:active,
+[data-theme="pixel-8bit"] .tag-mode-btn:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: none !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .tag-search-box,
+[data-theme="pixel-8bit"] .tag-search-box {
+  background: #0d1222 !important;
+  border: 2px solid #000000 !important;
+  box-shadow: inset 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .tag-search-input,
+[data-theme="pixel-8bit"] .tag-search-input {
+  background: transparent !important;
+  color: #fee761 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .tag-expand-btn,
+[data-theme="pixel-8bit"] .tag-expand-btn {
+  background: #2b3a67 !important;
+  color: #ffffff !important;
+  border: 2px solid #000000 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 700 !important;
+  box-shadow: 2px 2px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .tag-expand-btn.active,
+[data-theme="pixel-8bit"] .tag-expand-btn.active {
+  background: #f3c669 !important;
+  color: #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .clear-filters-btn,
+[data-theme="pixel-8bit"] .clear-filters-btn,
+[data-theme="curio-theme-pixel-8bit"] #btn-reset-filters,
+[data-theme="pixel-8bit"] #btn-reset-filters {
+  background: #2b3a67 !important;
+  color: #ffffff !important;
+  border: 2px solid #000000 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #5b6ee1 !important;
+  text-shadow: 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .clear-filters-btn.has-filters,
+[data-theme="pixel-8bit"] .clear-filters-btn.has-filters {
+  background: #e43b44 !important;
+  color: #ffffff !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #ff7777 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .clear-badge-pill,
+[data-theme="pixel-8bit"] .clear-badge-pill {
+  background: #000000 !important;
+  color: #fee761 !important;
+  border: 1px solid #fee761 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+}
+
+/* ── 13. Pills & Tags (8-Bit Item Chips) ── */
+[data-theme="curio-theme-pixel-8bit"] .pill-toggle,
+[data-theme="pixel-8bit"] .pill-toggle,
+[data-theme="curio-theme-pixel-8bit"] .tag-pill,
+[data-theme="pixel-8bit"] .tag-pill {
+  background: #262f4d;
+  color: #ffffff;
+  border: 1px solid #000000;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: 10px;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .pill-toggle:hover,
+[data-theme="pixel-8bit"] .pill-toggle:hover,
+[data-theme="curio-theme-pixel-8bit"] .tag-pill:hover,
+[data-theme="pixel-8bit"] .tag-pill:hover {
+  background: #3b4b73;
+  color: #fee761;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .pill-toggle.active,
+[data-theme="pixel-8bit"] .pill-toggle.active,
+[data-theme="curio-theme-pixel-8bit"] .tag-pill.active,
+[data-theme="pixel-8bit"] .tag-pill.active {
+  background: #f3c669;
+  color: #000000;
+  border-color: #000000;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #b57b2a;
+}
+
+/* ── 14. Item Cards — 8-Bit RPG Dialogue Window / Inventory Slot ──
+   Styled faithfully after classic NES/SNES RPG dialogue boxes:
+   Deep blue interior (#12204c), double pixel border (black outer,
+   white & blue inner highlight), and 4px hard pixel drop shadow. */
+[data-theme="curio-theme-pixel-8bit"] .item-card,
+[data-theme="pixel-8bit"] .item-card,
+[data-theme="curio-theme-pixel-8bit"] .detail-card,
+[data-theme="pixel-8bit"] .detail-card {
+  background: #16213e;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0 #000000, inset 2px 2px 0 #ffffff, inset -2px -2px 0 #3a528c;
+  transition: transform 0.05s;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .item-card:hover,
+[data-theme="pixel-8bit"] .item-card:hover {
+  background: #1c2b50;
+  box-shadow: 6px 6px 0 #000000, inset 2px 2px 0 #fee761, inset -2px -2px 0 #3a528c;
+  transform: translate(-2px, -2px);
+}
+
+/* Card Monogram — 8-Bit Sprite Cell / Inventory Item Frame */
+[data-theme="curio-theme-pixel-8bit"] .card-monogram,
+[data-theme="pixel-8bit"] .card-monogram {
+  background: #0d1222 !important;
+  border: 2px solid #000000 !important;
+  box-shadow: inset 2px 2px 0 #000000, inset -1px -1px 0 #3a4b73 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .monogram-initials,
+[data-theme="pixel-8bit"] .monogram-initials {
+  color: #fee761;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  font-size: 1.5em;
+  text-shadow: 2px 2px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .monogram-drawer-label,
+[data-theme="pixel-8bit"] .monogram-drawer-label {
+  color: #38b764;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 8px;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+/* Card Body */
+[data-theme="curio-theme-pixel-8bit"] .card-body,
+[data-theme="pixel-8bit"] .card-body {
+  background: transparent;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .card-title,
+[data-theme="pixel-8bit"] .card-title {
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .card-notes,
+[data-theme="pixel-8bit"] .card-notes {
+  color: #9badb7;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* Status Badges — 8-Bit HP/Status Tag */
+[data-theme="curio-theme-pixel-8bit"] .status-badge,
+[data-theme="pixel-8bit"] .status-badge {
+  background: #0d1222 !important;
+  color: #38b764 !important;
+  border: 1px solid #38b764;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 9px;
+  box-shadow: 1px 1px 0 #000000;
+}
+
+/* Drawer Chip */
+[data-theme="curio-theme-pixel-8bit"] .drawer-chip,
+[data-theme="pixel-8bit"] .drawer-chip {
+  background: #2b3a67;
+  color: #fee761;
+  border: 1px solid #000000;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+/* Card Tags */
+[data-theme="curio-theme-pixel-8bit"] .card-tag,
+[data-theme="pixel-8bit"] .card-tag {
+  background: #0d1222;
+  color: #9badb7;
+  border: 1px solid #000000;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+/* Card Actions */
+[data-theme="curio-theme-pixel-8bit"] .card-actions-quick .btn-icon-xs,
+[data-theme="pixel-8bit"] .card-actions-quick .btn-icon-xs {
+  background: #2b3a67;
+  color: #fee761;
+  border: 1px solid #000000;
+  box-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .card-actions-quick .btn-icon-xs:hover,
+[data-theme="pixel-8bit"] .card-actions-quick .btn-icon-xs:hover {
+  background: #f3c669;
+  color: #000000;
+}
+
+/* ── 15. Modals & Dialogs — Full 8-Bit Boss/Dialogue Frame ── */
+[data-theme="curio-theme-pixel-8bit"] .modal-content,
+[data-theme="pixel-8bit"] .modal-content {
+  background: #16213e;
+  border: 4px solid #000000;
+  box-shadow: 8px 8px 0 #000000, inset 3px 3px 0 #ffffff, inset -3px -3px 0 #3a528c;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .modal-header,
+[data-theme="pixel-8bit"] .modal-header {
+  background: #121526;
+  border-bottom: 3px solid #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .modal-title,
+[data-theme="pixel-8bit"] .modal-title {
+  color: #fee761;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .modal-content input,
+[data-theme="pixel-8bit"] .modal-content input,
+[data-theme="curio-theme-pixel-8bit"] .modal-content textarea,
+[data-theme="pixel-8bit"] .modal-content textarea,
+[data-theme="curio-theme-pixel-8bit"] .modal-content select,
+[data-theme="pixel-8bit"] .modal-content select {
+  background: #0d1222;
+  color: #ffffff;
+  border: 2px solid #000000;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  box-shadow: inset 2px 2px 0 #000000;
+}
+
+/* ── 16. Detail Inspector Panel ── */
+[data-theme="curio-theme-pixel-8bit"] .inspector-panel,
+[data-theme="pixel-8bit"] .inspector-panel {
+  background: #171d31;
+  border-left: 3px solid #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .inspector-panel .field-label,
+[data-theme="pixel-8bit"] .inspector-panel .field-label {
+  color: #fee761;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .inspector-panel .field-value,
+[data-theme="pixel-8bit"] .inspector-panel .field-value {
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* ── 17. Rating Stars (8-Bit Yellow Pixels) ── */
+[data-theme="curio-theme-pixel-8bit"] .star-rating .star,
+[data-theme="pixel-8bit"] .star-rating .star {
+  color: #262f4d;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .star-rating .star.filled,
+[data-theme="pixel-8bit"] .star-rating .star.filled {
+  color: #fee761;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+/* ── 18. Scrollbars — Chunky 8-Bit Blocks ── */
+[data-theme="curio-theme-pixel-8bit"] ::-webkit-scrollbar,
+[data-theme="pixel-8bit"] ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+[data-theme="curio-theme-pixel-8bit"] ::-webkit-scrollbar-track,
+[data-theme="pixel-8bit"] ::-webkit-scrollbar-track {
+  background: #0d1222;
+  border: 2px solid #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] ::-webkit-scrollbar-thumb,
+[data-theme="pixel-8bit"] ::-webkit-scrollbar-thumb {
+  background: #3b5dc9;
+  border: 2px solid #000000;
+  box-shadow: inset 1px 1px 0 #5b6ee1, inset -1px -1px 0 #181425;
+}
+
+[data-theme="curio-theme-pixel-8bit"] ::-webkit-scrollbar-thumb:hover,
+[data-theme="pixel-8bit"] ::-webkit-scrollbar-thumb:hover {
+  background: #f3c669;
+}
+
+/* ── 19. Mind Blunder Sigil in 8-Bit RPG ── */
+[data-theme="curio-theme-pixel-8bit"] .mind-blunder-sigil-btn,
+[data-theme="pixel-8bit"] .mind-blunder-sigil-btn {
+  background: #2b3a67 !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #5b6ee1 !important;
+  color: #fee761 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .mind-blunder-sigil-btn:hover,
+[data-theme="pixel-8bit"] .mind-blunder-sigil-btn:hover {
+  background: #f3c669 !important;
+  color: #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .mb-sigil-pulse,
+[data-theme="pixel-8bit"] .mb-sigil-pulse {
+  border-color: #fee761 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .mb-sigil-icon,
+[data-theme="pixel-8bit"] .mb-sigil-icon {
+  filter: none !important;
+}
+
+/* ── 20. Toast & Taskbar ── */
+[data-theme="curio-theme-pixel-8bit"] .toast,
+[data-theme="pixel-8bit"] .toast {
+  background: #16213e;
+  color: #fee761;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0 #000000, inset 1px 1px 0 #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .taskbar,
+[data-theme="pixel-8bit"] .taskbar {
+  background: #121526;
+  border-top: 3px solid #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .taskbar-item,
+[data-theme="pixel-8bit"] .taskbar-item {
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+}

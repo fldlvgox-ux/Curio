@@ -11929,6 +11929,836 @@
 }
 
 
+        /* ========================================================
+   Curio Theme Plugin: 8-Bit Pixel RPG (Authentic 2D Video Game UI)
+   ID: curio-theme-pixel-8bit / pixel-8bit
+   ======================================================== */
+
+/* ── 1. Token Layer ── */
+[data-theme="curio-theme-pixel-8bit"],
+[data-theme="pixel-8bit"] {
+  --bg: #121526;
+  --surface: #1a2035;
+  --surface-2: #262f4d;
+  --text: #ffffff;
+  --text-dim: #9badb7;
+  --accent: #f3c669;
+  --accent-text: #121526;
+  --border: #000000;
+  --select-bg: #3b5dc9;
+  --select-fg: #ffffff;
+  --danger: #e43b44;
+  --ok: #38b764;
+  --warn: #feae34;
+  --font-ui: 'Courier New', Courier, 'Lucida Console', monospace;
+  --font-display: 'Courier New', Courier, monospace;
+  --font-mono: 'Courier New', Courier, 'Lucida Console', monospace;
+  --font-size-base: 12px;
+  --font-smoothing: none;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --row-height: 32px;
+  --control-height: 28px;
+  --pixel-scale: 2;
+  --radius-window: 0px;
+  --radius-control: 0px;
+  --radius-chip: 0px;
+  --avatar-shape: 0%;
+  --cut-tl: 0px;
+  --cut-tr: 0px;
+  --cut-br: 0px;
+  --cut-bl: 0px;
+  --bevel-light: #5b6ee1;
+  --bevel-dark: #000000;
+  --bevel-width: 2px;
+  --shadow-raised: 3px 3px 0 #000000, inset 2px 2px 0 #5b6ee1, inset -2px -2px 0 #0d1527;
+  --shadow-pressed: inset 3px 3px 0 #000000;
+  --shadow-hard: 4px 4px 0 #000000;
+  --gradient-title: none;
+  --gradient-button: none;
+  --grain: none;
+  --dither-pattern: none;
+  --focus-ring: 0 0 0 2px #f3c669;
+  --default-button-ring: 0 0 0 2px #000000;
+}
+
+/* ── 2. Global Zero-Radius & Pixelated Invariant ──
+   In an authentic 8-bit game, there are zero vector rounded corners,
+   zero blur on shadows, and zero anti-aliased curves. */
+[data-theme="curio-theme-pixel-8bit"] *,
+[data-theme="pixel-8bit"] * {
+  border-radius: 0 !important;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  font-smooth: never;
+}
+
+/* ── 3. Screen Canvas & CRT Pixel Grid ── */
+[data-theme="curio-theme-pixel-8bit"] body,
+[data-theme="pixel-8bit"] body {
+  background: #121526;
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* 8-bit screen scanline / pixel texture */
+[data-theme="curio-theme-pixel-8bit"] body::after,
+[data-theme="pixel-8bit"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0.08;
+  background-image: linear-gradient(0deg, #000000 1px, transparent 1px);
+  background-size: 100% 2px;
+}
+
+/* ── 4. App Shell ── */
+[data-theme="curio-theme-pixel-8bit"] .app-shell,
+[data-theme="pixel-8bit"] .app-shell {
+  background: #121526;
+}
+
+/* ── 5. Top Bar — 8-Bit HUD Banner ── */
+[data-theme="curio-theme-pixel-8bit"] .top-bar,
+[data-theme="pixel-8bit"] .top-bar {
+  background: #1a2035;
+  border-bottom: 3px solid #000000;
+  box-shadow: inset 0 -2px 0 #0d1527, inset 0 2px 0 #5b6ee1;
+  padding: 6px 12px;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .top-bar .catalog-title,
+[data-theme="pixel-8bit"] .top-bar .catalog-title,
+[data-theme="curio-theme-pixel-8bit"] .brand-title,
+[data-theme="pixel-8bit"] .brand-title {
+  color: #f3c669;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #000000;
+}
+
+/* ── 6. Search — 8-Bit RPG Input Box ── */
+[data-theme="curio-theme-pixel-8bit"] .search-container,
+[data-theme="pixel-8bit"] .search-container,
+[data-theme="curio-theme-pixel-8bit"] .search-input-wrap,
+[data-theme="pixel-8bit"] .search-input-wrap {
+  background: #0d1222;
+  border: 2px solid #000000;
+  box-shadow: inset 2px 2px 0 #000000, inset -1px -1px 0 #3a4b73;
+}
+
+[data-theme="curio-theme-pixel-8bit"] #search-box,
+[data-theme="pixel-8bit"] #search-box {
+  background: transparent;
+  color: #fee761;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  border: none;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] #search-box::placeholder,
+[data-theme="pixel-8bit"] #search-box::placeholder {
+  color: #5b6ee1;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .search-icon,
+[data-theme="pixel-8bit"] .search-icon {
+  color: #f3c669;
+}
+
+/* ── 7. View Switcher — Chunky 8-Bit Menu Tabs ── */
+[data-theme="curio-theme-pixel-8bit"] .view-switcher,
+[data-theme="pixel-8bit"] .view-switcher {
+  background: #0d1222;
+  border: 2px solid #000000;
+  gap: 0;
+  padding: 0;
+  box-shadow: 2px 2px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .view-btn,
+[data-theme="pixel-8bit"] .view-btn {
+  background: #262f4d;
+  color: #ffffff;
+  border: 1px solid #000000;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1px;
+  box-shadow: inset 1px 1px 0 #5b6ee1, inset -1px -1px 0 #0d1222;
+  padding: 4px 10px;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .view-btn:hover,
+[data-theme="pixel-8bit"] .view-btn:hover {
+  background: #3b4b73;
+  color: #fee761;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .view-btn.active,
+[data-theme="pixel-8bit"] .view-btn.active {
+  background: #f3c669;
+  color: #000000;
+  border-color: #000000;
+  box-shadow: inset 2px 2px 0 #ffffff, inset -2px -2px 0 #b57b2a;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .view-btn.active svg,
+[data-theme="pixel-8bit"] .view-btn.active svg {
+  stroke: #000000;
+}
+
+/* ── 8. Action & Toolbar Buttons (8-Bit Stepped Press Keys) ── */
+[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-primary,
+[data-theme="pixel-8bit"] .top-bar .btn-primary,
+[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-secondary,
+[data-theme="pixel-8bit"] .top-bar .btn-secondary,
+[data-theme="curio-theme-pixel-8bit"] .btn,
+[data-theme="pixel-8bit"] .btn {
+  background: #2b3a67;
+  color: #ffffff;
+  border: 2px solid #000000;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 2px 2px 0 #000000, inset 2px 2px 0 #5b6ee1, inset -2px -2px 0 #0d1222;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-primary:hover,
+[data-theme="pixel-8bit"] .top-bar .btn-primary:hover,
+[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-secondary:hover,
+[data-theme="pixel-8bit"] .top-bar .btn-secondary:hover,
+[data-theme="curio-theme-pixel-8bit"] .btn:hover,
+[data-theme="pixel-8bit"] .btn:hover {
+  background: #3b508d;
+  color: #fee761;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-primary:active,
+[data-theme="pixel-8bit"] .top-bar .btn-primary:active,
+[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-secondary:active,
+[data-theme="pixel-8bit"] .top-bar .btn-secondary:active,
+[data-theme="curio-theme-pixel-8bit"] .btn:active,
+[data-theme="pixel-8bit"] .btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: inset 2px 2px 0 #000000;
+}
+
+/* ── 9. Active Catalog Panel (Quest Log Header) ── */
+[data-theme="curio-theme-pixel-8bit"] .catalog-switcher-panel,
+[data-theme="pixel-8bit"] .catalog-switcher-panel {
+  background: #151a2e !important;
+  border-bottom: 3px solid #000000 !important;
+  box-shadow: inset 0 -2px 0 #0d1222, inset 0 2px 0 #3a4b73 !important;
+  padding: 8px 10px !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .switcher-title,
+[data-theme="pixel-8bit"] .switcher-title {
+  color: #fee761 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-size: 0.72rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  text-shadow: 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .switcher-title svg,
+[data-theme="pixel-8bit"] .switcher-title svg {
+  color: #fee761 !important;
+  stroke: #fee761 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .catalog-ctrl-btns .btn-icon-xs,
+[data-theme="pixel-8bit"] .catalog-ctrl-btns .btn-icon-xs {
+  background: #2b3a67 !important;
+  color: #fee761 !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 1px 1px 0 #000000, inset 1px 1px 0 #5b6ee1 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .catalog-ctrl-btns .btn-icon-xs:hover,
+[data-theme="pixel-8bit"] .catalog-ctrl-btns .btn-icon-xs:hover {
+  background: #f3c669 !important;
+  color: #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .catalog-select-dropdown,
+[data-theme="pixel-8bit"] .catalog-select-dropdown {
+  background: #0d1222 !important;
+  color: #ffffff !important;
+  border: 2px solid #000000 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+  box-shadow: inset 2px 2px 0 #000000, inset -1px -1px 0 #3a4b73 !important;
+  text-shadow: 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .catalog-select-dropdown:focus,
+[data-theme="pixel-8bit"] .catalog-select-dropdown:focus {
+  outline: none !important;
+  border-color: #f3c669 !important;
+  box-shadow: 0 0 0 2px #f3c669 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .catalog-select-dropdown option,
+[data-theme="pixel-8bit"] .catalog-select-dropdown option {
+  background: #0d1222 !important;
+  color: #ffffff !important;
+}
+
+/* ── 10. Sidebar — 8-Bit Status & Inventory Column ── */
+[data-theme="curio-theme-pixel-8bit"] .sidebar,
+[data-theme="pixel-8bit"] .sidebar {
+  background: #171d31;
+  border-right: 3px solid #000000;
+  box-shadow: inset -2px 0 0 #0d1222;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .brand-header,
+[data-theme="pixel-8bit"] .brand-header {
+  background: #121526;
+  border-bottom: 3px solid #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .drawers-section .section-header,
+[data-theme="pixel-8bit"] .drawers-section .section-header {
+  color: #f3c669 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  text-shadow: 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .drawers-section .section-header .btn-icon-xs,
+[data-theme="pixel-8bit"] .drawers-section .section-header .btn-icon-xs,
+[data-theme="curio-theme-pixel-8bit"] .drawer-actions .btn-icon-xs,
+[data-theme="pixel-8bit"] .drawer-actions .btn-icon-xs {
+  background: #2b3a67 !important;
+  color: #fee761 !important;
+  border: 1px solid #000000 !important;
+  box-shadow: 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .sidebar .drawer-item,
+[data-theme="pixel-8bit"] .sidebar .drawer-item {
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #0d1222;
+  margin: 1px 4px;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .sidebar .drawer-item:hover,
+[data-theme="pixel-8bit"] .sidebar .drawer-item:hover {
+  background: #263359;
+  border: 1px solid #000000;
+  box-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .sidebar .drawer-item.active,
+[data-theme="pixel-8bit"] .sidebar .drawer-item.active {
+  background: #3b5dc9;
+  color: #fee761;
+  border: 2px solid #000000;
+  box-shadow: inset 2px 2px 0 #5b6ee1, inset -2px -2px 0 #181425, 2px 2px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .sidebar .drawer-item.active span,
+[data-theme="pixel-8bit"] .sidebar .drawer-item.active span {
+  color: #fee761 !important;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .drawer-item .drawer-count,
+[data-theme="pixel-8bit"] .drawer-item .drawer-count {
+  background: #0d1222 !important;
+  color: #38b764 !important;
+  border: 1px solid #000000 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .drawer-item.active .drawer-count,
+[data-theme="pixel-8bit"] .drawer-item.active .drawer-count {
+  background: #000000 !important;
+  color: #fee761 !important;
+  border-color: #f3c669 !important;
+}
+
+/* Sidebar footer */
+[data-theme="curio-theme-pixel-8bit"] .sidebar-footer,
+[data-theme="pixel-8bit"] .sidebar-footer {
+  background: #121526;
+  border-top: 3px solid #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .storage-bar-bg,
+[data-theme="pixel-8bit"] .storage-bar-bg {
+  background: #0d1222;
+  border: 2px solid #000000;
+  box-shadow: inset 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .storage-bar-fill,
+[data-theme="pixel-8bit"] .storage-bar-fill {
+  background: #38b764;
+}
+
+/* ── 11. Filter Deck & Dropdowns (RPG Attribute Selector) ── */
+[data-theme="curio-theme-pixel-8bit"] .filter-panel,
+[data-theme="pixel-8bit"] .filter-panel {
+  background: #171d31;
+  border-bottom: 3px solid #000000;
+  box-shadow: inset 0 -2px 0 #0d1222;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .filter-label,
+[data-theme="pixel-8bit"] .filter-label,
+[data-theme="curio-theme-pixel-8bit"] .filter-section-title,
+[data-theme="pixel-8bit"] .filter-section-title {
+  color: #fee761;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .filter-panel .select-custom,
+[data-theme="pixel-8bit"] .filter-panel .select-custom,
+[data-theme="curio-theme-pixel-8bit"] .filter-panel select,
+[data-theme="pixel-8bit"] .filter-panel select {
+  background: #0d1222;
+  color: #ffffff;
+  border: 2px solid #000000;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  box-shadow: inset 1px 1px 0 #000000, 2px 2px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .filter-panel select option,
+[data-theme="pixel-8bit"] .filter-panel select option {
+  background: #0d1222;
+  color: #ffffff;
+}
+
+/* ── 12. Tag Filter Bar & Logic Controls ── */
+[data-theme="curio-theme-pixel-8bit"] .tag-filter-bar,
+[data-theme="pixel-8bit"] .tag-filter-bar {
+  background: #151a2e !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #3a4b73 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .tag-filter-controls .filter-label,
+[data-theme="pixel-8bit"] .tag-filter-controls .filter-label {
+  color: #fee761 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+  text-shadow: 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .tag-mode-btn,
+[data-theme="pixel-8bit"] .tag-mode-btn {
+  background: #2b3a67 !important;
+  color: #fee761 !important;
+  border: 2px solid #000000 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #5b6ee1 !important;
+  text-shadow: 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .tag-mode-btn:active,
+[data-theme="pixel-8bit"] .tag-mode-btn:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: none !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .tag-search-box,
+[data-theme="pixel-8bit"] .tag-search-box {
+  background: #0d1222 !important;
+  border: 2px solid #000000 !important;
+  box-shadow: inset 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .tag-search-input,
+[data-theme="pixel-8bit"] .tag-search-input {
+  background: transparent !important;
+  color: #fee761 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .tag-expand-btn,
+[data-theme="pixel-8bit"] .tag-expand-btn {
+  background: #2b3a67 !important;
+  color: #ffffff !important;
+  border: 2px solid #000000 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 700 !important;
+  box-shadow: 2px 2px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .tag-expand-btn.active,
+[data-theme="pixel-8bit"] .tag-expand-btn.active {
+  background: #f3c669 !important;
+  color: #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .clear-filters-btn,
+[data-theme="pixel-8bit"] .clear-filters-btn,
+[data-theme="curio-theme-pixel-8bit"] #btn-reset-filters,
+[data-theme="pixel-8bit"] #btn-reset-filters {
+  background: #2b3a67 !important;
+  color: #ffffff !important;
+  border: 2px solid #000000 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #5b6ee1 !important;
+  text-shadow: 1px 1px 0 #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .clear-filters-btn.has-filters,
+[data-theme="pixel-8bit"] .clear-filters-btn.has-filters {
+  background: #e43b44 !important;
+  color: #ffffff !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #ff7777 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .clear-badge-pill,
+[data-theme="pixel-8bit"] .clear-badge-pill {
+  background: #000000 !important;
+  color: #fee761 !important;
+  border: 1px solid #fee761 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+}
+
+/* ── 13. Pills & Tags (8-Bit Item Chips) ── */
+[data-theme="curio-theme-pixel-8bit"] .pill-toggle,
+[data-theme="pixel-8bit"] .pill-toggle,
+[data-theme="curio-theme-pixel-8bit"] .tag-pill,
+[data-theme="pixel-8bit"] .tag-pill {
+  background: #262f4d;
+  color: #ffffff;
+  border: 1px solid #000000;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: 10px;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .pill-toggle:hover,
+[data-theme="pixel-8bit"] .pill-toggle:hover,
+[data-theme="curio-theme-pixel-8bit"] .tag-pill:hover,
+[data-theme="pixel-8bit"] .tag-pill:hover {
+  background: #3b4b73;
+  color: #fee761;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .pill-toggle.active,
+[data-theme="pixel-8bit"] .pill-toggle.active,
+[data-theme="curio-theme-pixel-8bit"] .tag-pill.active,
+[data-theme="pixel-8bit"] .tag-pill.active {
+  background: #f3c669;
+  color: #000000;
+  border-color: #000000;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #b57b2a;
+}
+
+/* ── 14. Item Cards — 8-Bit RPG Dialogue Window / Inventory Slot ──
+   Styled faithfully after classic NES/SNES RPG dialogue boxes:
+   Deep blue interior (#12204c), double pixel border (black outer,
+   white & blue inner highlight), and 4px hard pixel drop shadow. */
+[data-theme="curio-theme-pixel-8bit"] .item-card,
+[data-theme="pixel-8bit"] .item-card,
+[data-theme="curio-theme-pixel-8bit"] .detail-card,
+[data-theme="pixel-8bit"] .detail-card {
+  background: #16213e;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0 #000000, inset 2px 2px 0 #ffffff, inset -2px -2px 0 #3a528c;
+  transition: transform 0.05s;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .item-card:hover,
+[data-theme="pixel-8bit"] .item-card:hover {
+  background: #1c2b50;
+  box-shadow: 6px 6px 0 #000000, inset 2px 2px 0 #fee761, inset -2px -2px 0 #3a528c;
+  transform: translate(-2px, -2px);
+}
+
+/* Card Monogram — 8-Bit Sprite Cell / Inventory Item Frame */
+[data-theme="curio-theme-pixel-8bit"] .card-monogram,
+[data-theme="pixel-8bit"] .card-monogram {
+  background: #0d1222 !important;
+  border: 2px solid #000000 !important;
+  box-shadow: inset 2px 2px 0 #000000, inset -1px -1px 0 #3a4b73 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .monogram-initials,
+[data-theme="pixel-8bit"] .monogram-initials {
+  color: #fee761;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  font-size: 1.5em;
+  text-shadow: 2px 2px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .monogram-drawer-label,
+[data-theme="pixel-8bit"] .monogram-drawer-label {
+  color: #38b764;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 8px;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+/* Card Body */
+[data-theme="curio-theme-pixel-8bit"] .card-body,
+[data-theme="pixel-8bit"] .card-body {
+  background: transparent;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .card-title,
+[data-theme="pixel-8bit"] .card-title {
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .card-notes,
+[data-theme="pixel-8bit"] .card-notes {
+  color: #9badb7;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* Status Badges — 8-Bit HP/Status Tag */
+[data-theme="curio-theme-pixel-8bit"] .status-badge,
+[data-theme="pixel-8bit"] .status-badge {
+  background: #0d1222 !important;
+  color: #38b764 !important;
+  border: 1px solid #38b764;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 9px;
+  box-shadow: 1px 1px 0 #000000;
+}
+
+/* Drawer Chip */
+[data-theme="curio-theme-pixel-8bit"] .drawer-chip,
+[data-theme="pixel-8bit"] .drawer-chip {
+  background: #2b3a67;
+  color: #fee761;
+  border: 1px solid #000000;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+/* Card Tags */
+[data-theme="curio-theme-pixel-8bit"] .card-tag,
+[data-theme="pixel-8bit"] .card-tag {
+  background: #0d1222;
+  color: #9badb7;
+  border: 1px solid #000000;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+/* Card Actions */
+[data-theme="curio-theme-pixel-8bit"] .card-actions-quick .btn-icon-xs,
+[data-theme="pixel-8bit"] .card-actions-quick .btn-icon-xs {
+  background: #2b3a67;
+  color: #fee761;
+  border: 1px solid #000000;
+  box-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .card-actions-quick .btn-icon-xs:hover,
+[data-theme="pixel-8bit"] .card-actions-quick .btn-icon-xs:hover {
+  background: #f3c669;
+  color: #000000;
+}
+
+/* ── 15. Modals & Dialogs — Full 8-Bit Boss/Dialogue Frame ── */
+[data-theme="curio-theme-pixel-8bit"] .modal-content,
+[data-theme="pixel-8bit"] .modal-content {
+  background: #16213e;
+  border: 4px solid #000000;
+  box-shadow: 8px 8px 0 #000000, inset 3px 3px 0 #ffffff, inset -3px -3px 0 #3a528c;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .modal-header,
+[data-theme="pixel-8bit"] .modal-header {
+  background: #121526;
+  border-bottom: 3px solid #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .modal-title,
+[data-theme="pixel-8bit"] .modal-title {
+  color: #fee761;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .modal-content input,
+[data-theme="pixel-8bit"] .modal-content input,
+[data-theme="curio-theme-pixel-8bit"] .modal-content textarea,
+[data-theme="pixel-8bit"] .modal-content textarea,
+[data-theme="curio-theme-pixel-8bit"] .modal-content select,
+[data-theme="pixel-8bit"] .modal-content select {
+  background: #0d1222;
+  color: #ffffff;
+  border: 2px solid #000000;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  box-shadow: inset 2px 2px 0 #000000;
+}
+
+/* ── 16. Detail Inspector Panel ── */
+[data-theme="curio-theme-pixel-8bit"] .inspector-panel,
+[data-theme="pixel-8bit"] .inspector-panel {
+  background: #171d31;
+  border-left: 3px solid #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .inspector-panel .field-label,
+[data-theme="pixel-8bit"] .inspector-panel .field-label {
+  color: #fee761;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .inspector-panel .field-value,
+[data-theme="pixel-8bit"] .inspector-panel .field-value {
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* ── 17. Rating Stars (8-Bit Yellow Pixels) ── */
+[data-theme="curio-theme-pixel-8bit"] .star-rating .star,
+[data-theme="pixel-8bit"] .star-rating .star {
+  color: #262f4d;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .star-rating .star.filled,
+[data-theme="pixel-8bit"] .star-rating .star.filled {
+  color: #fee761;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+/* ── 18. Scrollbars — Chunky 8-Bit Blocks ── */
+[data-theme="curio-theme-pixel-8bit"] ::-webkit-scrollbar,
+[data-theme="pixel-8bit"] ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+[data-theme="curio-theme-pixel-8bit"] ::-webkit-scrollbar-track,
+[data-theme="pixel-8bit"] ::-webkit-scrollbar-track {
+  background: #0d1222;
+  border: 2px solid #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] ::-webkit-scrollbar-thumb,
+[data-theme="pixel-8bit"] ::-webkit-scrollbar-thumb {
+  background: #3b5dc9;
+  border: 2px solid #000000;
+  box-shadow: inset 1px 1px 0 #5b6ee1, inset -1px -1px 0 #181425;
+}
+
+[data-theme="curio-theme-pixel-8bit"] ::-webkit-scrollbar-thumb:hover,
+[data-theme="pixel-8bit"] ::-webkit-scrollbar-thumb:hover {
+  background: #f3c669;
+}
+
+/* ── 19. Mind Blunder Sigil in 8-Bit RPG ── */
+[data-theme="curio-theme-pixel-8bit"] .mind-blunder-sigil-btn,
+[data-theme="pixel-8bit"] .mind-blunder-sigil-btn {
+  background: #2b3a67 !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #5b6ee1 !important;
+  color: #fee761 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .mind-blunder-sigil-btn:hover,
+[data-theme="pixel-8bit"] .mind-blunder-sigil-btn:hover {
+  background: #f3c669 !important;
+  color: #000000 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .mb-sigil-pulse,
+[data-theme="pixel-8bit"] .mb-sigil-pulse {
+  border-color: #fee761 !important;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .mb-sigil-icon,
+[data-theme="pixel-8bit"] .mb-sigil-icon {
+  filter: none !important;
+}
+
+/* ── 20. Toast & Taskbar ── */
+[data-theme="curio-theme-pixel-8bit"] .toast,
+[data-theme="pixel-8bit"] .toast {
+  background: #16213e;
+  color: #fee761;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0 #000000, inset 1px 1px 0 #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .taskbar,
+[data-theme="pixel-8bit"] .taskbar {
+  background: #121526;
+  border-top: 3px solid #000000;
+}
+
+[data-theme="curio-theme-pixel-8bit"] .taskbar-item,
+[data-theme="pixel-8bit"] .taskbar-item {
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+}
+
+
         .credits-overlay.active { opacity: 1; pointer-events: all; cursor: pointer; }
     .credits-scroll {
       width: 70%; max-width: 520px;
@@ -16701,6 +17531,24 @@
             <div class="theme-info">
               <span class="theme-title">🎛️ Steel-Blue Instrument Panel</span>
               <span class="theme-desc">Winamp-style brushed steel chassis, cyan LCD readouts, equalizer faders & tactile transport controls</span>
+            </div>
+            <span class="theme-status-pill">Select</span>
+          </div>
+
+          <!-- 8-Bit Pixel RPG (NES / Retro 2D Video Game) -->
+          <div class="theme-card" data-theme-id="pixel-8bit" onclick="setTheme('pixel-8bit')">
+            <div class="theme-preview-box" style="background:#121526; border:2px solid #000000; overflow:hidden;">
+              <div class="mini-titlebar" style="background:#2b3a67; border-bottom:2px solid #000000; color:#fee761; padding:2px 4px; font-size:7px; font-weight:900; font-family:'Courier New',monospace; display:flex; justify-content:space-between; align-items:center;">
+                <span>LV.99 👾 HERO</span>
+                <span style="color:#38b764; font-size:6px;">HP:999</span>
+              </div>
+              <div class="mini-content" style="background:#16213e; border:2px solid #000000; margin:3px; height:18px; display:flex; align-items:center; justify-content:center; box-shadow:inset 1px 1px 0 #ffffff;">
+                <span style="font-size:6px; font-weight:900; color:#fee761; font-family:'Courier New',monospace; letter-spacing:1px;">▶ FIGHT</span>
+              </div>
+            </div>
+            <div class="theme-info">
+              <span class="theme-title">👾 8-Bit Pixel RPG</span>
+              <span class="theme-desc">Authentic 8-bit / 16-bit 2D video game UI — zero curves, hard-stepped pixel borders & retro dialogue frames</span>
             </div>
             <span class="theme-status-pill">Select</span>
           </div>
@@ -45354,6 +46202,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     { id: "handdrawn-retro", name: "Hand-Drawn Retro Windows", icon: "📐", tag: "Interface Theme" },
     { id: "steel-instrument", name: "Steel-Blue Instrument Panel", icon: "🎛️", tag: "Interface Theme" },
     { id: "monochrome-lcd", name: "Monochrome LCD", icon: "📟", tag: "Interface Theme" },
+    { id: "pixel-8bit", name: "8-Bit Pixel RPG", icon: "👾", tag: "Interface Theme" },
     { id: "synthwave", name: "Synthwave Sunset", icon: "🌅", tag: "Studio Palette" },
     { id: "nord", name: "Nord Frost", icon: "❄️", tag: "Studio Palette" },
     { id: "matrix", name: "Matrix Terminal", icon: "🟢", tag: "Studio Palette" },
@@ -46808,6 +47657,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     "handdrawn-retro": "Retro Windows",
     "steel-instrument": "Steel Instrument Panel",
     "monochrome-lcd": "Monochrome LCD",
+    "pixel-8bit": "8-Bit Pixel RPG",
     "macos8": "Mac OS 8 Antique",
     "macos8-onyx": "Mac OS 8 Onyx Hazard",
     "pixel-fantasy": "Pixel Fantasy Guild",
@@ -51886,6 +52736,7 @@ const MindBlunderController = {
     this.activeArcadeGame = this.activeArcadeGame || 'defender';
     this.arcadeScores = this.loadArcadeScores();
     this.arcadeSessionXp = 0;
+    this.arcadeLastDir = null; // Clear persistent direction buffer
 
     const canvas = this.hubModal.querySelector('#mb-arcade-canvas');
     if (!canvas) return;
@@ -51997,10 +52848,14 @@ const MindBlunderController = {
         e.stopPropagation();
       }
       this.arcadeKeys[e.key.toLowerCase()] = true;
-      if (e.key === 'ArrowLeft') this.arcadeKeys['left'] = true;
-      if (e.key === 'ArrowRight') this.arcadeKeys['right'] = true;
-      if (e.key === 'ArrowUp') this.arcadeKeys['up'] = true;
-      if (e.key === 'ArrowDown') this.arcadeKeys['down'] = true;
+      if (e.key === 'ArrowLeft')  { this.arcadeKeys['left']  = true; this.arcadeLastDir = { x: -1, y: 0 }; }
+      if (e.key === 'ArrowRight') { this.arcadeKeys['right'] = true; this.arcadeLastDir = { x:  1, y: 0 }; }
+      if (e.key === 'ArrowUp')    { this.arcadeKeys['up']    = true; this.arcadeLastDir = { x:  0, y: -1 }; }
+      if (e.key === 'ArrowDown')  { this.arcadeKeys['down']  = true; this.arcadeLastDir = { x:  0, y:  1 }; }
+      if (e.key === 'a') this.arcadeLastDir = { x: -1, y: 0 };
+      if (e.key === 'd') this.arcadeLastDir = { x:  1, y: 0 };
+      if (e.key === 'w') this.arcadeLastDir = { x:  0, y: -1 };
+      if (e.key === 's') this.arcadeLastDir = { x:  0, y:  1 };
       if (e.key === ' ' || e.key === 'Spacebar') {
         this.arcadeKeys['fire'] = true;
         this.handleArcadeFireAction();
@@ -52049,7 +52904,12 @@ const MindBlunderController = {
     // On-Screen D-Pad
     this.hubModal.querySelectorAll('.mb-dpad-btn').forEach(dBtn => {
       const dir = dBtn.getAttribute('data-dir');
-      const startHandler = (e) => { e.preventDefault(); this.arcadeKeys[dir] = true; };
+      const dirVec = { up: { x: 0, y: -1 }, down: { x: 0, y: 1 }, left: { x: -1, y: 0 }, right: { x: 1, y: 0 } };
+      const startHandler = (e) => {
+        e.preventDefault();
+        this.arcadeKeys[dir] = true;
+        if (dirVec[dir]) this.arcadeLastDir = dirVec[dir];
+      };
       const stopHandler = (e) => { e.preventDefault(); this.arcadeKeys[dir] = false; };
       dBtn.onmousedown = startHandler;
       dBtn.onmouseup = stopHandler;
@@ -54362,7 +55222,7 @@ Audit validated by Mind Blunder Sub-Level Diagnostics Engine.
   // ═════════════════════════════════════════════════════════════════════════
   initCyberMaze() {
     const items = this.api ? this.api.state.getItems() : [];
-    const bonusTitle = items.length ? items[Math.floor(Math.random() * items.length)].title : 'CURIO DATA';
+    const bonusTitle = items.length ? items[Math.floor(Math.random() * items.length)].title : 'CURIO CORE';
 
     // 24 columns x 18 rows grid
     const cols = 24;
@@ -54370,21 +55230,21 @@ Audit validated by Mind Blunder Sub-Level Diagnostics Engine.
     const cellW = 640 / cols;
     const cellH = 420 / rows;
 
-    // 0: Pellet, 1: Wall, 2: Empty, 3: Power Crystal
+    // 0: Data Pellet, 1: Solid Wall, 2: Empty Path / Ghost Gate, 3: Oracle Power Crystal
     const grid = [
       [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
       [1,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,3,1],
       [1,0,1,1,1,0,0,1,0,1,1,1,1,1,1,0,1,0,0,1,1,1,0,1],
       [1,0,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,1,1,0,1],
       [1,0,0,0,0,0,1,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1],
-      [1,1,1,0,1,0,1,1,1,0,1,1,1,1,0,1,1,1,0,1,0,1,1,1],
+      [1,1,1,0,1,0,1,1,1,0,2,2,2,2,0,1,1,1,0,1,0,1,1,1],
       [2,2,0,0,1,0,0,0,0,0,1,2,2,1,0,0,0,0,0,1,0,0,2,2],
       [1,1,1,0,1,0,1,0,1,1,1,2,2,1,1,1,0,1,0,1,0,1,1,1],
       [1,1,1,0,0,0,1,0,0,0,2,2,2,2,0,0,0,1,0,0,0,1,1,1],
       [1,1,1,0,1,0,1,0,1,1,1,1,1,1,1,1,0,1,0,1,0,1,1,1],
       [2,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,2,2],
       [1,1,1,0,1,0,1,1,1,0,1,1,1,1,0,1,1,1,0,1,0,1,1,1],
-      [1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1],
+      [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
       [1,0,1,1,1,0,1,1,1,1,0,0,0,0,1,1,1,1,0,1,1,1,0,1],
       [1,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,0,0,0,1],
       [1,1,0,0,1,0,1,1,1,0,0,1,1,0,0,1,1,1,0,1,0,0,1,1],
@@ -54392,26 +55252,40 @@ Audit validated by Mind Blunder Sub-Level Diagnostics Engine.
       [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
     ];
 
-    // Clone grid
-    const liveGrid = grid.map(r => [...r]);
+    // Count pellets
+    let totalPellets = 0;
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        if (grid[r][c] === 0 || grid[r][c] === 3) totalPellets++;
+      }
+    }
 
     // Ghosts
     const ghosts = [
-      { x: 11, y: 7, dir: { x: 0, y: -1 }, color: '#ff0055', name: 'BLINKY', baseSpeed: 80, respawnTimer: 0 },
-      { x: 12, y: 7, dir: { x: 0, y: -1 }, color: '#00f3ff', name: 'INKY',   baseSpeed: 75, respawnTimer: 0 },
-      { x: 11, y: 8, dir: { x: 1, y: 0 },  color: '#ffaa00', name: 'CLYDE',  baseSpeed: 70, respawnTimer: 0 },
-      { x: 12, y: 8, dir: { x: -1, y: 0 }, color: '#bd00ff', name: 'PINKY',  baseSpeed: 72, respawnTimer: 0 }
+      { x: 11, y: 4, dir: { x: -1, y: 0 }, color: '#ff0055', name: 'BLINKY', baseSpeed: 4.8, exitDelay: 0 },
+      { x: 12, y: 7, dir: { x: 0, y: -1 }, color: '#00f3ff', name: 'INKY',   baseSpeed: 4.5, exitDelay: 2.0 },
+      { x: 11, y: 8, dir: { x: 0, y: -1 }, color: '#ffaa00', name: 'CLYDE',  baseSpeed: 4.2, exitDelay: 4.0 },
+      { x: 12, y: 8, dir: { x: 0, y: -1 }, color: '#bd00ff', name: 'PINKY',  baseSpeed: 4.4, exitDelay: 6.0 }
     ];
 
     this._mazeState = {
       cols, rows, cellW, cellH,
-      grid: liveGrid,
-      player: { x: 11.5, y: 12, dir: { x: 1, y: 0 }, nextDir: { x: 1, y: 0 }, speed: 100 },
+      grid: grid.map(r => [...r]),
+      totalPellets,
+      pelletsRemaining: totalPellets,
+      player: {
+        x: 11,
+        y: 12,
+        dir: { x: 0, y: 0 },
+        nextDir: { x: 0, y: 0 },
+        speed: 5.8,
+        mouthTimer: 0
+      },
       ghosts: ghosts,
       frightenedTimer: 0,
       comboGhostMultiplier: 1,
-      bonusItem: { x: 11.5, y: 10, title: bonusTitle, active: true },
-      bonusTimer: 18,
+      bonusItem: { x: 11, y: 10, title: bonusTitle, active: true },
+      bonusTimer: 20,
       lives: 3
     };
   },
@@ -54426,86 +55300,169 @@ Audit validated by Mind Blunder Sub-Level Diagnostics Engine.
     ctx.fillStyle = '#050a16';
     ctx.fillRect(0, 0, w, h);
 
-    // Direction input buffering
-    if (keys['w'] || keys['up'])    p.nextDir = { x: 0, y: -1 };
-    if (keys['s'] || keys['down'])  p.nextDir = { x: 0, y: 1 };
-    if (keys['a'] || keys['left'])  p.nextDir = { x: -1, y: 0 };
-    if (keys['d'] || keys['right']) p.nextDir = { x: 1, y: 0 };
+    // Direction input: use persistent arcadeLastDir buffer (edge-triggered, not poll-based)
+    // This means tapping a key even briefly still registers in the next frame.
+    const ld = this.arcadeLastDir;
+    if (ld) {
+      // Only update nextDir from lastDir if a key is actually held OR if player is still stopped
+      if (keys['w'] || keys['up'])    { p.nextDir = { x: 0, y: -1 }; }
+      else if (keys['s'] || keys['down'])  { p.nextDir = { x: 0, y: 1 }; }
+      else if (keys['a'] || keys['left'])  { p.nextDir = { x: -1, y: 0 }; }
+      else if (keys['d'] || keys['right']) { p.nextDir = { x: 1, y: 0 }; }
+      else {
+        // No key held — use last-pressed direction as intent
+        p.nextDir = { ...ld };
+      }
+    }
 
-    // Frightened Timer
+    // Frightened Timer countdown
     if (s.frightenedTimer > 0) {
       s.frightenedTimer -= dt;
       if (s.frightenedTimer <= 0) s.comboGhostMultiplier = 1;
     }
 
-    // ── Player Navigation with Grid Snapping ──
-    const targetCellX = Math.round(p.x);
-    const targetCellY = Math.round(p.y);
-    const distToCenter = Math.abs(p.x - targetCellX) + Math.abs(p.y - targetCellY);
+    // Helper: is cell walkable?
+    const isWalkable = (cx, cy) => {
+      if (cx < 0 || cx >= s.cols) return true; // wrap tunnel
+      if (cy < 0 || cy >= s.rows) return false;
+      return s.grid[cy][cx] !== 1;
+    };
 
-    if (distToCenter < 0.18) {
-      // Check if nextDir is valid
-      const nextX = targetCellX + p.nextDir.x;
-      const nextY = targetCellY + p.nextDir.y;
-      if (nextX >= 0 && nextX < s.cols && nextY >= 0 && nextY < s.rows && s.grid[nextY][nextX] !== 1) {
-        p.dir = p.nextDir;
-        p.x = targetCellX;
-        p.y = targetCellY;
+    // ── 1. Responsive Turning & Reversal ──
+    // Instant 180 reverse
+    if (p.nextDir.x === -p.dir.x && p.nextDir.y === -p.dir.y && (p.dir.x !== 0 || p.dir.y !== 0)) {
+      p.dir = { ...p.nextDir };
+    } else if (p.dir.x === 0 && p.dir.y === 0 && (p.nextDir.x !== 0 || p.nextDir.y !== 0)) {
+      // First keypress to start moving
+      const targetCellX = Math.round(p.x) + p.nextDir.x;
+      const targetCellY = Math.round(p.y) + p.nextDir.y;
+      if (isWalkable(targetCellX, targetCellY)) {
+        p.dir = { ...p.nextDir };
+      }
+    } else if (p.nextDir.x !== 0 || p.nextDir.y !== 0) {
+      // Perpendicular Turn with Generous Snapping
+      const roundX = Math.round(p.x);
+      const roundY = Math.round(p.y);
+      const distX = Math.abs(p.x - roundX);
+      const distY = Math.abs(p.y - roundY);
+
+      if (p.nextDir.x !== 0 && p.dir.y !== 0 && distY < 0.38) {
+        if (isWalkable(roundX + p.nextDir.x, roundY)) {
+          p.y = roundY;
+          p.dir = { ...p.nextDir };
+        }
+      } else if (p.nextDir.y !== 0 && p.dir.x !== 0 && distX < 0.38) {
+        if (isWalkable(roundX, roundY + p.nextDir.y)) {
+          p.x = roundX;
+          p.dir = { ...p.nextDir };
+        }
       }
     }
 
-    // Move player in current dir if not blocked by wall
-    const checkX = Math.round(p.x + p.dir.x * 0.52);
-    const checkY = Math.round(p.y + p.dir.y * 0.52);
-    if (checkX >= 0 && checkX < s.cols && checkY >= 0 && checkY < s.rows && s.grid[checkY][checkX] !== 1) {
-      p.x += p.dir.x * (p.speed / s.cellW) * dt;
-      p.y += p.dir.y * (p.speed / s.cellH) * dt;
+    // ── 2. Forward Movement with Wall Clamping ──
+    if (p.dir.x !== 0 || p.dir.y !== 0) {
+      p.mouthTimer += dt * 14;
+      const step = p.speed * dt;
+
+      if (p.dir.x > 0) {
+        const nextCol = Math.floor(p.x) + 1;
+        const row = Math.round(p.y);
+        if (nextCol < s.cols && !isWalkable(nextCol, row)) {
+          p.x = Math.min(nextCol - 1, p.x + step);
+        } else {
+          p.x += step;
+        }
+      } else if (p.dir.x < 0) {
+        const prevCol = Math.ceil(p.x) - 1;
+        const row = Math.round(p.y);
+        if (prevCol >= 0 && !isWalkable(prevCol, row)) {
+          p.x = Math.max(prevCol + 1, p.x - step);
+        } else {
+          p.x -= step;
+        }
+      } else if (p.dir.y > 0) {
+        const nextRow = Math.floor(p.y) + 1;
+        const col = Math.round(p.x);
+        if (nextRow < s.rows && !isWalkable(col, nextRow)) {
+          p.y = Math.min(nextRow - 1, p.y + step);
+        } else {
+          p.y += step;
+        }
+      } else if (p.dir.y < 0) {
+        const prevRow = Math.ceil(p.y) - 1;
+        const col = Math.round(p.x);
+        if (prevRow >= 0 && !isWalkable(col, prevRow)) {
+          p.y = Math.max(prevRow + 1, p.y - step);
+        } else {
+          p.y -= step;
+        }
+      }
+
+      // Screen wrap tunnel
+      if (p.x < -0.5) p.x = s.cols - 0.5;
+      if (p.x >= s.cols - 0.5) p.x = -0.5;
     }
 
-    // Screen wrap tunnel
-    if (p.x < -0.5) p.x = s.cols - 0.5;
-    if (p.x >= s.cols) p.x = -0.5;
-
-    // ── Chomp Pellets & Power Crystals ──
-    const curCellX = Math.floor(p.x + 0.5);
-    const curCellY = Math.floor(p.y + 0.5);
+    // ── 3. Chomp Pellets & Power Crystals ──
+    const curCellX = Math.round(p.x);
+    const curCellY = Math.round(p.y);
     if (curCellX >= 0 && curCellX < s.cols && curCellY >= 0 && curCellY < s.rows) {
-      const cellVal = s.grid[curCellY][curCellX];
-      if (cellVal === 0) {
-        // Data Pellet
-        s.grid[curCellY][curCellX] = 2; // Empty
-        this.arcadeCurrentScore += 10;
-        this.awardArcadePetXp(1);
-        this.playMazeChompSound();
-      } else if (cellVal === 3) {
-        // Oracle Power Crystal!
-        s.grid[curCellY][curCellX] = 2;
-        this.arcadeCurrentScore += 100;
-        this.awardArcadePetXp(5);
-        this.playArcadeCoin();
-        s.frightenedTimer = 8.5; // 8.5s vulnerable ghosts
-        s.comboGhostMultiplier = 1;
+      if (Math.abs(p.x - curCellX) < 0.4 && Math.abs(p.y - curCellY) < 0.4) {
+        const cellVal = s.grid[curCellY][curCellX];
+        if (cellVal === 0) {
+          // Data Pellet
+          s.grid[curCellY][curCellX] = 2; // Empty
+          s.pelletsRemaining--;
+          this.arcadeCurrentScore += 10;
+          this.awardArcadePetXp(1);
+          this.playMazeChompSound();
+        } else if (cellVal === 3) {
+          // Oracle Power Crystal!
+          s.grid[curCellY][curCellX] = 2;
+          s.pelletsRemaining--;
+          this.arcadeCurrentScore += 100;
+          this.awardArcadePetXp(5);
+          this.playArcadeCoin();
+          s.frightenedTimer = 8.0;
+          s.comboGhostMultiplier = 1;
+        }
       }
     }
 
-    // ── Check Bonus Item in Center ──
+    // Check Wave Cleared
+    if (s.pelletsRemaining <= 0) {
+      this.playArcadeFanfare();
+      this.arcadeCurrentScore += 1000;
+      this.awardArcadePetXp(20);
+      this.initCyberMaze();
+      return;
+    }
+
+    // ── 4. Bonus Item in Corridor ──
     if (s.bonusItem && s.bonusItem.active) {
-      const bx = s.bonusItem.x;
-      const by = s.bonusItem.y;
-      if (Math.abs(p.x - bx) < 0.8 && Math.abs(p.y - by) < 0.8) {
+      s.bonusTimer -= dt;
+      if (s.bonusTimer <= 0) {
         s.bonusItem.active = false;
-        this.playArcadeFanfare();
-        this.arcadeCurrentScore += 500;
-        this.awardArcadePetXp(12);
+      } else {
+        const bx = s.bonusItem.x;
+        const by = s.bonusItem.y;
+        if (Math.hypot(p.x - bx, p.y - by) < 0.8) {
+          s.bonusItem.active = false;
+          this.playArcadeFanfare();
+          this.arcadeCurrentScore += 500;
+          this.awardArcadePetXp(12);
+        }
       }
     }
 
-    // ── Render Maze Walls & Pellets ──
+    // ── 5. Render Maze Walls, Pellets & Power Crystals ──
     for (let r = 0; r < s.rows; r++) {
       for (let c = 0; c < s.cols; c++) {
         const type = s.grid[r][c];
         const cx = c * s.cellW;
         const cy = r * s.cellH;
+        const centerX = (c + 0.5) * s.cellW;
+        const centerY = (r + 0.5) * s.cellH;
 
         if (type === 1) {
           // Cyber Wall
@@ -54515,140 +55472,196 @@ Audit validated by Mind Blunder Sub-Level Diagnostics Engine.
           ctx.fillRect(cx, cy, s.cellW, s.cellH);
           ctx.strokeRect(cx, cy, s.cellW, s.cellH);
         } else if (type === 0) {
-          // Data Pellet
+          // Data Pellet (Centered)
           ctx.fillStyle = '#39ff14';
-          ctx.fillRect(cx + s.cellW / 2 - 2, cy + s.cellH / 2 - 2, 4, 4);
+          ctx.fillRect(centerX - 2, centerY - 2, 4, 4);
         } else if (type === 3) {
-          // Oracle Power Crystal
-          const pulse = 0.7 + 0.3 * Math.sin(nowMs / 120);
+          // Oracle Power Crystal (Pulsing Center)
+          const pulse = 0.75 + 0.25 * Math.sin(nowMs / 110);
           ctx.beginPath();
-          ctx.arc(cx + s.cellW / 2, cy + s.cellH / 2, 6 * pulse, 0, Math.PI * 2);
+          ctx.arc(centerX, centerY, 6 * pulse, 0, Math.PI * 2);
           ctx.fillStyle = '#00f3ff';
+          ctx.shadowColor = '#00f3ff';
+          ctx.shadowBlur = 8;
           ctx.fill();
+          ctx.shadowBlur = 0;
         }
       }
     }
 
-    // ── Render Bonus Item in Center Corridor ──
+    // Render Bonus Item
     if (s.bonusItem && s.bonusItem.active) {
-      const bx = s.bonusItem.x * s.cellW;
-      const by = s.bonusItem.y * s.cellH;
+      const bx = (s.bonusItem.x + 0.5) * s.cellW;
+      const by = (s.bonusItem.y + 0.5) * s.cellH;
       ctx.fillStyle = '#ffcc00';
       ctx.font = 'bold 9px monospace';
       ctx.textAlign = 'center';
-      ctx.fillText('★ ' + s.bonusItem.title.slice(0, 10), bx, by + 4);
+      ctx.fillText('★ ' + s.bonusItem.title.slice(0, 10), bx, by + 3);
     }
 
-    // ── Update & Render Glitch Phantoms ──
+    // ── 6. Update & Render Glitch Phantoms ──
     for (const g of s.ghosts) {
-      const isFrightened = s.frightenedTimer > 0;
-      const ghostSpeed = (isFrightened ? 45 : g.baseSpeed);
-
-      // Simple AI corridor traversal
-      const gx = Math.round(g.x);
-      const gy = Math.round(g.y);
-      const distToG = Math.abs(g.x - gx) + Math.abs(g.y - gy);
-
-      if (distToG < 0.15) {
-        // Pick valid random direction at intersections
-        const possibleDirs = [
-          { x: 0, y: -1 }, { x: 0, y: 1 }, { x: -1, y: 0 }, { x: 1, y: 0 }
-        ].filter(d => {
-          // Don't reverse immediately
-          if (d.x === -g.dir.x && d.y === -g.dir.y) return false;
-          const nx = gx + d.x;
-          const ny = gy + d.y;
-          return nx >= 0 && nx < s.cols && ny >= 0 && ny < s.rows && s.grid[ny][nx] !== 1;
-        });
-
-        if (possibleDirs.length > 0) {
-          g.dir = possibleDirs[Math.floor(Math.random() * possibleDirs.length)];
-          g.x = gx;
-          g.y = gy;
+      if (g.exitDelay > 0) {
+        g.exitDelay -= dt;
+        // Bounce gently inside house while waiting
+        g.y = 7.5 + 0.3 * Math.sin(nowMs * 0.005 + g.color.charCodeAt(1));
+      } else {
+        // If still inside house, move up through the door at row 5
+        if (g.y > 4.5 && g.x >= 10 && g.x <= 13) {
+          g.x += (11.5 - g.x) * 4 * dt;
+          g.y -= 3.5 * dt;
         } else {
-          g.dir = { x: -g.dir.x, y: -g.dir.y };
+          // Free roaming AI along corridors
+          const isFrightened = s.frightenedTimer > 0;
+          const ghostSpeed = (isFrightened ? 3.0 : g.baseSpeed);
+
+          const roundGX = Math.round(g.x);
+          const roundGY = Math.round(g.y);
+          const distToTile = Math.hypot(g.x - roundGX, g.y - roundGY);
+
+          if (distToTile < 0.15) {
+            // Find valid turns (excluding reverse)
+            const dirs = [
+              { x: 0, y: -1 }, { x: 0, y: 1 }, { x: -1, y: 0 }, { x: 1, y: 0 }
+            ].filter(d => {
+              if (d.x === -g.dir.x && d.y === -g.dir.y) return false;
+              return isWalkable(roundGX + d.x, roundGY + d.y);
+            });
+
+            if (dirs.length > 0) {
+              // Target-seeking vs random choice
+              if (isFrightened) {
+                // Run away from player
+                dirs.sort((a, b) => {
+                  const distA = Math.hypot((roundGX + a.x) - p.x, (roundGY + a.y) - p.y);
+                  const distB = Math.hypot((roundGX + b.x) - p.x, (roundGY + b.y) - p.y);
+                  return distB - distA; // furthest away first
+                });
+                g.dir = dirs[0];
+              } else if (g.name === 'BLINKY') {
+                // Seek player directly
+                dirs.sort((a, b) => {
+                  const distA = Math.hypot((roundGX + a.x) - p.x, (roundGY + a.y) - p.y);
+                  const distB = Math.hypot((roundGX + b.x) - p.x, (roundGY + b.y) - p.y);
+                  return distA - distB; // closest first
+                });
+                g.dir = dirs[0];
+              } else {
+                // Random corridor wandering
+                g.dir = dirs[Math.floor(Math.random() * dirs.length)];
+              }
+              g.x = roundGX;
+              g.y = roundGY;
+            } else {
+              // Dead end reverse
+              g.dir = { x: -g.dir.x, y: -g.dir.y };
+            }
+          }
+
+          g.x += g.dir.x * ghostSpeed * dt;
+          g.y += g.dir.y * ghostSpeed * dt;
+
+          // Screen wrap tunnel
+          if (g.x < -0.5) g.x = s.cols - 0.5;
+          if (g.x >= s.cols - 0.5) g.x = -0.5;
         }
       }
 
-      g.x += g.dir.x * (ghostSpeed / s.cellW) * dt;
-      g.y += g.dir.y * (ghostSpeed / s.cellH) * dt;
-
-      // Wrap tunnel
-      if (g.x < -0.5) g.x = s.cols - 0.5;
-      if (g.x >= s.cols) g.x = -0.5;
-
-      // Check collision with player
-      const pDist = Math.sqrt((p.x - g.x) ** 2 + (p.y - g.y) ** 2);
-      if (pDist < 0.8) {
-        if (isFrightened) {
-          // Eat ghost!
+      // ── Ghost Collision with Player ──
+      const pDist = Math.hypot(p.x - g.x, p.y - g.y);
+      if (pDist < 0.75) {
+        if (s.frightenedTimer > 0) {
+          // Chomp vulnerable ghost!
           this.playArcadeCoin();
           const pts = 200 * s.comboGhostMultiplier;
           this.arcadeCurrentScore += pts;
           this.awardArcadePetXp(6);
           s.comboGhostMultiplier = Math.min(8, s.comboGhostMultiplier * 2);
           g.x = 11.5;
-          g.y = 7.5; // Respawn in cage
+          g.y = 7.5;
+          g.exitDelay = 3.5;
         } else {
           // Player hit!
           s.lives--;
           this.playArcadeHit();
           if (s.lives <= 0) {
-            this.triggerArcadeGameOver('DATA PHANTOM INTERCEPT', `Final Score: ${this.arcadeCurrentScore} · Pellets Chomped!`);
+            this.triggerArcadeGameOver('DATA PHANTOM INTERCEPT', `Final Score: ${this.arcadeCurrentScore} · Cyber Maze Cleared!`);
             return;
           }
           // Reset positions
-          p.x = 11.5; p.y = 12;
-          g.x = 11.5; g.y = 7.5;
+          p.x = 11; p.y = 12;
+          p.dir = { x: 0, y: 0 };
+          p.nextDir = { x: 0, y: 0 };
+          this.arcadeLastDir = null;
+          for (const gh of s.ghosts) {
+            gh.x = 11.5;
+            gh.y = 7.5;
+            gh.exitDelay = 2.0;
+          }
+          return;
         }
       }
 
-      // Render Ghost Sprite
-      const px = g.x * s.cellW;
-      const py = g.y * s.cellH;
-      const gColor = isFrightened ? (s.frightenedTimer < 2 && Math.floor(nowMs / 150) % 2 === 0 ? '#ffffff' : '#0033cc') : g.color;
+      // ── Render Ghost Sprite (Centered in Tile) ──
+      const gxPx = (g.x + 0.5) * s.cellW;
+      const gyPx = (g.y + 0.5) * s.cellH;
+      const isFrightened = s.frightenedTimer > 0;
+      const gColor = isFrightened ? (s.frightenedTimer < 2 && Math.floor(nowMs / 140) % 2 === 0 ? '#ffffff' : '#0055ff') : g.color;
 
       ctx.fillStyle = gColor;
       ctx.beginPath();
-      ctx.arc(px, py - 2, s.cellW * 0.45, Math.PI, 0);
-      ctx.lineTo(px + s.cellW * 0.45, py + s.cellH * 0.4);
-      ctx.lineTo(px - s.cellW * 0.45, py + s.cellH * 0.4);
+      ctx.arc(gxPx, gyPx - 2, s.cellW * 0.42, Math.PI, 0);
+      ctx.lineTo(gxPx + s.cellW * 0.42, gyPx + s.cellH * 0.38);
+      // Wavy skirt
+      const wave = Math.sin(nowMs * 0.02) * 2;
+      ctx.lineTo(gxPx + s.cellW * 0.15, gyPx + s.cellH * 0.28 + wave);
+      ctx.lineTo(gxPx - s.cellW * 0.15, gyPx + s.cellH * 0.38 - wave);
+      ctx.lineTo(gxPx - s.cellW * 0.42, gyPx + s.cellH * 0.38);
       ctx.fill();
 
       // Ghost Eyes
       ctx.fillStyle = '#ffffff';
-      ctx.fillRect(px - 5, py - 5, 3, 4);
-      ctx.fillRect(px + 2, py - 5, 3, 4);
+      const eyeOffsetX = g.dir.x * 2;
+      const eyeOffsetY = g.dir.y * 2;
+      ctx.fillRect(gxPx - 6 + eyeOffsetX, gyPx - 5 + eyeOffsetY, 4, 4);
+      ctx.fillRect(gxPx + 2 + eyeOffsetX, gyPx - 5 + eyeOffsetY, 4, 4);
+      ctx.fillStyle = '#050a16';
+      ctx.fillRect(gxPx - 5 + eyeOffsetX * 1.5, gyPx - 4 + eyeOffsetY * 1.5, 2, 2);
+      ctx.fillRect(gxPx + 3 + eyeOffsetX * 1.5, gyPx - 4 + eyeOffsetY * 1.5, 2, 2);
     }
 
-    // ── Render Player Cyber-Pet ──
+    // ── 7. Render Player Cyber-Pet / Pacman (Centered in Tile) ──
     const petDef = (this.currentPet && CYBER_PETS[this.currentPet.id]) ? CYBER_PETS[this.currentPet.id] : CYBER_PETS['void-fox'];
-    const playerX = p.x * s.cellW;
-    const playerY = p.y * s.cellH;
+    const playerX = (p.x + 0.5) * s.cellW;
+    const playerY = (p.y + 0.5) * s.cellH;
 
     // Chomping mouth animation
-    const mouthAngle = 0.25 * Math.sin(nowMs * 0.015) + 0.25;
-    ctx.fillStyle = petDef.color || '#ff0055';
-    ctx.beginPath();
+    const isMoving = (p.dir.x !== 0 || p.dir.y !== 0);
+    const mouthAngle = isMoving ? (0.28 * Math.sin(p.mouthTimer) + 0.28) : 0.2;
+    ctx.fillStyle = petDef.color || '#ffaa00';
+
     let baseHeading = 0;
-    if (p.dir.x === 1) baseHeading = 0;
+    if (p.dir.x === 1)  baseHeading = 0;
     if (p.dir.x === -1) baseHeading = Math.PI;
-    if (p.dir.y === 1) baseHeading = Math.PI / 2;
+    if (p.dir.y === 1)  baseHeading = Math.PI / 2;
     if (p.dir.y === -1) baseHeading = -Math.PI / 2;
 
-    ctx.arc(playerX, playerY, s.cellW * 0.48, baseHeading + mouthAngle, baseHeading + Math.PI * 2 - mouthAngle);
+    ctx.beginPath();
+    ctx.arc(playerX, playerY, s.cellW * 0.46, baseHeading + mouthAngle, baseHeading + Math.PI * 2 - mouthAngle);
     ctx.lineTo(playerX, playerY);
     ctx.fill();
 
-    // Eye
+    // Pet Eye
     ctx.fillStyle = '#ffffff';
-    ctx.fillRect(playerX - 2, playerY - 6, 3, 3);
+    const petEyeX = playerX + (p.dir.y !== 0 ? 3 : 0);
+    const petEyeY = playerY - 4 + (p.dir.x !== 0 ? 0 : 0);
+    ctx.fillRect(petEyeX - 2, petEyeY - 2, 3, 3);
 
-    // HUD: Lives & Frightened Indicator
+    // ── HUD: Lives & Frightened Indicator ──
     ctx.font = 'bold 11px monospace';
     ctx.fillStyle = '#00f3ff';
     ctx.textAlign = 'left';
-    ctx.fillText(`LIVES: ${'ᗧ '.repeat(s.lives)}`, 14, h - 14);
+    ctx.fillText(`LIVES: ${'ᗧ '.repeat(Math.max(0, s.lives))}`, 14, h - 14);
 
     if (s.frightenedTimer > 0) {
       ctx.fillStyle = '#ff0055';
