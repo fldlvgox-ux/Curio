@@ -1,6 +1,6 @@
 {
     "version":  "1.0.0",
-    "updatedAt":  "2026-10-31T08:45:34Z",
+    "updatedAt":  "2026-10-31T11:54:57Z",
     "plugins":  [
                     {
                         "id":  "curio-component-quick-stats",
@@ -43,6 +43,19 @@
                                                         ]
                                           },
                         "path":  "./plugins/curio-data-markdown-table"
+                    },
+                    {
+                        "id":  "curio-mind-blunder",
+                        "name":  "Mind Blunder Mystery Hub",
+                        "version":  "1.0.0",
+                        "type":  "component",
+                        "author":  "Curio Laboratory",
+                        "description":  "Secret subterranean playground featuring cyber-pets, divination oracle, arcade games, and weird internet utilities.",
+                        "family":  "custom",
+                        "preview":  null,
+                        "mountPoint":  "toolbar-actions",
+                        "dataExtension":  null,
+                        "path":  "./plugins/curio-mind-blunder"
                     },
                     {
                         "id":  "curio-theme-aero",
@@ -201,6 +214,19 @@
                         "path":  "./plugins/curio-theme-midnight"
                     },
                     {
+                        "id":  "curio-theme-monochrome-lcd",
+                        "name":  "Monochrome LCD",
+                        "version":  "1.0.0",
+                        "type":  "theme",
+                        "author":  "Curio Retro Labs",
+                        "description":  "Nokia / Game Boy monochrome LCD screen. Pale olive-green LCD paper, dark olive ink text, LCD pixel cell grid overlay, and flat pixelated controls. Authentic retro phone display aesthetic.",
+                        "family":  "retro",
+                        "preview":  null,
+                        "mountPoint":  null,
+                        "dataExtension":  null,
+                        "path":  "./plugins/curio-theme-monochrome-lcd"
+                    },
+                    {
                         "id":  "curio-theme-nord",
                         "name":  "Nord Frost",
                         "version":  "1.0.0",
@@ -242,10 +268,10 @@
                     {
                         "id":  "curio-theme-steel-instrument",
                         "name":  "Steel-Blue Instrument Panel",
-                        "version":  "1.0.0",
+                        "version":  "2.0.0",
                         "type":  "theme",
                         "author":  "Curio Audio Engineering",
-                        "description":  "Winamp-style brushed steel-blue audio rack with glowing electric-cyan LCD readouts, graphic equalizer faders, and tactile transport controls.",
+                        "description":  "Authentic Winamp Modern / Bento brushed steel-blue audio rack. Open periwinkle studio canvas, light aluminium faceplates, convex circular transport buttons, and glowing cyan LCD readouts.",
                         "family":  "instrument",
                         "preview":  null,
                         "mountPoint":  null,

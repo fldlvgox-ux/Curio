@@ -1,0 +1,694 @@
+/* ========================================================
+   Curio Theme Plugin: Monochrome LCD (Nokia / Game Boy)
+   ID: curio-theme-monochrome-lcd / monochrome-lcd
+   ======================================================== */
+
+/* ── Token Layer ── */
+[data-theme="curio-theme-monochrome-lcd"],
+[data-theme="monochrome-lcd"] {
+  --bg: #8B956D;
+  --surface: #97A378;
+  --surface-2: #7D8662;
+  --text: #2B2F1E;
+  --text-dim: #4A5035;
+  --accent: #3A3F2C;
+  --accent-text: #C5CF9F;
+  --border: #5C6347;
+  --select-bg: #4A5035;
+  --select-fg: #C5CF9F;
+  --danger: #3A2A1E;
+  --ok: #2B3A1E;
+  --warn: #4A4020;
+  --font-ui: 'Courier New', Courier, 'Lucida Console', monospace;
+  --font-display: 'Courier New', Courier, monospace;
+  --font-mono: 'Courier New', Courier, 'Lucida Console', monospace;
+  --font-size-base: 13px;
+  --font-smoothing: none;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --row-height: 32px;
+  --control-height: 28px;
+  --pixel-scale: 1;
+  --radius-window: 2px;
+  --radius-control: 2px;
+  --radius-chip: 2px;
+  --avatar-shape: 2px;
+  --cut-tl: 0;
+  --cut-tr: 0;
+  --cut-br: 0;
+  --cut-bl: 0;
+  --bevel-light: #A8B38A;
+  --bevel-dark: #5C6347;
+  --bevel-width: 2px;
+  --shadow-raised: 2px 2px 0 #5C6347;
+  --shadow-pressed: inset 2px 2px 0 #5C6347;
+  --shadow-hard: 3px 3px 0 #4A5035;
+  --gradient-title: none;
+  --gradient-button: none;
+  --grain: none;
+  --dither-pattern: none;
+  --focus-ring: 0 0 0 2px #2B2F1E;
+  --default-button-ring: 0 0 0 1px #2B2F1E;
+}
+
+/* ── LCD Screen Body ── 
+   The entire app is an olive LCD panel. A subtle pixel-grid overlay
+   simulates individual LCD cells like a Game Boy / Nokia 3310 screen. */
+[data-theme="curio-theme-monochrome-lcd"] body,
+[data-theme="monochrome-lcd"] body {
+  background: #8B956D;
+  color: #2B2F1E;
+  font-family: 'Courier New', Courier, monospace;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  image-rendering: pixelated;
+}
+
+/* LCD pixel grid overlay */
+[data-theme="curio-theme-monochrome-lcd"] body::after,
+[data-theme="monochrome-lcd"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.06;
+  background-image:
+    linear-gradient(0deg, #2B2F1E 1px, transparent 1px),
+    linear-gradient(90deg, #2B2F1E 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: multiply;
+}
+
+/* ── App Shell ── */
+[data-theme="curio-theme-monochrome-lcd"] .app-shell,
+[data-theme="monochrome-lcd"] .app-shell {
+  background: #8B956D;
+}
+
+/* ── Top Bar — dark olive LCD header strip ── */
+[data-theme="curio-theme-monochrome-lcd"] .top-bar,
+[data-theme="monochrome-lcd"] .top-bar {
+  background: #7D8662;
+  border-bottom: 2px solid #5C6347;
+  box-shadow: inset 0 -1px 0 #A8B38A;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .top-bar .catalog-title,
+[data-theme="monochrome-lcd"] .top-bar .catalog-title,
+[data-theme="curio-theme-monochrome-lcd"] .brand-title,
+[data-theme="monochrome-lcd"] .brand-title {
+  color: #2B2F1E;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 0 #A8B38A;
+}
+
+/* ── Search — recessed LCD readout ── */
+[data-theme="curio-theme-monochrome-lcd"] .search-container,
+[data-theme="monochrome-lcd"] .search-container {
+  background: #768058;
+  border: 2px solid #5C6347;
+  border-radius: 2px;
+  box-shadow: inset 2px 2px 0 #5C6347, inset -1px -1px 0 #A8B38A;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] #search-box,
+[data-theme="monochrome-lcd"] #search-box {
+  background: transparent;
+  color: #2B2F1E;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  border: none;
+  text-shadow: none;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] #search-box::placeholder,
+[data-theme="monochrome-lcd"] #search-box::placeholder {
+  color: #5C6347;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .search-icon,
+[data-theme="monochrome-lcd"] .search-icon {
+  color: #4A5035;
+}
+
+/* ── View Switcher — flat pixel buttons ── */
+[data-theme="curio-theme-monochrome-lcd"] .view-switcher,
+[data-theme="monochrome-lcd"] .view-switcher {
+  background: #7D8662;
+  border: 2px solid #5C6347;
+  border-radius: 2px;
+  gap: 0;
+  padding: 0;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .view-btn,
+[data-theme="monochrome-lcd"] .view-btn {
+  background: #97A378;
+  color: #2B2F1E;
+  border: 1px solid #5C6347;
+  border-radius: 0;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1px;
+  box-shadow: 1px 1px 0 #A8B38A;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .view-btn:hover,
+[data-theme="monochrome-lcd"] .view-btn:hover {
+  background: #A8B38A;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .view-btn.active,
+[data-theme="monochrome-lcd"] .view-btn.active {
+  background: #5C6347;
+  color: #C5CF9F;
+  box-shadow: inset 2px 2px 0 #4A5035;
+}
+
+/* ── Top Bar Buttons — flat LCD keys ── */
+[data-theme="curio-theme-monochrome-lcd"] .top-bar .btn-primary,
+[data-theme="monochrome-lcd"] .top-bar .btn-primary,
+[data-theme="curio-theme-monochrome-lcd"] .top-bar .btn-secondary,
+[data-theme="monochrome-lcd"] .top-bar .btn-secondary {
+  background: #97A378;
+  color: #2B2F1E;
+  border: 2px solid #5C6347;
+  border-radius: 2px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 2px 2px 0 #5C6347;
+  text-shadow: none;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .top-bar .btn-primary:hover,
+[data-theme="monochrome-lcd"] .top-bar .btn-primary:hover,
+[data-theme="curio-theme-monochrome-lcd"] .top-bar .btn-secondary:hover,
+[data-theme="monochrome-lcd"] .top-bar .btn-secondary:hover {
+  background: #A8B38A;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .top-bar .btn-primary:active,
+[data-theme="monochrome-lcd"] .top-bar .btn-primary:active,
+[data-theme="curio-theme-monochrome-lcd"] .top-bar .btn-secondary:active,
+[data-theme="monochrome-lcd"] .top-bar .btn-secondary:active {
+  box-shadow: inset 2px 2px 0 #5C6347;
+  transform: translate(1px, 1px);
+}
+
+/* ── Filter Panel ── */
+[data-theme="curio-theme-monochrome-lcd"] .filter-panel,
+[data-theme="monochrome-lcd"] .filter-panel {
+  background: #839065;
+  border-bottom: 2px solid #5C6347;
+  box-shadow: inset 0 -1px 0 #A8B38A;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .filter-label,
+[data-theme="monochrome-lcd"] .filter-label,
+[data-theme="curio-theme-monochrome-lcd"] .filter-section-title,
+[data-theme="monochrome-lcd"] .filter-section-title {
+  color: #2B2F1E;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 10px;
+}
+
+/* Filter dropdowns */
+[data-theme="curio-theme-monochrome-lcd"] .filter-panel .select-custom,
+[data-theme="monochrome-lcd"] .filter-panel .select-custom,
+[data-theme="curio-theme-monochrome-lcd"] .filter-panel select,
+[data-theme="monochrome-lcd"] .filter-panel select {
+  background: #768058;
+  color: #2B2F1E;
+  border: 2px solid #5C6347;
+  border-radius: 2px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  box-shadow: inset 1px 1px 0 #5C6347;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .filter-panel .select-custom:hover,
+[data-theme="monochrome-lcd"] .filter-panel .select-custom:hover {
+  background: #839065;
+  border-color: #4A5035;
+}
+
+/* ── Pills & Tags — flat LCD labels ── */
+[data-theme="curio-theme-monochrome-lcd"] .pill-toggle,
+[data-theme="monochrome-lcd"] .pill-toggle,
+[data-theme="curio-theme-monochrome-lcd"] .tag-pill,
+[data-theme="monochrome-lcd"] .tag-pill {
+  background: #97A378;
+  color: #2B2F1E;
+  border: 2px solid #5C6347;
+  border-radius: 2px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 1px 1px 0 #5C6347;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .pill-toggle:hover,
+[data-theme="monochrome-lcd"] .pill-toggle:hover,
+[data-theme="curio-theme-monochrome-lcd"] .tag-pill:hover,
+[data-theme="monochrome-lcd"] .tag-pill:hover {
+  background: #A8B38A;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .pill-toggle.active,
+[data-theme="monochrome-lcd"] .pill-toggle.active,
+[data-theme="curio-theme-monochrome-lcd"] .tag-pill.active,
+[data-theme="monochrome-lcd"] .tag-pill.active {
+  background: #4A5035;
+  color: #C5CF9F;
+  box-shadow: inset 2px 2px 0 #3A3F2C;
+}
+
+/* ── Sidebar — LCD panel strip ── */
+[data-theme="curio-theme-monochrome-lcd"] .sidebar,
+[data-theme="monochrome-lcd"] .sidebar {
+  background: #839065;
+  border-right: 2px solid #5C6347;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .brand-header,
+[data-theme="monochrome-lcd"] .brand-header {
+  background: #768058;
+  border-bottom: 2px solid #5C6347;
+  box-shadow: inset 0 -1px 0 #A8B38A;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .sidebar .drawer-item,
+[data-theme="monochrome-lcd"] .sidebar .drawer-item {
+  color: #2B2F1E;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  border-bottom: 1px solid #6B7550;
+  border-radius: 0;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .sidebar .drawer-item:hover,
+[data-theme="monochrome-lcd"] .sidebar .drawer-item:hover {
+  background: #97A378;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .sidebar .drawer-item.active,
+[data-theme="monochrome-lcd"] .sidebar .drawer-item.active {
+  background: #5C6347;
+  color: #C5CF9F;
+  box-shadow: inset 3px 0 0 #2B2F1E;
+}
+
+/* Sidebar footer (storage, sync) */
+[data-theme="curio-theme-monochrome-lcd"] .sidebar-footer,
+[data-theme="monochrome-lcd"] .sidebar-footer {
+  background: #768058;
+  border-top: 2px solid #5C6347;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .sidebar-footer button,
+[data-theme="monochrome-lcd"] .sidebar-footer button,
+[data-theme="curio-theme-monochrome-lcd"] .sidebar-footer .btn,
+[data-theme="monochrome-lcd"] .sidebar-footer .btn {
+  background: #97A378;
+  color: #2B2F1E;
+  border: 2px solid #5C6347;
+  border-radius: 2px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 0 #5C6347;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .storage-bar-bg,
+[data-theme="monochrome-lcd"] .storage-bar-bg {
+  background: #768058;
+  border: 2px solid #5C6347;
+  border-radius: 2px;
+  box-shadow: inset 1px 1px 0 #5C6347;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .storage-bar-fill,
+[data-theme="monochrome-lcd"] .storage-bar-fill {
+  background: #4A5035;
+  border-radius: 0;
+}
+
+/* ── Results Meta ── */
+[data-theme="curio-theme-monochrome-lcd"] .results-meta,
+[data-theme="monochrome-lcd"] .results-meta {
+  color: #4A5035;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .results-count strong,
+[data-theme="monochrome-lcd"] .results-count strong {
+  color: #2B2F1E;
+}
+
+/* ── Cards — LCD icon cells ──
+   Each card is a recessed LCD cell, like the rounded-rectangle
+   app icon slots on a Nokia 3310 or Game Boy menu screen. */
+[data-theme="curio-theme-monochrome-lcd"] .item-card,
+[data-theme="monochrome-lcd"] .item-card,
+[data-theme="curio-theme-monochrome-lcd"] .detail-card,
+[data-theme="monochrome-lcd"] .detail-card {
+  background: #97A378;
+  border: 2px solid #5C6347;
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 #5C6347;
+  transition: transform 0.05s, box-shadow 0.05s;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .item-card:hover,
+[data-theme="monochrome-lcd"] .item-card:hover {
+  background: #A0AD80;
+  box-shadow: 3px 3px 0 #4A5035;
+  transform: translate(-1px, -1px);
+}
+
+/* Card monogram — dark LCD icon square */
+[data-theme="curio-theme-monochrome-lcd"] .card-monogram,
+[data-theme="monochrome-lcd"] .card-monogram {
+  background: #768058;
+  border: 2px solid #5C6347;
+  border-radius: 3px;
+  box-shadow: inset 2px 2px 0 #636E4A, inset -1px -1px 0 #8B956D;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .monogram-initials,
+[data-theme="monochrome-lcd"] .monogram-initials {
+  color: #2B2F1E;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  font-size: 1.5em;
+  text-shadow: none;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .monogram-drawer-label,
+[data-theme="monochrome-lcd"] .monogram-drawer-label {
+  color: #4A5035;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 8px;
+}
+
+/* Card body text */
+[data-theme="curio-theme-monochrome-lcd"] .card-body,
+[data-theme="monochrome-lcd"] .card-body {
+  background: #97A378;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .card-title,
+[data-theme="monochrome-lcd"] .card-title {
+  color: #2B2F1E;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .card-notes,
+[data-theme="monochrome-lcd"] .card-notes {
+  color: #4A5035;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* Status badges */
+[data-theme="curio-theme-monochrome-lcd"] .status-badge,
+[data-theme="monochrome-lcd"] .status-badge {
+  background: #768058 !important;
+  color: #2B2F1E !important;
+  border: 1px solid #5C6347;
+  border-radius: 2px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 1px;
+  box-shadow: 1px 1px 0 #5C6347;
+}
+
+/* Drawer chips on cards */
+[data-theme="curio-theme-monochrome-lcd"] .drawer-chip,
+[data-theme="monochrome-lcd"] .drawer-chip {
+  background: #839065;
+  color: #2B2F1E;
+  border: 1px solid #5C6347;
+  border-radius: 2px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+/* Card tags */
+[data-theme="curio-theme-monochrome-lcd"] .card-tag,
+[data-theme="monochrome-lcd"] .card-tag {
+  background: #839065;
+  color: #2B2F1E;
+  border: 1px solid #5C6347;
+  border-radius: 2px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Card action buttons */
+[data-theme="curio-theme-monochrome-lcd"] .card-actions-quick .btn-icon-xs,
+[data-theme="monochrome-lcd"] .card-actions-quick .btn-icon-xs {
+  background: #97A378;
+  color: #2B2F1E;
+  border: 1px solid #5C6347;
+  border-radius: 2px;
+  box-shadow: 1px 1px 0 #5C6347;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .card-actions-quick .btn-icon-xs:hover,
+[data-theme="monochrome-lcd"] .card-actions-quick .btn-icon-xs:hover {
+  background: #5C6347;
+  color: #C5CF9F;
+}
+
+/* ── Modals — LCD dialog window ── */
+[data-theme="curio-theme-monochrome-lcd"] .modal-content,
+[data-theme="monochrome-lcd"] .modal-content {
+  background: #97A378;
+  border: 3px solid #5C6347;
+  border-radius: 3px;
+  box-shadow: 4px 4px 0 #4A5035;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .modal-header,
+[data-theme="monochrome-lcd"] .modal-header {
+  background: #768058;
+  border-bottom: 2px solid #5C6347;
+  box-shadow: inset 0 -1px 0 #A8B38A;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .modal-title,
+[data-theme="monochrome-lcd"] .modal-title {
+  color: #2B2F1E;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Modal inputs */
+[data-theme="curio-theme-monochrome-lcd"] .modal-content input,
+[data-theme="monochrome-lcd"] .modal-content input,
+[data-theme="curio-theme-monochrome-lcd"] .modal-content textarea,
+[data-theme="monochrome-lcd"] .modal-content textarea,
+[data-theme="curio-theme-monochrome-lcd"] .modal-content select,
+[data-theme="monochrome-lcd"] .modal-content select {
+  background: #768058;
+  color: #2B2F1E;
+  border: 2px solid #5C6347;
+  border-radius: 2px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  box-shadow: inset 2px 2px 0 #636E4A;
+}
+
+/* ── Detail Inspector ── */
+[data-theme="curio-theme-monochrome-lcd"] .inspector-panel,
+[data-theme="monochrome-lcd"] .inspector-panel {
+  background: #839065;
+  border-left: 2px solid #5C6347;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .inspector-panel .field-label,
+[data-theme="monochrome-lcd"] .inspector-panel .field-label {
+  color: #4A5035;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .inspector-panel .field-value,
+[data-theme="monochrome-lcd"] .inspector-panel .field-value {
+  color: #2B2F1E;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+}
+
+/* ── Rating Stars ── */
+[data-theme="curio-theme-monochrome-lcd"] .star-rating .star,
+[data-theme="monochrome-lcd"] .star-rating .star {
+  color: #5C6347;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .star-rating .star.filled,
+[data-theme="monochrome-lcd"] .star-rating .star.filled {
+  color: #2B2F1E;
+}
+
+/* ── Scrollbars — flat LCD style ── */
+[data-theme="curio-theme-monochrome-lcd"] ::-webkit-scrollbar,
+[data-theme="monochrome-lcd"] ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] ::-webkit-scrollbar-track,
+[data-theme="monochrome-lcd"] ::-webkit-scrollbar-track {
+  background: #768058;
+  border: 1px solid #5C6347;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] ::-webkit-scrollbar-thumb,
+[data-theme="monochrome-lcd"] ::-webkit-scrollbar-thumb {
+  background: #5C6347;
+  border: 1px solid #4A5035;
+  border-radius: 0;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] ::-webkit-scrollbar-thumb:hover,
+[data-theme="monochrome-lcd"] ::-webkit-scrollbar-thumb:hover {
+  background: #4A5035;
+}
+
+/* ── Kanban columns ── */
+[data-theme="curio-theme-monochrome-lcd"] .kanban-column,
+[data-theme="monochrome-lcd"] .kanban-column {
+  background: #839065;
+  border: 2px solid #5C6347;
+  border-radius: 2px;
+  box-shadow: 2px 2px 0 #5C6347;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .kanban-column-header,
+[data-theme="monochrome-lcd"] .kanban-column-header {
+  background: #768058;
+  border-bottom: 2px solid #5C6347;
+  color: #2B2F1E;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── List View rows ── */
+[data-theme="curio-theme-monochrome-lcd"] .list-row,
+[data-theme="monochrome-lcd"] .list-row {
+  border-bottom: 1px solid #6B7550;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .list-row:hover,
+[data-theme="monochrome-lcd"] .list-row:hover {
+  background: #97A378;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .list-row.selected,
+[data-theme="monochrome-lcd"] .list-row.selected {
+  background: #5C6347;
+  color: #C5CF9F;
+}
+
+/* ── Grouped View headers ── */
+[data-theme="curio-theme-monochrome-lcd"] .group-header,
+[data-theme="monochrome-lcd"] .group-header {
+  background: #768058;
+  border: 2px solid #5C6347;
+  border-radius: 2px;
+  color: #2B2F1E;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 2px 2px 0 #5C6347;
+}
+
+/* ── Toast notifications ── */
+[data-theme="curio-theme-monochrome-lcd"] .toast,
+[data-theme="monochrome-lcd"] .toast {
+  background: #5C6347;
+  color: #C5CF9F;
+  border: 2px solid #4A5035;
+  border-radius: 2px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  box-shadow: 3px 3px 0 #3A3F2C;
+}
+
+/* ── Taskbar ── */
+[data-theme="curio-theme-monochrome-lcd"] .taskbar,
+[data-theme="monochrome-lcd"] .taskbar {
+  background: #768058;
+  border-top: 2px solid #5C6347;
+  box-shadow: inset 0 1px 0 #A8B38A;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .taskbar-item,
+[data-theme="monochrome-lcd"] .taskbar-item {
+  color: #2B2F1E;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+}
+
+/* ── Override any gradient backgrounds on card monograms ── */
+[data-theme="curio-theme-monochrome-lcd"] .card-monogram[style],
+[data-theme="monochrome-lcd"] .card-monogram[style] {
+  background: #768058 !important;
+}
+
+/* ── Ensure all links stay olive ink ── */
+[data-theme="curio-theme-monochrome-lcd"] a,
+[data-theme="monochrome-lcd"] a {
+  color: #2B2F1E;
+  text-decoration: underline;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] a:hover,
+[data-theme="monochrome-lcd"] a:hover {
+  color: #4A5035;
+}
