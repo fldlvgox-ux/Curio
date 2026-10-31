@@ -52,6 +52,20 @@
   --dither-pattern: none;
   --focus-ring: 0 0 0 2px #2B2F1E;
   --default-button-ring: 0 0 0 1px #2B2F1E;
+
+  /* Legacy & Core Compatibility Variables for Settings, Modals & Components */
+  --bg-base: #8B956D;
+  --bg-surface: #97A378;
+  --bg-surface-raised: #7D8662;
+  --bg-surface-hover: #A0AD80;
+  --bg-panel: #839065;
+  --border-subtle: #6B7550;
+  --border-medium: #5C6347;
+  --border-bright: #3A3F2C;
+  --accent-cyan: #3A3F2C;
+  --accent-cyan-glow: rgba(43, 47, 30, 0.2);
+  --text-main: #2B2F1E;
+  --text-muted: #4A5035;
 }
 
 /* ── LCD Screen Body ── 
@@ -775,29 +789,178 @@
   color: #C5CF9F;
 }
 
-/* ── Modals — LCD dialog window ── */
+/* ── Modals & Settings Hub — Full Monochrome LCD Window ── */
+[data-theme="curio-theme-monochrome-lcd"] .modal-window,
+[data-theme="monochrome-lcd"] .modal-window,
 [data-theme="curio-theme-monochrome-lcd"] .modal-content,
 [data-theme="monochrome-lcd"] .modal-content {
-  background: #97A378;
-  border: 3px solid #5C6347;
-  border-radius: 3px;
-  box-shadow: 4px 4px 0 #4A5035;
+  background: #97A378 !important;
+  border: 3px solid #5C6347 !important;
+  border-radius: 2px !important;
+  box-shadow: 4px 4px 0 #4A5035 !important;
+  color: #2B2F1E !important;
 }
 
 [data-theme="curio-theme-monochrome-lcd"] .modal-header,
 [data-theme="monochrome-lcd"] .modal-header {
-  background: #768058;
-  border-bottom: 2px solid #5C6347;
-  box-shadow: inset 0 -1px 0 #A8B38A;
+  background: #768058 !important;
+  border-bottom: 2px solid #5C6347 !important;
+  box-shadow: inset 0 -1px 0 #A8B38A !important;
 }
 
 [data-theme="curio-theme-monochrome-lcd"] .modal-title,
 [data-theme="monochrome-lcd"] .modal-title {
-  color: #2B2F1E;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  color: #2B2F1E !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-shadow: 1px 1px 0 #A8B38A !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .modal-body,
+[data-theme="monochrome-lcd"] .modal-body,
+[data-theme="curio-theme-monochrome-lcd"] .modal-footer,
+[data-theme="monochrome-lcd"] .modal-footer {
+  background: #97A378 !important;
+  color: #2B2F1E !important;
+}
+
+/* Modal close button */
+[data-theme="curio-theme-monochrome-lcd"] #close-settings-modal-btn,
+[data-theme="monochrome-lcd"] #close-settings-modal-btn,
+[data-theme="curio-theme-monochrome-lcd"] .modal-header .btn-icon-xs,
+[data-theme="monochrome-lcd"] .modal-header .btn-icon-xs {
+  background: #97A378 !important;
+  color: #2B2F1E !important;
+  border: 1px solid #5C6347 !important;
+  border-radius: 2px !important;
+  box-shadow: 1px 1px 0 #5C6347 !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] #close-settings-modal-btn:hover,
+[data-theme="monochrome-lcd"] #close-settings-modal-btn:hover,
+[data-theme="curio-theme-monochrome-lcd"] .modal-header .btn-icon-xs:hover,
+[data-theme="monochrome-lcd"] .modal-header .btn-icon-xs:hover {
+  background: #5C6347 !important;
+  color: #C5CF9F !important;
+}
+
+/* Settings navigation tabs */
+[data-theme="curio-theme-monochrome-lcd"] .settings-tabs,
+[data-theme="monochrome-lcd"] .settings-tabs {
+  background: #839065 !important;
+  border-bottom: 2px solid #5C6347 !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .settings-tab-btn,
+[data-theme="monochrome-lcd"] .settings-tab-btn {
+  background: #97A378 !important;
+  color: #2B2F1E !important;
+  border: 1px solid #5C6347 !important;
+  border-radius: 2px !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 700 !important;
+  box-shadow: 1px 1px 0 #5C6347 !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .settings-tab-btn:hover,
+[data-theme="monochrome-lcd"] .settings-tab-btn:hover {
+  background: #A8B38A !important;
+  color: #2B2F1E !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .settings-tab-btn.active,
+[data-theme="monochrome-lcd"] .settings-tab-btn.active {
+  background: #5C6347 !important;
+  color: #C5CF9F !important;
+  box-shadow: inset 1px 1px 0 #3A3F2C !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .settings-tab-btn svg,
+[data-theme="monochrome-lcd"] .settings-tab-btn svg {
+  stroke: currentColor !important;
+}
+
+/* Theme cards inside settings modal */
+[data-theme="curio-theme-monochrome-lcd"] .theme-card,
+[data-theme="monochrome-lcd"] .theme-card {
+  background: #8B956D !important;
+  border: 2px solid #5C6347 !important;
+  border-radius: 3px !important;
+  box-shadow: 2px 2px 0 #5C6347 !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .theme-card:hover,
+[data-theme="monochrome-lcd"] .theme-card:hover {
+  background: #97A378 !important;
+  box-shadow: 3px 3px 0 #4A5035 !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .theme-card.active,
+[data-theme="monochrome-lcd"] .theme-card.active {
+  background: #A0AD80 !important;
+  border-color: #2B2F1E !important;
+  box-shadow: inset 0 0 0 2px #2B2F1E !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .theme-title,
+[data-theme="monochrome-lcd"] .theme-title {
+  color: #2B2F1E !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .theme-desc,
+[data-theme="monochrome-lcd"] .theme-desc {
+  color: #4A5035 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .theme-status-pill,
+[data-theme="monochrome-lcd"] .theme-status-pill {
+  background: #768058 !important;
+  color: #2B2F1E !important;
+  border: 1px solid #5C6347 !important;
+  border-radius: 2px !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .theme-section-title,
+[data-theme="monochrome-lcd"] .theme-section-title {
+  color: #2B2F1E !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .theme-section-sub,
+[data-theme="monochrome-lcd"] .theme-section-sub {
+  color: #4A5035 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+}
+
+/* Modal footer "Done" button */
+[data-theme="curio-theme-monochrome-lcd"] #close-settings-btn,
+[data-theme="monochrome-lcd"] #close-settings-btn,
+[data-theme="curio-theme-monochrome-lcd"] .modal-footer .btn-primary,
+[data-theme="monochrome-lcd"] .modal-footer .btn-primary {
+  background: #5C6347 !important;
+  color: #C5CF9F !important;
+  border: 2px solid #4A5035 !important;
+  border-radius: 2px !important;
+  box-shadow: 2px 2px 0 #3A3F2C !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] #close-settings-btn:hover,
+[data-theme="monochrome-lcd"] #close-settings-btn:hover,
+[data-theme="curio-theme-monochrome-lcd"] .modal-footer .btn-primary:hover,
+[data-theme="monochrome-lcd"] .modal-footer .btn-primary:hover {
+  background: #4A5035 !important;
+  color: #FFFFFF !important;
 }
 
 /* Modal inputs */
@@ -806,14 +969,20 @@
 [data-theme="curio-theme-monochrome-lcd"] .modal-content textarea,
 [data-theme="monochrome-lcd"] .modal-content textarea,
 [data-theme="curio-theme-monochrome-lcd"] .modal-content select,
-[data-theme="monochrome-lcd"] .modal-content select {
-  background: #768058;
-  color: #2B2F1E;
-  border: 2px solid #5C6347;
-  border-radius: 2px;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 700;
-  box-shadow: inset 2px 2px 0 #636E4A;
+[data-theme="monochrome-lcd"] .modal-content select,
+[data-theme="curio-theme-monochrome-lcd"] .modal-window input,
+[data-theme="monochrome-lcd"] .modal-window input,
+[data-theme="curio-theme-monochrome-lcd"] .modal-window textarea,
+[data-theme="monochrome-lcd"] .modal-window textarea,
+[data-theme="curio-theme-monochrome-lcd"] .modal-window select,
+[data-theme="monochrome-lcd"] .modal-window select {
+  background: #768058 !important;
+  color: #2B2F1E !important;
+  border: 2px solid #5C6347 !important;
+  border-radius: 2px !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 700 !important;
+  box-shadow: inset 2px 2px 0 #636E4A !important;
 }
 
 /* ── Detail Inspector ── */

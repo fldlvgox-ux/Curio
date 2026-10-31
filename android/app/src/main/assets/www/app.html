@@ -11007,6 +11007,20 @@
   --dither-pattern: none;
   --focus-ring: 0 0 0 2px #2B2F1E;
   --default-button-ring: 0 0 0 1px #2B2F1E;
+
+  /* Legacy & Core Compatibility Variables for Settings, Modals & Components */
+  --bg-base: #8B956D;
+  --bg-surface: #97A378;
+  --bg-surface-raised: #7D8662;
+  --bg-surface-hover: #A0AD80;
+  --bg-panel: #839065;
+  --border-subtle: #6B7550;
+  --border-medium: #5C6347;
+  --border-bright: #3A3F2C;
+  --accent-cyan: #3A3F2C;
+  --accent-cyan-glow: rgba(43, 47, 30, 0.2);
+  --text-main: #2B2F1E;
+  --text-muted: #4A5035;
 }
 
 /* ── LCD Screen Body ── 
@@ -11730,29 +11744,178 @@
   color: #C5CF9F;
 }
 
-/* ── Modals — LCD dialog window ── */
+/* ── Modals & Settings Hub — Full Monochrome LCD Window ── */
+[data-theme="curio-theme-monochrome-lcd"] .modal-window,
+[data-theme="monochrome-lcd"] .modal-window,
 [data-theme="curio-theme-monochrome-lcd"] .modal-content,
 [data-theme="monochrome-lcd"] .modal-content {
-  background: #97A378;
-  border: 3px solid #5C6347;
-  border-radius: 3px;
-  box-shadow: 4px 4px 0 #4A5035;
+  background: #97A378 !important;
+  border: 3px solid #5C6347 !important;
+  border-radius: 2px !important;
+  box-shadow: 4px 4px 0 #4A5035 !important;
+  color: #2B2F1E !important;
 }
 
 [data-theme="curio-theme-monochrome-lcd"] .modal-header,
 [data-theme="monochrome-lcd"] .modal-header {
-  background: #768058;
-  border-bottom: 2px solid #5C6347;
-  box-shadow: inset 0 -1px 0 #A8B38A;
+  background: #768058 !important;
+  border-bottom: 2px solid #5C6347 !important;
+  box-shadow: inset 0 -1px 0 #A8B38A !important;
 }
 
 [data-theme="curio-theme-monochrome-lcd"] .modal-title,
 [data-theme="monochrome-lcd"] .modal-title {
-  color: #2B2F1E;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  color: #2B2F1E !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-shadow: 1px 1px 0 #A8B38A !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .modal-body,
+[data-theme="monochrome-lcd"] .modal-body,
+[data-theme="curio-theme-monochrome-lcd"] .modal-footer,
+[data-theme="monochrome-lcd"] .modal-footer {
+  background: #97A378 !important;
+  color: #2B2F1E !important;
+}
+
+/* Modal close button */
+[data-theme="curio-theme-monochrome-lcd"] #close-settings-modal-btn,
+[data-theme="monochrome-lcd"] #close-settings-modal-btn,
+[data-theme="curio-theme-monochrome-lcd"] .modal-header .btn-icon-xs,
+[data-theme="monochrome-lcd"] .modal-header .btn-icon-xs {
+  background: #97A378 !important;
+  color: #2B2F1E !important;
+  border: 1px solid #5C6347 !important;
+  border-radius: 2px !important;
+  box-shadow: 1px 1px 0 #5C6347 !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] #close-settings-modal-btn:hover,
+[data-theme="monochrome-lcd"] #close-settings-modal-btn:hover,
+[data-theme="curio-theme-monochrome-lcd"] .modal-header .btn-icon-xs:hover,
+[data-theme="monochrome-lcd"] .modal-header .btn-icon-xs:hover {
+  background: #5C6347 !important;
+  color: #C5CF9F !important;
+}
+
+/* Settings navigation tabs */
+[data-theme="curio-theme-monochrome-lcd"] .settings-tabs,
+[data-theme="monochrome-lcd"] .settings-tabs {
+  background: #839065 !important;
+  border-bottom: 2px solid #5C6347 !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .settings-tab-btn,
+[data-theme="monochrome-lcd"] .settings-tab-btn {
+  background: #97A378 !important;
+  color: #2B2F1E !important;
+  border: 1px solid #5C6347 !important;
+  border-radius: 2px !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 700 !important;
+  box-shadow: 1px 1px 0 #5C6347 !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .settings-tab-btn:hover,
+[data-theme="monochrome-lcd"] .settings-tab-btn:hover {
+  background: #A8B38A !important;
+  color: #2B2F1E !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .settings-tab-btn.active,
+[data-theme="monochrome-lcd"] .settings-tab-btn.active {
+  background: #5C6347 !important;
+  color: #C5CF9F !important;
+  box-shadow: inset 1px 1px 0 #3A3F2C !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .settings-tab-btn svg,
+[data-theme="monochrome-lcd"] .settings-tab-btn svg {
+  stroke: currentColor !important;
+}
+
+/* Theme cards inside settings modal */
+[data-theme="curio-theme-monochrome-lcd"] .theme-card,
+[data-theme="monochrome-lcd"] .theme-card {
+  background: #8B956D !important;
+  border: 2px solid #5C6347 !important;
+  border-radius: 3px !important;
+  box-shadow: 2px 2px 0 #5C6347 !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .theme-card:hover,
+[data-theme="monochrome-lcd"] .theme-card:hover {
+  background: #97A378 !important;
+  box-shadow: 3px 3px 0 #4A5035 !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .theme-card.active,
+[data-theme="monochrome-lcd"] .theme-card.active {
+  background: #A0AD80 !important;
+  border-color: #2B2F1E !important;
+  box-shadow: inset 0 0 0 2px #2B2F1E !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .theme-title,
+[data-theme="monochrome-lcd"] .theme-title {
+  color: #2B2F1E !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .theme-desc,
+[data-theme="monochrome-lcd"] .theme-desc {
+  color: #4A5035 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .theme-status-pill,
+[data-theme="monochrome-lcd"] .theme-status-pill {
+  background: #768058 !important;
+  color: #2B2F1E !important;
+  border: 1px solid #5C6347 !important;
+  border-radius: 2px !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .theme-section-title,
+[data-theme="monochrome-lcd"] .theme-section-title {
+  color: #2B2F1E !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] .theme-section-sub,
+[data-theme="monochrome-lcd"] .theme-section-sub {
+  color: #4A5035 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+}
+
+/* Modal footer "Done" button */
+[data-theme="curio-theme-monochrome-lcd"] #close-settings-btn,
+[data-theme="monochrome-lcd"] #close-settings-btn,
+[data-theme="curio-theme-monochrome-lcd"] .modal-footer .btn-primary,
+[data-theme="monochrome-lcd"] .modal-footer .btn-primary {
+  background: #5C6347 !important;
+  color: #C5CF9F !important;
+  border: 2px solid #4A5035 !important;
+  border-radius: 2px !important;
+  box-shadow: 2px 2px 0 #3A3F2C !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+}
+
+[data-theme="curio-theme-monochrome-lcd"] #close-settings-btn:hover,
+[data-theme="monochrome-lcd"] #close-settings-btn:hover,
+[data-theme="curio-theme-monochrome-lcd"] .modal-footer .btn-primary:hover,
+[data-theme="monochrome-lcd"] .modal-footer .btn-primary:hover {
+  background: #4A5035 !important;
+  color: #FFFFFF !important;
 }
 
 /* Modal inputs */
@@ -11761,14 +11924,20 @@
 [data-theme="curio-theme-monochrome-lcd"] .modal-content textarea,
 [data-theme="monochrome-lcd"] .modal-content textarea,
 [data-theme="curio-theme-monochrome-lcd"] .modal-content select,
-[data-theme="monochrome-lcd"] .modal-content select {
-  background: #768058;
-  color: #2B2F1E;
-  border: 2px solid #5C6347;
-  border-radius: 2px;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 700;
-  box-shadow: inset 2px 2px 0 #636E4A;
+[data-theme="monochrome-lcd"] .modal-content select,
+[data-theme="curio-theme-monochrome-lcd"] .modal-window input,
+[data-theme="monochrome-lcd"] .modal-window input,
+[data-theme="curio-theme-monochrome-lcd"] .modal-window textarea,
+[data-theme="monochrome-lcd"] .modal-window textarea,
+[data-theme="curio-theme-monochrome-lcd"] .modal-window select,
+[data-theme="monochrome-lcd"] .modal-window select {
+  background: #768058 !important;
+  color: #2B2F1E !important;
+  border: 2px solid #5C6347 !important;
+  border-radius: 2px !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 700 !important;
+  box-shadow: inset 2px 2px 0 #636E4A !important;
 }
 
 /* ── Detail Inspector ── */
@@ -11926,836 +12095,6 @@
 [data-theme="curio-theme-monochrome-lcd"] a:hover,
 [data-theme="monochrome-lcd"] a:hover {
   color: #4A5035;
-}
-
-
-        /* ========================================================
-   Curio Theme Plugin: 8-Bit Pixel RPG (Authentic 2D Video Game UI)
-   ID: curio-theme-pixel-8bit / pixel-8bit
-   ======================================================== */
-
-/* ── 1. Token Layer ── */
-[data-theme="curio-theme-pixel-8bit"],
-[data-theme="pixel-8bit"] {
-  --bg: #121526;
-  --surface: #1a2035;
-  --surface-2: #262f4d;
-  --text: #ffffff;
-  --text-dim: #9badb7;
-  --accent: #f3c669;
-  --accent-text: #121526;
-  --border: #000000;
-  --select-bg: #3b5dc9;
-  --select-fg: #ffffff;
-  --danger: #e43b44;
-  --ok: #38b764;
-  --warn: #feae34;
-  --font-ui: 'Courier New', Courier, 'Lucida Console', monospace;
-  --font-display: 'Courier New', Courier, monospace;
-  --font-mono: 'Courier New', Courier, 'Lucida Console', monospace;
-  --font-size-base: 12px;
-  --font-smoothing: none;
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --row-height: 32px;
-  --control-height: 28px;
-  --pixel-scale: 2;
-  --radius-window: 0px;
-  --radius-control: 0px;
-  --radius-chip: 0px;
-  --avatar-shape: 0%;
-  --cut-tl: 0px;
-  --cut-tr: 0px;
-  --cut-br: 0px;
-  --cut-bl: 0px;
-  --bevel-light: #5b6ee1;
-  --bevel-dark: #000000;
-  --bevel-width: 2px;
-  --shadow-raised: 3px 3px 0 #000000, inset 2px 2px 0 #5b6ee1, inset -2px -2px 0 #0d1527;
-  --shadow-pressed: inset 3px 3px 0 #000000;
-  --shadow-hard: 4px 4px 0 #000000;
-  --gradient-title: none;
-  --gradient-button: none;
-  --grain: none;
-  --dither-pattern: none;
-  --focus-ring: 0 0 0 2px #f3c669;
-  --default-button-ring: 0 0 0 2px #000000;
-}
-
-/* ── 2. Global Zero-Radius & Pixelated Invariant ──
-   In an authentic 8-bit game, there are zero vector rounded corners,
-   zero blur on shadows, and zero anti-aliased curves. */
-[data-theme="curio-theme-pixel-8bit"] *,
-[data-theme="pixel-8bit"] * {
-  border-radius: 0 !important;
-  image-rendering: pixelated;
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: unset;
-  font-smooth: never;
-}
-
-/* ── 3. Screen Canvas & CRT Pixel Grid ── */
-[data-theme="curio-theme-pixel-8bit"] body,
-[data-theme="pixel-8bit"] body {
-  background: #121526;
-  color: #ffffff;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-/* 8-bit screen scanline / pixel texture */
-[data-theme="curio-theme-pixel-8bit"] body::after,
-[data-theme="pixel-8bit"] body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 99999;
-  opacity: 0.08;
-  background-image: linear-gradient(0deg, #000000 1px, transparent 1px);
-  background-size: 100% 2px;
-}
-
-/* ── 4. App Shell ── */
-[data-theme="curio-theme-pixel-8bit"] .app-shell,
-[data-theme="pixel-8bit"] .app-shell {
-  background: #121526;
-}
-
-/* ── 5. Top Bar — 8-Bit HUD Banner ── */
-[data-theme="curio-theme-pixel-8bit"] .top-bar,
-[data-theme="pixel-8bit"] .top-bar {
-  background: #1a2035;
-  border-bottom: 3px solid #000000;
-  box-shadow: inset 0 -2px 0 #0d1527, inset 0 2px 0 #5b6ee1;
-  padding: 6px 12px;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .top-bar .catalog-title,
-[data-theme="pixel-8bit"] .top-bar .catalog-title,
-[data-theme="curio-theme-pixel-8bit"] .brand-title,
-[data-theme="pixel-8bit"] .brand-title {
-  color: #f3c669;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 0 #000000;
-}
-
-/* ── 6. Search — 8-Bit RPG Input Box ── */
-[data-theme="curio-theme-pixel-8bit"] .search-container,
-[data-theme="pixel-8bit"] .search-container,
-[data-theme="curio-theme-pixel-8bit"] .search-input-wrap,
-[data-theme="pixel-8bit"] .search-input-wrap {
-  background: #0d1222;
-  border: 2px solid #000000;
-  box-shadow: inset 2px 2px 0 #000000, inset -1px -1px 0 #3a4b73;
-}
-
-[data-theme="curio-theme-pixel-8bit"] #search-box,
-[data-theme="pixel-8bit"] #search-box {
-  background: transparent;
-  color: #fee761;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 700;
-  border: none;
-  text-shadow: 1px 1px 0 #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] #search-box::placeholder,
-[data-theme="pixel-8bit"] #search-box::placeholder {
-  color: #5b6ee1;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .search-icon,
-[data-theme="pixel-8bit"] .search-icon {
-  color: #f3c669;
-}
-
-/* ── 7. View Switcher — Chunky 8-Bit Menu Tabs ── */
-[data-theme="curio-theme-pixel-8bit"] .view-switcher,
-[data-theme="pixel-8bit"] .view-switcher {
-  background: #0d1222;
-  border: 2px solid #000000;
-  gap: 0;
-  padding: 0;
-  box-shadow: 2px 2px 0 #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .view-btn,
-[data-theme="pixel-8bit"] .view-btn {
-  background: #262f4d;
-  color: #ffffff;
-  border: 1px solid #000000;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-  text-transform: uppercase;
-  font-size: 11px;
-  letter-spacing: 1px;
-  box-shadow: inset 1px 1px 0 #5b6ee1, inset -1px -1px 0 #0d1222;
-  padding: 4px 10px;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .view-btn:hover,
-[data-theme="pixel-8bit"] .view-btn:hover {
-  background: #3b4b73;
-  color: #fee761;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .view-btn.active,
-[data-theme="pixel-8bit"] .view-btn.active {
-  background: #f3c669;
-  color: #000000;
-  border-color: #000000;
-  box-shadow: inset 2px 2px 0 #ffffff, inset -2px -2px 0 #b57b2a;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .view-btn.active svg,
-[data-theme="pixel-8bit"] .view-btn.active svg {
-  stroke: #000000;
-}
-
-/* ── 8. Action & Toolbar Buttons (8-Bit Stepped Press Keys) ── */
-[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-primary,
-[data-theme="pixel-8bit"] .top-bar .btn-primary,
-[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-secondary,
-[data-theme="pixel-8bit"] .top-bar .btn-secondary,
-[data-theme="curio-theme-pixel-8bit"] .btn,
-[data-theme="pixel-8bit"] .btn {
-  background: #2b3a67;
-  color: #ffffff;
-  border: 2px solid #000000;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 2px 2px 0 #000000, inset 2px 2px 0 #5b6ee1, inset -2px -2px 0 #0d1222;
-  text-shadow: 1px 1px 0 #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-primary:hover,
-[data-theme="pixel-8bit"] .top-bar .btn-primary:hover,
-[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-secondary:hover,
-[data-theme="pixel-8bit"] .top-bar .btn-secondary:hover,
-[data-theme="curio-theme-pixel-8bit"] .btn:hover,
-[data-theme="pixel-8bit"] .btn:hover {
-  background: #3b508d;
-  color: #fee761;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-primary:active,
-[data-theme="pixel-8bit"] .top-bar .btn-primary:active,
-[data-theme="curio-theme-pixel-8bit"] .top-bar .btn-secondary:active,
-[data-theme="pixel-8bit"] .top-bar .btn-secondary:active,
-[data-theme="curio-theme-pixel-8bit"] .btn:active,
-[data-theme="pixel-8bit"] .btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: inset 2px 2px 0 #000000;
-}
-
-/* ── 9. Active Catalog Panel (Quest Log Header) ── */
-[data-theme="curio-theme-pixel-8bit"] .catalog-switcher-panel,
-[data-theme="pixel-8bit"] .catalog-switcher-panel {
-  background: #151a2e !important;
-  border-bottom: 3px solid #000000 !important;
-  box-shadow: inset 0 -2px 0 #0d1222, inset 0 2px 0 #3a4b73 !important;
-  padding: 8px 10px !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .switcher-title,
-[data-theme="pixel-8bit"] .switcher-title {
-  color: #fee761 !important;
-  font-family: 'Courier New', Courier, monospace !important;
-  font-size: 0.72rem !important;
-  font-weight: 900 !important;
-  letter-spacing: 1.5px !important;
-  text-transform: uppercase !important;
-  text-shadow: 1px 1px 0 #000000 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .switcher-title svg,
-[data-theme="pixel-8bit"] .switcher-title svg {
-  color: #fee761 !important;
-  stroke: #fee761 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .catalog-ctrl-btns .btn-icon-xs,
-[data-theme="pixel-8bit"] .catalog-ctrl-btns .btn-icon-xs {
-  background: #2b3a67 !important;
-  color: #fee761 !important;
-  border: 2px solid #000000 !important;
-  box-shadow: 1px 1px 0 #000000, inset 1px 1px 0 #5b6ee1 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .catalog-ctrl-btns .btn-icon-xs:hover,
-[data-theme="pixel-8bit"] .catalog-ctrl-btns .btn-icon-xs:hover {
-  background: #f3c669 !important;
-  color: #000000 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .catalog-select-dropdown,
-[data-theme="pixel-8bit"] .catalog-select-dropdown {
-  background: #0d1222 !important;
-  color: #ffffff !important;
-  border: 2px solid #000000 !important;
-  font-family: 'Courier New', Courier, monospace !important;
-  font-weight: 900 !important;
-  box-shadow: inset 2px 2px 0 #000000, inset -1px -1px 0 #3a4b73 !important;
-  text-shadow: 1px 1px 0 #000000 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .catalog-select-dropdown:focus,
-[data-theme="pixel-8bit"] .catalog-select-dropdown:focus {
-  outline: none !important;
-  border-color: #f3c669 !important;
-  box-shadow: 0 0 0 2px #f3c669 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .catalog-select-dropdown option,
-[data-theme="pixel-8bit"] .catalog-select-dropdown option {
-  background: #0d1222 !important;
-  color: #ffffff !important;
-}
-
-/* ── 10. Sidebar — 8-Bit Status & Inventory Column ── */
-[data-theme="curio-theme-pixel-8bit"] .sidebar,
-[data-theme="pixel-8bit"] .sidebar {
-  background: #171d31;
-  border-right: 3px solid #000000;
-  box-shadow: inset -2px 0 0 #0d1222;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .brand-header,
-[data-theme="pixel-8bit"] .brand-header {
-  background: #121526;
-  border-bottom: 3px solid #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .drawers-section .section-header,
-[data-theme="pixel-8bit"] .drawers-section .section-header {
-  color: #f3c669 !important;
-  font-family: 'Courier New', Courier, monospace !important;
-  font-weight: 900 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1.5px !important;
-  text-shadow: 1px 1px 0 #000000 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .drawers-section .section-header .btn-icon-xs,
-[data-theme="pixel-8bit"] .drawers-section .section-header .btn-icon-xs,
-[data-theme="curio-theme-pixel-8bit"] .drawer-actions .btn-icon-xs,
-[data-theme="pixel-8bit"] .drawer-actions .btn-icon-xs {
-  background: #2b3a67 !important;
-  color: #fee761 !important;
-  border: 1px solid #000000 !important;
-  box-shadow: 1px 1px 0 #000000 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .sidebar .drawer-item,
-[data-theme="pixel-8bit"] .sidebar .drawer-item {
-  color: #ffffff;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 700;
-  border: 1px solid transparent;
-  border-bottom: 1px solid #0d1222;
-  margin: 1px 4px;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .sidebar .drawer-item:hover,
-[data-theme="pixel-8bit"] .sidebar .drawer-item:hover {
-  background: #263359;
-  border: 1px solid #000000;
-  box-shadow: 1px 1px 0 #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .sidebar .drawer-item.active,
-[data-theme="pixel-8bit"] .sidebar .drawer-item.active {
-  background: #3b5dc9;
-  color: #fee761;
-  border: 2px solid #000000;
-  box-shadow: inset 2px 2px 0 #5b6ee1, inset -2px -2px 0 #181425, 2px 2px 0 #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .sidebar .drawer-item.active span,
-[data-theme="pixel-8bit"] .sidebar .drawer-item.active span {
-  color: #fee761 !important;
-  text-shadow: 1px 1px 0 #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .drawer-item .drawer-count,
-[data-theme="pixel-8bit"] .drawer-item .drawer-count {
-  background: #0d1222 !important;
-  color: #38b764 !important;
-  border: 1px solid #000000 !important;
-  font-family: 'Courier New', Courier, monospace !important;
-  font-weight: 900 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .drawer-item.active .drawer-count,
-[data-theme="pixel-8bit"] .drawer-item.active .drawer-count {
-  background: #000000 !important;
-  color: #fee761 !important;
-  border-color: #f3c669 !important;
-}
-
-/* Sidebar footer */
-[data-theme="curio-theme-pixel-8bit"] .sidebar-footer,
-[data-theme="pixel-8bit"] .sidebar-footer {
-  background: #121526;
-  border-top: 3px solid #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .storage-bar-bg,
-[data-theme="pixel-8bit"] .storage-bar-bg {
-  background: #0d1222;
-  border: 2px solid #000000;
-  box-shadow: inset 1px 1px 0 #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .storage-bar-fill,
-[data-theme="pixel-8bit"] .storage-bar-fill {
-  background: #38b764;
-}
-
-/* ── 11. Filter Deck & Dropdowns (RPG Attribute Selector) ── */
-[data-theme="curio-theme-pixel-8bit"] .filter-panel,
-[data-theme="pixel-8bit"] .filter-panel {
-  background: #171d31;
-  border-bottom: 3px solid #000000;
-  box-shadow: inset 0 -2px 0 #0d1222;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .filter-label,
-[data-theme="pixel-8bit"] .filter-label,
-[data-theme="curio-theme-pixel-8bit"] .filter-section-title,
-[data-theme="pixel-8bit"] .filter-section-title {
-  color: #fee761;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 10px;
-  text-shadow: 1px 1px 0 #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .filter-panel .select-custom,
-[data-theme="pixel-8bit"] .filter-panel .select-custom,
-[data-theme="curio-theme-pixel-8bit"] .filter-panel select,
-[data-theme="pixel-8bit"] .filter-panel select {
-  background: #0d1222;
-  color: #ffffff;
-  border: 2px solid #000000;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 700;
-  box-shadow: inset 1px 1px 0 #000000, 2px 2px 0 #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .filter-panel select option,
-[data-theme="pixel-8bit"] .filter-panel select option {
-  background: #0d1222;
-  color: #ffffff;
-}
-
-/* ── 12. Tag Filter Bar & Logic Controls ── */
-[data-theme="curio-theme-pixel-8bit"] .tag-filter-bar,
-[data-theme="pixel-8bit"] .tag-filter-bar {
-  background: #151a2e !important;
-  border: 2px solid #000000 !important;
-  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #3a4b73 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .tag-filter-controls .filter-label,
-[data-theme="pixel-8bit"] .tag-filter-controls .filter-label {
-  color: #fee761 !important;
-  font-family: 'Courier New', Courier, monospace !important;
-  font-weight: 900 !important;
-  text-shadow: 1px 1px 0 #000000 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .tag-mode-btn,
-[data-theme="pixel-8bit"] .tag-mode-btn {
-  background: #2b3a67 !important;
-  color: #fee761 !important;
-  border: 2px solid #000000 !important;
-  font-family: 'Courier New', Courier, monospace !important;
-  font-weight: 900 !important;
-  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #5b6ee1 !important;
-  text-shadow: 1px 1px 0 #000000 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .tag-mode-btn:active,
-[data-theme="pixel-8bit"] .tag-mode-btn:active {
-  transform: translate(2px, 2px) !important;
-  box-shadow: none !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .tag-search-box,
-[data-theme="pixel-8bit"] .tag-search-box {
-  background: #0d1222 !important;
-  border: 2px solid #000000 !important;
-  box-shadow: inset 1px 1px 0 #000000 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .tag-search-input,
-[data-theme="pixel-8bit"] .tag-search-input {
-  background: transparent !important;
-  color: #fee761 !important;
-  font-family: 'Courier New', Courier, monospace !important;
-  font-weight: 700 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .tag-expand-btn,
-[data-theme="pixel-8bit"] .tag-expand-btn {
-  background: #2b3a67 !important;
-  color: #ffffff !important;
-  border: 2px solid #000000 !important;
-  font-family: 'Courier New', Courier, monospace !important;
-  font-weight: 700 !important;
-  box-shadow: 2px 2px 0 #000000 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .tag-expand-btn.active,
-[data-theme="pixel-8bit"] .tag-expand-btn.active {
-  background: #f3c669 !important;
-  color: #000000 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .clear-filters-btn,
-[data-theme="pixel-8bit"] .clear-filters-btn,
-[data-theme="curio-theme-pixel-8bit"] #btn-reset-filters,
-[data-theme="pixel-8bit"] #btn-reset-filters {
-  background: #2b3a67 !important;
-  color: #ffffff !important;
-  border: 2px solid #000000 !important;
-  font-family: 'Courier New', Courier, monospace !important;
-  font-weight: 900 !important;
-  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #5b6ee1 !important;
-  text-shadow: 1px 1px 0 #000000 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .clear-filters-btn.has-filters,
-[data-theme="pixel-8bit"] .clear-filters-btn.has-filters {
-  background: #e43b44 !important;
-  color: #ffffff !important;
-  border: 2px solid #000000 !important;
-  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #ff7777 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .clear-badge-pill,
-[data-theme="pixel-8bit"] .clear-badge-pill {
-  background: #000000 !important;
-  color: #fee761 !important;
-  border: 1px solid #fee761 !important;
-  font-family: 'Courier New', Courier, monospace !important;
-  font-weight: 900 !important;
-}
-
-/* ── 13. Pills & Tags (8-Bit Item Chips) ── */
-[data-theme="curio-theme-pixel-8bit"] .pill-toggle,
-[data-theme="pixel-8bit"] .pill-toggle,
-[data-theme="curio-theme-pixel-8bit"] .tag-pill,
-[data-theme="pixel-8bit"] .tag-pill {
-  background: #262f4d;
-  color: #ffffff;
-  border: 1px solid #000000;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 700;
-  font-size: 10px;
-  text-transform: uppercase;
-  box-shadow: 1px 1px 0 #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .pill-toggle:hover,
-[data-theme="pixel-8bit"] .pill-toggle:hover,
-[data-theme="curio-theme-pixel-8bit"] .tag-pill:hover,
-[data-theme="pixel-8bit"] .tag-pill:hover {
-  background: #3b4b73;
-  color: #fee761;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .pill-toggle.active,
-[data-theme="pixel-8bit"] .pill-toggle.active,
-[data-theme="curio-theme-pixel-8bit"] .tag-pill.active,
-[data-theme="pixel-8bit"] .tag-pill.active {
-  background: #f3c669;
-  color: #000000;
-  border-color: #000000;
-  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #b57b2a;
-}
-
-/* ── 14. Item Cards — 8-Bit RPG Dialogue Window / Inventory Slot ──
-   Styled faithfully after classic NES/SNES RPG dialogue boxes:
-   Deep blue interior (#12204c), double pixel border (black outer,
-   white & blue inner highlight), and 4px hard pixel drop shadow. */
-[data-theme="curio-theme-pixel-8bit"] .item-card,
-[data-theme="pixel-8bit"] .item-card,
-[data-theme="curio-theme-pixel-8bit"] .detail-card,
-[data-theme="pixel-8bit"] .detail-card {
-  background: #16213e;
-  border: 3px solid #000000;
-  box-shadow: 4px 4px 0 #000000, inset 2px 2px 0 #ffffff, inset -2px -2px 0 #3a528c;
-  transition: transform 0.05s;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .item-card:hover,
-[data-theme="pixel-8bit"] .item-card:hover {
-  background: #1c2b50;
-  box-shadow: 6px 6px 0 #000000, inset 2px 2px 0 #fee761, inset -2px -2px 0 #3a528c;
-  transform: translate(-2px, -2px);
-}
-
-/* Card Monogram — 8-Bit Sprite Cell / Inventory Item Frame */
-[data-theme="curio-theme-pixel-8bit"] .card-monogram,
-[data-theme="pixel-8bit"] .card-monogram {
-  background: #0d1222 !important;
-  border: 2px solid #000000 !important;
-  box-shadow: inset 2px 2px 0 #000000, inset -1px -1px 0 #3a4b73 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .monogram-initials,
-[data-theme="pixel-8bit"] .monogram-initials {
-  color: #fee761;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-  font-size: 1.5em;
-  text-shadow: 2px 2px 0 #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .monogram-drawer-label,
-[data-theme="pixel-8bit"] .monogram-drawer-label {
-  color: #38b764;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 8px;
-  text-shadow: 1px 1px 0 #000000;
-}
-
-/* Card Body */
-[data-theme="curio-theme-pixel-8bit"] .card-body,
-[data-theme="pixel-8bit"] .card-body {
-  background: transparent;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .card-title,
-[data-theme="pixel-8bit"] .card-title {
-  color: #ffffff;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  text-shadow: 1px 1px 0 #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .card-notes,
-[data-theme="pixel-8bit"] .card-notes {
-  color: #9badb7;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 11px;
-  line-height: 1.4;
-}
-
-/* Status Badges — 8-Bit HP/Status Tag */
-[data-theme="curio-theme-pixel-8bit"] .status-badge,
-[data-theme="pixel-8bit"] .status-badge {
-  background: #0d1222 !important;
-  color: #38b764 !important;
-  border: 1px solid #38b764;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-  text-transform: uppercase;
-  font-size: 9px;
-  box-shadow: 1px 1px 0 #000000;
-}
-
-/* Drawer Chip */
-[data-theme="curio-theme-pixel-8bit"] .drawer-chip,
-[data-theme="pixel-8bit"] .drawer-chip {
-  background: #2b3a67;
-  color: #fee761;
-  border: 1px solid #000000;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 700;
-  font-size: 9px;
-  text-transform: uppercase;
-}
-
-/* Card Tags */
-[data-theme="curio-theme-pixel-8bit"] .card-tag,
-[data-theme="pixel-8bit"] .card-tag {
-  background: #0d1222;
-  color: #9badb7;
-  border: 1px solid #000000;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 600;
-  font-size: 9px;
-  text-transform: uppercase;
-}
-
-/* Card Actions */
-[data-theme="curio-theme-pixel-8bit"] .card-actions-quick .btn-icon-xs,
-[data-theme="pixel-8bit"] .card-actions-quick .btn-icon-xs {
-  background: #2b3a67;
-  color: #fee761;
-  border: 1px solid #000000;
-  box-shadow: 1px 1px 0 #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .card-actions-quick .btn-icon-xs:hover,
-[data-theme="pixel-8bit"] .card-actions-quick .btn-icon-xs:hover {
-  background: #f3c669;
-  color: #000000;
-}
-
-/* ── 15. Modals & Dialogs — Full 8-Bit Boss/Dialogue Frame ── */
-[data-theme="curio-theme-pixel-8bit"] .modal-content,
-[data-theme="pixel-8bit"] .modal-content {
-  background: #16213e;
-  border: 4px solid #000000;
-  box-shadow: 8px 8px 0 #000000, inset 3px 3px 0 #ffffff, inset -3px -3px 0 #3a528c;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .modal-header,
-[data-theme="pixel-8bit"] .modal-header {
-  background: #121526;
-  border-bottom: 3px solid #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .modal-title,
-[data-theme="pixel-8bit"] .modal-title {
-  color: #fee761;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 0 #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .modal-content input,
-[data-theme="pixel-8bit"] .modal-content input,
-[data-theme="curio-theme-pixel-8bit"] .modal-content textarea,
-[data-theme="pixel-8bit"] .modal-content textarea,
-[data-theme="curio-theme-pixel-8bit"] .modal-content select,
-[data-theme="pixel-8bit"] .modal-content select {
-  background: #0d1222;
-  color: #ffffff;
-  border: 2px solid #000000;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 700;
-  box-shadow: inset 2px 2px 0 #000000;
-}
-
-/* ── 16. Detail Inspector Panel ── */
-[data-theme="curio-theme-pixel-8bit"] .inspector-panel,
-[data-theme="pixel-8bit"] .inspector-panel {
-  background: #171d31;
-  border-left: 3px solid #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .inspector-panel .field-label,
-[data-theme="pixel-8bit"] .inspector-panel .field-label {
-  color: #fee761;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-  text-transform: uppercase;
-  font-size: 10px;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .inspector-panel .field-value,
-[data-theme="pixel-8bit"] .inspector-panel .field-value {
-  color: #ffffff;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-/* ── 17. Rating Stars (8-Bit Yellow Pixels) ── */
-[data-theme="curio-theme-pixel-8bit"] .star-rating .star,
-[data-theme="pixel-8bit"] .star-rating .star {
-  color: #262f4d;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .star-rating .star.filled,
-[data-theme="pixel-8bit"] .star-rating .star.filled {
-  color: #fee761;
-  text-shadow: 1px 1px 0 #000000;
-}
-
-/* ── 18. Scrollbars — Chunky 8-Bit Blocks ── */
-[data-theme="curio-theme-pixel-8bit"] ::-webkit-scrollbar,
-[data-theme="pixel-8bit"] ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
-
-[data-theme="curio-theme-pixel-8bit"] ::-webkit-scrollbar-track,
-[data-theme="pixel-8bit"] ::-webkit-scrollbar-track {
-  background: #0d1222;
-  border: 2px solid #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] ::-webkit-scrollbar-thumb,
-[data-theme="pixel-8bit"] ::-webkit-scrollbar-thumb {
-  background: #3b5dc9;
-  border: 2px solid #000000;
-  box-shadow: inset 1px 1px 0 #5b6ee1, inset -1px -1px 0 #181425;
-}
-
-[data-theme="curio-theme-pixel-8bit"] ::-webkit-scrollbar-thumb:hover,
-[data-theme="pixel-8bit"] ::-webkit-scrollbar-thumb:hover {
-  background: #f3c669;
-}
-
-/* ── 19. Mind Blunder Sigil in 8-Bit RPG ── */
-[data-theme="curio-theme-pixel-8bit"] .mind-blunder-sigil-btn,
-[data-theme="pixel-8bit"] .mind-blunder-sigil-btn {
-  background: #2b3a67 !important;
-  border: 2px solid #000000 !important;
-  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #5b6ee1 !important;
-  color: #fee761 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .mind-blunder-sigil-btn:hover,
-[data-theme="pixel-8bit"] .mind-blunder-sigil-btn:hover {
-  background: #f3c669 !important;
-  color: #000000 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .mb-sigil-pulse,
-[data-theme="pixel-8bit"] .mb-sigil-pulse {
-  border-color: #fee761 !important;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .mb-sigil-icon,
-[data-theme="pixel-8bit"] .mb-sigil-icon {
-  filter: none !important;
-}
-
-/* ── 20. Toast & Taskbar ── */
-[data-theme="curio-theme-pixel-8bit"] .toast,
-[data-theme="pixel-8bit"] .toast {
-  background: #16213e;
-  color: #fee761;
-  border: 3px solid #000000;
-  box-shadow: 4px 4px 0 #000000, inset 1px 1px 0 #ffffff;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .taskbar,
-[data-theme="pixel-8bit"] .taskbar {
-  background: #121526;
-  border-top: 3px solid #000000;
-}
-
-[data-theme="curio-theme-pixel-8bit"] .taskbar-item,
-[data-theme="pixel-8bit"] .taskbar-item {
-  color: #ffffff;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 700;
 }
 
 
@@ -50031,7 +49370,956 @@ https://github.com/nodeca/pako/blob/main/LICENSE
 
 <script id="curio-mind-blunder-script">
 (function() {
-  // Mind Blunder Host Bridge (Ensures 100% offline file:/// protocol support)
+  // ─── MODULAR GAME ENGINES ───
+  
+// Game Module: klondike.js
+/**
+ * 🂡 CURATION KLONDIKE — Modular Solitaire Engine for CURIO Mind Blunder
+ * Maps top 4 catalog drawers to suits (Neon Cyan & Neon Magenta) across 52 cards (A..K).
+ * Features:
+ *  - 100% Offline & Pure Canvas (zero external libraries)
+ *  - Hybrid Drag-and-Drop + Smart 1-Tap/Click Auto-Move
+ *  - Real Catalog Items inscribed on cards (Title, Rating, Drawer)
+ *  - Quick Item Inspection (Right-Click / Inspect Peek)
+ *  - Cyber-Pet XP Rewards (+5 XP per foundation, +100 XP on win)
+ *  - Iconic Windows Solitaire Bouncing Card Waterfall Win Cascade!
+ */
+
+(function(global) {
+  'use strict';
+
+  const RANK_LABELS = ['', 'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+  const SUIT_SYMBOLS = ['◆', '♥', '♠', '♦'];
+  const SUIT_COLORS = ['#00f3ff', '#ff0077', '#00e5ff', '#ff3388']; // 0 & 2 Cyan, 1 & 3 Magenta
+  const SUIT_TYPES = ['cyan', 'magenta', 'cyan', 'magenta'];
+
+  class CurationKlondikeEngine {
+    constructor() {
+      this.hub = null;
+      this.canvas = null;
+      this.ctx = null;
+
+      // Layout geometry
+      this.cardW = 70;
+      this.cardH = 94;
+      this.radius = 5;
+
+      this.startX = 18;
+      this.colStep = 86; // 70 + 16 gap
+      this.topY = 14;
+      this.tableauY = 122;
+
+      this.stockPos = { x: 18, y: 14 };
+      this.wastePos = { x: 104, y: 14 };
+      this.foundationPos = [
+        { x: 276, y: 14 },
+        { x: 362, y: 14 },
+        { x: 448, y: 14 },
+        { x: 534, y: 14 }
+      ];
+      this.tableauX = [18, 104, 190, 276, 362, 448, 534];
+
+      // Game state
+      this.suits = []; // 4 drawer names
+      this.stock = [];
+      this.waste = [];
+      this.foundations = [[], [], [], []];
+      this.tableaus = [[], [], [], [], [], [], []];
+
+      this.drag = null;
+      this.isWon = false;
+      this.winCards = [];
+      this.winTimer = 0;
+      this.nextWinSpawn = 0;
+      this.offscreenTrailCanvas = null;
+      this.offscreenTrailCtx = null;
+
+      // Click / tap detection
+      this.clickStartTime = 0;
+      this.clickStartX = 0;
+      this.clickStartY = 0;
+    }
+
+    init(hubController) {
+      this.hub = hubController;
+      this.canvas = hubController._arcadeCanvas;
+      this.ctx = hubController._arcadeCtx;
+
+      // Create offscreen canvas for the classic Windows bouncing win waterfall trail
+      this.offscreenTrailCanvas = document.createElement('canvas');
+      this.offscreenTrailCanvas.width = 640;
+      this.offscreenTrailCanvas.height = 420;
+      this.offscreenTrailCtx = this.offscreenTrailCanvas.getContext('2d');
+    }
+
+    start() {
+      this.isWon = false;
+      this.winCards = [];
+      this.winTimer = 0;
+      this.nextWinSpawn = 0;
+      this.drag = null;
+
+      // Clear win trails
+      if (this.offscreenTrailCtx) {
+        this.offscreenTrailCtx.clearRect(0, 0, 640, 420);
+      }
+
+      // 1. Gather catalog items
+      const rawItems = (this.hub && this.hub.api && this.hub.api.state) ? this.hub.api.state.getItems() : [];
+      const items = Array.isArray(rawItems) && rawItems.length > 0 ? rawItems : this._getSampleItems();
+
+      // 2. Identify top 4 drawers
+      const drawerCounts = {};
+      items.forEach(it => {
+        const d = (it.drawer || it.category || 'Unsorted').trim();
+        drawerCounts[d] = (drawerCounts[d] || 0) + 1;
+      });
+
+      const sortedDrawers = Object.keys(drawerCounts).sort((a, b) => drawerCounts[b] - drawerCounts[a]);
+      const defaultDrawers = ['CORE VAULT', 'DEV STACK', 'CHRONICLES', 'SYNAPSE'];
+      this.suits = [];
+      for (let s = 0; s < 4; s++) {
+        this.suits.push(sortedDrawers[s] || defaultDrawers[s] || `SECTOR-${s + 1}`);
+      }
+
+      // Group items by suit drawer
+      const drawerPools = this.suits.map(dName => items.filter(it => (it.drawer || it.category || 'Unsorted').trim() === dName));
+
+      // 3. Generate 52 Cards
+      const deck = [];
+      for (let suitIdx = 0; suitIdx < 4; suitIdx++) {
+        const dName = this.suits[suitIdx];
+        const pool = (drawerPools[suitIdx] && drawerPools[suitIdx].length > 0) ? drawerPools[suitIdx] : items;
+
+        for (let rank = 1; rank <= 13; rank++) {
+          const item = pool[(rank - 1) % pool.length] || { title: `Item #${rank}`, rating: 5, drawer: dName };
+          deck.push({
+            id: `card-${suitIdx}-${rank}-${Math.random().toString(36).substr(2, 4)}`,
+            suit: suitIdx,
+            suitSymbol: SUIT_SYMBOLS[suitIdx],
+            drawer: dName,
+            color: SUIT_TYPES[suitIdx], // 'cyan' or 'magenta'
+            hexColor: SUIT_COLORS[suitIdx],
+            rank: rank,
+            rankLabel: RANK_LABELS[rank],
+            item: item,
+            faceUp: false,
+            x: this.stockPos.x,
+            y: this.stockPos.y,
+            targetX: this.stockPos.x,
+            targetY: this.stockPos.y
+          });
+        }
+      }
+
+      // 4. Fisher-Yates Shuffle
+      for (let i = deck.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = deck[i];
+        deck[i] = deck[j];
+        deck[j] = temp;
+      }
+
+      // 5. Deal into 7 Tableau Columns
+      this.foundations = [[], [], [], []];
+      this.tableaus = [[], [], [], [], [], [], []];
+      this.waste = [];
+
+      let cardIdx = 0;
+      for (let col = 0; col < 7; col++) {
+        for (let row = 0; row <= col; row++) {
+          const card = deck[cardIdx++];
+          card.faceUp = (row === col); // Top card of each col is face-up
+          card.targetX = this.tableauX[col];
+          card.targetY = this.tableauY + row * (card.faceUp ? 22 : 15);
+          card.x = card.targetX;
+          card.y = card.targetY;
+          this.tableaus[col].push(card);
+        }
+      }
+
+      // Remaining 24 cards into Stock
+      this.stock = [];
+      while (cardIdx < deck.length) {
+        const card = deck[cardIdx++];
+        card.faceUp = false;
+        card.targetX = this.stockPos.x;
+        card.targetY = this.stockPos.y;
+        card.x = this.stockPos.x;
+        card.y = this.stockPos.y;
+        this.stock.push(card);
+      }
+
+      if (this.hub) {
+        this.hub.arcadeCurrentScore = 0;
+        this.hub.updateArcadeScoreDisplay();
+        if (typeof this.hub.playUiClickSound === 'function') this.hub.playUiClickSound();
+      }
+    }
+
+    _getSampleItems() {
+      return [
+        { title: 'Neural Canvas', rating: 5, drawer: 'CREATIVE LAB', tags: ['AI', 'CANVAS'] },
+        { title: 'Vim Motions', rating: 5, drawer: 'DEV STACK', tags: ['EDITOR', 'TOOL'] },
+        { title: 'Cyberpunk 2077', rating: 4, drawer: 'CORE VAULT', tags: ['RPG', 'NEON'] },
+        { title: 'Weavesilk Threads', rating: 5, drawer: 'CREATIVE LAB', tags: ['GENERATIVE', 'MATH'] },
+        { title: 'DuckDB Micro', rating: 4, drawer: 'DEV STACK', tags: ['SQL', 'OFFLINE'] },
+        { title: 'Blade Runner 2049', rating: 5, drawer: 'CORE VAULT', tags: ['CINEMA', 'LORE'] },
+        { title: 'Obsidian Notes', rating: 5, drawer: 'SYNAPSE', tags: ['PKM', 'VAULT'] },
+        { title: 'Matrix Code Rain', rating: 4, drawer: 'SYNAPSE', tags: ['RETRO', 'TERMINAL'] }
+      ];
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // UPDATE & RENDER LOOP
+    // ─────────────────────────────────────────────────────────────────────────
+    update(dt, nowMs) {
+      // Animate card positions
+      const lerp = Math.min(1, dt * 18);
+      const updateCardPos = (c) => {
+        if (!c || c.animatingWin) return;
+        c.x += (c.targetX - c.x) * lerp;
+        c.y += (c.targetY - c.y) * lerp;
+      };
+
+      this.stock.forEach(updateCardPos);
+      this.waste.forEach(updateCardPos);
+      this.foundations.forEach(f => f.forEach(updateCardPos));
+      this.tableaus.forEach(t => t.forEach(updateCardPos));
+
+      if (this.drag && this.drag.cards) {
+        // Dragged cards follow mouse
+        this.drag.cards.forEach((card, i) => {
+          card.x = this.drag.mouseX - this.drag.cardOffsets[i].dx;
+          card.y = this.drag.mouseY - this.drag.cardOffsets[i].dy;
+        });
+      }
+
+      // Win Waterfall Animation
+      if (this.isWon) {
+        this.winTimer += dt;
+        this._updateWinWaterfall(dt);
+      }
+    }
+
+    render(ctx, w, h) {
+      // 1. Cyber Solitaire Table Background
+      ctx.fillStyle = '#060b14';
+      ctx.fillRect(0, 0, w, h);
+
+      // Subtle cyber grid
+      ctx.strokeStyle = 'rgba(0, 243, 255, 0.04)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < w; x += 32) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+      }
+      for (let y = 0; y < h; y += 32) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+      }
+
+      // If win trails exist, stamp them onto canvas
+      if (this.offscreenTrailCanvas && this.isWon) {
+        ctx.drawImage(this.offscreenTrailCanvas, 0, 0);
+      }
+
+      // 2. Render Slots (Foundations & Stock/Waste Outlines)
+      this._renderSlot(ctx, this.stockPos.x, this.stockPos.y, 'STOCK', this.stock.length > 0 ? '⟲' : '∅', '#132840');
+      this._renderSlot(ctx, this.wastePos.x, this.wastePos.y, 'WASTE', '', '#132840');
+
+      for (let f = 0; f < 4; f++) {
+        const p = this.foundationPos[f];
+        const color = SUIT_COLORS[f];
+        const sym = SUIT_SYMBOLS[f];
+        const label = this.suits[f] ? this.suits[f].substr(0, 8) : `S-${f+1}`;
+        this._renderSlot(ctx, p.x, p.y, label, sym, color);
+      }
+
+      // Tableau empty slots
+      for (let t = 0; t < 7; t++) {
+        const tx = this.tableauX[t];
+        const ty = this.tableauY;
+        if (this.tableaus[t].length === 0) {
+          this._renderSlot(ctx, tx, ty, 'K', '↓', 'rgba(255,255,255,0.15)');
+        }
+      }
+
+      // 3. Render Static / Stacked Cards
+      // Stock
+      if (this.stock.length > 0) {
+        const topStock = this.stock[this.stock.length - 1];
+        this._renderCard(ctx, topStock.x, topStock.y, topStock);
+        // Deck depth indicator
+        if (this.stock.length > 3) {
+          ctx.strokeStyle = 'rgba(0, 243, 255, 0.4)';
+          ctx.strokeRect(this.stockPos.x - 2, this.stockPos.y - 2, this.cardW, this.cardH);
+        }
+      }
+
+      // Waste
+      if (this.waste.length > 0) {
+        const topWaste = this.waste[this.waste.length - 1];
+        if (!this._isBeingDragged(topWaste)) {
+          this._renderCard(ctx, topWaste.x, topWaste.y, topWaste);
+        }
+      }
+
+      // Foundations
+      for (let f = 0; f < 4; f++) {
+        const pile = this.foundations[f];
+        if (pile.length > 0) {
+          const topF = pile[pile.length - 1];
+          if (!this._isBeingDragged(topF)) {
+            this._renderCard(ctx, topF.x, topF.y, topF);
+          }
+        }
+      }
+
+      // Tableaus
+      for (let t = 0; t < 7; t++) {
+        const col = this.tableaus[t];
+        for (let i = 0; i < col.length; i++) {
+          const card = col[i];
+          if (!this._isBeingDragged(card)) {
+            this._renderCard(ctx, card.x, card.y, card);
+          }
+        }
+      }
+
+      // 4. Render Dragged Cards on top of everything
+      if (this.drag && this.drag.cards) {
+        this.drag.cards.forEach(card => {
+          this._renderCard(ctx, card.x, card.y, card, true);
+        });
+      }
+
+      // 5. Render Active Win Waterfall Cards
+      if (this.isWon && this.winCards) {
+        this.winCards.forEach(wc => {
+          this._renderCard(ctx, wc.x, wc.y, wc, false);
+        });
+      }
+
+      // 6. Header HUD: Quick stats
+      ctx.fillStyle = 'rgba(0, 243, 255, 0.7)';
+      ctx.font = '10px monospace';
+      ctx.textAlign = 'left';
+      ctx.fillText(`KLONDIKE // 4-DRAWER MATRIX · STOCK: ${this.stock.length} · WASTE: ${this.waste.length}`, 18, 412);
+      ctx.textAlign = 'right';
+      ctx.fillText(`[1-TAP] AUTO-MOVE · [RIGHT-CLICK] PEEK ITEM`, 622, 412);
+    }
+
+    _renderSlot(ctx, x, y, label, symbol, color) {
+      ctx.save();
+      ctx.strokeStyle = color || '#1a304e';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 4]);
+
+      // Rounded rectangle outline
+      this._roundRect(ctx, x, y, this.cardW, this.cardH, this.radius);
+      ctx.stroke();
+
+      ctx.fillStyle = 'rgba(10, 22, 40, 0.4)';
+      ctx.fill();
+
+      // Center symbol / label
+      ctx.setLineDash([]);
+      ctx.fillStyle = color || 'rgba(0, 243, 255, 0.4)';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      if (symbol) {
+        ctx.font = '18px monospace';
+        ctx.fillText(symbol, x + this.cardW / 2, y + this.cardH / 2 - 4);
+      }
+      if (label) {
+        ctx.font = '9px monospace';
+        ctx.fillText(label, x + this.cardW / 2, y + this.cardH / 2 + 18);
+      }
+      ctx.restore();
+    }
+
+    _renderCard(ctx, x, y, card, isElevated = false) {
+      if (!card) return;
+      ctx.save();
+
+      // Drop shadow if elevated/dragged
+      if (isElevated) {
+        ctx.shadowColor = card.hexColor || '#00f3ff';
+        ctx.shadowBlur = 14;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 4;
+      }
+
+      if (!card.faceUp) {
+        // ─── FACE DOWN: Cybernetic Circuit Backplate ───
+        ctx.fillStyle = '#08101d';
+        this._roundRect(ctx, x, y, this.cardW, this.cardH, this.radius);
+        ctx.fill();
+
+        ctx.strokeStyle = '#1b3252';
+        ctx.lineWidth = 1.2;
+        ctx.stroke();
+
+        // High-tech circuit lattice pattern
+        ctx.strokeStyle = 'rgba(0, 243, 255, 0.15)';
+        ctx.beginPath();
+        ctx.moveTo(x + 10, y + 10); ctx.lineTo(x + this.cardW - 10, y + this.cardH - 10);
+        ctx.moveTo(x + this.cardW - 10, y + 10); ctx.lineTo(x + 10, y + this.cardH - 10);
+        ctx.stroke();
+
+        ctx.fillStyle = 'rgba(0, 243, 255, 0.3)';
+        ctx.fillRect(x + this.cardW / 2 - 4, y + this.cardH / 2 - 4, 8, 8);
+        ctx.restore();
+        return;
+      }
+
+      // ─── FACE UP: Inscribed Catalog Card ───
+      // Card Body
+      ctx.fillStyle = '#0a1424';
+      this._roundRect(ctx, x, y, this.cardW, this.cardH, this.radius);
+      ctx.fill();
+
+      // Glow border matching suit color
+      ctx.strokeStyle = card.hexColor;
+      ctx.lineWidth = isElevated ? 2 : 1.2;
+      ctx.stroke();
+
+      // Header: Rank + Suit symbol (Top-Left)
+      ctx.fillStyle = card.hexColor;
+      ctx.font = 'bold 11px monospace';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'top';
+      ctx.fillText(`${card.rankLabel}`, x + 5, y + 4);
+      ctx.font = '10px monospace';
+      ctx.fillText(`${card.suitSymbol}`, x + 16 + (card.rankLabel.length > 1 ? 5 : 0), y + 4);
+
+      // Top Drawer Chip (Pill badge)
+      ctx.fillStyle = card.color === 'cyan' ? 'rgba(0, 243, 255, 0.12)' : 'rgba(255, 0, 119, 0.12)';
+      this._roundRect(ctx, x + 4, y + 18, this.cardW - 8, 12, 3);
+      ctx.fill();
+
+      ctx.fillStyle = card.hexColor;
+      ctx.font = '7.5px monospace';
+      ctx.textAlign = 'center';
+      const drawerDisplay = (card.drawer || '').substr(0, 11).toUpperCase();
+      ctx.fillText(drawerDisplay, x + this.cardW / 2, y + 21);
+
+      // Center: Item Title (2 lines wrapped)
+      ctx.fillStyle = '#eaf5ff';
+      ctx.font = '8.5px sans-serif';
+      ctx.textAlign = 'center';
+      const title = (card.item && card.item.title) ? card.item.title : `Item ${card.rank}`;
+      this._renderWrappedText(ctx, title, x + this.cardW / 2, y + 36, this.cardW - 10, 10, 2);
+
+      // Bottom: Star Rating
+      const rating = (card.item && card.item.rating) ? Math.min(5, Math.max(1, card.item.rating)) : 5;
+      ctx.fillStyle = '#ffb700';
+      ctx.font = '8px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('★'.repeat(rating), x + this.cardW / 2, y + 74);
+
+      // Bottom Right: Small rank mirror
+      ctx.fillStyle = 'rgba(255,255,255,0.4)';
+      ctx.font = '9px monospace';
+      ctx.textAlign = 'right';
+      ctx.fillText(card.rankLabel, x + this.cardW - 4, y + this.cardH - 12);
+
+      ctx.restore();
+    }
+
+    _renderWrappedText(ctx, text, x, y, maxWidth, lineHeight, maxLines) {
+      const words = text.split(' ');
+      let line = '';
+      let lineCount = 0;
+
+      for (let n = 0; n < words.length; n++) {
+        const testLine = line + words[n] + ' ';
+        const metrics = ctx.measureText(testLine);
+        if (metrics.width > maxWidth && n > 0) {
+          ctx.fillText(line.trim(), x, y + (lineCount * lineHeight));
+          line = words[n] + ' ';
+          lineCount++;
+          if (lineCount >= maxLines - 1) {
+            // Last line: append ellipsis if more words remain
+            let remaining = words.slice(n).join(' ');
+            while (ctx.measureText(remaining + '…').width > maxWidth && remaining.length > 0) {
+              remaining = remaining.substr(0, remaining.length - 1);
+            }
+            ctx.fillText((remaining + '…').trim(), x, y + (lineCount * lineHeight));
+            return;
+          }
+        } else {
+          line = testLine;
+        }
+      }
+      ctx.fillText(line.trim(), x, y + (lineCount * lineHeight));
+    }
+
+    _roundRect(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + w - r, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+      ctx.lineTo(x + w, y + h - r);
+      ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+      ctx.lineTo(x + r, y + h);
+      ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+
+    _isBeingDragged(card) {
+      if (!this.drag || !this.drag.cards) return false;
+      return this.drag.cards.some(c => c.id === card.id);
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // MOUSE & TOUCH CONTROLS (Hybrid Drag & Drop + 1-Tap Auto-Move)
+    // ─────────────────────────────────────────────────────────────────────────
+    handleMouseDown(mx, my) {
+      if (this.isWon) {
+        // Clicking after win restarts game
+        this.start();
+        return;
+      }
+
+      this.clickStartTime = performance.now();
+      this.clickStartX = mx;
+      this.clickStartY = my;
+
+      // 1. Click Stock Pile
+      if (this._hitTest(mx, my, this.stockPos.x, this.stockPos.y, this.cardW, this.cardH)) {
+        this.clickStock();
+        return;
+      }
+
+      // 2. Click Waste Top Card
+      if (this.waste.length > 0) {
+        const topWaste = this.waste[this.waste.length - 1];
+        if (this._hitTest(mx, my, topWaste.x, topWaste.y, this.cardW, this.cardH)) {
+          this._startDrag([topWaste], { type: 'waste' }, mx, my);
+          return;
+        }
+      }
+
+      // 3. Click Foundation Top Cards
+      for (let f = 0; f < 4; f++) {
+        const pile = this.foundations[f];
+        if (pile.length > 0) {
+          const topCard = pile[pile.length - 1];
+          if (this._hitTest(mx, my, topCard.x, topCard.y, this.cardW, this.cardH)) {
+            this._startDrag([topCard], { type: 'foundation', index: f }, mx, my);
+            return;
+          }
+        }
+      }
+
+      // 4. Click Tableau Columns (Bottom-to-Top to catch top-most stacked card)
+      for (let t = 0; t < 7; t++) {
+        const col = this.tableaus[t];
+        for (let i = col.length - 1; i >= 0; i--) {
+          const card = col[i];
+          const isTopCard = (i === col.length - 1);
+          const clickHeight = isTopCard ? this.cardH : (card.faceUp ? 22 : 15);
+
+          if (this._hitTest(mx, my, card.x, card.y, this.cardW, clickHeight)) {
+            if (!card.faceUp) {
+              // Click face-down top card to flip
+              if (isTopCard) {
+                card.faceUp = true;
+                if (this.hub) this.hub.playUiClickSound();
+              }
+              return;
+            }
+
+            // Drag this card AND all face-up cards below it
+            const cardsToDrag = col.slice(i);
+            this._startDrag(cardsToDrag, { type: 'tableau', colIndex: t, cardIndex: i }, mx, my);
+            return;
+          }
+        }
+      }
+    }
+
+    _startDrag(cards, source, mx, my) {
+      const offsets = cards.map(c => ({ dx: mx - c.x, dy: my - c.y }));
+      this.drag = {
+        cards: cards,
+        source: source,
+        mouseX: mx,
+        mouseY: my,
+        cardOffsets: offsets
+      };
+    }
+
+    handleMouseMove(mx, my) {
+      if (this.drag) {
+        this.drag.mouseX = mx;
+        this.drag.mouseY = my;
+      }
+    }
+
+    handleMouseUp(mx, my) {
+      if (!this.drag) return;
+
+      const clickDuration = performance.now() - this.clickStartTime;
+      const moveDistance = Math.hypot(mx - this.clickStartX, my - this.clickStartY);
+      const isQuickTap = (clickDuration < 280 && moveDistance < 8);
+
+      const dragInfo = this.drag;
+      this.drag = null;
+
+      // ─── 1. SMART 1-TAP / CLICK AUTO-MOVE ───
+      if (isQuickTap && dragInfo.cards.length === 1) {
+        const card = dragInfo.cards[0];
+        if (this.tryAutoMove(card, dragInfo.source)) {
+          return;
+        }
+      }
+
+      // ─── 2. DRAG DROP RESOLUTION ───
+      const leadCard = dragInfo.cards[0];
+
+      // A. Try dropping onto Foundations (single card only)
+      if (dragInfo.cards.length === 1) {
+        for (let f = 0; f < 4; f++) {
+          const fp = this.foundationPos[f];
+          if (this._hitTest(leadCard.x + this.cardW / 2, leadCard.y + this.cardH / 2, fp.x, fp.y, this.cardW, this.cardH)) {
+            if (this.canDropOnFoundation(leadCard, f)) {
+              this._executeMoveToFoundation(dragInfo.cards, dragInfo.source, f);
+              return;
+            }
+          }
+        }
+      }
+
+      // B. Try dropping onto Tableau Columns
+      for (let t = 0; t < 7; t++) {
+        const col = this.tableaus[t];
+        const targetX = this.tableauX[t];
+        const targetY = col.length > 0 ? col[col.length - 1].y : this.tableauY;
+
+        // Expanded drop area around column
+        if (this._hitTest(leadCard.x + this.cardW / 2, leadCard.y + this.cardH / 4, targetX - 6, targetY - 10, this.cardW + 12, this.cardH + 40)) {
+          if (this.canDropOnTableau(leadCard, t)) {
+            this._executeMoveToTableau(dragInfo.cards, dragInfo.source, t);
+            return;
+          }
+        }
+      }
+
+      // C. Invalid Drop: Snap back to original pile
+      this._snapBack(dragInfo);
+    }
+
+    handleRightClick(mx, my, event) {
+      if (event) event.preventDefault();
+
+      // Find face-up card under cursor to inspect
+      const card = this._getCardAt(mx, my);
+      if (card && card.faceUp && card.item) {
+        this.inspectItem(card);
+      }
+    }
+
+    _getCardAt(mx, my) {
+      // Check foundations
+      for (let f = 0; f < 4; f++) {
+        const pile = this.foundations[f];
+        if (pile.length > 0) {
+          const top = pile[pile.length - 1];
+          if (this._hitTest(mx, my, top.x, top.y, this.cardW, this.cardH)) return top;
+        }
+      }
+      // Check waste
+      if (this.waste.length > 0) {
+        const top = this.waste[this.waste.length - 1];
+        if (this._hitTest(mx, my, top.x, top.y, this.cardW, this.cardH)) return top;
+      }
+      // Check tableaus
+      for (let t = 0; t < 7; t++) {
+        const col = this.tableaus[t];
+        for (let i = col.length - 1; i >= 0; i--) {
+          const c = col[i];
+          const isTop = (i === col.length - 1);
+          const h = isTop ? this.cardH : (c.faceUp ? 22 : 15);
+          if (this._hitTest(mx, my, c.x, c.y, this.cardW, h)) return c;
+        }
+      }
+      return null;
+    }
+
+    inspectItem(card) {
+      if (!card || !card.item) return;
+      if (typeof window.showDetailModal === 'function') {
+        window.showDetailModal(card.item);
+      } else if (window.State && typeof window.State.openItemModal === 'function') {
+        window.State.openItemModal(card.item);
+      }
+      if (typeof window.showToast === 'function') {
+        window.showToast(`◈ Inspecting: ${card.item.title}`, 'info');
+      }
+      if (this.hub) this.hub.playArcadeCoin();
+    }
+
+    clickStock() {
+      if (this.stock.length > 0) {
+        // Draw 1 card to waste
+        const card = this.stock.pop();
+        card.faceUp = true;
+        card.targetX = this.wastePos.x;
+        card.targetY = this.wastePos.y;
+        this.waste.push(card);
+        if (this.hub) this.hub.playUiClickSound();
+      } else if (this.waste.length > 0) {
+        // Recycle waste to stock
+        while (this.waste.length > 0) {
+          const card = this.waste.pop();
+          card.faceUp = false;
+          card.targetX = this.stockPos.x;
+          card.targetY = this.stockPos.y;
+          this.stock.push(card);
+        }
+        if (this.hub) this.hub.playArcadeLaser();
+      }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // SOLITAIRE KLONDIKE RULES
+    // ─────────────────────────────────────────────────────────────────────────
+    canDropOnFoundation(card, fIndex) {
+      const pile = this.foundations[fIndex];
+      if (pile.length === 0) {
+        // Empty foundation accepts Ace (1) of matching suit
+        return card.rank === 1 && card.suit === fIndex;
+      }
+      const top = pile[pile.length - 1];
+      // Build up in same suit
+      return card.suit === fIndex && card.rank === top.rank + 1;
+    }
+
+    canDropOnTableau(card, tIndex) {
+      const col = this.tableaus[tIndex];
+      if (col.length === 0) {
+        // Empty tableau column accepts King (13)
+        return card.rank === 13;
+      }
+      const top = col[col.length - 1];
+      // Opposite color (Cyan on Magenta or Magenta on Cyan) and descending rank (n - 1)
+      return card.color !== top.color && card.rank === top.rank - 1;
+    }
+
+    tryAutoMove(card, source) {
+      // 1. Try to route to a Foundation pile
+      for (let f = 0; f < 4; f++) {
+        if (this.canDropOnFoundation(card, f)) {
+          this._removeCardFromSource([card], source);
+          card.targetX = this.foundationPos[f].x;
+          card.targetY = this.foundationPos[f].y;
+          this.foundations[f].push(card);
+
+          this._onFoundationDeposit();
+          this._afterMoveCleanup(source);
+          return true;
+        }
+      }
+
+      // 2. Try to route to a Tableau column
+      for (let t = 0; t < 7; t++) {
+        if (source.type === 'tableau' && source.colIndex === t) continue;
+        if (this.canDropOnTableau(card, t)) {
+          const col = this.tableaus[t];
+          const cardsToMove = (source.type === 'tableau') ? this.tableaus[source.colIndex].slice(source.cardIndex) : [card];
+
+          this._removeCardFromSource(cardsToMove, source);
+          cardsToMove.forEach((c, idx) => {
+            c.targetX = this.tableauX[t];
+            c.targetY = this.tableauY + (col.length + idx) * 22;
+            col.push(c);
+          });
+
+          if (this.hub) {
+            this.hub.arcadeCurrentScore += 5;
+            this.hub.updateArcadeScoreDisplay();
+            this.hub.playUiClickSound();
+          }
+          this._afterMoveCleanup(source);
+          return true;
+        }
+      }
+
+      return false;
+    }
+
+    _executeMoveToFoundation(cards, source, fIndex) {
+      const card = cards[0];
+      this._removeCardFromSource([card], source);
+      card.targetX = this.foundationPos[fIndex].x;
+      card.targetY = this.foundationPos[fIndex].y;
+      this.foundations[fIndex].push(card);
+
+      this._onFoundationDeposit();
+      this._afterMoveCleanup(source);
+    }
+
+    _executeMoveToTableau(cards, source, tIndex) {
+      const col = this.tableaus[tIndex];
+      this._removeCardFromSource(cards, source);
+      cards.forEach((c, idx) => {
+        c.targetX = this.tableauX[tIndex];
+        c.targetY = this.tableauY + (col.length + idx) * 22;
+        col.push(c);
+      });
+
+      if (this.hub) {
+        this.hub.arcadeCurrentScore += 5;
+        this.hub.updateArcadeScoreDisplay();
+        this.hub.playUiClickSound();
+      }
+      this._afterMoveCleanup(source);
+    }
+
+    _removeCardFromSource(cards, source) {
+      if (source.type === 'waste') {
+        this.waste.pop();
+      } else if (source.type === 'foundation') {
+        this.foundations[source.index].pop();
+      } else if (source.type === 'tableau') {
+        const col = this.tableaus[source.colIndex];
+        col.splice(source.cardIndex, cards.length);
+      }
+    }
+
+    _afterMoveCleanup(source) {
+      // Auto-flip exposed face-down tableau card beneath
+      if (source.type === 'tableau') {
+        const col = this.tableaus[source.colIndex];
+        if (col.length > 0) {
+          const top = col[col.length - 1];
+          if (!top.faceUp) {
+            top.faceUp = true;
+            if (this.hub) {
+              this.hub.arcadeCurrentScore += 5;
+              this.hub.updateArcadeScoreDisplay();
+            }
+          }
+        }
+      }
+
+      // Check Win Condition
+      this._checkVictory();
+    }
+
+    _onFoundationDeposit() {
+      if (this.hub) {
+        this.hub.arcadeCurrentScore += 10;
+        // Award Cyber-Pet XP!
+        this.hub.awardArcadePetXp(5);
+        this.hub.updateArcadeScoreDisplay();
+        if (typeof this.hub.playArcadeCoin === 'function') this.hub.playArcadeCoin();
+      }
+    }
+
+    _snapBack(dragInfo) {
+      if (dragInfo.source.type === 'waste') {
+        const c = dragInfo.cards[0];
+        c.targetX = this.wastePos.x;
+        c.targetY = this.wastePos.y;
+      } else if (dragInfo.source.type === 'foundation') {
+        const c = dragInfo.cards[0];
+        c.targetX = this.foundationPos[dragInfo.source.index].x;
+        c.targetY = this.foundationPos[dragInfo.source.index].y;
+      } else if (dragInfo.source.type === 'tableau') {
+        const col = this.tableaus[dragInfo.source.colIndex];
+        col.forEach((c, idx) => {
+          c.targetX = this.tableauX[dragInfo.source.colIndex];
+          c.targetY = this.tableauY + idx * (c.faceUp ? 22 : 15);
+        });
+      }
+      if (this.hub) this.hub.playUiClickSound();
+    }
+
+    _checkVictory() {
+      const totalFoundationCards = this.foundations.reduce((sum, f) => sum + f.length, 0);
+      if (totalFoundationCards === 52 && !this.isWon) {
+        this.isWon = true;
+        this.winTimer = 0;
+        this.nextWinSpawn = 0;
+        this.winCards = [];
+
+        if (this.hub) {
+          this.hub.arcadeCurrentScore += 500;
+          this.hub.awardArcadePetXp(100);
+          this.hub.updateArcadeScoreDisplay();
+          if (typeof this.hub.playArcadeFanfare === 'function') this.hub.playArcadeFanfare();
+        }
+      }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // ICONIC WINDOWS SOLITAIRE BOUNCING CARD WATERFALL WIN CASCADE
+    // ─────────────────────────────────────────────────────────────────────────
+    _updateWinWaterfall(dt) {
+      // Spawn new bouncing card from foundations sequentially
+      if (this.nextWinSpawn <= 0) {
+        for (let f = 3; f >= 0; f--) {
+          if (this.foundations[f].length > 0) {
+            const card = this.foundations[f].pop();
+            card.animatingWin = true;
+            card.vx = (Math.random() > 0.5 ? 1 : -1) * (2.5 + Math.random() * 4.5);
+            card.vy = -(1.5 + Math.random() * 3.5);
+            card.gravity = 0.55;
+            this.winCards.push(card);
+            this.nextWinSpawn = 0.22; // spawn delay
+            if (this.hub) this.hub.playArcadeBounce();
+            break;
+          }
+        }
+      } else {
+        this.nextWinSpawn -= dt;
+      }
+
+      // Physics & Trail stamping
+      const floorY = 420 - this.cardH;
+      for (let i = this.winCards.length - 1; i >= 0; i--) {
+        const wc = this.winCards[i];
+        wc.x += wc.vx;
+        wc.vy += wc.gravity;
+        wc.y += wc.vy;
+
+        // Bounce on floor
+        if (wc.y >= floorY) {
+          wc.y = floorY;
+          wc.vy = -wc.vy * 0.84;
+          if (Math.abs(wc.vy) < 1) wc.vy = -(3 + Math.random() * 4);
+          if (this.hub && Math.random() < 0.2) this.hub.playArcadeBounce();
+        }
+
+        // Stamp trail onto offscreen canvas for iconic permanent cascading trails
+        if (this.offscreenTrailCtx) {
+          this._renderCard(this.offscreenTrailCtx, wc.x, wc.y, wc, false);
+        }
+
+        // Remove if off left or right edge
+        if (wc.x < -this.cardW - 40 || wc.x > 640 + 40) {
+          this.winCards.splice(i, 1);
+        }
+      }
+    }
+
+    _hitTest(x, y, bx, by, bw, bh) {
+      return x >= bx && x <= bx + bw && y >= by && y <= by + bh;
+    }
+  }
+
+  // Export engine globally so Mind Blunder can mount and run it
+  global.CurationKlondikeEngine = CurationKlondikeEngine;
+
+})(typeof window !== 'undefined' ? window : this);
+
+
+
+  // ─── MIND BLUNDER HOST BRIDGE ───
   /**
  * ◈ MIND BLUNDER MYSTERY HUB — CONTROLLER (PHASE 4: ORACLE & SHUFFLE)
  * Architecture: Self-contained Component Plugin with zero dependencies
@@ -50513,6 +50801,7 @@ const MindBlunderController = {
                     <button class="mb-arcade-tab-btn" data-game="sniper">🎯 TAG SNIPER</button>
                     <button class="mb-arcade-tab-btn" data-game="breakout">🧱 CYBER BREAKOUT</button>
                     <button class="mb-arcade-tab-btn" data-game="maze">ᗧ CYBER MAZE</button>
+                    <button class="mb-arcade-tab-btn" data-game="klondike">🂡 KLONDIKE</button>
                   </div>
                 </div>
 
@@ -52795,6 +53084,7 @@ const MindBlunderController = {
       if (gameId === 'sniper')   helpEl.innerText = '[MOUSE] Aim Scope & Click the WANTED tag target · Avoid red malware traps!';
       if (gameId === 'breakout') helpEl.innerText = '[MOUSE / ARROWS] Steer Paddle · [CLICK / SPACE] Launch Ball · Collect Power-Up capsules!';
       if (gameId === 'maze')     helpEl.innerText = '[ARROWS / WASD] Chomp data pellets · Eat Oracle Crystals to chomp glitch ghosts!';
+      if (gameId === 'klondike') helpEl.innerText = '[DRAG / 1-TAP] Stack alternating colors & build A➔K foundations! · [RIGHT-CLICK] Peek Item';
     }
 
     // Reset current score
@@ -52807,6 +53097,7 @@ const MindBlunderController = {
     if (gameId === 'sniper')   this.initTagSniper();
     if (gameId === 'breakout') this.initCyberBreakout();
     if (gameId === 'maze')     this.initCyberMaze();
+    if (gameId === 'klondike') this.initKlondike();
 
     this._arcadeLastFrame = performance.now();
     this._runArcadeLoop();
@@ -52843,20 +53134,28 @@ const MindBlunderController = {
       // Only capture keys when Arcade tab is visible and hub is open
       if (!this.isOpen || this._currentTab !== 'arcade') return;
 
-      if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '].includes(e.key)) {
+      const k = e.key;
+      if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '].includes(k)) {
         e.preventDefault();
         e.stopPropagation();
       }
-      this.arcadeKeys[e.key.toLowerCase()] = true;
-      if (e.key === 'ArrowLeft')  { this.arcadeKeys['left']  = true; this.arcadeLastDir = { x: -1, y: 0 }; }
-      if (e.key === 'ArrowRight') { this.arcadeKeys['right'] = true; this.arcadeLastDir = { x:  1, y: 0 }; }
-      if (e.key === 'ArrowUp')    { this.arcadeKeys['up']    = true; this.arcadeLastDir = { x:  0, y: -1 }; }
-      if (e.key === 'ArrowDown')  { this.arcadeKeys['down']  = true; this.arcadeLastDir = { x:  0, y:  1 }; }
-      if (e.key === 'a') this.arcadeLastDir = { x: -1, y: 0 };
-      if (e.key === 'd') this.arcadeLastDir = { x:  1, y: 0 };
-      if (e.key === 'w') this.arcadeLastDir = { x:  0, y: -1 };
-      if (e.key === 's') this.arcadeLastDir = { x:  0, y:  1 };
-      if (e.key === ' ' || e.key === 'Spacebar') {
+      this.arcadeKeys[k.toLowerCase()] = true;
+      if (k === 'ArrowLeft')  this.arcadeKeys['left']  = true;
+      if (k === 'ArrowRight') this.arcadeKeys['right'] = true;
+      if (k === 'ArrowUp')    this.arcadeKeys['up']    = true;
+      if (k === 'ArrowDown')  this.arcadeKeys['down']  = true;
+
+      // For Maze: set nextDir immediately on keydown — no frame-latency, no polling gaps
+      if (this.activeArcadeGame === 'maze' && this._mazeState) {
+        const p = this._mazeState.player;
+        const kl = k.toLowerCase();
+        if (kl === 'arrowleft'  || kl === 'a') p.nextDir = { x: -1, y: 0 };
+        if (kl === 'arrowright' || kl === 'd') p.nextDir = { x:  1, y: 0 };
+        if (kl === 'arrowup'    || kl === 'w') p.nextDir = { x:  0, y: -1 };
+        if (kl === 'arrowdown'  || kl === 's') p.nextDir = { x:  0, y:  1 };
+      }
+
+      if (k === ' ' || k === 'Spacebar') {
         this.arcadeKeys['fire'] = true;
         this.handleArcadeFireAction();
       }
@@ -52908,7 +53207,10 @@ const MindBlunderController = {
       const startHandler = (e) => {
         e.preventDefault();
         this.arcadeKeys[dir] = true;
-        if (dirVec[dir]) this.arcadeLastDir = dirVec[dir];
+        // For Maze: set nextDir immediately on press — no frame latency
+        if (this.activeArcadeGame === 'maze' && this._mazeState && dirVec[dir]) {
+          this._mazeState.player.nextDir = { ...dirVec[dir] };
+        }
       };
       const stopHandler = (e) => { e.preventDefault(); this.arcadeKeys[dir] = false; };
       dBtn.onmousedown = startHandler;
@@ -52929,9 +53231,14 @@ const MindBlunderController = {
       const rect = this._arcadeCanvas.getBoundingClientRect();
       const scaleX = this._arcadeCanvas.width / rect.width;
       const scaleY = this._arcadeCanvas.height / rect.height;
-      this._arcadeMouse.x = (e.clientX - rect.left) * scaleX;
-      this._arcadeMouse.y = (e.clientY - rect.top) * scaleY;
+      const mx = (e.clientX - rect.left) * scaleX;
+      const my = (e.clientY - rect.top) * scaleY;
+      this._arcadeMouse.x = mx;
+      this._arcadeMouse.y = my;
       this._arcadeMouse.onCanvas = true;
+      if (this.activeArcadeGame === 'klondike' && this._klondikeEngine) {
+        this._klondikeEngine.handleMouseMove(mx, my);
+      }
     };
 
     this._onArcadeMouseLeave = () => {
@@ -52945,21 +53252,97 @@ const MindBlunderController = {
       const scaleY = this._arcadeCanvas.height / rect.height;
       const mx = (e.clientX - rect.left) * scaleX;
       const my = (e.clientY - rect.top) * scaleY;
-      this.handleArcadeCanvasClick(mx, my);
+      if (this.activeArcadeGame === 'klondike' && this._klondikeEngine) {
+        this._klondikeEngine.handleMouseDown(mx, my);
+      } else {
+        this.handleArcadeCanvasClick(mx, my);
+      }
+    };
+
+    this._onArcadeMouseUp = (e) => {
+      this._arcadeMouse.isDown = false;
+      const rect = this._arcadeCanvas.getBoundingClientRect();
+      const scaleX = this._arcadeCanvas.width / rect.width;
+      const scaleY = this._arcadeCanvas.height / rect.height;
+      const mx = (e.clientX - rect.left) * scaleX;
+      const my = (e.clientY - rect.top) * scaleY;
+      if (this.activeArcadeGame === 'klondike' && this._klondikeEngine) {
+        this._klondikeEngine.handleMouseUp(mx, my);
+      }
+    };
+
+    this._onArcadeContextMenu = (e) => {
+      if (this.activeArcadeGame === 'klondike' && this._klondikeEngine) {
+        e.preventDefault();
+        const rect = this._arcadeCanvas.getBoundingClientRect();
+        const scaleX = this._arcadeCanvas.width / rect.width;
+        const scaleY = this._arcadeCanvas.height / rect.height;
+        const mx = (e.clientX - rect.left) * scaleX;
+        const my = (e.clientY - rect.top) * scaleY;
+        this._klondikeEngine.handleRightClick(mx, my, e);
+      }
+    };
+
+    // Mobile / Touch Handlers
+    this._onArcadeTouchStart = (e) => {
+      if (e.touches.length > 0 && this.activeArcadeGame === 'klondike' && this._klondikeEngine) {
+        e.preventDefault();
+        const touch = e.touches[0];
+        const rect = this._arcadeCanvas.getBoundingClientRect();
+        const scaleX = this._arcadeCanvas.width / rect.width;
+        const scaleY = this._arcadeCanvas.height / rect.height;
+        this._klondikeEngine.handleMouseDown((touch.clientX - rect.left) * scaleX, (touch.clientY - rect.top) * scaleY);
+      }
+    };
+
+    this._onArcadeTouchMove = (e) => {
+      if (e.touches.length > 0 && this.activeArcadeGame === 'klondike' && this._klondikeEngine) {
+        e.preventDefault();
+        const touch = e.touches[0];
+        const rect = this._arcadeCanvas.getBoundingClientRect();
+        const scaleX = this._arcadeCanvas.width / rect.width;
+        const scaleY = this._arcadeCanvas.height / rect.height;
+        this._klondikeEngine.handleMouseMove((touch.clientX - rect.left) * scaleX, (touch.clientY - rect.top) * scaleY);
+      }
+    };
+
+    this._onArcadeTouchEnd = (e) => {
+      if (this.activeArcadeGame === 'klondike' && this._klondikeEngine) {
+        e.preventDefault();
+        const touch = (e.changedTouches && e.changedTouches.length > 0) ? e.changedTouches[0] : null;
+        if (touch) {
+          const rect = this._arcadeCanvas.getBoundingClientRect();
+          const scaleX = this._arcadeCanvas.width / rect.width;
+          const scaleY = this._arcadeCanvas.height / rect.height;
+          this._klondikeEngine.handleMouseUp((touch.clientX - rect.left) * scaleX, (touch.clientY - rect.top) * scaleY);
+        } else {
+          this._klondikeEngine.handleMouseUp(0, 0);
+        }
+      }
     };
 
     this._arcadeCanvas.addEventListener('mousemove', this._onArcadeMouseMove);
     this._arcadeCanvas.addEventListener('mouseleave', this._onArcadeMouseLeave);
     this._arcadeCanvas.addEventListener('mousedown', this._onArcadeMouseDown);
+    window.addEventListener('mouseup', this._onArcadeMouseUp);
+    this._arcadeCanvas.addEventListener('contextmenu', this._onArcadeContextMenu);
+    this._arcadeCanvas.addEventListener('touchstart', this._onArcadeTouchStart, { passive: false });
+    this._arcadeCanvas.addEventListener('touchmove', this._onArcadeTouchMove, { passive: false });
+    this._arcadeCanvas.addEventListener('touchend', this._onArcadeTouchEnd, { passive: false });
   },
 
   unbindArcadeControls() {
     if (this._onArcadeKeyDown) window.removeEventListener('keydown', this._onArcadeKeyDown, { capture: true });
     if (this._onArcadeKeyUp) window.removeEventListener('keyup', this._onArcadeKeyUp);
+    if (this._onArcadeMouseUp) window.removeEventListener('mouseup', this._onArcadeMouseUp);
     if (this._arcadeCanvas) {
       this._arcadeCanvas.removeEventListener('mousemove', this._onArcadeMouseMove);
       this._arcadeCanvas.removeEventListener('mouseleave', this._onArcadeMouseLeave);
       this._arcadeCanvas.removeEventListener('mousedown', this._onArcadeMouseDown);
+      this._arcadeCanvas.removeEventListener('contextmenu', this._onArcadeContextMenu);
+      this._arcadeCanvas.removeEventListener('touchstart', this._onArcadeTouchStart);
+      this._arcadeCanvas.removeEventListener('touchmove', this._onArcadeTouchMove);
+      this._arcadeCanvas.removeEventListener('touchend', this._onArcadeTouchEnd);
     }
     this._arcadeControlsBound = false;
   },
@@ -52998,6 +53381,10 @@ const MindBlunderController = {
       if (this.activeArcadeGame === 'sniper')   this.updateAndRenderSniper(ctx, w, h, dt, now);
       if (this.activeArcadeGame === 'breakout') this.updateAndRenderBreakout(ctx, w, h, dt, now);
       if (this.activeArcadeGame === 'maze')     this.updateAndRenderMaze(ctx, w, h, dt, now);
+      if (this.activeArcadeGame === 'klondike' && this._klondikeEngine) {
+        this._klondikeEngine.update(dt, now);
+        this._klondikeEngine.render(ctx, w, h);
+      }
     }
 
     this._arcadeRaf = requestAnimationFrame(() => this._runArcadeLoop());
@@ -53011,6 +53398,22 @@ const MindBlunderController = {
     if (descEl) descEl.innerText = desc;
     if (overlay) overlay.style.display = 'flex';
     this.playArcadeHit();
+  },
+
+  // ═════════════════════════════════════════════════════════════════════════
+  // 🂡 MODULAR GAME: CURATION KLONDIKE
+  // ═════════════════════════════════════════════════════════════════════════
+  initKlondike() {
+    const EngineClass = window.CurationKlondikeEngine || (typeof CurationKlondikeEngine !== 'undefined' ? CurationKlondikeEngine : null);
+    if (!EngineClass) {
+      console.warn('◈ [Mind Blunder] CurationKlondikeEngine module not loaded');
+      return;
+    }
+    if (!this._klondikeEngine) {
+      this._klondikeEngine = new EngineClass();
+      this._klondikeEngine.init(this);
+    }
+    this._klondikeEngine.start();
   },
 
   // ═════════════════════════════════════════════════════════════════════════
@@ -55300,20 +55703,12 @@ Audit validated by Mind Blunder Sub-Level Diagnostics Engine.
     ctx.fillStyle = '#050a16';
     ctx.fillRect(0, 0, w, h);
 
-    // Direction input: use persistent arcadeLastDir buffer (edge-triggered, not poll-based)
-    // This means tapping a key even briefly still registers in the next frame.
-    const ld = this.arcadeLastDir;
-    if (ld) {
-      // Only update nextDir from lastDir if a key is actually held OR if player is still stopped
-      if (keys['w'] || keys['up'])    { p.nextDir = { x: 0, y: -1 }; }
-      else if (keys['s'] || keys['down'])  { p.nextDir = { x: 0, y: 1 }; }
-      else if (keys['a'] || keys['left'])  { p.nextDir = { x: -1, y: 0 }; }
-      else if (keys['d'] || keys['right']) { p.nextDir = { x: 1, y: 0 }; }
-      else {
-        // No key held — use last-pressed direction as intent
-        p.nextDir = { ...ld };
-      }
-    }
+    // Direction input: p.nextDir is set directly on keydown/dpad press (event-driven, not polled).
+    // Additionally sync from held keys each frame as a fallback for held-down keys.
+    if (keys['w'] || keys['up'])    p.nextDir = { x: 0, y: -1 };
+    if (keys['s'] || keys['down'])  p.nextDir = { x: 0, y: 1 };
+    if (keys['a'] || keys['left'])  p.nextDir = { x: -1, y: 0 };
+    if (keys['d'] || keys['right']) p.nextDir = { x: 1, y: 0 };
 
     // Frightened Timer countdown
     if (s.frightenedTimer > 0) {
